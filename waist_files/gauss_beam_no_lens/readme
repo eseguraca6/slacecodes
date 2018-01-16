@@ -1,0 +1,12 @@
+wy width: 16x16 mm
+wy waist : 1x1 mm
+
+sampling: 2048x2018
+
+-------
+
+zemax surface properties: 
+
+1. resample after refraction (check)
+2. sampling same as above 
+3. width same as above
