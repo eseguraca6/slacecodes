@@ -1,0 +1,8 @@
+So, here's the deal:
+
+1. your lens has a focal length of 1000 mm, but zemax says it's 515 (so, it split it in 2)
+2. regardless of that, your step size is 500 mm
+3. You start from 0, where the lens is, to .5f, 1f, ..., 4f 
+4. So, that's it
+
+600 nm wavelength; 1x1 mm beam; 16x16 window; 2048x2048 sampling
