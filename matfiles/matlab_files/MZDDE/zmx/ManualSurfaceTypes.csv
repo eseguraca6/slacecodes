@@ -1,0 +1,68 @@
+ABCD,Uses ABCD matrix to model a black box.
+Alternate Even,Even Asphere surface with alternate solution selected.
+Alternate Odd,Odd Asphere surface with alternate solution selected.
+Atmospheric Refraction,Refraction caused by looking through Earth's atmosphere.
+Biconic,A conic asphere in X and Y independently.
+Biconic Zernike,A biconic surface with x, y, and Zernike polynomial terms added.
+Binary Optic 1,Uses 230 term polynomial to define phase.
+Binary Optic 2,Uses radial polynomial to define phase.
+Binary Optic 3,Dual zone aspheric and diffractive surface.
+Birefringent In,For modeling uniaxial crystals; supports tracing of rays in ordinary or extraordinary mode.
+Birefringent Out,For modeling uniaxial crystals; supports tracing of rays in ordinary or extraordinary mode.
+Conjugate,Defines surface with perfect imaging at two points.
+Coordinate Break,Permits rotation and decentration.
+Cubic Spline,Rotationally symmetric fit to 8 points.
+Cylindrical Fresnel,Polynomial cylindrical Fresnel on a polynomial cylindrical surface.
+Diffraction Grating,Ruled grating on standard surface.
+Elliptical Grating 1,Elliptical grating with aspheric terms and polynomial grooves.
+Elliptical Grating 2,Elliptical grating with aspheric terms and grooves formed by tilted planes.
+Even Asphere,Standard surface plus polynomial asphere terms.
+Extended Asphere,Uses radial polynomial to define sag.
+Extended Cubic Spline,Rotationally symmetric fit of up to 250 points.
+Extended Fresnel Polynomial,Fresnel on a polynomial surface.
+Extended Odd Asphere,Uses odd terms of radial powers.
+Extended Polynomial,Uses 230 term polynomial expansion to define sag.
+Extended Toroidal Grating,An aspheric toroidal grating with extended polynomial terms.
+Fresnel,Plane surface with refractive power.
+Generalized Fresnel,XY polynomial Fresnel on an aspheric substrate.
+Gradient 1,Radial gradient index material surface.
+Gradient 2,Radial gradient index material surface.
+Gradient 3,Radial and axial gradient index material surface.
+Gradient 4,X, Y, and Z gradient index material surface.
+Gradient 5,Radial and axial gradient index material surface with dispersion model.
+Gradient 6,Radial gradient index material surface with Gradient Lens Corp. dispersion model.
+Gradient 7,Spherical gradient profile.
+Gradium,Axial gradient index material surface with dispersion model.
+Gradient 9,Radial gradient index material surface with NSG SELFOC lens dispersion model.
+Gradient 10,Y gradient index material surface with dispersion model.
+Grid Phase,A phase surface described by a grid of points.
+Grid Sag,A surface shape described by a grid of points.
+Hologram 1,Two-point optically fabricated hologram.
+Hologram 2,Two-point optically fabricated hologram.
+Irregular,A standard surface with decenter, tilt and other deformations.
+Jones Matrix,General Jones Matrix for modifying polarization state.
+Non-Sequential Components,For tracing rays non-sequentially through a collection of 3D surfaces and objects.
+Odd Asphere,Standard surface plus polynomial asphere terms.
+Odd Cosine,Odd Asphere surface plus cosine polynomial terms.
+Optically Fabricated Hologram,Optically fabricated hologram with arbitrary construction optic and elliptical substrate.
+Paraxial,Thin lens surface, has ideal behavior.
+Paraxial XY,Thin lens with separate specification in X,Y.
+Periodic,Cosine shaped surface.
+Polynomial,Polynomial expansion in x and y.
+Radial Grating,A diffraction grating with radial phase profile.
+Radial NURBS,Uses NURBS curve to define a rotationally symmetric surface.
+Retro Reflect,Retro reflects rays back along incident path.
+Standard,Includes planes, spheres, and conics.
+Superconic,Superconic asphere with fast convergence.
+Tilted,Defines a tilted surface without changing coordinate systems.
+Toroidal,Conic and aspheric toroids and cylinders.
+Toroidal Grating,Ruled grating on a conic toroid.
+Toroidal Hologram,Toroidal substrate with two point optically fabricated hologram.
+Toroidal NURBS,Uses NURBS curve to define a toroidally symmetric surface.
+User Defined,A general surface which uses an arbitrary user defined function to describe the refractive, reflective, diffractive, transmissive, or gradient properties of the surface.
+Variable Line Space Grating,Variable line space grating surface.
+Zernike Fringe Phase,Uses 37 Zernike Fringe polynomials to define phase.
+Zernike Fringe Sag,Uses 37 Zernike Fringe polynomials to define sag.
+Zernike Standard Phase,Uses up to 231 Zernike Standard polynomials to define surface phase.
+Zernike Standard Sag,Uses up to 231 Zernike Standard polynomials to define surface sag.
+Zone Plate Fresnel Zone,Plate model using annular rings of varying depth.

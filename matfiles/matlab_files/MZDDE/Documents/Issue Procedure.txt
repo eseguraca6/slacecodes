@@ -1,0 +1,20 @@
+$Id:$
+Steps for issue of new release of the toolbox.
+
+1) Clean up unnecessary files.
+   a) *.asv
+   b) *.bak
+   c) TeX intermediates in the Documents sub-directory.
+   d) Visual Studio intermediates in zArraytrace sub-directories.
+2) Make sure all copyright and BSD licence messages are in place.
+3) Check that all revision-controlled source files have been checked in to SVN.
+4) Run Census and check through the results.
+5) Run docgen and check output documentation.
+6) Run through Bug Reports.txt and update as necessary. Include dates.
+7) Remove local links from MZDDEReferences.bib
+8) Update the CHANGELOG.txt file and check consistency with 'Future Implementation.txt'.
+9) Run the regression test cases.
+10) Commit all changes to SVN.
+11) Export the new completed version of the toolbox and remove any unnecessary files.
+12) Upload to Mathworks, overwrite old version. Update description as necessary.
+

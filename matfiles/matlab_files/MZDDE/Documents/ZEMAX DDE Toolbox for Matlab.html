@@ -1,0 +1,631 @@
+<html xmlns:v="urn:schemas-microsoft-com:vml"
+xmlns:o="urn:schemas-microsoft-com:office:office"
+xmlns:dt="uuid:C2F41010-65B3-11d1-A29F-00AA00C14882"
+xmlns:b="urn:schemas-microsoft-com:office:publisher"
+xmlns="http://www.w3.org/TR/REC-html40">
+
+<head>
+<meta http-equiv=Content-Type content="text/html; charset=windows-1252">
+<meta name=ProgId content=Publisher.Document>
+<meta name=Generator content="Microsoft Publisher 11">
+<link rel=File-List
+href="ZEMAX%20DDE%20Toolbox%20for%20Matlab_files/filelist.xml">
+<!--[if !mso]>
+<style>
+v\:* {behavior:url(#default#VML);}
+o\:* {behavior:url(#default#VML);}
+b\:* {behavior:url(#default#VML);}
+.shape {behavior:url(#default#VML);}
+</style>
+<![endif]--><!--[if gte mso 9]><xml>
+ <o:DocumentProperties>
+  <o:Author>User @</o:Author>
+  <o:Version>11.9999</o:Version>
+ </o:DocumentProperties>
+</xml><![endif]--><!--[if pub]><xml>
+ <b:Publication type="OplPub" oty="68" oh="256">
+  <b:OhPrintBlock priv="30E">285</b:OhPrintBlock>
+  <b:FWebPublication priv="C00">True</b:FWebPublication>
+  <b:NuDefaultUnits priv="1004">1</b:NuDefaultUnits>
+  <b:DptlPageDimensions type="OplPt" priv="1211">
+   <b:Xl priv="104">7560000</b:Xl>
+   <b:Yl priv="204">43891200</b:Yl>
+  </b:DptlPageDimensions>
+  <b:DxlDefaultTab priv="1504">359410</b:DxlDefaultTab>
+  <b:OhGallery priv="180E">259</b:OhGallery>
+  <b:OhFancyBorders priv="190E">261</b:OhFancyBorders>
+  <b:OhCaptions priv="1A0E">257</b:OhCaptions>
+  <b:OhQuillDoc priv="200E">280</b:OhQuillDoc>
+  <b:OhMailMergeData priv="210E">262</b:OhMailMergeData>
+  <b:OhColorScheme priv="220E">283</b:OhColorScheme>
+  <b:DwNextUniqueOid priv="2304">1</b:DwNextUniqueOid>
+  <b:IdentGUID priv="2A07">0&quot;87TC8;M04.*&gt;U&gt;'&gt;SY8W@</b:IdentGUID>
+  <b:DpgSpecial priv="2C03">5</b:DpgSpecial>
+  <b:CTimesEdited priv="3C04">1</b:CTimesEdited>
+  <b:NuDefaultUnitsEx priv="4104">1</b:NuDefaultUnitsEx>
+ </b:Publication>
+ <b:PrinterInfo type="OplPrb" oty="75" oh="285">
+  <b:CDnb priv="104">2</b:CDnb>
+  <b:Rgdnb type="OplDnb" priv="212">
+   <b:OplDnb type="OplDnb" priv="11">
+    <b:Ssz priv="103">9</b:Ssz>
+    <b:Dptl type="OplPt" priv="213">
+     <b:Xl>7560000</b:Xl>
+     <b:Yl>10692000</b:Yl>
+    </b:Dptl>
+    <b:Sso priv="303">7</b:Sso>
+    <b:Ssx priv="502">2</b:Ssx>
+    <b:FSszOK priv="600">True</b:FSszOK>
+    <b:SzDevice priv="818">KONICA MINOLTA C352/C300 PS</b:SzDevice>
+    <b:SzDriver priv="918">winspool</b:SzDriver>
+    <b:SzOutput priv="A18">Ne04:</b:SzOutput>
+    <b:Devmode priv="C10" cb="2">&quot;```</b:Devmode>
+   </b:OplDnb>
+   <b:OplDnb type="OplDnb" priv="111">
+    <b:Ssz>9</b:Ssz>
+    <b:Dptl type="OplPt">
+     <b:Xl>7560000</b:Xl>
+     <b:Yl>10692000</b:Yl>
+    </b:Dptl>
+    <b:Sso>7</b:Sso>
+    <b:Ssx>2</b:Ssx>
+    <b:FSszOK>True</b:FSszOK>
+    <b:Devmode cb="2">&quot;```</b:Devmode>
+   </b:OplDnb>
+  </b:Rgdnb>
+  <b:OhColorSepBlock priv="30E">286</b:OhColorSepBlock>
+  <b:FKOBlackFills priv="A00">True</b:FKOBlackFills>
+  <b:TlmTilingMode priv="D04">1</b:TlmTilingMode>
+  <b:DzlOverlap priv="1004">228600</b:DzlOverlap>
+  <b:FAllowBleeds priv="1800">True</b:FAllowBleeds>
+  <b:FNoBlankLines priv="1A00">True</b:FNoBlankLines>
+  <b:FEnvUseDefaults priv="1C00">True</b:FEnvUseDefaults>
+  <b:FEnvFeedLandscape priv="1D00">True</b:FEnvFeedLandscape>
+  <b:DpiX priv="2203">0</b:DpiX>
+  <b:DpiY priv="2303">0</b:DpiY>
+ </b:PrinterInfo>
+ <b:ColorSeperationInfo type="OplCsb" oty="79" oh="286">
+  <b:Plates type="OplCsp" priv="214">
+   <b:OplCsp type="OplCsp" priv="11">
+    <b:EcpPlate type="OplEcp" priv="213">
+     <b:Color priv="104">-1</b:Color>
+    </b:EcpPlate>
+   </b:OplCsp>
+  </b:Plates>
+  <b:DzlOverprintMost priv="304">304800</b:DzlOverprintMost>
+  <b:CprOverprintMin priv="404">243</b:CprOverprintMin>
+  <b:FKeepawayTrap priv="700">True</b:FKeepawayTrap>
+  <b:CprTrapMin1 priv="904">128</b:CprTrapMin1>
+  <b:CprTrapMin2 priv="A04">77</b:CprTrapMin2>
+  <b:CprKeepawayMin priv="B04">255</b:CprKeepawayMin>
+  <b:DzlTrap priv="C04">3175</b:DzlTrap>
+  <b:DzlIndTrap priv="D04">3175</b:DzlIndTrap>
+  <b:PctCenterline priv="E04">70</b:PctCenterline>
+  <b:FMarksRegistration priv="F00">True</b:FMarksRegistration>
+  <b:FMarksJob priv="1000">True</b:FMarksJob>
+  <b:FMarksDensity priv="1100">True</b:FMarksDensity>
+  <b:FMarksColor priv="1200">True</b:FMarksColor>
+  <b:FLineScreenDefault priv="1300">True</b:FLineScreenDefault>
+ </b:ColorSeperationInfo>
+ <b:TextDocProperties type="OplDocq" oty="91" oh="280">
+  <b:OhPlcqsb priv="20E">282</b:OhPlcqsb>
+  <b:OhPlbefd priv="40E">288</b:OhPlbefd>
+  <b:EcpSplitMenu type="OplEcp" priv="A13">
+   <b:Color>134217728</b:Color>
+  </b:EcpSplitMenu>
+ </b:TextDocProperties>
+ <b:StoryBlock type="OplPlcQsb" oty="101" oh="282">
+  <b:IqsbMax priv="104">1</b:IqsbMax>
+  <b:Rgqsb type="OplQsb" priv="214">
+   <b:OplQsb type="OplQsb" priv="11">
+    <b:Qsid priv="104">1</b:Qsid>
+    <b:TomfCopyfitBase priv="80B">-9999996.000000</b:TomfCopyfitBase>
+    <b:TomfCopyfitBase2 priv="90B">-9999996.000000</b:TomfCopyfitBase2>
+   </b:OplQsb>
+  </b:Rgqsb>
+ </b:StoryBlock>
+ <b:EmbeddedFontInfo type="OplPlbEfd" oty="108" oh="288">
+  <b:IefdMax priv="104">3</b:IefdMax>
+  <b:Rgefd type="OplEfd" priv="214">
+   <b:OplEfd type="OplEfd" priv="11">
+    <b:CStyles priv="302">0</b:CStyles>
+    <b:SzName priv="418">Times New Roman</b:SzName>
+    <b:grfqisidLo priv="604">223</b:grfqisidLo>
+    <b:rgfffc priv="704">376323</b:rgfffc>
+    <b:Fs priv="B09">8AWH``````(`(`````````/\!`$```/__</b:Fs>
+    <b:panose priv="D10" cb="10">*`@(&amp;`P4$!0(#!`</b:panose>
+    <b:grfqisidHi priv="E04">4096</b:grfqisidHi>
+   </b:OplEfd>
+   <b:OplEfd type="OplEfd" priv="111">
+    <b:CStyles>0</b:CStyles>
+    <b:SzName>Symbol</b:SzName>
+    <b:grfqisidLo>1</b:grfqisidLo>
+    <b:rgfffc>6</b:rgfffc>
+    <b:ffk priv="802">1</b:ffk>
+    <b:fpk priv="902">2</b:fpk>
+    <b:ffc priv="A03">2</b:ffc>
+    <b:Fs>8`````````````````````````(``````</b:Fs>
+    <b:panose cb="10">*``````````````</b:panose>
+   </b:OplEfd>
+   <b:OplEfd type="OplEfd" priv="211">
+    <b:CStyles>0</b:CStyles>
+    <b:SzName>Bell MT</b:SzName>
+    <b:grfqisidLo>7</b:grfqisidLo>
+    <b:rgfffc>3</b:rgfffc>
+    <b:Fs>8`P````````````````````$`````````</b:Fs>
+    <b:panose cb="10">*`@(%`P&lt;$`0(#`P</b:panose>
+   </b:OplEfd>
+  </b:Rgefd>
+ </b:EmbeddedFontInfo>
+ <b:ColorScheme type="OplSccm" oty="92" oh="283">
+  <b:Cecp priv="104">8</b:Cecp>
+  <b:Rgecp type="OplEcp" priv="214">
+   <b:OplEcp priv="F">Empty</b:OplEcp>
+   <b:OplEcp type="OplEcp" priv="111">
+    <b:Color>16711680</b:Color>
+   </b:OplEcp>
+   <b:OplEcp type="OplEcp" priv="211">
+    <b:Color>52479</b:Color>
+   </b:OplEcp>
+   <b:OplEcp type="OplEcp" priv="311">
+    <b:Color>26367</b:Color>
+   </b:OplEcp>
+   <b:OplEcp type="OplEcp" priv="411">
+    <b:Color>13421772</b:Color>
+   </b:OplEcp>
+   <b:OplEcp type="OplEcp" priv="511">
+    <b:Color>16737792</b:Color>
+   </b:OplEcp>
+   <b:OplEcp type="OplEcp" priv="611">
+    <b:Color>13382502</b:Color>
+   </b:OplEcp>
+   <b:OplEcp type="OplEcp" priv="711">
+    <b:Color>16777215</b:Color>
+   </b:OplEcp>
+  </b:Rgecp>
+  <b:SzSchemeName priv="618">Bluebird</b:SzSchemeName>
+ </b:ColorScheme>
+</xml><![endif]-->
+<title>MZDDE - The ZEMAX DDE Toolbox for Matlab</title>
+<!--[if pub]><xml>
+ <b:Page type="OplPd" oty="67" oh="266">
+  <b:PtlvOrigin type="OplPt" priv="511">
+   <b:Xl>22858575</b:Xl>
+   <b:Yl>22860000</b:Yl>
+  </b:PtlvOrigin>
+  <b:Oid priv="605">(`@`````````</b:Oid>
+  <b:OhoplWebPageProps priv="90E">267</b:OhoplWebPageProps>
+  <b:OhoplFormProperties priv="B0E">268</b:OhoplFormProperties>
+  <b:OhpdMaster priv="D0D">263</b:OhpdMaster>
+  <b:PgtType priv="1004">5</b:PgtType>
+  <b:PtlvOriginEx type="OplPt" priv="1111">
+   <b:Xl>110183775</b:Xl>
+   <b:Yl>110185200</b:Yl>
+  </b:PtlvOriginEx>
+ </b:Page>
+ <b:WebPageInfo type="OplWebPageProps" oty="96" oh="267">
+ </b:WebPageInfo>
+ <b:otyFormProperties type="OplOdpoFormControl" oty="119" oh="268">
+  <b:FCOSubmitType priv="C04">2</b:FCOSubmitType>
+  <b:FCOEmailAddr priv="E18">someone@example.com</b:FCOEmailAddr>
+  <b:FCOEmailTitle priv="F18">Web Site Form Response</b:FCOEmailTitle>
+  <b:FCOConfirmText priv="1018">Your information was received</b:FCOConfirmText>
+  <b:FCOResultsFile priv="1318">FORMDATA.HTM</b:FCOResultsFile>
+  <b:FCOPageNumber priv="1704">1</b:FCOPageNumber>
+  <b:FCOSubmitUrl priv="1818">http://example.microsoft.com/~user/ispscript.cgi</b:FCOSubmitUrl>
+ </b:otyFormProperties>
+</xml><![endif]-->
+<style>
+<!--
+ /* Font Definitions */
+@font-face
+	{font-family:"Times New Roman";
+	mso-font-charset:0;
+	mso-generic-font-family:roman;
+	mso-font-pitch:variable;
+	panose-1:2 2 6 3 5 4 5 2 3 4;
+	mso-font-signature:31367 -2147483648 8 0 1073742335 -65536;}
+@font-face
+	{font-family:"Bell MT";
+	mso-font-charset:0;
+	mso-generic-font-family:roman;
+	mso-font-pitch:variable;
+	panose-1:2 2 5 3 7 4 1 2 3 3;
+	mso-font-signature:3 0 0 0 1 0;}
+ /* Style Definitions */
+p.MsoNormal, li.MsoNormal, div.MsoNormal
+	{mso-style-parent:"";
+	text-indent:0pt;
+	margin-left:0pt;
+	margin-right:0pt;
+	margin-top:0pt;
+	margin-bottom:0pt;
+	text-align:left;
+	font-family:"Times New Roman";
+	mso-default-font-family:"Times New Roman";
+	mso-ascii-font-family:"Times New Roman";
+	mso-latin-font-family:"Times New Roman";
+	mso-greek-font-family:"Times New Roman";
+	mso-cyrillic-font-family:"Times New Roman";
+	mso-armenian-font-family:Sylfaen;
+	mso-hebrew-font-family:"Times New Roman";
+	mso-arabic-font-family:"Times New Roman";
+	mso-devanagari-font-family:Mangal;
+	mso-bengali-font-family:Vrinda;
+	mso-gurmukhi-font-family:Raavi;
+	mso-oriya-font-family:Sandnya;
+	mso-tamil-font-family:Latha;
+	mso-telugu-font-family:Gautami;
+	mso-kannada-font-family:Tunga;
+	mso-malayalam-font-family:Kartika;
+	mso-thai-font-family:"Angsana New";
+	mso-georgian-font-family:Sylfaen;
+	mso-hangul-font-family:Batang;
+	mso-kana-font-family:"MS Mincho";
+	mso-bopomofo-font-family:PMingLiU;
+	mso-han-font-family:SimSun;
+	mso-halfwidthkana-font-family:"MS Mincho";
+	mso-syriac-font-family:"Estrangelo Edessa";
+	mso-thaana-font-family:"MV Boli";
+	mso-latinext-font-family:"Times New Roman";
+	font-size:10.0pt;
+	color:black;
+	mso-font-kerning:14.0pt;
+	mso-char-tracking:100%;
+	mso-font-width:100%;}
+h1
+	{mso-style-parent:"";
+	text-indent:0pt;
+	margin-left:0pt;
+	margin-right:0pt;
+	margin-top:0pt;
+	margin-bottom:14.0pt;
+	text-align:left;
+	font-family:"Times New Roman";
+	mso-default-font-family:"Times New Roman";
+	mso-ascii-font-family:"Times New Roman";
+	mso-latin-font-family:"Times New Roman";
+	mso-greek-font-family:"Times New Roman";
+	mso-cyrillic-font-family:"Times New Roman";
+	mso-armenian-font-family:Sylfaen;
+	mso-hebrew-font-family:"Times New Roman";
+	mso-arabic-font-family:"Times New Roman";
+	mso-devanagari-font-family:Mangal;
+	mso-bengali-font-family:Vrinda;
+	mso-gurmukhi-font-family:Raavi;
+	mso-oriya-font-family:Sandnya;
+	mso-tamil-font-family:Latha;
+	mso-telugu-font-family:Gautami;
+	mso-kannada-font-family:Tunga;
+	mso-malayalam-font-family:Kartika;
+	mso-thai-font-family:"Angsana New";
+	mso-georgian-font-family:Sylfaen;
+	mso-hangul-font-family:Batang;
+	mso-kana-font-family:"MS Mincho";
+	mso-bopomofo-font-family:PMingLiU;
+	mso-han-font-family:SimSun;
+	mso-halfwidthkana-font-family:"MS Mincho";
+	mso-syriac-font-family:"Estrangelo Edessa";
+	mso-thaana-font-family:"MV Boli";
+	mso-latinext-font-family:"Times New Roman";
+	font-size:24.0pt;
+	color:black;
+	font-weight:bold;
+	mso-font-kerning:14.0pt;
+	mso-char-tracking:100%;
+	mso-font-width:100%;}
+h2
+	{mso-style-parent:"";
+	text-indent:0pt;
+	margin-left:0pt;
+	margin-right:0pt;
+	margin-top:0pt;
+	margin-bottom:14.0pt;
+	text-align:left;
+	font-family:"Times New Roman";
+	mso-default-font-family:"Times New Roman";
+	mso-ascii-font-family:"Times New Roman";
+	mso-latin-font-family:"Times New Roman";
+	mso-greek-font-family:"Times New Roman";
+	mso-cyrillic-font-family:"Times New Roman";
+	mso-armenian-font-family:Sylfaen;
+	mso-hebrew-font-family:"Times New Roman";
+	mso-arabic-font-family:"Times New Roman";
+	mso-devanagari-font-family:Mangal;
+	mso-bengali-font-family:Vrinda;
+	mso-gurmukhi-font-family:Raavi;
+	mso-oriya-font-family:Sandnya;
+	mso-tamil-font-family:Latha;
+	mso-telugu-font-family:Gautami;
+	mso-kannada-font-family:Tunga;
+	mso-malayalam-font-family:Kartika;
+	mso-thai-font-family:"Angsana New";
+	mso-georgian-font-family:Sylfaen;
+	mso-hangul-font-family:Batang;
+	mso-kana-font-family:"MS Mincho";
+	mso-bopomofo-font-family:PMingLiU;
+	mso-han-font-family:SimSun;
+	mso-halfwidthkana-font-family:"MS Mincho";
+	mso-syriac-font-family:"Estrangelo Edessa";
+	mso-thaana-font-family:"MV Boli";
+	mso-latinext-font-family:"Times New Roman";
+	font-size:18.0pt;
+	color:black;
+	font-weight:bold;
+	mso-font-kerning:14.0pt;
+	mso-char-tracking:100%;
+	mso-font-width:100%;}
+ol
+	{margin-top:0in;
+	margin-bottom:0in;
+	margin-left:.25in;}
+ul
+	{margin-top:0in;
+	margin-bottom:0in;
+	margin-left:.25in;}
+@page
+	{size:8.2673in 11.6923in;
+	mso-paper-source:7;
+	mso-hyphenate:auto;}
+-->
+</style>
+<!--[if gte mso 9]><xml>
+ <o:shapedefaults v:ext="edit" spidmax="7170" fill="f" fillcolor="white [7]"
+  strokecolor="black [0]">
+  <v:fill color="white [7]" color2="white [7]" on="f"/>
+  <v:stroke color="black [0]" color2="white [7]">
+   <o:left v:ext="view" color="black [0]" color2="white [7]"/>
+   <o:top v:ext="view" color="black [0]" color2="white [7]"/>
+   <o:right v:ext="view" color="black [0]" color2="white [7]"/>
+   <o:bottom v:ext="view" color="black [0]" color2="white [7]"/>
+   <o:column v:ext="view" color="black [0]" color2="white [7]"/>
+  </v:stroke>
+  <v:shadow color="#ccc [4]"/>
+  <v:textbox inset="2.88pt,2.88pt,2.88pt,2.88pt"/>
+  <o:colormenu v:ext="edit" fillcolor="blue [1]" strokecolor="black [0]"
+   shadowcolor="#ccc [4]"/>
+ </o:shapedefaults><o:shapelayout v:ext="edit">
+  <o:idmap v:ext="edit" data="1"/>
+ </o:shapelayout></xml><![endif]-->
+</head>
+
+<body link="#0066FF" vlink="#6633CC" style='tab-interval:.3923in;margin:0'>
+
+<div style='position:absolute;width:8.2833in;height:22.4562in'>
+<!--[if gte vml 1]><v:shapetype id="_x0000_t202" coordsize="21600,21600" o:spt="202"
+ path="m,l,21600r21600,l21600,xe">
+ <v:stroke joinstyle="miter"/>
+ <v:path gradientshapeok="t" o:connecttype="rect"/>
+</v:shapetype><v:shape id="_x0000_s1025" type="#_x0000_t202" style='position:absolute;
+ left:0;top:0;width:595.27pt;height:1615.74pt;z-index:1;
+ mso-wrap-distance-left:2.88pt;mso-wrap-distance-top:2.88pt;
+ mso-wrap-distance-right:2.88pt;mso-wrap-distance-bottom:2.88pt' filled="f"
+ fillcolor="white [7]" stroked="f" strokecolor="black [0]" o:cliptowrap="t">
+ <v:fill color2="white [7]"/>
+ <v:stroke color2="white [7]">
+  <o:left v:ext="view" color="black [0]" color2="white [7]"/>
+  <o:top v:ext="view" color="black [0]" color2="white [7]"/>
+  <o:right v:ext="view" color="black [0]" color2="white [7]"/>
+  <o:bottom v:ext="view" color="black [0]" color2="white [7]"/>
+  <o:column v:ext="view" color="black [0]" color2="white [7]"/>
+ </v:stroke>
+ <v:shadow color="#ccc [4]"/>
+ <v:path insetpenok="f"/>
+ <v:textbox style='mso-column-margin:2mm' inset="2.88pt,2.88pt,2.88pt,2.88pt"/>
+ <![if pub]><b:otyEscherText type="OplPo" oty="1" oh="289">
+  <b:FUserChangedFmt priv="200">True</b:FUserChangedFmt>
+  <b:FMoved priv="300">True</b:FMoved>
+  <b:Txwp priv="402">3</b:Txwp>
+  <b:Oid priv="C05">(```````````</b:Oid>
+  <b:OidAssociated priv="D05">(```````````</b:OidAssociated>
+  <b:Qsid priv="2704">1</b:Qsid>
+  <b:DxlMax priv="AA04">7560000</b:DxlMax>
+  <b:DylMax priv="AB04">20520000</b:DylMax>
+ </b:otyEscherText>
+ <![endif]>
+</v:shape><![endif]--><![if !vml]><span style='mso-ignore:vglayout;position:
+absolute;z-index:1;left:0px;top:0px;width:794px;height:2155px'>
+
+<table cellpadding=0 cellspacing=0>
+ <tr>
+  <td width=794 height=2155 style='vertical-align:top'><![endif]>
+  <div v:shape="_x0000_s1025" style='padding:2.88pt 2.88pt 2.88pt 2.88pt'
+  class=shape>
+  <p class=MsoNormal style='mso-pagination:none;text-align:center;margin-bottom:
+  14.0pt;text-align:center'><!--[if gte vml 1]><v:rect id="_x0000_s1026" alt=""
+   style='width:192pt;height:178.5pt;mso-position-horizontal:absolute'
+   o:preferrelative="t" filled="f" stroked="f" strokeweight="0" o:cliptowrap="t">
+   <v:stroke>
+    <o:left v:ext="view" weight="0" joinstyle="miter"/>
+    <o:top v:ext="view" weight="0" joinstyle="miter"/>
+    <o:right v:ext="view" weight="0" joinstyle="miter"/>
+    <o:bottom v:ext="view" weight="0" joinstyle="miter"/>
+   </v:stroke>
+   <v:imagedata src="ZEMAX%20DDE%20Toolbox%20for%20Matlab_files/image001.jpg"
+    o:href="file:///D:\Projects\MZDDE\Documents\MZDDE%20Logo.jpg"/>
+   <v:path o:extrusionok="f" insetpenok="f"/>
+   <o:lock v:ext="edit" ungrouping="t" aspectratio="t" grouping="t"/>
+   <![if pub]><b:otyEscherText type="OplPo" oty="1" oh="290">
+    <b:FUserChangedFmt>True</b:FUserChangedFmt>
+    <b:FMoved>True</b:FMoved>
+    <b:Oid>(```````````</b:Oid>
+    <b:OidAssociated>(```````````</b:OidAssociated>
+    <b:Qtf priv="3404">0</b:Qtf>
+    <b:DxlMax>2438400</b:DxlMax>
+    <b:DylMax>2266950</b:DylMax>
+   </b:otyEscherText>
+   <![endif]>
+  </v:rect><![endif]--><![if !mso & !vml]><img width=256 height=238
+  src="ZEMAX%20DDE%20Toolbox%20for%20Matlab_files/image001.jpg"><![endif]><!--[if gte vml 1]><v:rect
+   id="_x0000_s1027" alt="CSIR" href="http://www.csir.co.za/" style='width:77.734mm;
+   height:55.0275mm;mso-position-horizontal:absolute' o:preferrelative="t"
+   filled="f" stroked="f" strokeweight="0" o:cliptowrap="t">
+   <v:stroke>
+    <o:left v:ext="view" weight="0" joinstyle="miter"/>
+    <o:top v:ext="view" weight="0" joinstyle="miter"/>
+    <o:right v:ext="view" weight="0" joinstyle="miter"/>
+    <o:bottom v:ext="view" weight="0" joinstyle="miter"/>
+   </v:stroke>
+   <v:imagedata src="ZEMAX%20DDE%20Toolbox%20for%20Matlab_files/image002.gif"
+    o:href="file:///D:\Projects\MZDDE\Documents\CSIR%20Logo.gif"/>
+   <v:path o:extrusionok="f" insetpenok="f"/>
+   <o:lock v:ext="edit" ungrouping="t" aspectratio="t" grouping="t"/>
+   <![if pub]><b:otyEscherText type="OplPo" oty="1" oh="292">
+    <b:FUserChangedFmt>True</b:FUserChangedFmt>
+    <b:FMoved>True</b:FMoved>
+    <b:Oid>(```````````</b:Oid>
+    <b:OidAssociated>(```````````</b:OidAssociated>
+    <b:Qtf>0</b:Qtf>
+    <b:DxlMax>2798424</b:DxlMax>
+    <b:DylMax>1980990</b:DylMax>
+   </b:otyEscherText>
+   <![endif]>
+  </v:rect><![endif]--><![if !mso & !vml]><a href="http://www.csir.co.za/"><img
+  border=0 width=294 height=208
+  src="ZEMAX%20DDE%20Toolbox%20for%20Matlab_files/image003.gif" alt=CSIR
+  align=middle></a><![endif]><span style='language:EN-ZA;mso-ansi-language:
+  EN-ZA'><o:p></o:p></span></p>
+  <h1 style='mso-pagination:none'><span style='font-family:"Bell MT";
+  mso-default-font-family:"Bell MT";mso-ascii-font-family:"Bell MT";mso-latin-font-family:
+  "Bell MT";language:EN-ZA;mso-ansi-language:EN-ZA'>MZDDE - The ZEMAX DDE Toolbox for Matlab</span><span
+  style='language:EN-ZA;mso-ansi-language:EN-ZA'><o:p></o:p></span></h1>
+  <h2 style='mso-pagination:none'><span style='font-family:"Bell MT";
+  mso-default-font-family:"Bell MT";mso-ascii-font-family:"Bell MT";mso-latin-font-family:
+  "Bell MT";language:EN-ZA;mso-ansi-language:EN-ZA'>Introduction</span><span
+  style='language:EN-ZA;mso-ansi-language:EN-ZA'><o:p></o:p></span></h2>
+  <p class=MsoNormal style='mso-pagination:none;margin-bottom:14.0pt'><span
+  style='language:EN-ZA;mso-ansi-language:EN-ZA'>DDE stands for Dynamic Data Exchange and it is a facility provided by the Windows™ Operating System for two programs to exchange data. </span><span
+  style='language:EN-ZA;mso-ansi-language:EN-ZA'><a href="http://www.zemax.com">ZEMAX</a></span><span
+  style='language:EN-ZA;mso-ansi-language:EN-ZA'> has a built-in DDE server that can respond to requests for various operations from Matlab through a suite of function calls. ZEMAX then passes the results back to Matlab. The functions implemented are documented in the ZEMAX manual in the chapter on ZEMAX Extensions.<o:p></o:p></span></p>
+  <h2 style='mso-pagination:none'><span style='language:EN-ZA;mso-ansi-language:
+  EN-ZA'>Testing<o:p></o:p></span></h2>
+  <p class=MsoNormal style='mso-pagination:none;margin-bottom:14.0pt'><span
+  style='language:EN-ZA;mso-ansi-language:EN-ZA'>The toolbox was built using Matlab 6 Release 13. Many of the functions have been tested with that release of Matlab and the 1 November 2004 update of ZEMAX. Since the toolbox is dependent on both ZEMAX and Matlab, updates to either could cause problems.<span style='mso-spacerun:yes'>  </span>Verify that toolbox functions produce correct results.<o:p></o:p></span></p>
+  <h2 style='mso-pagination:none'><span style='language:EN-ZA;mso-ansi-language:
+  EN-ZA'>Usage<o:p></o:p></span></h2>
+  <p class=MsoNormal style='mso-pagination:none;margin-bottom:14.0pt'><span
+  style='language:EN-ZA;mso-ansi-language:EN-ZA'>Firstly it will be necessary to add the MZDDE directory, wherever you have unpacked the archive, to your Matlab path.&nbsp;<o:p></o:p></span></p>
+  <p class=MsoNormal style='mso-pagination:none;margin-bottom:14.0pt'><span
+  style='language:EN-ZA;mso-ansi-language:EN-ZA'>In general, each of the &quot;data items&quot; listed in the ZEMAX Extensions chapter of the ZEMAX manual is implemented as a Matlab function named with a &quot;z&quot; preceding the ZEMAX name of the data item e.g. the MZDDE function </span><span
+  style='language:EN-ZA;mso-ansi-language:EN-ZA'><a
+  href="MZDDE%20Function%20Reference.html#zGetSerial">zGetSerial</a></span><span
+  style='language:EN-ZA;mso-ansi-language:EN-ZA'> implements the ZEMAX GetSerial data item.<o:p></o:p></span></p>
+  <p class=MsoNormal style='mso-pagination:none;margin-bottom:14.0pt'><span
+  style='language:EN-ZA;mso-ansi-language:EN-ZA'>Before calling any other function that accesses the ZEMAX DDE server in Matlab, it is necessary to initialise the link to the ZEMAX DDE server using the </span><span
+  style='language:EN-ZA;mso-ansi-language:EN-ZA'><a
+  href="MZDDE%20Function%20Reference.html#zDDEInit">zDDEInit</a></span><span
+  style='language:EN-ZA;mso-ansi-language:EN-ZA'> function call. If you do not initialise the link, upon calling any of the other functions in the toolbox, you will get a verbose error message from Matlab providing no clue as to what you have done wrong.<o:p></o:p></span></p>
+  <p class=MsoNormal style='mso-pagination:none;margin-bottom:14.0pt'><span
+  style='language:EN-ZA;mso-ansi-language:EN-ZA'>It is very important to appreciate that ZEMAX maintains two copies of the lens data, one in the DDE server, and the other in the user interface (visible to the user in the ZEMAX Lens Data Editors). There are two functions for copying the one set of data to the other area. </span><span
+  style='language:EN-ZA;mso-ansi-language:EN-ZA'><a
+  href="MZDDE%20Function%20Reference.html#zGetRefresh">zGetRefresh</a></span><span
+  style='language:EN-ZA;mso-ansi-language:EN-ZA'> will copy the lens data in the ZEMAX user interface to the DDE server. </span><span
+  style='language:EN-ZA;mso-ansi-language:EN-ZA'><a
+  href="MZDDE%20Function%20Reference.html#zPushLens">zPushLens</a></span><span
+  style='language:EN-ZA;mso-ansi-language:EN-ZA'> will transfer the lens data in the DDE server to the ZEMAX user interface. The first time you use zPushLens, older versions of ZEMAX will pop up a modal window asking the user for permission to replace the current lens data in the user interface with the lens data from the DDE server. This window appears as follows.<o:p></o:p></span></p>
+  <p class=MsoNormal style='mso-pagination:none;text-align:center;margin-bottom:
+  14.0pt;text-align:center'><!--[if gte vml 1]><v:rect id="_x0000_s1028" alt=""
+   style='width:576.75pt;height:91.5pt;mso-position-horizontal:absolute'
+   o:preferrelative="t" filled="f" stroked="f" strokeweight="0" o:cliptowrap="t">
+   <v:imagedata src="ZEMAX%20DDE%20Toolbox%20for%20Matlab_files/image004.png"
+    o:href="file:///D:\Projects\MZDDE\Documents\ZEMAX%20DDE%20Client%20Request%20Modal%20Window.bmp"/>
+   <v:path o:extrusionok="f" insetpenok="f"/>
+   <o:lock v:ext="edit" ungrouping="t" aspectratio="t" grouping="t"/>
+   <![if pub]><b:otyEscherText type="OplPo" oty="1" oh="293">
+    <b:FUserChangedFmt>True</b:FUserChangedFmt>
+    <b:FMoved>True</b:FMoved>
+    <b:Oid>(```````````</b:Oid>
+    <b:OidAssociated>(```````````</b:OidAssociated>
+    <b:Qtf>0</b:Qtf>
+    <b:DxlMax>7324725</b:DxlMax>
+    <b:DylMax>1162050</b:DylMax>
+   </b:otyEscherText>
+   <![endif]>
+  </v:rect><![endif]--><![if !mso & !vml]><img width=769 height=122
+  src="ZEMAX%20DDE%20Toolbox%20for%20Matlab_files/image005.jpg"><![endif]><span
+  style='language:EN-ZA;mso-ansi-language:EN-ZA'><o:p></o:p></span></p>
+  <p class=MsoNormal style='mso-pagination:none;margin-bottom:14.0pt'><span
+  style='language:EN-ZA;mso-ansi-language:EN-ZA'>If you click Yes, the data will be accepted from the DDE server, as well as all future zPushLens requests. This window will generally appear only once per ZEMAX session. Since the DDE request from Matlab could timeout waiting for the user to give permission for the zPushLens operation, the zPushLens function requires a specific timeout parameter in seconds.&nbsp;<o:p></o:p></span></p>
+  <p class=MsoNormal style='mso-pagination:none;margin-bottom:14.0pt'><span
+  style='language:EN-ZA;mso-ansi-language:EN-ZA'>More recent versions of ZEMAX will reject attempts to push a lens into the LDE (zPushLens will return -999) unless permission is granted by means of a check box on the Editors tab of the ZEMAX preferences dialog, typically as shown below.<o:p></o:p></span></p>
+  <p class=MsoNormal style='mso-pagination:none;text-align:center;margin-bottom:
+  14.0pt;text-align:center'><!--[if gte vml 1]><v:rect id="_x0000_s1029" alt=""
+   style='width:357pt;height:281.25pt;mso-position-horizontal:absolute'
+   o:preferrelative="t" filled="f" stroked="f" strokeweight="0" o:cliptowrap="t">
+   <v:imagedata src="ZEMAX%20DDE%20Toolbox%20for%20Matlab_files/image006.gif"
+    o:href="file:///D:\Projects\MZDDE\Documents\ZEMAX%20Editors%20Preferences%20Dialog.bmp"/>
+   <v:path o:extrusionok="f" insetpenok="f"/>
+   <o:lock v:ext="edit" ungrouping="t" aspectratio="t" grouping="t"/>
+   <![if pub]><b:otyEscherText type="OplPo" oty="1" oh="294">
+    <b:FUserChangedFmt>True</b:FUserChangedFmt>
+    <b:FMoved>True</b:FMoved>
+    <b:Oid>(```````````</b:Oid>
+    <b:OidAssociated>(```````````</b:OidAssociated>
+    <b:Qtf>0</b:Qtf>
+    <b:DxlMax>4533900</b:DxlMax>
+    <b:DylMax>3571875</b:DylMax>
+   </b:otyEscherText>
+   <![endif]>
+  </v:rect><![endif]--><![if !mso & !vml]><img width=476 height=375
+  src="ZEMAX%20DDE%20Toolbox%20for%20Matlab_files/image006.gif"><![endif]><span
+  style='language:EN-ZA;mso-ansi-language:EN-ZA'><o:p></o:p></span></p>
+  <h2 style='mso-pagination:none'><span style='language:EN-ZA;mso-ansi-language:
+  EN-ZA'>Function Reference<o:p></o:p></span></h2>
+  <p class=MsoNormal style='mso-pagination:none;margin-bottom:14.0pt'><span
+  style='language:EN-ZA;mso-ansi-language:EN-ZA'>Each of the functions in the toolbox is documented in terms of inputs and output in the </span><span
+  style='language:EN-ZA;mso-ansi-language:EN-ZA'><a
+  href="MZDDE%20Function%20Reference.html">MZDDE Function Reference</a></span><span
+  style='language:EN-ZA;mso-ansi-language:EN-ZA'>.&nbsp;<o:p></o:p></span></p>
+  <h2 style='mso-pagination:none'><span style='language:EN-ZA;mso-ansi-language:
+  EN-ZA'>Compilation<o:p></o:p></span></h2>
+  <p class=MsoNormal style='mso-pagination:none;margin-bottom:14.0pt'><span
+  style='language:EN-ZA;mso-ansi-language:EN-ZA'>In many cases it is possible to compile your Matlab application built on top of MZDDE to a standalone ZEMAX extension that can be run from the Extensions menu. It is important to ensure that all of the functions you use in your application can be compiled by the Matlab compiler. Obviously, you will also need the Matlab compiler to accomplish this. If you wish to distribute your standalone extension, you will need to distribute the Matlab runtime libraries along with it for non-Matlab users.<o:p></o:p></span></p>
+  <h2 style='mso-pagination:none'><span style='language:EN-ZA;mso-ansi-language:
+  EN-ZA'>Bugs, Updates and Contributions<o:p></o:p></span></h2>
+  <p class=MsoNormal style='mso-pagination:none;margin-bottom:14.0pt'><span
+  style='language:EN-ZA;mso-ansi-language:EN-ZA'>Should you find any bugs in this toolbox, please report them as soon as possible to </span><span
+  style='language:EN-ZA;mso-ansi-language:EN-ZA'><a
+  href="mailto:dgriffith@csir.co.za">Derek Griffith</a></span><span
+  style='language:EN-ZA;mso-ansi-language:EN-ZA'> at CSIR. Please also send any new functions or applications built on the toolbox that you would like to contribute.<o:p></o:p></span></p>
+  <h2 style='mso-pagination:none'><span style='language:EN-ZA;mso-ansi-language:
+  EN-ZA'>Copyright © 2002-2009, </span><span style='language:EN-ZA;mso-ansi-language:
+  EN-ZA'><a
+  href="http://www.csir.co.za/plsql/ptl0002/PTL0002_PGE005_DIVISIONS?DIVISION_NO=1000024">DPSS</a></span><span
+  style='language:EN-ZA;mso-ansi-language:EN-ZA'>, </span><span
+  style='language:EN-ZA;mso-ansi-language:EN-ZA'><a href="http://www.csir.co.za">CSIR</a></span><span
+  style='language:EN-ZA;mso-ansi-language:EN-ZA'>, All Rights Reserved<o:p></o:p></span></h2>
+  <p class=MsoNormal style='mso-pagination:none'><span style='language:EN-ZA;
+  mso-ansi-language:EN-ZA'>The files in this toolbox that are copyrighted by CSIR are subject to the terms and conditions of the BSD Licence as follows:<o:p></o:p></span></p>
+  <p class=MsoNormal style='mso-pagination:none'><span style='language:EN-ZA;
+  mso-ansi-language:EN-ZA'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+  <p class=MsoNormal style='mso-pagination:none;margin-bottom:14.0pt'><span
+  style='language:EN-ZA;mso-ansi-language:EN-ZA'>Redistribution and use in source and binary forms, with or without modification, are permitted provided that the following conditions are met:<o:p></o:p></span></p>
+  <p class=MsoNormal style='mso-pagination:none;text-indent:-28.3pt;margin-left:
+  28.3pt;margin-bottom:14.0pt;mso-level-number-format:bullet;mso-level-text:
+  ·;mso-level-size:10.0pt;mso-level-font-family:Symbol;mso-level-indent:28.3pt'><![if !supportLists]><span
+  style='direction:ltr;unicode-bidi:embed;font-family:Symbol;font-size:10.0pt;
+  language:X-NONE;color:black'>·</span><span style='width:23.5pt'>&nbsp;</span><![endif]><span
+  style='language:EN-ZA;mso-ansi-language:EN-ZA'>Redistributions of source code must retain the above copyright notice, this list of conditions and the following disclaimer.<o:p></o:p></span></p>
+  <p class=MsoNormal style='mso-pagination:none;text-indent:-28.3pt;margin-left:
+  28.3pt;margin-bottom:14.0pt;mso-level-number-format:bullet;mso-level-text:
+  ·;mso-level-size:10.0pt;mso-level-font-family:Symbol;mso-level-indent:28.3pt'><![if !supportLists]><span
+  style='direction:ltr;unicode-bidi:embed;font-family:Symbol;font-size:10.0pt;
+  language:X-NONE;color:black'>·</span><span style='width:23.5pt'>&nbsp;</span><![endif]><span
+  style='language:EN-ZA;mso-ansi-language:EN-ZA'>Redistributions in binary form must reproduce the above copyright notice, this list of conditions and the following disclaimer in the documentation and/or other materials provided with the distribution.<o:p></o:p></span></p>
+  <p class=MsoNormal style='mso-pagination:none;margin-bottom:14.0pt'><span
+  style='language:EN-ZA;mso-ansi-language:EN-ZA'>THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS &quot;AS IS&quot; AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.<o:p></o:p></span></p>
+  <p class=MsoNormal style='mso-pagination:none;margin-bottom:14.0pt'><span
+  style='language:EN-ZA;mso-ansi-language:EN-ZA'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+  <p class=MsoNormal style='mso-pagination:none;margin-bottom:14.0pt'><span
+  style='language:EN-ZA;mso-ansi-language:EN-ZA'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+  </div>
+  <![if !vml]></td>
+ </tr>
+</table>
+
+</span><![endif]>
+</div>
+
+</body>
+
+</html>

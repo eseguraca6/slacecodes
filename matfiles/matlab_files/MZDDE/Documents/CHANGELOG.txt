@@ -1,0 +1,16 @@
+$Revision: 141 $
+$Author: DGriffith $
+2008-09-04
+Have changed all DDE floating point formats from %11.9f to %1.20g, some small numbers were not surviving the old format when passed to ZEMAX via DDE.
+Updated zSetSurfaceData and zGetSurfaceData with parameter codes up to 76 and now accommodate Arg2.
+Have updated zArrayTrace with changes to zclient.c up to version 2.2. Hopefully this will improve stability.
+2007-07-19
+Placed code under Subversion version control system. Original code placed under MZDDEBaseline directory.
+2006-01-16
+Changed PlotZemaxOTF.m to return handle of plot window. Future plotting functions will do this. Older plotting functions will be changed to do this as well.
+2006-01-12
+Implemented zPushLensPermission
+2006-01-11
+Fixed zGetPath - was not scanning the returned paths from ZEMAX properly.
+
+

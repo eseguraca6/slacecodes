@@ -1,0 +1,24 @@
+Listing of YNI contributions
+
+File : C:\Projects\MZDDE\zmx\ExUSP5668671C.Narcissus\Primary.zmx
+Title: Derived from U.S.Patent 5668671
+Date : MON DEC 20 2004
+
+
+Units are Millimeters.
+Wavelength: 4.00000 µm
+
+Surf       YNI
+   1  19.21039
+   2   3.54449
+   3   0.22408
+   4  10.67017
+   5   7.26663
+   6  -3.17173
+   7  -4.08987
+   8  -4.06686
+   9  -3.83538
+  10  -3.81238
+  11  -3.67735
+  12  -3.65031
+  13  -3.57315

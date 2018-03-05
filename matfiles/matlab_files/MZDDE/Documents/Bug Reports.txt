@@ -1,0 +1,47 @@
+$Header: C:\\Projects\\RCS\\C\\Projects\\MZDDE\\Documents\\Bug\040Reports.txt,v 1.1 2006-05-09 12:49:56+02 dgriffith Exp dgriffith $
+
+1) Update all zui* functions to cater for user pressing Cancel.
+2) Update all zui* functions to include an initial path.
+3) Consider timeouts on all functions. zOptimize.m. Identify all functions which might take longer than the timeout zOpenWIndow, zOptimize, zGetText, zGetMeta
+4) Report ZEMAX Manual errors - eg. SetOperand
+    a) SetSurfaceData for comment field seems to set the coating - reported already
+    b) GetSystem and SetSystem return an additional undocumented parameter - what is it ?
+    c) zGetPolTrace is incorrect for unpolarized rays as documented
+    d) Can't set lens title and comments
+    e) Can't seem to increase the number of multicon operands or configs.
+5) revisit zsGetSurfaceDataVector, to eliminate problem with mismatched surface numbers wrt ZEMAX
+6) Change all ddereq calls to include use of the timeout ZemaxDDETimeout, and add global ZemaxDDETimeout - done on most calls if not all - 11-Nov-02
+7) Remove all calls that look like str2num(ddereq(...)), Rather first check to see if a response has been received.
+   Particularly things like zGetSurfaceParamMatrix 
+   This has mostly if not completely been done 18-Dec-02
+9) Check and handle field type in NarcWiz.
+10) Build Schott_Ancient Catalog, including KF1, LGSK2, SF51,
+11) Request new ZEMAX functions
+	a) Insert NSC Object.
+        b) Insert Multicon operand
+        c) Insert Configuration
+12) Take another look at zSetMulticon, especially the help.
+13) Add various to RCS, update zgetserial.
+14) Add Bug Reports.txt to RCS. Done 2006-05-08.
+15) LSF function seems to be producing garbage.
+16) zGetPath and zGetGlassCats seem to be broken. Fixed zGetPath (2006-01-11). zGetGlassCats got fixed as a result.
+17) zSetSolve - sytax has changed ?
+18) From paul.treadwell@awe.co.uk
+There is an error in the function zArrayTrace included in the MZDDE Toolbox. 
+When calling the function with polarisation switched on, setting Ezr = 1 results in Exr = 1 but Ezr = 0. 
+Setting Exr to any non-zero value always results in Exr being set to the value chosen for Ezr, while Ezr is always zero. 
+I've tracked down the error in the source file zArrayTrace.cpp - 
+ from line 325 onwards in the CASE statements, all the case 13's should refer to Ezr, but in fact refer to Exr. 
+Exr is already covered by the case 9's and so the value gets overwritten, while Ezr is never set. 
+19) ReadZemaxWaveMap appears to have developed a regression bug. Reported by Neil Gardner <ngardner@uncc.edu>.
+20) zSetSurfaceData(3,0,'biconic') (for changing the surface 3 to biconic) doesn't work. Other properties like "Comments", "Curvature" 
+    etc. are working fine. My matlab version is MATLAB Version 7.2.0.232 (R2006a) and zemax version is Version12,2006.
+    Reported by Umer Shahid <ushahid@brightviewtechnologies.com>.
+21) Remove diagnostics from zArrayTrace C code.
+22) Check all %f precision sent to Zemax in ddereq calls.
+
+
+
+
+
+ 

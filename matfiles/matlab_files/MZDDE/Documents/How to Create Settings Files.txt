@@ -1,0 +1,20 @@
+Settings files are created by Zemax and store the settings for all the different kinds of graphic and text analyses that Zemax can perform.
+
+Each Zemax graphical or text analysis window has a Settings menu item that can be used to access the settings dialogue for that analysis. The same settings dialogue can be accessed by right-clicking on the analysis window.
+
+At the bottom of every Zemax settings dialogue there are usually 6 buttons. Besides the normal "OK", "Cancel" and "Help" buttons, there are also "Save", "Load" and "Reset".
+
+Zemax has default settings for all graphical and text analyses. The Zemax default settings for the analysis can be retrieved by clicking the "Reset" button. 
+
+Zemax saves customised settings in files with the extension ".cfg". If you click the "Save" button on a Zemax settings dialogue, your new, customised settings will be saved to a file having the same name as your lens file (and in the same directory), but having the ".cfg" extension. Note that the settings for ALL analyses are stored in a single ".cfg" file.
+
+The settings files are binary files and cannot be read with a text editor.
+
+These ".cfg" files are generic and can be renamed, copied and otherwise used without modification in the zGetTextFile and zGetMetaFile functions.
+
+Newer versions of Zemax permit modification of ".cfg" settings files. This is done using the "ModifySettings" command in ZPL or via DDE. The Matlab version (zModifySettings) has not yet been implemented as of May 2008. This may have been implemented by the time you read this. Check to see of zModifySettings exists.
+
+For further details, see the GETTEXTFILE command in the Zemax Programming Language chapter of the Zemax manual, or the GetTextFile data item in the chapter on Zemax Extensions.
+
+
+

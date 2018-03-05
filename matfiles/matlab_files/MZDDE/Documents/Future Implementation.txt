@@ -1,0 +1,17 @@
+$Date: 2009-10-29 09:20:00 +0200 (Thu, 29 Oct 2009) $
+$Author: DGriffith $
+$Revision: 213 $
+1) Pattern Matching (preferably regular expressions) for reading ZEMAX text output files into structures within ZEMAX. 
+2) Toolbox regression testing (ToolTest.m) : Implementation started Jan 2006
+3) zPushLensPermission : Done 12-Jan-2006
+4) Make plotting functions return handle to graphics window.
+5) Add examples to all function help text.
+6) Create Mat2HTML documentation, along with instructions for installing documentation.
+7) Improve error checking on input arguments to all functions.
+8) zPushLens - Needs flag to make windows update or not. Done Apr-2007.
+9) Improve the documentation on zGetTextFile to better capture the use of settings files.
+10) Complete RelIrrad function
+11) Implement zModifySettings
+12) Implement zNSCDetectorData and zNSCTrace. Initial implementation done Jul-2007.
+13) Include fast cross-correlation code, both 1D and 2D.
+14) Check impact of Zemax having different sub-folders as from about May 2009.

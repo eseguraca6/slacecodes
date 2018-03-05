@@ -1,0 +1,51 @@
+Curvature,Fixed,,,,,,0
+Curvature,Variable,,,,,V,1
+Curvature,Marginal ray angle,Angle,,,,M,2
+Curvature,Chief ray angle,Angle,,,,C,3
+Curvature,Pickup,Surface,Scale factor,,Column,P,4
+Curvature,Marginal ray normal,,,,,N,5
+Curvature,Chief ray normal,,,,,N,6
+Curvature,Aplanatic,,,,,A,7
+Curvature,Element power,Power,,,,X,8
+Curvature,Concentric with surface,Surface to be concentric to,,,,S,9
+Curvature,Concentric with radius,Surface to be concentric with,,,,R,10
+Curvature,Paraxial F/#,Paraxial F/#,,,,F,11
+Curvature,ZPL Macro,Macro name,,,,Z,12
+Thickness,Fixed,,,,,,0
+Thickness,Variable,,,,,V,1
+Thickness,Marginal ray height,Height,Pupil zone,,,M,2
+Thickness,Chief ray height,Height,,,,C,3
+Thickness,Edge thickness,Thickness,Radial height (use zero for semi-diameter),,,E,4
+Thickness,Pickup,Surface,Scale factor,Offset,Column,P,5
+Thickness,Optical path difference,OPD,Pupil zone,,,O,6
+Thickness,Position,Surface,Length from surface,,,T,7
+Thickness,Compensator,Surface,Sum of surface thicknesses,,,S,8
+Thickness,Center of curvature,Surface to be at the COC of,,,,X,9
+Thickness,Pupil position,,,,,U,10
+Thickness,ZPL Macro,Macro name,,,,Z,11
+Glass,Fixed,,,,,,0
+Glass,Model,Index Nd,Abbe Vd,Dpgf,,,1
+Glass,Pickup,Surface,,,,P,2
+Glass,Substitute,Catalog name,,,,S,3
+Glass,Offset,Index Nd offset,Abbe Vd offset,,,O,4
+Semi-Diameter,Automatic,,,,,,0
+Semi-Diameter,Fixed,,,,,U,1
+Semi-Diameter,Pickup,Surface,Scale factor,,Column,P,2
+Semi-Diameter,Maximum,,,,,M,3
+Semi-Diameter,ZPL Macro,Macro name,,,,Z,4
+Conic,Fixed,,,,,,0
+Conic,Variable,,,,,V,1
+Conic,Pickup,Surface,Scale factor,,Column,P,2
+Conic,ZPL Macro,Macro name,,,,Z,3
+Parameter,Fixed,,,,,,0
+Parameter,Variable,,,,,V,1
+Parameter,Pickup,Surface,Scale factor,Offset,Column,P,2
+Parameter,Chief ray,Field,Wavelength,,,C,3
+Parameter,ZPL Macro,Macro name,,,,Z,4
+TCE,Fixed,,,,,,0
+TCE,Variable,,,,,V,1
+TCE,Pickup,Surface,,,,P,2
+Extra Data Value,Fixed,,,,,,0
+Extra Data Value,Variable,,,,,V,1
+Extra Data Value,Pickup,Surface,Scale factor,Offset,Column,P,2
+Extra Data Value,ZPL Macro,Macro name,,,,Z,3

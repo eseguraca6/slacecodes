@@ -94,27 +94,39 @@ if __name__ == '__main__':
     # Insert Code Here
     TheSystem = zosapi.TheSystem
     TheSystem.New(False)
-    file = '/mnt/c/Users/pwfa-facet2/Desktop/slacecodes/FACET_model_current/wavelength_runs/dtransport.zmx'
-    zosapi.TheSystem.LoadFile(file, False)
-    TheSystemData = TheSystem.SystemData
-    #527 vs 800 at 1mm waist size diameter
-    TheSystemData.AddWavelength(.527)
+    file = r'C:\Users\pwfa-facet2\Desktop\slacecodes\FACET_model_current\wavelength_runs\test.zmx';#
+    TheSystem.LoadFile(file, False)
 
+
+    TheAnalyses = TheSystem.Analyses
     TheLDE = TheSystem.LDE
-    s1 = TheLDE.GetSurfaceAt(2)
-    s1_pop = s1.PhysicalOpticalData
-    s1_pop.ResampleAfterRefraction = True
-    s1_pop.AutoSample = True
-    for i in range(3, 12):
-        curr_s = TheLDE.GetSurfaceAt(i)
-        curr_s_pop = curr_s.PhysicalOpticalData
-        curr_s_pop.ResampleAfterRefraction = True
-        curr_s_pop.AutoSample=True
 
+
+
+    POP = TheAnalyses.New_Analysis(constants.AnalysisIDM_PhysicalOpticsPropagation)
+    POP.Terminate()
+    POP_Setting = POP.GetSettings()
+    pop_settings = CastTo(POP_Setting, "IAS_")
+
+    cfg = r'C:\Users\pwfa-facet2\Documents\Zemax\Configs\POP.CFG'
+    pop_settings.ModifySettings(cfg, "POP_START",2)
+    pop_settings.ModifySettings(cfg, "POP_SAMPX", 5)
+    pop_settings.ModifySettings(cfg, "POP_SAMPY", 5)
+    pop_settings.ModifySettings(cfg, "POP_PARAM1", 1)
+    pop_settings.ModifySettings(cfg, "POP_PARAM2", 1)
+    pop_settings.ModifySettings(cfg, "POP_AUTO", 1)
+
+    pop_settings.LoadFrom(cfg)
+
+    for i in range(5,10):
+        pop_settings.ModifySettings(cfg, "POP_END", i)
+        POP.ApplyAndWaitForCompletion()
+        pop_results = POP.GetResults()
+        pop_results.GetTextFile(r'C:\Users\pwfa-facet2\Desktop\slacecodes\FACET_model_current\wavelength_runs\results_matlab\test_r'+str(i)+'.csv')
 
 
     # This will clean up the connection to OpticStudio.
     # Note that it closes down the server instance of OpticStudio, so you for maximum performance do not do
     # this until you need to.
-    del zosapi
-    zosapi = None
+del zosapi
+zosapi = None

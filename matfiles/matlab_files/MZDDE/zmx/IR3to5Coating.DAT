@@ -1,0 +1,286 @@
+! Sample coating.dat file supplied with ZEMAX
+! See ZEMAX manual for complete syntax documentation
+
+! Sample material definitions
+
+MATE AIR
+0.55 1.0 0
+
+MATE N15
+0.55 1.5 0
+
+MATE AL2O3
+.600 1.59 0
+1.60 1.56 0
+
+MATE ALUM
+.550 0.7 -7.0
+
+MATE ALUM2
+.546 0.82 -5.99
+
+MATE BK7
+0.4  1.5308485 0
+0.46 1.5244335 0
+0.5  1.5414145 0
+0.7  1.5130640 0
+0.8  1.5107762 0
+1.0  1.5075022 0
+2.0  1.4945016 0
+
+MATE CEF3
+.550 1.63 0
+2.00 1.59 0
+
+MATE LA2O3
+.550 1.95 0
+2.00 1.86 0
+
+MATE MGF2
+0.4  1.38387 0
+0.46 1.38110 0
+0.5  1.37978 0
+0.7  1.37608 0
+0.8  1.37506 0
+1.0  1.37358 0
+2.0  1.36784 0
+2.5  1.36426 0
+
+MATE THF4
+.400 1.52 0
+.750 1.51 0
+
+MATE ZNS
+0.4  2.5571707 0
+0.46 2.4579060 0
+0.5  2.4190751 0
+0.7  2.3317272 0
+0.8  2.3131206 0
+1.0  2.2922206 0
+2.0  2.2859449 0
+
+MATE ZRO2
+.550 2.10 0
+2.00 2.00 0
+
+! Materials for 3-5 micron from DB Thesis Chapter 8
+! Reference : Bezuidenhout, D., "Broad Band Antireflection Coatings for Silicon and Germanium Substrates"
+! The materials are defined by a single refractive index
+
+! Zemax requires that the order of layers from the outer layer down to the substrate.
+! This is the reverse of the order given in the tables in Chapter 8.
+
+! The following are materials for silicon.
+! Materials for coating defined in Table IV Coating a
+
+MATE IVa1
+4.0 1.36 0
+
+MATE IVa2
+4.0 1.85 0
+
+MATE IVa3
+4.0 2.52 0
+
+
+! Materials for coating defined in Table IV Coating d
+
+MATE IVd1
+4.0 1.36 0
+
+MATE IVd2
+4.0 1.85 0
+
+MATE IVd3
+4.0 4.0 0
+
+MATE IVd4
+4.0 1.85 0
+
+
+! Materials for coating defined in Table IV Coating e
+MATE IVe1
+4.0 1.36 0
+
+MATE IVe2
+4.0 1.85 0
+
+MATE IVe3
+4.0 4.0 0
+
+MATE IVe4
+4.0 1.85 0 
+
+
+! The following materials are for Germanium coatings in the 3-5 micron region.
+! Materials for the coating defined in Table V
+MATE V1
+4.0 1.36 0
+
+MATE V2
+4.0 1.85 0
+
+MATE V3
+4.0 4.0 0
+
+MATE V4
+4.0 1.85 0
+
+! Also need silicon and germanium refractive indices for mirror coatings
+MATE SI
+2.5 3.43943711  0 
+3.0 3.43232207  0 
+3.5 3.42805797  0 
+4.0 3.42530049  0 
+4.5 3.42341433  0 
+5.0 3.42206716  0 
+5.5 3.42107132  0
+
+MATE GE
+2.5 4.06478481  0 
+3.0 4.04447890  0
+3.5 4.03261655  0
+4.0 4.02505769  0
+4.5 4.01993091  0
+5.0 4.01628478  0
+5.5 4.01359237  0
+
+
+! The coatings from the DB thesis follow.
+! Thicknesses in the table are optical thicknesses. They are given as absolute thicknesses, so that
+! changing the primary wavelength of the lens does not alter the coating properties. 
+! To get the physical thickness, the optical thickness is divided by the refractive index.
+! Also, note that the substrate is included as the last layer. This is done in order to allow
+! this coating to be correctly defined on a MIRROR surface. See the section on "Defining Coatings in ZEMAX"
+! in the chapter on POLARIZATION ANALYSIS in the ZEMAX manual. This was done to facilitate the modeling
+! of narcissus effects in IR lens systems. Doing this does not seem to affect normal modeling (as opposed to
+! MIRROR modeling) of the coating, even though the ZEMAX manual says ..
+! "The definition of the coating should not include the substrate index or material definition."
+!
+
+! AR Coatings for silicon in the 3-5 micron region follow.
+! The following coating is from Table IV coating a.
+COAT SIIVa
+IVa1 0.6912 1 
+IVa2 0.5081 1 
+IVa3 0.3730 1
+SI 0 0  
+
+
+! The following coating is from Table IV coating d.
+COAT SIIVd
+IVd1 0.4993 1 
+IVd2 0.3546 1 
+IVd3 0.0623 1  
+IVd4 0.1216 1
+SI 0 0
+
+
+! The following coating is from Table IV coating e.
+
+COAT SIIVe
+IVe1 0.4926 1 
+IVe2 0.3622 1 
+IVe3 0.0625 1  
+IVe4 0.1243 1
+SI 0 0
+
+
+! AR Coating for Germanium in the 3-5 micron region
+! The following coating is from Table V in the DB Thesis
+COAT GEV
+V1 0.4412 1
+V2 0.3784 1
+V3 0.0875 1
+V4 0.1027 1
+GE 0 0
+
+! Zemax Sample coating definitions
+ 
+
+COAT NULL
+MGF2 0.0
+
+COAT AR
+MGF2 .25
+
+COAT WAR
+MGF2 .25
+LA2O3 .50
+
+COAT HEAR1
+MGF2 .25
+ZRO2 .50
+CEF3 .25
+
+COAT HEAR2
+MGF2  .25
+ZNS   .50
+AL2O3 .75
+
+COAT GAP
+AIR .1
+
+COAT METAL
+ALUM2 0.0075092
+
+COAT METAL2
+ALUM2 0.04
+
+COAT AIR0010
+AIR .01
+
+COAT ETALON
+ZNS  .25 0 4
+MGF2 .25 0 4
+BK7  5000 1 0
+MGF2 .25 0 4
+ZNS  .25 0 4
+
+COAT FP
+ALUM 0.004
+AIR 150
+ALUM 0.004
+
+! Samples of defining simple ideal coatings using I. format; defines transmitted intensity, rest is assumed to be reflected
+! Format: I.transmission
+
+COAT I.05
+COAT I.50
+COAT I.95
+COAT I.98
+COAT I.99
+COAT I.995
+COAT I.99999999
+
+! Samples of defining ideal coatings using IDEAL. Defines transmitted and reflected intensity, rest is assumed to be absorbed
+! Format: IDEAL <name> <Transmitted intensity> <Reflected intensity>
+
+IDEAL SPLIT 0.50 0.50
+
+IDEAL ABSORB 0 0
+
+! Sample of defining ideal coatings using IDEAL2. Defines reflected and transmitted complex amplitude for S and P, rest is assumed to be absorbed
+! Format: IDEAL <name> s_rr s_ri s_tr s_ti p_rr p_ri p_tr p_ti no_pi_flag
+
+IDEAL2 PASS_P 1.0 0.0 0.0 0.0 0.0 0.0 1.0 0.0 0 
+
+! Sample table coating
+! See program manual for complete syntax and important comments
+
+TABLE PASS45
+ANGL 0.0
+WAVE 0.55 1.0 1.0 0.0 0.0 0.0 0.0 0.0 0.0
+ANGL 45.0
+WAVE 0.55 0.0 0.0 1.0 1.0 0.0 0.0 0.0 0.0
+ANGL 90.0
+WAVE 0.55 1.0 1.0 0.0 0.0 0.0 0.0 0.0 0.0
+
+! Sample taper function
+TAPR QUAD
+RT 2 -.1
+
+! Sample coating using a defined taper
+COAT AR_TAPR
+MGF2 .25 0 0 QUAD
+

@@ -1,0 +1,530 @@
+
+    Lunar librations, approximating DE404.
+Geometric coordinates, not corrected for aberration.
+
+JED ? 2.4546361699999999e+006
+Libration Euler angles re mean ecliptic and equinox of date (radians):
+  phi  2.490199, theta  0.027755, psi -0.939826
+Selenocentric unit vector toward pole of ecliptic:
+  p1 -0.022408, p2  0.016371, p3  0.999615
+Geocentric Moon:
+  longitude -92.8877, latitude -4.0493 degrees, distance 2.70654e-003 au
+Selenocentric unit vector toward the earth:
+  u1  0.995217, u2 -0.028554, u3  0.093418
+Selenographic direction of the earth:
+  longitude -1.6256, latitude 5.3603 degrees
+J2000 mean equatorial libration Euler angles:
+  phi  0.044679, theta  0.387383, psi  1.507123 radians
+Geocentric J2000 mean equatorial moon:
+  x -0.00014157, y -0.00239760, z -0.00124774 au
+Heliocentric J2000 mean equatorial earth:
+  x -0.041463, y -0.931470, z -0.403819 au
+Geocentric sun:
+  longitude 87.77950 degrees, latitude -0.32", distance 1.016084 au
+Selenocentric sun:
+  longitude 358.9763, latitude 1.3361 degrees
+JED ? 2.4546361699999999e+006
+Libration Euler angles re mean ecliptic and equinox of date (radians):
+  phi  2.490199, theta  0.027755, psi -0.939826
+Selenocentric unit vector toward pole of ecliptic:
+  p1 -0.022408, p2  0.016371, p3  0.999615
+Geocentric Moon:
+  longitude -92.8877, latitude -4.0493 degrees, distance 2.70654e-003 au
+Selenocentric unit vector toward the earth:
+  u1  0.995217, u2 -0.028554, u3  0.093418
+Selenographic direction of the earth:
+  longitude -1.6256, latitude 5.3603 degrees
+J2000 mean equatorial libration Euler angles:
+  phi  0.044679, theta  0.387383, psi  1.507123 radians
+Geocentric J2000 mean equatorial moon:
+  x -0.00014157, y -0.00239760, z -0.00124774 au
+Heliocentric J2000 mean equatorial earth:
+  x -0.041463, y -0.931470, z -0.403819 au
+Geocentric sun:
+  longitude 87.77950 degrees, latitude -0.32", distance 1.016084 au
+Selenocentric sun:
+  longitude 358.9763, latitude 1.3361 degrees
+JED ? 2.4546361800000002e+006
+Libration Euler angles re mean ecliptic and equinox of date (radians):
+  phi  2.490261, theta  0.027754, psi -0.937588
+Selenocentric unit vector toward pole of ecliptic:
+  p1 -0.022370, p2  0.016421, p3  0.999615
+Geocentric Moon:
+  longitude -92.7683, latitude -4.0428 degrees, distance 2.70645e-003 au
+Selenocentric unit vector toward the earth:
+  u1  0.995225, u2 -0.028768, u3  0.093274
+Selenographic direction of the earth:
+  longitude -1.6380, latitude 5.3520 degrees
+J2000 mean equatorial libration Euler angles:
+  phi  0.044674, theta  0.387383, psi  1.509428 radians
+Geocentric J2000 mean equatorial moon:
+  x -0.00013595, y -0.00239792, z -0.00124754 au
+Heliocentric J2000 mean equatorial earth:
+  x -0.041294, y -0.931477, z -0.403822 au
+Geocentric sun:
+  longitude 87.78904 degrees, latitude -0.31", distance 1.016084 au
+Selenocentric sun:
+  longitude 358.8543, latitude 1.3359 degrees
+JED ? 2.4546361800000002e+006
+Libration Euler angles re mean ecliptic and equinox of date (radians):
+  phi  2.490261, theta  0.027754, psi -0.937588
+Selenocentric unit vector toward pole of ecliptic:
+  p1 -0.022370, p2  0.016421, p3  0.999615
+Geocentric Moon:
+  longitude -92.7683, latitude -4.0428 degrees, distance 2.70645e-003 au
+Selenocentric unit vector toward the earth:
+  u1  0.995225, u2 -0.028768, u3  0.093274
+Selenographic direction of the earth:
+  longitude -1.6380, latitude 5.3520 degrees
+J2000 mean equatorial libration Euler angles:
+  phi  0.044674, theta  0.387383, psi  1.509428 radians
+Geocentric J2000 mean equatorial moon:
+  x -0.00013595, y -0.00239792, z -0.00124754 au
+Heliocentric J2000 mean equatorial earth:
+  x -0.041294, y -0.931477, z -0.403822 au
+Geocentric sun:
+  longitude 87.78904 degrees, latitude -0.31", distance 1.016084 au
+Selenocentric sun:
+  longitude 358.8543, latitude 1.3359 degrees
+JED ? 2.4546361899999999e+006
+Libration Euler angles re mean ecliptic and equinox of date (radians):
+  phi  2.490322, theta  0.027752, psi -0.935349
+Selenocentric unit vector toward pole of ecliptic:
+  p1 -0.022332, p2  0.016470, p3  0.999615
+Geocentric Moon:
+  longitude -92.6490, latitude -4.0364 degrees, distance 2.70636e-003 au
+Selenocentric unit vector toward the earth:
+  u1  0.995232, u2 -0.028983, u3  0.093128
+Selenographic direction of the earth:
+  longitude -1.6503, latitude 5.3436 degrees
+J2000 mean equatorial libration Euler angles:
+  phi  0.044668, theta  0.387383, psi  1.511733 radians
+Geocentric J2000 mean equatorial moon:
+  x -0.00013033, y -0.00239824, z -0.00124734 au
+Heliocentric J2000 mean equatorial earth:
+  x -0.041125, y -0.931484, z -0.403825 au
+Geocentric sun:
+  longitude 87.79858 degrees, latitude -0.31", distance 1.016085 au
+Selenocentric sun:
+  longitude 358.7324, latitude 1.3358 degrees
+JED ? 2.4546362000000002e+006
+Libration Euler angles re mean ecliptic and equinox of date (radians):
+  phi  2.490383, theta  0.027751, psi -0.933110
+Selenocentric unit vector toward pole of ecliptic:
+  p1 -0.022294, p2  0.016519, p3  0.999615
+Geocentric Moon:
+  longitude -92.5296, latitude -4.0299 degrees, distance 2.70627e-003 au
+Selenocentric unit vector toward the earth:
+  u1  0.995240, u2 -0.029197, u3  0.092983
+Selenographic direction of the earth:
+  longitude -1.6626, latitude 5.3352 degrees
+J2000 mean equatorial libration Euler angles:
+  phi  0.044662, theta  0.387383, psi  1.514038 radians
+Geocentric J2000 mean equatorial moon:
+  x -0.00012471, y -0.00239854, z -0.00124713 au
+Heliocentric J2000 mean equatorial earth:
+  x -0.040956, y -0.931491, z -0.403828 au
+Geocentric sun:
+  longitude 87.80812 degrees, latitude -0.31", distance 1.016086 au
+Selenocentric sun:
+  longitude 358.6104, latitude 1.3356 degrees
+JED ? 2.4546362000000002e+006
+Libration Euler angles re mean ecliptic and equinox of date (radians):
+  phi  2.490383, theta  0.027751, psi -0.933110
+Selenocentric unit vector toward pole of ecliptic:
+  p1 -0.022294, p2  0.016519, p3  0.999615
+Geocentric Moon:
+  longitude -92.5296, latitude -4.0299 degrees, distance 2.70627e-003 au
+Selenocentric unit vector toward the earth:
+  u1  0.995240, u2 -0.029197, u3  0.092983
+Selenographic direction of the earth:
+  longitude -1.6626, latitude 5.3352 degrees
+J2000 mean equatorial libration Euler angles:
+  phi  0.044662, theta  0.387383, psi  1.514038 radians
+Geocentric J2000 mean equatorial moon:
+  x -0.00012471, y -0.00239854, z -0.00124713 au
+Heliocentric J2000 mean equatorial earth:
+  x -0.040956, y -0.931491, z -0.403828 au
+Geocentric sun:
+  longitude 87.80812 degrees, latitude -0.31", distance 1.016086 au
+Selenocentric sun:
+  longitude 358.6104, latitude 1.3356 degrees
+JED ? 2.4546362100000000e+006
+Libration Euler angles re mean ecliptic and equinox of date (radians):
+  phi  2.490444, theta  0.027749, psi -0.930871
+Selenocentric unit vector toward pole of ecliptic:
+  p1 -0.022256, p2  0.016568, p3  0.999615
+Geocentric Moon:
+  longitude -92.4102, latitude -4.0234 degrees, distance 2.70618e-003 au
+Selenocentric unit vector toward the earth:
+  u1  0.995247, u2 -0.029411, u3  0.092837
+Selenographic direction of the earth:
+  longitude -1.6749, latitude 5.3268 degrees
+J2000 mean equatorial libration Euler angles:
+  phi  0.044656, theta  0.387383, psi  1.516344 radians
+Geocentric J2000 mean equatorial moon:
+  x -0.00011909, y -0.00239884, z -0.00124692 au
+Heliocentric J2000 mean equatorial earth:
+  x -0.040787, y -0.931498, z -0.403831 au
+Geocentric sun:
+  longitude 87.81766 degrees, latitude -0.31", distance 1.016087 au
+Selenocentric sun:
+  longitude 358.4885, latitude 1.3354 degrees
+JED ? 2.4546362100000000e+006
+Libration Euler angles re mean ecliptic and equinox of date (radians):
+  phi  2.490444, theta  0.027749, psi -0.930871
+Selenocentric unit vector toward pole of ecliptic:
+  p1 -0.022256, p2  0.016568, p3  0.999615
+Geocentric Moon:
+  longitude -92.4102, latitude -4.0234 degrees, distance 2.70618e-003 au
+Selenocentric unit vector toward the earth:
+  u1  0.995247, u2 -0.029411, u3  0.092837
+Selenographic direction of the earth:
+  longitude -1.6749, latitude 5.3268 degrees
+J2000 mean equatorial libration Euler angles:
+  phi  0.044656, theta  0.387383, psi  1.516344 radians
+Geocentric J2000 mean equatorial moon:
+  x -0.00011909, y -0.00239884, z -0.00124692 au
+Heliocentric J2000 mean equatorial earth:
+  x -0.040787, y -0.931498, z -0.403831 au
+Geocentric sun:
+  longitude 87.81766 degrees, latitude -0.31", distance 1.016087 au
+Selenocentric sun:
+  longitude 358.4885, latitude 1.3354 degrees
+JED ? 2.4546362200000002e+006
+Libration Euler angles re mean ecliptic and equinox of date (radians):
+  phi  2.490505, theta  0.027748, psi -0.928632
+Selenocentric unit vector toward pole of ecliptic:
+  p1 -0.022218, p2  0.016617, p3  0.999615
+Geocentric Moon:
+  longitude -92.2909, latitude -4.0169 degrees, distance 2.70609e-003 au
+Selenocentric unit vector toward the earth:
+  u1  0.995254, u2 -0.029625, u3  0.092690
+Selenographic direction of the earth:
+  longitude -1.6872, latitude 5.3184 degrees
+J2000 mean equatorial libration Euler angles:
+  phi  0.044650, theta  0.387383, psi  1.518649 radians
+Geocentric J2000 mean equatorial moon:
+  x -0.00011347, y -0.00239912, z -0.00124670 au
+Heliocentric J2000 mean equatorial earth:
+  x -0.040618, y -0.931505, z -0.403834 au
+Geocentric sun:
+  longitude 87.82720 degrees, latitude -0.31", distance 1.016087 au
+Selenocentric sun:
+  longitude 358.3666, latitude 1.3352 degrees
+JED ? 2.4546362200000002e+006
+Libration Euler angles re mean ecliptic and equinox of date (radians):
+  phi  2.490505, theta  0.027748, psi -0.928632
+Selenocentric unit vector toward pole of ecliptic:
+  p1 -0.022218, p2  0.016617, p3  0.999615
+Geocentric Moon:
+  longitude -92.2909, latitude -4.0169 degrees, distance 2.70609e-003 au
+Selenocentric unit vector toward the earth:
+  u1  0.995254, u2 -0.029625, u3  0.092690
+Selenographic direction of the earth:
+  longitude -1.6872, latitude 5.3184 degrees
+J2000 mean equatorial libration Euler angles:
+  phi  0.044650, theta  0.387383, psi  1.518649 radians
+Geocentric J2000 mean equatorial moon:
+  x -0.00011347, y -0.00239912, z -0.00124670 au
+Heliocentric J2000 mean equatorial earth:
+  x -0.040618, y -0.931505, z -0.403834 au
+Geocentric sun:
+  longitude 87.82720 degrees, latitude -0.31", distance 1.016087 au
+Selenocentric sun:
+  longitude 358.3666, latitude 1.3352 degrees
+JED ? 2.4546362300000000e+006
+Libration Euler angles re mean ecliptic and equinox of date (radians):
+  phi  2.490565, theta  0.027747, psi -0.926393
+Selenocentric unit vector toward pole of ecliptic:
+  p1 -0.022179, p2  0.016666, p3  0.999615
+Geocentric Moon:
+  longitude -92.1715, latitude -4.0103 degrees, distance 2.70600e-003 au
+Selenocentric unit vector toward the earth:
+  u1  0.995261, u2 -0.029839, u3  0.092544
+Selenographic direction of the earth:
+  longitude -1.6995, latitude 5.3100 degrees
+J2000 mean equatorial libration Euler angles:
+  phi  0.044645, theta  0.387383, psi  1.520954 radians
+Geocentric J2000 mean equatorial moon:
+  x -0.00010785, y -0.00239940, z -0.00124648 au
+Heliocentric J2000 mean equatorial earth:
+  x -0.040449, y -0.931512, z -0.403837 au
+Geocentric sun:
+  longitude 87.83675 degrees, latitude -0.31", distance 1.016088 au
+Selenocentric sun:
+  longitude 358.2446, latitude 1.3350 degrees
+JED ? 2.4546362400000002e+006
+Libration Euler angles re mean ecliptic and equinox of date (radians):
+  phi  2.490626, theta  0.027745, psi -0.924154
+Selenocentric unit vector toward pole of ecliptic:
+  p1 -0.022141, p2  0.016715, p3  0.999615
+Geocentric Moon:
+  longitude -92.0521, latitude -4.0038 degrees, distance 2.70591e-003 au
+Selenocentric unit vector toward the earth:
+  u1  0.995269, u2 -0.030053, u3  0.092396
+Selenographic direction of the earth:
+  longitude -1.7118, latitude 5.3015 degrees
+J2000 mean equatorial libration Euler angles:
+  phi  0.044639, theta  0.387383, psi  1.523259 radians
+Geocentric J2000 mean equatorial moon:
+  x -0.00010222, y -0.00239966, z -0.00124625 au
+Heliocentric J2000 mean equatorial earth:
+  x -0.040280, y -0.931519, z -0.403840 au
+Geocentric sun:
+  longitude 87.84629 degrees, latitude -0.31", distance 1.016089 au
+Selenocentric sun:
+  longitude 358.1227, latitude 1.3348 degrees
+JED ? 2.4546362400000002e+006
+Libration Euler angles re mean ecliptic and equinox of date (radians):
+  phi  2.490626, theta  0.027745, psi -0.924154
+Selenocentric unit vector toward pole of ecliptic:
+  p1 -0.022141, p2  0.016715, p3  0.999615
+Geocentric Moon:
+  longitude -92.0521, latitude -4.0038 degrees, distance 2.70591e-003 au
+Selenocentric unit vector toward the earth:
+  u1  0.995269, u2 -0.030053, u3  0.092396
+Selenographic direction of the earth:
+  longitude -1.7118, latitude 5.3015 degrees
+J2000 mean equatorial libration Euler angles:
+  phi  0.044639, theta  0.387383, psi  1.523259 radians
+Geocentric J2000 mean equatorial moon:
+  x -0.00010222, y -0.00239966, z -0.00124625 au
+Heliocentric J2000 mean equatorial earth:
+  x -0.040280, y -0.931519, z -0.403840 au
+Geocentric sun:
+  longitude 87.84629 degrees, latitude -0.31", distance 1.016089 au
+Selenocentric sun:
+  longitude 358.1227, latitude 1.3348 degrees
+JED ? 2.4546362500000000e+006
+Libration Euler angles re mean ecliptic and equinox of date (radians):
+  phi  2.490686, theta  0.027744, psi -0.921914
+Selenocentric unit vector toward pole of ecliptic:
+  p1 -0.022102, p2  0.016763, p3  0.999615
+Geocentric Moon:
+  longitude -91.9327, latitude -3.9972 degrees, distance 2.70582e-003 au
+Selenocentric unit vector toward the earth:
+  u1  0.995276, u2 -0.030267, u3  0.092249
+Selenographic direction of the earth:
+  longitude -1.7241, latitude 5.2930 degrees
+J2000 mean equatorial libration Euler angles:
+  phi  0.044633, theta  0.387383, psi  1.525564 radians
+Geocentric J2000 mean equatorial moon:
+  x -0.00009660, y -0.00239991, z -0.00124601 au
+Heliocentric J2000 mean equatorial earth:
+  x -0.040111, y -0.931526, z -0.403843 au
+Geocentric sun:
+  longitude 87.85583 degrees, latitude -0.31", distance 1.016090 au
+Selenocentric sun:
+  longitude 358.0007, latitude 1.3346 degrees
+JED ? 2.4546362500000000e+006
+Libration Euler angles re mean ecliptic and equinox of date (radians):
+  phi  2.490686, theta  0.027744, psi -0.921914
+Selenocentric unit vector toward pole of ecliptic:
+  p1 -0.022102, p2  0.016763, p3  0.999615
+Geocentric Moon:
+  longitude -91.9327, latitude -3.9972 degrees, distance 2.70582e-003 au
+Selenocentric unit vector toward the earth:
+  u1  0.995276, u2 -0.030267, u3  0.092249
+Selenographic direction of the earth:
+  longitude -1.7241, latitude 5.2930 degrees
+J2000 mean equatorial libration Euler angles:
+  phi  0.044633, theta  0.387383, psi  1.525564 radians
+Geocentric J2000 mean equatorial moon:
+  x -0.00009660, y -0.00239991, z -0.00124601 au
+Heliocentric J2000 mean equatorial earth:
+  x -0.040111, y -0.931526, z -0.403843 au
+Geocentric sun:
+  longitude 87.85583 degrees, latitude -0.31", distance 1.016090 au
+Selenocentric sun:
+  longitude 358.0007, latitude 1.3346 degrees
+JED ? 2.4546362599999998e+006
+Libration Euler angles re mean ecliptic and equinox of date (radians):
+  phi  2.490746, theta  0.027742, psi -0.919675
+Selenocentric unit vector toward pole of ecliptic:
+  p1 -0.022064, p2  0.016812, p3  0.999615
+Geocentric Moon:
+  longitude -91.8133, latitude -3.9906 degrees, distance 2.70572e-003 au
+Selenocentric unit vector toward the earth:
+  u1  0.995283, u2 -0.030481, u3  0.092101
+Selenographic direction of the earth:
+  longitude -1.7364, latitude 5.2845 degrees
+J2000 mean equatorial libration Euler angles:
+  phi  0.044627, theta  0.387383, psi  1.527870 radians
+Geocentric J2000 mean equatorial moon:
+  x -0.00009098, y -0.00240015, z -0.00124577 au
+Heliocentric J2000 mean equatorial earth:
+  x -0.039942, y -0.931533, z -0.403846 au
+Geocentric sun:
+  longitude 87.86537 degrees, latitude -0.31", distance 1.016090 au
+Selenocentric sun:
+  longitude 357.8788, latitude 1.3344 degrees
+JED ? 2.4546362700000000e+006
+Libration Euler angles re mean ecliptic and equinox of date (radians):
+  phi  2.490807, theta  0.027741, psi -0.917435
+Selenocentric unit vector toward pole of ecliptic:
+  p1 -0.022025, p2  0.016860, p3  0.999615
+Geocentric Moon:
+  longitude -91.6939, latitude -3.9840 degrees, distance 2.70563e-003 au
+Selenocentric unit vector toward the earth:
+  u1  0.995290, u2 -0.030695, u3  0.091952
+Selenographic direction of the earth:
+  longitude -1.7487, latitude 5.2759 degrees
+J2000 mean equatorial libration Euler angles:
+  phi  0.044621, theta  0.387383, psi  1.530175 radians
+Geocentric J2000 mean equatorial moon:
+  x -0.00008535, y -0.00240038, z -0.00124552 au
+Heliocentric J2000 mean equatorial earth:
+  x -0.039773, y -0.931539, z -0.403849 au
+Geocentric sun:
+  longitude 87.87491 degrees, latitude -0.31", distance 1.016091 au
+Selenocentric sun:
+  longitude 357.7568, latitude 1.3343 degrees
+JED ? 2.4546362700000000e+006
+Libration Euler angles re mean ecliptic and equinox of date (radians):
+  phi  2.490807, theta  0.027741, psi -0.917435
+Selenocentric unit vector toward pole of ecliptic:
+  p1 -0.022025, p2  0.016860, p3  0.999615
+Geocentric Moon:
+  longitude -91.6939, latitude -3.9840 degrees, distance 2.70563e-003 au
+Selenocentric unit vector toward the earth:
+  u1  0.995290, u2 -0.030695, u3  0.091952
+Selenographic direction of the earth:
+  longitude -1.7487, latitude 5.2759 degrees
+J2000 mean equatorial libration Euler angles:
+  phi  0.044621, theta  0.387383, psi  1.530175 radians
+Geocentric J2000 mean equatorial moon:
+  x -0.00008535, y -0.00240038, z -0.00124552 au
+Heliocentric J2000 mean equatorial earth:
+  x -0.039773, y -0.931539, z -0.403849 au
+Geocentric sun:
+  longitude 87.87491 degrees, latitude -0.31", distance 1.016091 au
+Selenocentric sun:
+  longitude 357.7568, latitude 1.3343 degrees
+JED ? 2.4546362799999998e+006
+Libration Euler angles re mean ecliptic and equinox of date (radians):
+  phi  2.490867, theta  0.027739, psi -0.915195
+Selenocentric unit vector toward pole of ecliptic:
+  p1 -0.021986, p2  0.016909, p3  0.999615
+Geocentric Moon:
+  longitude -91.5745, latitude -3.9774 degrees, distance 2.70554e-003 au
+Selenocentric unit vector toward the earth:
+  u1  0.995297, u2 -0.030909, u3  0.091803
+Selenographic direction of the earth:
+  longitude -1.7610, latitude 5.2674 degrees
+J2000 mean equatorial libration Euler angles:
+  phi  0.044615, theta  0.387383, psi  1.532480 radians
+Geocentric J2000 mean equatorial moon:
+  x -0.00007973, y -0.00240060, z -0.00124527 au
+Heliocentric J2000 mean equatorial earth:
+  x -0.039604, y -0.931546, z -0.403851 au
+Geocentric sun:
+  longitude 87.88445 degrees, latitude -0.31", distance 1.016092 au
+Selenocentric sun:
+  longitude 357.6349, latitude 1.3341 degrees
+JED ? 2.4546362799999998e+006
+Libration Euler angles re mean ecliptic and equinox of date (radians):
+  phi  2.490867, theta  0.027739, psi -0.915195
+Selenocentric unit vector toward pole of ecliptic:
+  p1 -0.021986, p2  0.016909, p3  0.999615
+Geocentric Moon:
+  longitude -91.5745, latitude -3.9774 degrees, distance 2.70554e-003 au
+Selenocentric unit vector toward the earth:
+  u1  0.995297, u2 -0.030909, u3  0.091803
+Selenographic direction of the earth:
+  longitude -1.7610, latitude 5.2674 degrees
+J2000 mean equatorial libration Euler angles:
+  phi  0.044615, theta  0.387383, psi  1.532480 radians
+Geocentric J2000 mean equatorial moon:
+  x -0.00007973, y -0.00240060, z -0.00124527 au
+Heliocentric J2000 mean equatorial earth:
+  x -0.039604, y -0.931546, z -0.403851 au
+Geocentric sun:
+  longitude 87.88445 degrees, latitude -0.31", distance 1.016092 au
+Selenocentric sun:
+  longitude 357.6349, latitude 1.3341 degrees
+JED ? 2.4546362900000000e+006
+Libration Euler angles re mean ecliptic and equinox of date (radians):
+  phi  2.490926, theta  0.027738, psi -0.912955
+Selenocentric unit vector toward pole of ecliptic:
+  p1 -0.021947, p2  0.016957, p3  0.999615
+Geocentric Moon:
+  longitude -91.4551, latitude -3.9708 degrees, distance 2.70544e-003 au
+Selenocentric unit vector toward the earth:
+  u1  0.995304, u2 -0.031122, u3  0.091654
+Selenographic direction of the earth:
+  longitude -1.7732, latitude 5.2588 degrees
+J2000 mean equatorial libration Euler angles:
+  phi  0.044610, theta  0.387383, psi  1.534785 radians
+Geocentric J2000 mean equatorial moon:
+  x -0.00007410, y -0.00240081, z -0.00124501 au
+Heliocentric J2000 mean equatorial earth:
+  x -0.039435, y -0.931553, z -0.403854 au
+Geocentric sun:
+  longitude 87.89399 degrees, latitude -0.31", distance 1.016093 au
+Selenocentric sun:
+  longitude 357.5129, latitude 1.3339 degrees
+JED ? 2.4546362900000000e+006
+Libration Euler angles re mean ecliptic and equinox of date (radians):
+  phi  2.490926, theta  0.027738, psi -0.912955
+Selenocentric unit vector toward pole of ecliptic:
+  p1 -0.021947, p2  0.016957, p3  0.999615
+Geocentric Moon:
+  longitude -91.4551, latitude -3.9708 degrees, distance 2.70544e-003 au
+Selenocentric unit vector toward the earth:
+  u1  0.995304, u2 -0.031122, u3  0.091654
+Selenographic direction of the earth:
+  longitude -1.7732, latitude 5.2588 degrees
+J2000 mean equatorial libration Euler angles:
+  phi  0.044610, theta  0.387383, psi  1.534785 radians
+Geocentric J2000 mean equatorial moon:
+  x -0.00007410, y -0.00240081, z -0.00124501 au
+Heliocentric J2000 mean equatorial earth:
+  x -0.039435, y -0.931553, z -0.403854 au
+Geocentric sun:
+  longitude 87.89399 degrees, latitude -0.31", distance 1.016093 au
+Selenocentric sun:
+  longitude 357.5129, latitude 1.3339 degrees
+JED ? 2.4546362999999998e+006
+Libration Euler angles re mean ecliptic and equinox of date (radians):
+  phi  2.490986, theta  0.027737, psi -0.910715
+Selenocentric unit vector toward pole of ecliptic:
+  p1 -0.021907, p2  0.017005, p3  0.999615
+Geocentric Moon:
+  longitude -91.3357, latitude -3.9641 degrees, distance 2.70535e-003 au
+Selenocentric unit vector toward the earth:
+  u1  0.995312, u2 -0.031336, u3  0.091504
+Selenographic direction of the earth:
+  longitude -1.7855, latitude 5.2501 degrees
+J2000 mean equatorial libration Euler angles:
+  phi  0.044604, theta  0.387384, psi  1.537090 radians
+Geocentric J2000 mean equatorial moon:
+  x -0.00006848, y -0.00240100, z -0.00124475 au
+Heliocentric J2000 mean equatorial earth:
+  x -0.039266, y -0.931560, z -0.403857 au
+Geocentric sun:
+  longitude 87.90353 degrees, latitude -0.30", distance 1.016093 au
+Selenocentric sun:
+  longitude 357.3910, latitude 1.3337 degrees
+JED ? 2.4546363100000001e+006
+Libration Euler angles re mean ecliptic and equinox of date (radians):
+  phi  2.491046, theta  0.027735, psi -0.908475
+Selenocentric unit vector toward pole of ecliptic:
+  p1 -0.021868, p2  0.017053, p3  0.999615
+Geocentric Moon:
+  longitude -91.2162, latitude -3.9574 degrees, distance 2.70526e-003 au
+Selenocentric unit vector toward the earth:
+  u1  0.995319, u2 -0.031549, u3  0.091354
+Selenographic direction of the earth:
+  longitude -1.7978, latitude 5.2415 degrees
+J2000 mean equatorial libration Euler angles:
+  phi  0.044598, theta  0.387384, psi  1.539396 radians
+Geocentric J2000 mean equatorial moon:
+  x -0.00006285, y -0.00240119, z -0.00124448 au
+Heliocentric J2000 mean equatorial earth:
+  x -0.039097, y -0.931566, z -0.403860 au
+Geocentric sun:
+  longitude 87.91308 degrees, latitude -0.30", distance 1.016094 au
+Selenocentric sun:
+  longitude 357.2691, latitude 1.3335 degrees
+JED ? 

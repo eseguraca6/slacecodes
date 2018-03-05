@@ -1,0 +1,571 @@
+
+	Steve Moshier's Ephemeris Program v5.6
+
+Planetary and lunar positions approximate DE404.
+Terrestrial east longitude 27.6520 deg
+geocentric latitude -28.4417 deg
+Earth radius 0.99948
+temperature 11.0 C
+pressure 850 mb
+Input time is UT.
+Enter starting date of tabulation
+Calendar date: Year (1986) ? Month (1-12) (1) ? Day.fraction (1.000000) ? Time: Hours (0) ? Minutes (0) ? Seconds (0.000000) ? 2008 June 18 Wednesday 16h 01m 09.463s  TDT
+2008 June 18 Wednesday 16h 00m 00.000s  UT
+Julian day 2454636.1666667
+Enter interval between tabulations in days (1.000000) ? Number of tabulations to display (1) ? Planet number 0-9 or 88 to read star, 99 to read orbit (0) ? 
+                   The Moon
+
+JD 2454636.17,  2008 June 18 Wednesday 16h 01m 09.463s  TDT
+2008 June 18 Wednesday 16h 00m 00.000s  UT
+nutation dRA 0.770s dDec -6.73"
+Geometric lon -92.918 deg, lat -4.051 deg, rad 2.7066e-03 au
+Apparent geocentric longitude 267.085 deg   latitude -4.051 deg
+Distance 63.482 Earth-radii
+Horizontal parallax    0d 54' 09.33"  Semidiameter    0d 14' 45.33"  
+Elongation from sun 175.89 deg,  Illuminated fraction 1.00
+Phase 0.06 days before Full Moon
+    Apparent:  R.A. 17h 46m 53.427s  Declination - 27d 27' 27.76"  
+Local apparent sidereal time  11h 39m 39.735s  
+diurnal aberration dRA -0.001s dDec 0.13"
+diurnal parallax dRA 214.307s dDec 1428.44"
+atmospheric refraction 0.071 deg  dRA -17.025s dDec -115.34"
+Topocentric:  Altitude 10.497 deg, Azimuth 115.248 deg
+Topocentric: R.A. 17h 50m 10.708s   Dec. - 27d 05' 34.53"  
+local meridian transit 2008 June 18 Wednesday 22h 20m 22.340s  UT
+rises 2008 June 18 Wednesday 14h 59m 44.666s  UT
+sets 2008 June 19 Thursday  5h 39m 40.187s  UT
+Visible hours 14.6654
+
+
+JD 2454636.17,  2008 June 18 Wednesday 16h 09m 33.434s  TDT
+2008 June 18 Wednesday 16h 08m 23.971s  UT
+nutation dRA 0.770s dDec -6.73"
+Geometric lon -92.848 deg, lat -4.047 deg, rad 2.7065e-03 au
+Apparent geocentric longitude 267.154 deg   latitude -4.047 deg
+Distance 63.481 Earth-radii
+Horizontal parallax    0d 54' 09.39"  Semidiameter    0d 14' 45.35"  
+Elongation from sun 175.90 deg,  Illuminated fraction 1.00
+Phase 0.05 days before Full Moon
+    Apparent:  R.A. 17h 47m 12.226s  Declination - 27d 27' 19.89"  
+Local apparent sidereal time  11h 48m 05.086s  
+diurnal aberration dRA 0.000s dDec 0.13"
+diurnal parallax dRA 214.530s dDec 1382.40"
+atmospheric refraction 0.062 deg  dRA -14.950s dDec -97.95"
+Topocentric:  Altitude 12.107 deg, Azimuth 114.436 deg
+Topocentric: R.A. 17h 50m 31.807s   Dec. - 27d 05' 55.31"  
+local meridian transit 2008 June 18 Wednesday 22h 20m 22.340s  UT
+rises 2008 June 18 Wednesday 14h 59m 44.666s  UT
+sets 2008 June 19 Thursday  5h 39m 40.187s  UT
+Visible hours 14.6654
+
+
+JD 2454636.18,  2008 June 18 Wednesday 16h 17m 57.406s  TDT
+2008 June 18 Wednesday 16h 16m 47.942s  UT
+nutation dRA 0.771s dDec -6.72"
+Geometric lon -92.779 deg, lat -4.043 deg, rad 2.7065e-03 au
+Apparent geocentric longitude 267.224 deg   latitude -4.043 deg
+Distance 63.479 Earth-radii
+Horizontal parallax    0d 54' 09.45"  Semidiameter    0d 14' 45.37"  
+Elongation from sun 175.92 deg,  Illuminated fraction 1.00
+Phase 0.05 days before Full Moon
+    Apparent:  R.A. 17h 47m 31.026s  Declination - 27d 27' 11.85"  
+Local apparent sidereal time  11h 56m 30.437s  
+diurnal aberration dRA 0.001s dDec 0.13"
+diurnal parallax dRA 214.485s dDec 1336.30"
+atmospheric refraction 0.055 deg  dRA -13.301s dDec -84.30"
+Topocentric:  Altitude 13.730 deg, Azimuth 113.641 deg
+Topocentric: R.A. 17h 50m 52.211s   Dec. - 27d 06' 19.73"  
+local meridian transit 2008 June 18 Wednesday 22h 20m 22.340s  UT
+rises 2008 June 18 Wednesday 14h 59m 44.666s  UT
+sets 2008 June 19 Thursday  5h 39m 40.187s  UT
+Visible hours 14.6654
+
+
+JD 2454636.18,  2008 June 18 Wednesday 16h 26m 21.377s  TDT
+2008 June 18 Wednesday 16h 25m 11.914s  UT
+nutation dRA 0.771s dDec -6.72"
+Geometric lon -92.709 deg, lat -4.040 deg, rad 2.7064e-03 au
+Apparent geocentric longitude 267.294 deg   latitude -4.040 deg
+Distance 63.478 Earth-radii
+Horizontal parallax    0d 54' 09.51"  Semidiameter    0d 14' 45.38"  
+Elongation from sun 175.93 deg,  Illuminated fraction 1.00
+Phase 0.04 days before Full Moon
+    Apparent:  R.A. 17h 47m 49.825s  Declination - 27d 27' 03.66"  
+Local apparent sidereal time  12h 04m 55.788s  
+diurnal aberration dRA 0.002s dDec 0.13"
+diurnal parallax dRA 214.171s dDec 1290.20"
+atmospheric refraction 0.049 deg  dRA -12.103s dDec -74.20"
+Topocentric:  Altitude 15.366 deg, Azimuth 112.861 deg
+Topocentric: R.A. 17h 51m 11.895s   Dec. - 27d 06' 47.53"  
+local meridian transit 2008 June 18 Wednesday 22h 20m 22.340s  UT
+rises 2008 June 18 Wednesday 14h 59m 44.666s  UT
+sets 2008 June 19 Thursday  5h 39m 40.187s  UT
+Visible hours 14.6654
+
+
+JD 2454636.19,  2008 June 18 Wednesday 16h 34m 45.348s  TDT
+2008 June 18 Wednesday 16h 33m 35.885s  UT
+nutation dRA 0.771s dDec -6.71"
+Geometric lon -92.639 deg, lat -4.036 deg, rad 2.7064e-03 au
+Apparent geocentric longitude 267.363 deg   latitude -4.036 deg
+Distance 63.477 Earth-radii
+Horizontal parallax    0d 54' 09.58"  Semidiameter    0d 14' 45.40"  
+Elongation from sun 175.94 deg,  Illuminated fraction 1.00
+Phase 0.04 days before Full Moon
+    Apparent:  R.A. 17h 48m 08.624s  Declination - 27d 26' 55.31"  
+Local apparent sidereal time  12h 13m 21.139s  
+diurnal aberration dRA 0.002s dDec 0.13"
+diurnal parallax dRA 213.588s dDec 1244.17"
+atmospheric refraction 0.044 deg  dRA -10.926s dDec -64.80"
+Topocentric:  Altitude 17.012 deg, Azimuth 112.097 deg
+Topocentric: R.A. 17h 51m 31.289s   Dec. - 27d 07' 15.81"  
+local meridian transit 2008 June 18 Wednesday 22h 20m 22.340s  UT
+rises 2008 June 18 Wednesday 14h 59m 44.666s  UT
+sets 2008 June 19 Thursday  5h 39m 40.187s  UT
+Visible hours 14.6654
+
+
+JD 2454636.20,  2008 June 18 Wednesday 16h 43m 09.319s  TDT
+2008 June 18 Wednesday 16h 41m 59.856s  UT
+nutation dRA 0.772s dDec -6.71"
+Geometric lon -92.570 deg, lat -4.032 deg, rad 2.7063e-03 au
+Apparent geocentric longitude 267.433 deg   latitude -4.032 deg
+Distance 63.476 Earth-radii
+Horizontal parallax    0d 54' 09.64"  Semidiameter    0d 14' 45.42"  
+Elongation from sun 175.95 deg,  Illuminated fraction 1.00
+Phase 0.03 days before Full Moon
+    Apparent:  R.A. 17h 48m 27.424s  Declination - 27d 26' 46.80"  
+Local apparent sidereal time  12h 21m 46.490s  
+diurnal aberration dRA 0.003s dDec 0.13"
+diurnal parallax dRA 212.736s dDec 1198.26"
+atmospheric refraction 0.040 deg  dRA -9.943s dDec -57.05"
+Topocentric:  Altitude 18.668 deg, Azimuth 111.346 deg
+Topocentric: R.A. 17h 51m 50.220s   Dec. - 27d 07' 45.46"  
+local meridian transit 2008 June 18 Wednesday 22h 20m 22.340s  UT
+rises 2008 June 18 Wednesday 14h 59m 44.666s  UT
+sets 2008 June 19 Thursday  5h 39m 40.187s  UT
+Visible hours 14.6654
+
+
+JD 2454636.20,  2008 June 18 Wednesday 16h 51m 33.290s  TDT
+2008 June 18 Wednesday 16h 50m 23.827s  UT
+nutation dRA 0.772s dDec -6.70"
+Geometric lon -92.500 deg, lat -4.028 deg, rad 2.7062e-03 au
+Apparent geocentric longitude 267.503 deg   latitude -4.028 deg
+Distance 63.475 Earth-radii
+Horizontal parallax    0d 54' 09.70"  Semidiameter    0d 14' 45.43"  
+Elongation from sun 175.96 deg,  Illuminated fraction 1.00
+Phase 0.03 days before Full Moon
+    Apparent:  R.A. 17h 48m 46.223s  Declination - 27d 26' 38.13"  
+Local apparent sidereal time  12h 30m 11.841s  
+diurnal aberration dRA 0.004s dDec 0.13"
+diurnal parallax dRA 211.616s dDec 1152.52"
+atmospheric refraction 0.037 deg  dRA -9.108s dDec -50.55"
+Topocentric:  Altitude 20.334 deg, Azimuth 110.609 deg
+Topocentric: R.A. 17h 52m 08.735s   Dec. - 27d 08' 16.04"  
+local meridian transit 2008 June 18 Wednesday 22h 20m 22.340s  UT
+rises 2008 June 18 Wednesday 14h 59m 44.666s  UT
+sets 2008 June 19 Thursday  5h 39m 40.187s  UT
+Visible hours 14.6654
+
+
+JD 2454636.21,  2008 June 18 Wednesday 16h 59m 57.262s  TDT
+2008 June 18 Wednesday 16h 58m 47.798s  UT
+nutation dRA 0.773s dDec -6.70"
+Geometric lon -92.431 deg, lat -4.024 deg, rad 2.7062e-03 au
+Apparent geocentric longitude 267.572 deg   latitude -4.024 deg
+Distance 63.473 Earth-radii
+Horizontal parallax    0d 54' 09.77"  Semidiameter    0d 14' 45.45"  
+Elongation from sun 175.97 deg,  Illuminated fraction 1.00
+Phase 0.02 days before Full Moon
+    Apparent:  R.A. 17h 49m 05.022s  Declination - 27d 26' 29.31"  
+Local apparent sidereal time  12h 38m 37.192s  
+diurnal aberration dRA 0.005s dDec 0.13"
+diurnal parallax dRA 210.229s dDec 1107.03"
+atmospheric refraction 0.034 deg  dRA -8.388s dDec -45.03"
+Topocentric:  Altitude 22.010 deg, Azimuth 109.885 deg
+Topocentric: R.A. 17h 52m 26.868s   Dec. - 27d 08' 47.19"  
+local meridian transit 2008 June 18 Wednesday 22h 20m 22.340s  UT
+rises 2008 June 18 Wednesday 14h 59m 44.666s  UT
+sets 2008 June 19 Thursday  5h 39m 40.187s  UT
+Visible hours 14.6654
+
+
+JD 2454636.21,  2008 June 18 Wednesday 17h 08m 21.233s  TDT
+2008 June 18 Wednesday 17h 07m 11.770s  UT
+nutation dRA 0.773s dDec -6.69"
+Geometric lon -92.361 deg, lat -4.021 deg, rad 2.7061e-03 au
+Apparent geocentric longitude 267.642 deg   latitude -4.021 deg
+Distance 63.472 Earth-radii
+Horizontal parallax    0d 54' 09.83"  Semidiameter    0d 14' 45.47"  
+Elongation from sun 175.97 deg,  Illuminated fraction 1.00
+Phase 0.02 days before Full Moon
+    Apparent:  R.A. 17h 49m 23.821s  Declination - 27d 26' 20.32"  
+Local apparent sidereal time  12h 47m 02.543s  
+diurnal aberration dRA 0.005s dDec 0.13"
+diurnal parallax dRA 208.577s dDec 1061.83"
+atmospheric refraction 0.031 deg  dRA -7.760s dDec -40.30"
+Topocentric:  Altitude 23.694 deg, Azimuth 109.172 deg
+Topocentric: R.A. 17h 52m 44.643s   Dec. - 27d 09' 18.67"  
+local meridian transit 2008 June 18 Wednesday 22h 20m 22.340s  UT
+rises 2008 June 18 Wednesday 14h 59m 44.666s  UT
+sets 2008 June 19 Thursday  5h 39m 40.187s  UT
+Visible hours 14.6654
+
+
+JD 2454636.22,  2008 June 18 Wednesday 17h 16m 45.204s  TDT
+2008 June 18 Wednesday 17h 15m 35.741s  UT
+nutation dRA 0.773s dDec -6.69"
+Geometric lon -92.291 deg, lat -4.017 deg, rad 2.7061e-03 au
+Apparent geocentric longitude 267.711 deg   latitude -4.017 deg
+Distance 63.471 Earth-radii
+Horizontal parallax    0d 54' 09.89"  Semidiameter    0d 14' 45.49"  
+Elongation from sun 175.98 deg,  Illuminated fraction 1.00
+Phase 0.01 days before Full Moon
+    Apparent:  R.A. 17h 49m 42.620s  Declination - 27d 26' 11.18"  
+Local apparent sidereal time  12h 55m 27.894s  
+diurnal aberration dRA 0.006s dDec 0.12"
+diurnal parallax dRA 206.660s dDec 1016.98"
+atmospheric refraction 0.029 deg  dRA -7.206s dDec -36.19"
+Topocentric:  Altitude 25.386 deg, Azimuth 108.471 deg
+Topocentric: R.A. 17h 53m 02.080s   Dec. - 27d 09' 50.27"  
+local meridian transit 2008 June 18 Wednesday 22h 20m 22.340s  UT
+rises 2008 June 18 Wednesday 14h 59m 44.666s  UT
+sets 2008 June 19 Thursday  5h 39m 40.187s  UT
+Visible hours 14.6654
+
+
+JD 2454636.22,  2008 June 18 Wednesday 17h 25m 09.175s  TDT
+2008 June 18 Wednesday 17h 23m 59.712s  UT
+nutation dRA 0.774s dDec -6.68"
+Geometric lon -92.222 deg, lat -4.013 deg, rad 2.7060e-03 au
+Apparent geocentric longitude 267.781 deg   latitude -4.013 deg
+Distance 63.470 Earth-radii
+Horizontal parallax    0d 54' 09.96"  Semidiameter    0d 14' 45.50"  
+Elongation from sun 175.99 deg,  Illuminated fraction 1.00
+Phase 0.01 days before Full Moon
+    Apparent:  R.A. 17h 50m 01.419s  Declination - 27d 26' 01.88"  
+Local apparent sidereal time  13h 03m 53.245s  
+diurnal aberration dRA 0.007s dDec 0.12"
+diurnal parallax dRA 204.482s dDec 972.55"
+atmospheric refraction 0.026 deg  dRA -6.713s dDec -32.60"
+Topocentric:  Altitude 27.087 deg, Azimuth 107.780 deg
+Topocentric: R.A. 17h 53m 19.194s   Dec. - 27d 10' 21.81"  
+local meridian transit 2008 June 18 Wednesday 22h 20m 22.340s  UT
+rises 2008 June 18 Wednesday 14h 59m 44.666s  UT
+sets 2008 June 19 Thursday  5h 39m 40.187s  UT
+Visible hours 14.6654
+
+
+JD 2454636.23,  2008 June 18 Wednesday 17h 33m 33.146s  TDT
+2008 June 18 Wednesday 17h 32m 23.683s  UT
+nutation dRA 0.774s dDec -6.67"
+Geometric lon -92.152 deg, lat -4.009 deg, rad 2.7060e-03 au
+Apparent geocentric longitude 267.851 deg   latitude -4.009 deg
+Distance 63.468 Earth-radii
+Horizontal parallax    0d 54' 10.02"  Semidiameter    0d 14' 45.52"  
+Elongation from sun 175.99 deg,  Illuminated fraction 1.00
+Phase 0.00 days past Full Moon
+    Apparent:  R.A. 17h 50m 20.217s  Declination - 27d 25' 52.42"  
+Local apparent sidereal time  13h 12m 18.597s  
+diurnal aberration dRA 0.007s dDec 0.12"
+diurnal parallax dRA 202.043s dDec 928.59"
+atmospheric refraction 0.025 deg  dRA -6.270s dDec -29.44"
+Topocentric:  Altitude 28.795 deg, Azimuth 107.098 deg
+Topocentric: R.A. 17h 53m 35.998s   Dec. - 27d 10' 53.15"  
+local meridian transit 2008 June 18 Wednesday 22h 20m 22.340s  UT
+rises 2008 June 18 Wednesday 14h 59m 44.666s  UT
+sets 2008 June 19 Thursday  5h 39m 40.187s  UT
+Visible hours 14.6654
+
+
+JD 2454636.24,  2008 June 18 Wednesday 17h 41m 57.118s  TDT
+2008 June 18 Wednesday 17h 40m 47.654s  UT
+nutation dRA 0.774s dDec -6.67"
+Geometric lon -92.082 deg, lat -4.005 deg, rad 2.7059e-03 au
+Apparent geocentric longitude 267.920 deg   latitude -4.005 deg
+Distance 63.467 Earth-radii
+Horizontal parallax    0d 54' 10.09"  Semidiameter    0d 14' 45.54"  
+Elongation from sun 175.99 deg,  Illuminated fraction 1.00
+Phase 0.01 days past Full Moon
+    Apparent:  R.A. 17h 50m 39.016s  Declination - 27d 25' 42.80"  
+Local apparent sidereal time  13h 20m 43.948s  
+diurnal aberration dRA 0.008s dDec 0.12"
+diurnal parallax dRA 199.348s dDec 885.15"
+atmospheric refraction 0.023 deg  dRA -5.869s dDec -26.64"
+Topocentric:  Altitude 30.510 deg, Azimuth 106.426 deg
+Topocentric: R.A. 17h 53m 52.503s   Dec. - 27d 11' 24.17"  
+local meridian transit 2008 June 18 Wednesday 22h 20m 22.340s  UT
+rises 2008 June 18 Wednesday 14h 59m 44.666s  UT
+sets 2008 June 19 Thursday  5h 39m 40.187s  UT
+Visible hours 14.6654
+
+
+JD 2454636.24,  2008 June 18 Wednesday 17h 50m 21.089s  TDT
+2008 June 18 Wednesday 17h 49m 11.626s  UT
+nutation dRA 0.775s dDec -6.66"
+Geometric lon -92.013 deg, lat -4.002 deg, rad 2.7059e-03 au
+Apparent geocentric longitude 267.990 deg   latitude -4.002 deg
+Distance 63.466 Earth-radii
+Horizontal parallax    0d 54' 10.15"  Semidiameter    0d 14' 45.56"  
+Elongation from sun 176.00 deg,  Illuminated fraction 1.00
+Phase 0.01 days past Full Moon
+    Apparent:  R.A. 17h 50m 57.814s  Declination - 27d 25' 33.03"  
+Local apparent sidereal time  13h 29m 09.299s  
+diurnal aberration dRA 0.009s dDec 0.12"
+diurnal parallax dRA 196.399s dDec 842.30"
+atmospheric refraction 0.021 deg  dRA -5.504s dDec -24.15"
+Topocentric:  Altitude 32.232 deg, Azimuth 105.762 deg
+Topocentric: R.A. 17h 54m 08.717s   Dec. - 27d 11' 54.75"  
+local meridian transit 2008 June 18 Wednesday 22h 20m 22.340s  UT
+rises 2008 June 18 Wednesday 14h 59m 44.666s  UT
+sets 2008 June 19 Thursday  5h 39m 40.187s  UT
+Visible hours 14.6654
+
+
+JD 2454636.25,  2008 June 18 Wednesday 17h 58m 45.060s  TDT
+2008 June 18 Wednesday 17h 57m 35.597s  UT
+nutation dRA 0.775s dDec -6.66"
+Geometric lon -91.943 deg, lat -3.998 deg, rad 2.7058e-03 au
+Apparent geocentric longitude 268.060 deg   latitude -3.998 deg
+Distance 63.465 Earth-radii
+Horizontal parallax    0d 54' 10.21"  Semidiameter    0d 14' 45.57"  
+Elongation from sun 176.00 deg,  Illuminated fraction 1.00
+Phase 0.02 days past Full Moon
+    Apparent:  R.A. 17h 51m 16.612s  Declination - 27d 25' 23.09"  
+Local apparent sidereal time  13h 37m 34.650s  
+diurnal aberration dRA 0.009s dDec 0.12"
+diurnal parallax dRA 193.199s dDec 800.09"
+atmospheric refraction 0.020 deg  dRA -5.170s dDec -21.92"
+Topocentric:  Altitude 33.960 deg, Azimuth 105.106 deg
+Topocentric: R.A. 17h 54m 24.651s   Dec. - 27d 12' 24.80"  
+local meridian transit 2008 June 18 Wednesday 22h 20m 22.340s  UT
+rises 2008 June 18 Wednesday 14h 59m 44.666s  UT
+sets 2008 June 19 Thursday  5h 39m 40.187s  UT
+Visible hours 14.6654
+
+
+JD 2454636.25,  2008 June 18 Wednesday 18h 07m 09.031s  TDT
+2008 June 18 Wednesday 18h 05m 59.568s  UT
+nutation dRA 0.775s dDec -6.65"
+Geometric lon -91.873 deg, lat -3.994 deg, rad 2.7058e-03 au
+Apparent geocentric longitude 268.129 deg   latitude -3.994 deg
+Distance 63.463 Earth-radii
+Horizontal parallax    0d 54' 10.28"  Semidiameter    0d 14' 45.59"  
+Elongation from sun 176.00 deg,  Illuminated fraction 1.00
+Phase 0.02 days past Full Moon
+    Apparent:  R.A. 17h 51m 35.410s  Declination - 27d 25' 13.00"  
+Local apparent sidereal time  13h 46m 00.001s  
+diurnal aberration dRA 0.010s dDec 0.11"
+diurnal parallax dRA 189.752s dDec 758.58"
+atmospheric refraction 0.019 deg  dRA -4.861s dDec -19.91"
+Topocentric:  Altitude 35.695 deg, Azimuth 104.457 deg
+Topocentric: R.A. 17h 54m 40.311s   Dec. - 27d 12' 54.21"  
+local meridian transit 2008 June 18 Wednesday 22h 20m 22.340s  UT
+rises 2008 June 18 Wednesday 14h 59m 44.666s  UT
+sets 2008 June 19 Thursday  5h 39m 40.187s  UT
+Visible hours 14.6654
+
+
+JD 2454636.26,  2008 June 18 Wednesday 18h 15m 33.003s  TDT
+2008 June 18 Wednesday 18h 14m 23.539s  UT
+nutation dRA 0.776s dDec -6.65"
+Geometric lon -91.804 deg, lat -3.990 deg, rad 2.7057e-03 au
+Apparent geocentric longitude 268.199 deg   latitude -3.990 deg
+Distance 63.462 Earth-radii
+Horizontal parallax    0d 54' 10.34"  Semidiameter    0d 14' 45.61"  
+Elongation from sun 176.00 deg,  Illuminated fraction 1.00
+Phase 0.03 days past Full Moon
+    Apparent:  R.A. 17h 51m 54.208s  Declination - 27d 25' 02.75"  
+Local apparent sidereal time  13h 54m 25.352s  
+diurnal aberration dRA 0.011s dDec 0.11"
+diurnal parallax dRA 186.062s dDec 717.82"
+atmospheric refraction 0.018 deg  dRA -4.576s dDec -18.10"
+Topocentric:  Altitude 37.435 deg, Azimuth 103.813 deg
+Topocentric: R.A. 17h 54m 55.705s   Dec. - 27d 13' 22.91"  
+local meridian transit 2008 June 18 Wednesday 22h 20m 22.340s  UT
+rises 2008 June 18 Wednesday 14h 59m 44.666s  UT
+sets 2008 June 19 Thursday  5h 39m 40.187s  UT
+Visible hours 14.6654
+
+
+JD 2454636.27,  2008 June 18 Wednesday 18h 23m 56.974s  TDT
+2008 June 18 Wednesday 18h 22m 47.510s  UT
+nutation dRA 0.776s dDec -6.64"
+Geometric lon -91.734 deg, lat -3.986 deg, rad 2.7057e-03 au
+Apparent geocentric longitude 268.269 deg   latitude -3.986 deg
+Distance 63.461 Earth-radii
+Horizontal parallax    0d 54' 10.41"  Semidiameter    0d 14' 45.63"  
+Elongation from sun 175.99 deg,  Illuminated fraction 1.00
+Phase 0.03 days past Full Moon
+    Apparent:  R.A. 17h 52m 13.005s  Declination - 27d 24' 52.34"  
+Local apparent sidereal time  14h 02m 50.703s  
+diurnal aberration dRA 0.011s dDec 0.11"
+diurnal parallax dRA 182.134s dDec 677.86"
+atmospheric refraction 0.017 deg  dRA -4.310s dDec -16.46"
+Topocentric:  Altitude 39.181 deg, Azimuth 103.175 deg
+Topocentric: R.A. 17h 55m 10.841s   Dec. - 27d 13' 50.82"  
+local meridian transit 2008 June 18 Wednesday 22h 20m 22.340s  UT
+rises 2008 June 18 Wednesday 14h 59m 44.666s  UT
+sets 2008 June 19 Thursday  5h 39m 40.187s  UT
+Visible hours 14.6654
+
+
+JD 2454636.27,  2008 June 18 Wednesday 18h 32m 20.945s  TDT
+2008 June 18 Wednesday 18h 31m 11.482s  UT
+nutation dRA 0.777s dDec -6.64"
+Geometric lon -91.664 deg, lat -3.982 deg, rad 2.7056e-03 au
+Apparent geocentric longitude 268.338 deg   latitude -3.982 deg
+Distance 63.459 Earth-radii
+Horizontal parallax    0d 54' 10.47"  Semidiameter    0d 14' 45.64"  
+Elongation from sun 175.99 deg,  Illuminated fraction 1.00
+Phase 0.04 days past Full Moon
+    Apparent:  R.A. 17h 52m 31.803s  Declination - 27d 24' 41.77"  
+Local apparent sidereal time  14h 11m 16.054s  
+diurnal aberration dRA 0.012s dDec 0.11"
+diurnal parallax dRA 177.972s dDec 638.77"
+atmospheric refraction 0.016 deg  dRA -4.061s dDec -14.97"
+Topocentric:  Altitude 40.932 deg, Azimuth 102.542 deg
+Topocentric: R.A. 17h 55m 25.726s   Dec. - 27d 14' 17.86"  
+local meridian transit 2008 June 18 Wednesday 22h 20m 22.340s  UT
+rises 2008 June 18 Wednesday 14h 59m 44.666s  UT
+sets 2008 June 19 Thursday  5h 39m 40.187s  UT
+Visible hours 14.6654
+
+
+JD 2454636.28,  2008 June 18 Wednesday 18h 40m 44.916s  TDT
+2008 June 18 Wednesday 18h 39m 35.453s  UT
+nutation dRA 0.777s dDec -6.63"
+Geometric lon -91.595 deg, lat -3.979 deg, rad 2.7056e-03 au
+Apparent geocentric longitude 268.408 deg   latitude -3.979 deg
+Distance 63.458 Earth-radii
+Horizontal parallax    0d 54' 10.54"  Semidiameter    0d 14' 45.66"  
+Elongation from sun 175.99 deg,  Illuminated fraction 1.00
+Phase 0.04 days past Full Moon
+    Apparent:  R.A. 17h 52m 50.600s  Declination - 27d 24' 31.04"  
+Local apparent sidereal time  14h 19m 41.405s  
+diurnal aberration dRA 0.013s dDec 0.10"
+diurnal parallax dRA 173.582s dDec 600.58"
+atmospheric refraction 0.015 deg  dRA -3.827s dDec -13.61"
+Topocentric:  Altitude 42.689 deg, Azimuth 101.913 deg
+Topocentric: R.A. 17h 55m 40.366s   Dec. - 27d 14' 43.97"  
+local meridian transit 2008 June 18 Wednesday 22h 20m 22.340s  UT
+rises 2008 June 18 Wednesday 14h 59m 44.666s  UT
+sets 2008 June 19 Thursday  5h 39m 40.187s  UT
+Visible hours 14.6654
+
+
+JD 2454636.28,  2008 June 18 Wednesday 18h 49m 08.887s  TDT
+2008 June 18 Wednesday 18h 47m 59.424s  UT
+nutation dRA 0.777s dDec -6.63"
+Geometric lon -91.525 deg, lat -3.975 deg, rad 2.7055e-03 au
+Apparent geocentric longitude 268.478 deg   latitude -3.975 deg
+Distance 63.457 Earth-radii
+Horizontal parallax    0d 54' 10.61"  Semidiameter    0d 14' 45.68"  
+Elongation from sun 175.98 deg,  Illuminated fraction 1.00
+Phase 0.05 days past Full Moon
+    Apparent:  R.A. 17h 53m 09.396s  Declination - 27d 24' 20.16"  
+Local apparent sidereal time  14h 28m 06.756s  
+diurnal aberration dRA 0.013s dDec 0.10"
+diurnal parallax dRA 168.968s dDec 563.36"
+atmospheric refraction 0.014 deg  dRA -3.607s dDec -12.37"
+Topocentric:  Altitude 44.450 deg, Azimuth 101.286 deg
+Topocentric: R.A. 17h 55m 54.770s   Dec. - 27d 15' 09.07"  
+local meridian transit 2008 June 18 Wednesday 22h 20m 22.340s  UT
+rises 2008 June 18 Wednesday 14h 59m 44.666s  UT
+sets 2008 June 19 Thursday  5h 39m 40.187s  UT
+Visible hours 14.6654
+
+
+JD 2454636.29,  2008 June 18 Wednesday 18h 57m 32.859s  TDT
+2008 June 18 Wednesday 18h 56m 23.395s  UT
+nutation dRA 0.778s dDec -6.62"
+Geometric lon -91.456 deg, lat -3.971 deg, rad 2.7054e-03 au
+Apparent geocentric longitude 268.547 deg   latitude -3.971 deg
+Distance 63.456 Earth-radii
+Horizontal parallax    0d 54' 10.67"  Semidiameter    0d 14' 45.70"  
+Elongation from sun 175.98 deg,  Illuminated fraction 1.00
+Phase 0.05 days past Full Moon
+    Apparent:  R.A. 17h 53m 28.193s  Declination - 27d 24' 09.11"  
+Local apparent sidereal time  14h 36m 32.107s  
+diurnal aberration dRA 0.014s dDec 0.10"
+diurnal parallax dRA 164.136s dDec 527.15"
+atmospheric refraction 0.013 deg  dRA -3.399s dDec -11.24"
+Topocentric:  Altitude 46.215 deg, Azimuth 100.662 deg
+Topocentric: R.A. 17h 56m 08.943s   Dec. - 27d 15' 33.11"  
+local meridian transit 2008 June 18 Wednesday 22h 20m 22.340s  UT
+rises 2008 June 18 Wednesday 14h 59m 44.666s  UT
+sets 2008 June 19 Thursday  5h 39m 40.187s  UT
+Visible hours 14.6654
+
+
+JD 2454636.29,  2008 June 18 Wednesday 19h 05m 56.830s  TDT
+2008 June 18 Wednesday 19h 04m 47.366s  UT
+nutation dRA 0.778s dDec -6.62"
+Geometric lon -91.386 deg, lat -3.967 deg, rad 2.7054e-03 au
+Apparent geocentric longitude 268.617 deg   latitude -3.967 deg
+Distance 63.454 Earth-radii
+Horizontal parallax    0d 54' 10.74"  Semidiameter    0d 14' 45.72"  
+Elongation from sun 175.97 deg,  Illuminated fraction 1.00
+Phase 0.06 days past Full Moon
+    Apparent:  R.A. 17h 53m 46.989s  Declination - 27d 23' 57.91"  
+Local apparent sidereal time  14h 44m 57.458s  
+diurnal aberration dRA 0.014s dDec 0.09"
+diurnal parallax dRA 159.093s dDec 492.00"
+atmospheric refraction 0.012 deg  dRA -3.202s dDec -10.21"
+Topocentric:  Altitude 47.985 deg, Azimuth 100.038 deg
+Topocentric: R.A. 17h 56m 22.894s   Dec. - 27d 15' 56.03"  
+local meridian transit 2008 June 18 Wednesday 22h 20m 22.340s  UT
+rises 2008 June 18 Wednesday 14h 59m 44.666s  UT
+sets 2008 June 19 Thursday  5h 39m 40.187s  UT
+Visible hours 14.6654
+
+
+JD 2454636.30,  2008 June 18 Wednesday 19h 14m 20.801s  TDT
+2008 June 18 Wednesday 19h 13m 11.337s  UT
+nutation dRA 0.778s dDec -6.61"
+Geometric lon -91.316 deg, lat -3.963 deg, rad 2.7053e-03 au
+Apparent geocentric longitude 268.687 deg   latitude -3.963 deg
+Distance 63.453 Earth-radii
+Horizontal parallax    0d 54' 10.80"  Semidiameter    0d 14' 45.73"  
+Elongation from sun 175.96 deg,  Illuminated fraction 1.00
+Phase 0.07 days past Full Moon
+    Apparent:  R.A. 17h 54m 05.785s  Declination - 27d 23' 46.55"  
+Local apparent sidereal time  14h 53m 22.809s  
+diurnal aberration dRA 0.015s dDec 0.09"
+diurnal parallax dRA 153.844s dDec 457.96"
+atmospheric refraction 0.011 deg  dRA -3.013s dDec -9.26"
+Topocentric:  Altitude 49.759 deg, Azimuth 99.414 deg
+Topocentric: R.A. 17h 56m 36.630s   Dec. - 27d 16' 17.77"  
+local meridian transit 2008 June 18 Wednesday 22h 20m 22.340s  UT
+rises 2008 June 18 Wednesday 14h 59m 44.666s  UT
+sets 2008 June 19 Thursday  5h 39m 40.187s  UT
+Visible hours 14.6654
+
+
+JD 2454636.31,  2008 June 18 Wednesday 19h 22m 44.772s  TDT
+2008 June 18 Wednesday 19h 21m 35.309s  UT
+nutation dRA 0.779s dDec -6.60"
+Geometric lon -91.247 deg, lat -3.959 deg, rad 2.7053e-03 au
+Apparent geocentric longitude 268.756 deg   latitude -3.959 deg
+Distance 63.452 Earth-radii
+Horizontal parallax    0d 54' 10.87"  Semidiameter    0d 14' 45.75"  
+Elongation from sun 175.95 deg,  Illuminated fraction 1.00
+Phase 0.07 days past Full Moon
+    Apparent:  R.A. 17h 54m 24.580s  Declination - 27d 23' 35.03"  
+Local apparent sidereal time  15h 01m 48.160s  
+diurnal aberration dRA 0.015s dDec 0.09"
+diurnal parallax dRA 148.396s dDec 425.07"
+atmospheric refraction 0.011 deg  dRA -2.834s dDec -8.39"
+Topocentric:  Altitude 51.537 deg, Azimuth 98.789 deg
+Topocentric: R.A. 17h 56m 50.157s   Dec. - 27d 16' 38.27"  
+local meridian transit 2008 June 18 Wednesday 22h 20m 22.340s  UT
+rises 2008 June 18 Wednesday 14h 59m 44.666s  UT
+sets 2008 June 19 Thursday  5h 39m 40.187s  UT
+Visible hours 14.6654
+
+Enter starting date of tabulation
+Calendar date: Year (2008) ? Month (1-12) (6) ? Day.fraction (18.000000) ? Time: Hours (16) ? Minutes (0) ? Seconds (0.000000) ? 2008 June 18 Wednesday 16h 01m 09.463s  TDT
+2008 June 18 Wednesday 16h 00m 00.000s  UT
+Julian day 2454636.1666667
+Enter interval between tabulations in days (0.005833) ? Number of tabulations to display (25) ? Planet number 0-9 or 88 to read star, 99 to read orbit (3) ? 

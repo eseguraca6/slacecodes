@@ -1,0 +1,67 @@
+ABCDSURF,ABCD,Uses ABCD matrix to model a black box.
+ALTERNAT,Alternate Even,Even Asphere surface with alternate solution selected.
+ALTERNAO,Alternate Odd,Odd Asphere surface with alternate solution selected.
+ATMOSPHR,Atmospheric Refraction,Refraction caused by looking through Earth's atmosphere.
+BICONICX,Biconic,A conic asphere in X and Y independently.
+BICONICZ,Biconic Zernike,A biconic surface with x  y  and Zernike polynomial terms added.
+BINARY_1,Binary Optic 1,Uses 230 term polynomial to define phase.
+BINARY_2,Binary Optic 2,Uses radial polynomial to define phase.
+BINARY_3,Binary Optic 3,Dual zone aspheric and diffractive surface.
+BIRE__IN,Birefringent In,For modeling uniaxial crystals; supports tracing of rays in ordinary or extraordinary mode.
+BIRE_OUT,Birefringent Out,For modeling uniaxial crystals; supports tracing of rays in ordinary or extraordinary mode.
+CONJUGAT,Conjugate,Defines surface with perfect imaging at two points.
+COORDBRK,Coordinate Break,Permits rotation and decentration.
+CUSPLINE,Cubic Spline,Rotationally symmetric fit to 8 points.
+CFRESNEL,Cylindrical Fresnel,Polynomial cylindrical Fresnel on a polynomial cylindrical surface.
+DGRATING,Diffraction Grating,Ruled grating on standard surface.
+ELLIGRAT,Elliptical Grating 1,Elliptical grating with aspheric terms and polynomial grooves.
+ELLIGRA2,Elliptical Grating 2,Elliptical grating with aspheric terms and grooves formed by tilted planes.
+EVENASPH,Even Asphere,Standard surface plus polynomial asphere terms.
+XASPHERE,Extended Asphere,Uses radial polynomial to define sag.
+XCUSPLIN,Extended Cubic Spline,Rotationally symmetric fit of up to 250 points.
+XFRESNEL,Extended Fresnel Polynomial,Fresnel on a polynomial surface.
+XOSPHERE,Extended Odd Asphere,Uses odd terms of radial powers.
+XPOLYNOM,Extended Polynomial,Uses 230 term polynomial expansion to define sag.
+TOROGRAX,Extended Toroidal Grating,An aspheric toroidal grating with extended polynomial terms.
+FRESNELS,Fresnel,Plane surface with refractive power.
+GEN_FRES,Generalized Fresnel,XY polynomial Fresnel on an aspheric substrate.
+GRINSUR1,Gradient 1,Radial gradient index material surface.
+GRINSUR2,Gradient 2,Radial gradient index material surface.
+GRINSUR3,Gradient 3,Radial and axial gradient index material surface.
+GRINSUR4,Gradient 4,X  Y  and Z gradient index material surface.
+GRINSUR5,Gradient 5,Radial and axial gradient index material surface with dispersion model.
+GRINSUR6,Gradient 6,Radial gradient index material surface with Gradient Lens Corp. dispersion model.
+GRINSUR7,Gradient 7,Spherical gradient profile.
+GRINSUR8,Gradium,Axial gradient index material surface with dispersion model.
+GRINSUR9,Gradient 9,Radial gradient index material surface with NSG SELFOC lens dispersion model.
+GRINSU10,Gradient 10,Y gradient index material surface with dispersion model.
+GRID_PHA,Grid Phase,A phase surface described by a grid of points.
+GRID_SAG,Grid Sag,A surface shape described by a grid of points.
+HOLOGRM1,Hologram 1,Two-point optically fabricated hologram.
+HOLOGRM2,Hologram 2,Two-point optically fabricated hologram.
+IRREGULA,Irregular,A standard surface with decenter  tilt and other deformations.
+JONESMAT,Jones Matrix,General Jones Matrix for modifying polarization state.
+NONSEQCO,Non-Sequential Components,For tracing rays non-sequentially through a collection of 3D surfaces and objects.
+ODDASPHE,Odd Asphere,Standard surface plus polynomial asphere terms.
+ODDCOSIN,Odd Cosine,Odd Asphere surface plus cosine polynomial terms.
+        ,Optically Fabricated Hologram,Optically fabricated hologram with arbitrary construction optic and elliptical substrate.
+PARAXIAL,Paraxial,Thin lens surface  has ideal behavior.
+PARAX_XY,Paraxial XY,Thin lens with separate specification in X Y.
+PERIODIC,Periodic,Cosine shaped surface.
+POLYNOMI,Polynomial,Polynomial expansion in x and y.
+RGRATING,Radial Grating,A diffraction grating with radial phase profile.
+RADNURBS,Radial NURBS,Uses NURBS curve to define a rotationally symmetric surface.
+RETROREF,Retro Reflect,Retro reflects rays back along incident path.
+STANDARD,Standard,Includes planes  spheres  and conics.
+SUPERCON,Superconic,Superconic asphere with fast convergence.
+TILTSURF,Tilted,Defines a tilted surface without changing coordinate systems.
+TOROIDAL,Toroidal,Conic and aspheric toroids and cylinders.
+TOROGRAT,Toroidal Grating,Ruled grating on a conic toroid.
+TOROHOLO,Toroidal Hologram,Toroidal substrate with two point optically fabricated hologram.
+TORNURBS,Toroidal NURBS,Uses NURBS curve to define a toroidally symmetric surface.
+USERSURF,User Defined,A general surface which uses an arbitrary user defined function to describe the refractive  reflective  diffractive  transmissive  or gradient properties of the surface.
+VARLSGRT,Variable Line Space Grating,Variable line space grating surface.
+FZERNPHA,Zernike Fringe Phase,Uses 37 Zernike Fringe polynomials to define phase.
+FZERNSAG,Zernike Fringe Sag,Uses 37 Zernike Fringe polynomials to define sag.
+SZERNPHA,Zernike Standard Phase,Uses up to 231 Zernike Standard polynomials to define surface phase.
+SZERNSAG,Zernike Standard Sag,Uses up to 231 Zernike Standard polynomials to define surface sag.

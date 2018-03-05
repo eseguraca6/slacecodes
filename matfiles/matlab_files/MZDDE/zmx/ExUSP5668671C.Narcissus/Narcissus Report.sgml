@@ -1,0 +1,490 @@
+<!DOCTYPE Sect1 PUBLIC "-//OASIS//DTD DocBook V4.0//EN"> 
+<Sect1><Title>&nbsp;</Title><?html-filename Narcissus Report.html>
+  Created  8:00 pm  20 December 2004
+  <ProgramListing>
+
+Narcissus Analysis for :
+C:\Projects\MZDDE\zmx\ExUSP5668671C.ZMX
+
+Performed by NarcWiz Revision 1.3 Dated 2004-12-01 12:49:49+02 
+
+Input Parameters 
+Scene Temperature : 300 K
+Dewar Temperature : 120 K
+Housing Temperature : 300 K
+Cold Stop Reflectivity : 1 %
+Cold Stop Diameter : 25.7267 mm
+Window Inner Clear Aperture Diameter : 26.7144 mm
+Window Outer Clear Aperture Diameter : 27.0273 mm
+  </ProgramListing>
+  <Figure>
+    <Title>
+      Plot of System under Analysis
+    </Title>
+    <Graphic Fileref="./Primary Reversed.emf">
+      
+
+    
+  </Figure>
+  
+  <Graphic Fileref="./Narcissus Report_rtf_files/image-0-hg.jpg">
+    
+
+  
+  <Graphic Fileref="./Narcissus Report_rtf_files/image-1-hg.jpg">
+    
+
+  
+  <Graphic Fileref="./Narcissus Report_rtf_files/image-2-hg.jpg">
+    
+
+  
+  <Table Frame="all" Colsep=1  Rowsep=1  pgwide="1">
+    <Title>
+      Worst Surfaces Ranked on Integrated NITD
+    </Title>
+    <tgroup cols=4  align="left">
+      
+      <colspec colnum=1  colwidth="100*">
+        
+
+      <colspec colnum=2  colwidth="100*">
+        
+
+      <colspec colnum=3  colwidth="100*">
+        
+
+      <colspec colnum=4  colwidth="100*">
+        
+
+      <thead>
+        
+        <row>
+          <entry>
+            Rank
+          </entry>
+          <entry>
+            Surface Number
+          </entry>
+          <entry>
+            Contribution
+          </entry>
+          <entry>
+            YNI
+          </entry>
+        </row>
+      </thead>
+      
+      <tbody>
+        
+        <row>
+          <entry>
+            1
+          </entry>
+          <entry>
+            11
+          </entry>
+          <entry>
+            0.540501
+          </entry>
+          <entry>
+            0.22408
+          </entry>
+        </row>
+        <row>
+          <entry>
+            2
+          </entry>
+          <entry>
+            3
+          </entry>
+          <entry>
+            0.0553246
+          </entry>
+          <entry>
+            -3.67735
+          </entry>
+        </row>
+        <row>
+          <entry>
+            3
+          </entry>
+          <entry>
+            9
+          </entry>
+          <entry>
+            0.0254429
+          </entry>
+          <entry>
+            7.26663
+          </entry>
+        </row>
+        <row>
+          <entry>
+            4
+          </entry>
+          <entry>
+            7
+          </entry>
+          <entry>
+            0.00535337
+          </entry>
+          <entry>
+            -4.08987
+          </entry>
+        </row>
+        <row>
+          <entry>
+            5
+          </entry>
+          <entry>
+            4
+          </entry>
+          <entry>
+            0.00334223
+          </entry>
+          <entry>
+            -3.81238
+          </entry>
+        </row>
+        <row>
+          <entry>
+            6
+          </entry>
+          <entry>
+            13
+          </entry>
+          <entry>
+            0.00268813
+          </entry>
+          <entry>
+            19.2104
+          </entry>
+        </row>
+        <row>
+          <entry>
+            7
+          </entry>
+          <entry>
+            8
+          </entry>
+          <entry>
+            0.000963578
+          </entry>
+          <entry>
+            -3.17173
+          </entry>
+        </row>
+        <row>
+          <entry>
+            8
+          </entry>
+          <entry>
+            2
+          </entry>
+          <entry>
+            0.000361724
+          </entry>
+          <entry>
+            -3.65031
+          </entry>
+        </row>
+        <row>
+          <entry>
+            9
+          </entry>
+          <entry>
+            12
+          </entry>
+          <entry>
+            9.45096e-005
+          </entry>
+          <entry>
+            3.54449
+          </entry>
+        </row>
+        <row>
+          <entry>
+            10
+          </entry>
+          <entry>
+            5
+          </entry>
+          <entry>
+            -0.00193634
+          </entry>
+          <entry>
+            -3.83538
+          </entry>
+        </row>
+        <row>
+          <entry>
+            11
+          </entry>
+          <entry>
+            6
+          </entry>
+          <entry>
+            -0.0100412
+          </entry>
+          <entry>
+            -4.06686
+          </entry>
+        </row>
+        <row>
+          <entry>
+            12
+          </entry>
+          <entry>
+            10
+          </entry>
+          <entry>
+            -0.0130065
+          </entry>
+          <entry>
+            10.6702
+          </entry>
+        </row>
+      </tbody>
+    </tgroup>
+  </Table>
+  <Table Frame="all" Colsep=1  Rowsep=1  pgwide="1">
+    <Title>
+      Worst Surfaces Ranked on Maximum Slope of NITD
+    </Title>
+    <tgroup cols=4  align="left">
+      
+      <colspec colnum=1  colwidth="100*">
+        
+
+      <colspec colnum=2  colwidth="100*">
+        
+
+      <colspec colnum=3  colwidth="100*">
+        
+
+      <colspec colnum=4  colwidth="100*">
+        
+
+      <thead>
+        
+        <row>
+          <entry>
+            Rank
+          </entry>
+          <entry>
+            Surface Number
+          </entry>
+          <entry>
+            Slope
+          </entry>
+          <entry>
+            YNI
+          </entry>
+        </row>
+      </thead>
+      
+      <tbody>
+        
+        <row>
+          <entry>
+            1
+          </entry>
+          <entry>
+            11
+          </entry>
+          <entry>
+            0.101248
+          </entry>
+          <entry>
+            0.22408
+          </entry>
+        </row>
+        <row>
+          <entry>
+            2
+          </entry>
+          <entry>
+            8
+          </entry>
+          <entry>
+            0.0317847
+          </entry>
+          <entry>
+            -3.17173
+          </entry>
+        </row>
+        <row>
+          <entry>
+            3
+          </entry>
+          <entry>
+            7
+          </entry>
+          <entry>
+            0.026712
+          </entry>
+          <entry>
+            -4.08987
+          </entry>
+        </row>
+        <row>
+          <entry>
+            4
+          </entry>
+          <entry>
+            10
+          </entry>
+          <entry>
+            0.0255586
+          </entry>
+          <entry>
+            10.6702
+          </entry>
+        </row>
+        <row>
+          <entry>
+            5
+          </entry>
+          <entry>
+            6
+          </entry>
+          <entry>
+            0.0222348
+          </entry>
+          <entry>
+            -4.06686
+          </entry>
+        </row>
+        <row>
+          <entry>
+            6
+          </entry>
+          <entry>
+            3
+          </entry>
+          <entry>
+            0.0180544
+          </entry>
+          <entry>
+            -3.67735
+          </entry>
+        </row>
+        <row>
+          <entry>
+            7
+          </entry>
+          <entry>
+            4
+          </entry>
+          <entry>
+            0.017725
+          </entry>
+          <entry>
+            -3.81238
+          </entry>
+        </row>
+        <row>
+          <entry>
+            8
+          </entry>
+          <entry>
+            5
+          </entry>
+          <entry>
+            0.0172975
+          </entry>
+          <entry>
+            -3.83538
+          </entry>
+        </row>
+        <row>
+          <entry>
+            9
+          </entry>
+          <entry>
+            9
+          </entry>
+          <entry>
+            0.0155238
+          </entry>
+          <entry>
+            7.26663
+          </entry>
+        </row>
+        <row>
+          <entry>
+            10
+          </entry>
+          <entry>
+            13
+          </entry>
+          <entry>
+            0.00898512
+          </entry>
+          <entry>
+            19.2104
+          </entry>
+        </row>
+        <row>
+          <entry>
+            11
+          </entry>
+          <entry>
+            2
+          </entry>
+          <entry>
+            0.00611452
+          </entry>
+          <entry>
+            -3.65031
+          </entry>
+        </row>
+        <row>
+          <entry>
+            12
+          </entry>
+          <entry>
+            12
+          </entry>
+          <entry>
+            0.00472548
+          </entry>
+          <entry>
+            3.54449
+          </entry>
+        </row>
+      </tbody>
+    </tgroup>
+  </Table>
+  Maximum gradient of NITD is 0.194705 K per Image Diagonal.
+Maximum gradient of Image Uniformity is 10.5708 K per Image Diagonal.
+  <Figure>
+    <Title>
+      Full Scale Narcissus-Induced Image Non-Uniformity
+    </Title>
+    <Graphic Fileref="./NITDUniformity.jpg">
+      
+
+    
+  </Figure>
+  <Figure>
+    <Title>
+      Full Scale Total Image Non-Uniformity
+    </Title>
+    <Graphic Fileref="./FieldUniformity.jpg">
+      
+
+    
+  </Figure>
+  <ProgramListing>
+
+The following assumptions and restrictions apply to the above calculations :
+
+1) The inside of the dewar cavity has emissivity of 1 all over. 
+2) The side of the cold stop facing outward has a user-defined reflectivity. Emissivity is computed as 1 minus the reflectivity, and the cold stop temperature is assumed the same as the inside of the dewar right out to the clear aperture of the dewar window.
+3) Emissions and reflections of thermal radiation by non-optical surfaces are assumed lambertian.
+4) It is assumed that there are no spectral dependencies of emmissivities or reflectances.
+
+  </ProgramListing>
+</Sect1>

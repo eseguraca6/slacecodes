@@ -1,0 +1,174 @@
+Off: None
+ABg: ABg Data Catalog
+Bfv: Beam File Viewer
+Caa: Coating, Abs. vs. Angle
+Car: Cardinal Points
+Cas: Coat All Surfaces
+Caw: Coating, Abs. vs. Wavelength
+Cca: Convert to Circular Apertures
+Cda: Coating, Dia. vs. Angle
+Cdw: Coating, DIa. vs. Angle
+Cfa: Convert to Floating Apertures
+Cfs: Chromatic Focal Shift
+Cls: Coating List
+Cna: Coating, Ret. vs. Angle
+Cng: Convert to NSC Group
+Cnw: Coating, Ret. vs. Wavelength
+Cpa: Coating, Phase vs. Angle
+Cpw: Coating, Phase vs. Wavelength
+Cra: Coating, Refl vs. Angle
+Crw: Coating, Refl. vs. Wavelength
+Cta: Coating, Tran. vs. Angle
+Ctw: Coating, Tran. vs. Wavelength
+Dcl: Detector Control
+Dim: Diffraction Image Analysis
+Dip: Biocular Dipvergence/Convergence
+Dis: Dispersion Plot
+Dvi: Detector Viewer
+EDE: Extra Data Editor
+Ect: Edit Coating
+Ele: ZEMAX Element Drawing
+Enc: Diff Encircled Energy
+Ext: Exit
+Fcd: Field Curv/Distorion
+Fcl: Fiber Coupling
+Fie: Field Data
+Fld: Add Fold Mirror
+Flx: Delete Fold Mirror
+Foa: Foucault Analysis
+Foo: Footprint Analysis
+Fov: Biocular Field of View Analysis
+Fps: FFT PSF
+Gbp: Parax Gaussian Beam
+Gbs: Skew Gaussian Beam
+Gen: General Lens Data
+Geo: Geom Encircled Energy
+Gho: Ghost Focus
+Gla: Glass Catalog
+Glb: Global Optimization
+Gmp: Glass Map
+Gpr: Gradium Profile
+Grd: Grid Distortion
+Gst: Glass Substitution Template
+Gtf: Geometric MTF
+Gvf: Geometric MTF vs. Field
+Ham: Hammer Optimization
+Hlp: Help
+Hmf: Huygens MTF
+Hps: Huygens PSF
+Hsm: Huygens SUrface MTF
+ISO: ISO Element Drawing
+Ibm: Geometric Bitmap Image Analysis
+Igs: Export IGES File
+Ilf: Illumination Surface
+Ils: Illumination Scan
+Ima: Geometric Image Analysis
+Imv: IMA/BIM File Viewer
+Ins: Insert Lens
+Int: Interferogram
+L3d: 3D Layout
+L3n: NSC 3D Layout
+LDE: Lens Data Editor
+LSn: NSC Shaded Model Layout
+Lac: Last Configuration
+Lat: Lateral Color
+Lay: 2D Layout
+Len: Lens Search
+Lin: Line/Edge Response
+Lon: Longitudinal Aberration
+Lsh: Shaded Model Layout
+Lsm: Solid Model Layout
+Lwf: Wireframe Layout
+MCE: Multi-Config Editor
+MFE: Merit Function Editor
+Mdm: FFT MTF Map
+Mfl: Merit Function List
+Mfo: Make FOcal
+Mgm: Geometric MTF Map
+Mtf: Modulation TF
+Mth: MTF vs. Field
+NCE: Non-Sequential Editor
+New: New File
+Nxc: Next Configuration
+Off: Huygens Through Focus MTF
+Opd: Opd Fan
+Ope: Open File
+Opt: Optimization
+Pab: Pupil Aberration Fan
+Pcs: PSF Cross Section
+Per: Performance Test
+Pha: Pol. Phase Aberration
+Pmp: Pol. Pupil Map
+Pol: Pol. Ray Trace
+Pop: Physical Optics Propagation
+Pre: Prescription Data
+Prf: Preferences
+Ptf: Pol. Transmission Fan
+Qfo: Quick Focus
+Raa: Remove All Apertures
+Ray: Ray Fan
+Rcf: Reload Coating File
+Rdb: Ray Database
+Red: Redo
+Rel: Relative Illumination
+Rev: Reverse Elements
+Rg4: New Report Graphic 4
+Rg6: New Report Graphic 6
+Rmf: RMS vs. Focus
+Rml: Refresh Macro List
+Rms: RMS vs. Field
+Rmw: RMS vs. Wavelength
+Rtr: Ray Trace
+Rva: Remove Variables
+Rxl: Refresh Extensions List
+Sag: Sag Table
+Sas: Save As
+Sav: Save File
+Sca: Scale Lens
+Sei: Seidel Coefficients
+Sff: Full Field Spot
+Sld: Slider
+Sma: Spot Matrix
+Smc: Spot Matrix Config
+Smf: Surface MTF
+Spt: Spot Diagram
+Srp: Surface Phase
+Srs: Surface Sag
+Ssg: System Summary Graphic
+Stf: Though Focus Spot
+Sur: Surface Data
+Sys: System Data
+TDE: Tolerance Data Editor
+Tde: Tilt/Decenter Elements
+Tfg: Through Focus GTF
+Tfm: Through Focus MTF
+Tls: Tolerance List
+Tol: Tolerancing
+Tpf: Test Plate Fit
+Tpl: Test Plate Lists
+Tra: Pol. Transmission
+Trw: Transmission vs. Wavelength
+Tsm: Tolerance Summary
+Und: Undo
+Uni: Universal Plot
+Upa: Update All
+Upd: Update
+Vig: Vignetting Plot
+Wav: Wavelength Data
+Wfm: Wavefront Map
+Xdi: Extended Diffraction Image Analysis
+Xis: Export IGES/STEP/SAT FIle
+Xse: Extended Source Encircled
+Yni: YNI Contributions
+Yyb: Y-Ybar
+Zat: Zernike Annular Terms
+Zex: ZEMAX Extensions
+Zfr: Zernike Fringe Terms
+Zpl: Edit/Run ZPL Macros
+Zst: Zernike Standard Terms
+
+
+
+
+
+
