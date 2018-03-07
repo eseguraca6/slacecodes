@@ -84,13 +84,13 @@ for i in range(13, 20, 2):
     irr_data_l1_m2.append(tmp_curr_irr_surf)
     irr_grid_l1_m2.append(tmp_curr_griddat)
 
-for i in range(30, 37, 2):
+for i in range(29, 37, 2):
     ln.zModifyPOPSettings(cfgfile, endSurf=i)
     tmp_curr_irr_surf, tmp_curr_griddat = ln.zGetPOP(settingsFile=cfgfile, displayData=True)
     irr_data_l2_m3.append(tmp_curr_irr_surf)
     irr_grid_l2_m3.append(tmp_curr_griddat)
 
-for i in range(42, 49, 2):
+for i in range(41, 49, 2):
     ln.zModifyPOPSettings(cfgfile, endSurf=i)
     tmp_curr_irr_surf, tmp_curr_griddat = ln.zGetPOP(settingsFile=cfgfile, displayData=True)
     irr_data_m3_m4.append(tmp_curr_irr_surf)
@@ -363,6 +363,6 @@ print(len(pos))
 
 data = np.array([pos, all_waist])
 data = data.T
-fpath = r"C:\Users\pwfa-facet2\Desktop\slacecodes\FACET_model_current\wavelength_runs\HeNe_5_opticsefree.csv"
+fpath = r"C:\Users\pwfa-facet2\Desktop\slacecodes\FACET_model_current\wavelength_runs\525nm_5mm.csv"
 
 np.savetxt(fpath, all_waist)
