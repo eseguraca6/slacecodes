@@ -8,7 +8,6 @@ from scipy.optimize import curve_fit
 
 
 """"
-
 def set_POP(zemax_link, data_type, grid_size, beam_waist, start_surface, end_surface):
 
     setfile = zemax_link.zGetFile().lower().replace('.zmx','.CFG')
@@ -20,9 +19,6 @@ def set_POP(zemax_link, data_type, grid_size, beam_waist, start_surface, end_sur
     for i in range(start_surface, end_surface+1):
         #cfgfile = zemax_link.zSetPOPSettings(data_type, setfile, start_surface, endSurf=i, field=1, wave=1, beamType=GAUSS_WAIST, paramN=((WAIST_X, WAIST_Y), (beam_waist, beam_waist)), sampx=S_512, sampy=S_512, widex=grid_size, widey=grid_size)
         print(i)
-
-
-
 """
 
 
