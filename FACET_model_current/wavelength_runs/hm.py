@@ -47,7 +47,7 @@ ln.ipzGetLDE()
 ln.zSetWave(1, .800, 1)
 print(ln.zGetWave(1))
 setfile = ln.zGetFile().lower().replace('.zmx', '.CFG')
-GAUSS_WAIST, WAIST_X, WAIST_Y, beam_waist = 0, 1, 2, 5
+GAUSS_WAIST, WAIST_X, WAIST_Y, beam_waist = 0, 1, 2, 1
 S_512 = 5
 grid_size = 15
 cfgfile = ln.zSetPOPSettings('cross', setfile, 2, endSurf=2, field=1, wave=1, beamType=GAUSS_WAIST,
@@ -366,7 +366,7 @@ print(len(pos))
 
 data = np.array([pos, all_waist])
 data = data.T
-fpath = r"C:\Users\pwfa-facet2\Desktop\slacecodes\FACET_model_current\wavelength_runs\tisaph_5mm.csv"
+fpath = r"C:\Users\pwfa-facet2\Desktop\slacecodes\FACET_model_current\wavelength_runs\tisaph_1mm.csv"
 
 np.savetxt(fpath, all_waist)
 
