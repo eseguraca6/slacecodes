@@ -25,7 +25,7 @@ def set_POP(zemax_link, data_type, grid_size, beam_waist, start_surface, end_sur
 
 """
 
-
+3
 def gaussian(x, const, mean, sigma):
     mean_factor = x - mean
     e_arg = np.exp(-np.divide(np.square(mean_factor), 2 * np.square(sigma)))
@@ -56,6 +56,8 @@ cfgfile = ln.zSetPOPSettings('cross', setfile, 2, endSurf=2, field=1, wave=1, be
 
 tmp_irr, tmp = ln.zGetPOP(settingsFile=cfgfile, displayData=True)
 
+pos_thickness = []
+
 print(tmp_irr)
 irr_data = []
 irr_grid_data = []
@@ -84,6 +86,7 @@ for i in range(13, 20, 2):
     irr_data_l1_m2.append(tmp_curr_irr_surf)
     irr_grid_l1_m2.append(tmp_curr_griddat)
 
+
 for i in range(30, 37, 2):
     ln.zModifyPOPSettings(cfgfile, endSurf=i)
     tmp_curr_irr_surf, tmp_curr_griddat = ln.zGetPOP(settingsFile=cfgfile, displayData=True)
@@ -102,7 +105,7 @@ for i in range(54, 61, 2):
     irr_data_m4_l3.append(tmp_curr_irr_surf)
     irr_grid_m4_l3.append(tmp_curr_griddat)
 
-for i in range(69, 77, 2):
+for i in range(70, 77, 2):
     ln.zModifyPOPSettings(cfgfile, endSurf=i)
     tmp_curr_irr_surf, tmp_curr_griddat = ln.zGetPOP(settingsFile=cfgfile, displayData=True)
     irr_data_m5_m6.append(tmp_curr_irr_surf)
@@ -363,7 +366,7 @@ print(len(pos))
 
 data = np.array([pos, all_waist])
 data = data.T
-fpath = r"C:\Users\pwfa-facet2\Desktop\slacecodes\FACET_model_current\wavelength_runs\tisaph_5_data_20.csv"
+fpath = r"C:\Users\pwfa-facet2\Desktop\slacecodes\FACET_model_current\wavelength_runs\tisaph_5mm_20mm_optics.csv"
 
 np.savetxt(fpath, all_waist)
 

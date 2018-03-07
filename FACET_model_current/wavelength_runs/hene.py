@@ -363,6 +363,6 @@ print(len(pos))
 
 data = np.array([pos, all_waist])
 data = data.T
-fpath = r"C:\Users\pwfa-facet2\Desktop\slacecodes\FACET_model_current\wavelength_runs\HeNe_5_data_20.csv"
+fpath = r"C:\Users\pwfa-facet2\Desktop\slacecodes\FACET_model_current\wavelength_runs\HeNe_5_opticsefree.csv"
 
 np.savetxt(fpath, all_waist)
