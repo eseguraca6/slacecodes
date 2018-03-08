@@ -44,12 +44,13 @@ ln.zLoadFile(file)
 ln.ipzGetLDE()
 
 # ln.ipzGetLDE()
+
 ln.zSetWave(1, .527, 1)
 print(ln.zGetWave(1))
 setfile = ln.zGetFile().lower().replace('.zmx', '.CFG')
-GAUSS_WAIST, WAIST_X, WAIST_Y, beam_waist = 0, 1, 2, 1
+GAUSS_WAIST, WAIST_X, WAIST_Y, beam_waist = 0, 1, 2, 5
 S_512 = 5
-grid_size = 15
+grid_size = 20
 cfgfile = ln.zSetPOPSettings('cross', setfile, 2, endSurf=2, field=1, wave=1, beamType=GAUSS_WAIST,
                              paramN=((WAIST_X, WAIST_Y), (beam_waist, beam_waist)), sampx=S_512, sampy=S_512,
                              widex=grid_size, widey=grid_size, tPow=1)
@@ -363,6 +364,6 @@ print(len(pos))
 
 data = np.array([pos, all_waist])
 data = data.T
-fpath = r"C:\Users\pwfa-facet2\Desktop\slacecodes\FACET_model_current\wavelength_runs\525nm_1mm.csv"
+fpath = r"C:\Users\pwfa-facet2\Desktop\slacecodes\FACET_model_current\wavelength_runs\525nm_5mm_20grid_aperturesmodified_offsetxm1.csv"
 
 np.savetxt(fpath, all_waist)
