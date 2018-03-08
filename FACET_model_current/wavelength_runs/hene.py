@@ -47,7 +47,7 @@ ln.ipzGetLDE()
 ln.zSetWave(1, .527, 1)
 print(ln.zGetWave(1))
 setfile = ln.zGetFile().lower().replace('.zmx', '.CFG')
-GAUSS_WAIST, WAIST_X, WAIST_Y, beam_waist = 0, 1, 2, 5
+GAUSS_WAIST, WAIST_X, WAIST_Y, beam_waist = 0, 1, 2, 1
 S_512 = 5
 grid_size = 15
 cfgfile = ln.zSetPOPSettings('cross', setfile, 2, endSurf=2, field=1, wave=1, beamType=GAUSS_WAIST,
@@ -78,37 +78,37 @@ irr_grid_m4_l3 = []
 irr_grid_m5_m6 = []
 irr_grid_l4_comp = []
 
-for i in range(13, 20, 2):
+for i in range(13, 18, 2):
     ln.zModifyPOPSettings(cfgfile, endSurf=i)
     tmp_curr_irr_surf, tmp_curr_griddat = ln.zGetPOP(settingsFile=cfgfile, displayData=True)
     irr_data_l1_m2.append(tmp_curr_irr_surf)
     irr_grid_l1_m2.append(tmp_curr_griddat)
 
-for i in range(29, 37, 2):
+for i in range(30, 35, 2):
     ln.zModifyPOPSettings(cfgfile, endSurf=i)
     tmp_curr_irr_surf, tmp_curr_griddat = ln.zGetPOP(settingsFile=cfgfile, displayData=True)
     irr_data_l2_m3.append(tmp_curr_irr_surf)
     irr_grid_l2_m3.append(tmp_curr_griddat)
 
-for i in range(41, 49, 2):
+for i in range(42, 47, 2):
     ln.zModifyPOPSettings(cfgfile, endSurf=i)
     tmp_curr_irr_surf, tmp_curr_griddat = ln.zGetPOP(settingsFile=cfgfile, displayData=True)
     irr_data_m3_m4.append(tmp_curr_irr_surf)
     irr_grid_m3_m4.append(tmp_curr_griddat)
 
-for i in range(54, 61, 2):
+for i in range(54, 59, 2):
     ln.zModifyPOPSettings(cfgfile, endSurf=i)
     tmp_curr_irr_surf, tmp_curr_griddat = ln.zGetPOP(settingsFile=cfgfile, displayData=True)
     irr_data_m4_l3.append(tmp_curr_irr_surf)
     irr_grid_m4_l3.append(tmp_curr_griddat)
 
-for i in range(69, 77, 2):
+for i in range(70,75, 2):
     ln.zModifyPOPSettings(cfgfile, endSurf=i)
     tmp_curr_irr_surf, tmp_curr_griddat = ln.zGetPOP(settingsFile=cfgfile, displayData=True)
     irr_data_m5_m6.append(tmp_curr_irr_surf)
     irr_grid_m5_m6.append(tmp_curr_griddat)
 
-for i in range(86, 93, 2):
+for i in range(86, 91, 2):
     ln.zModifyPOPSettings(cfgfile, endSurf=i)
     tmp_curr_irr_surf, tmp_curr_griddat = ln.zGetPOP(settingsFile=cfgfile, displayData=True)
     irr_data_l4_comp.append(tmp_curr_irr_surf)
@@ -363,6 +363,6 @@ print(len(pos))
 
 data = np.array([pos, all_waist])
 data = data.T
-fpath = r"C:\Users\pwfa-facet2\Desktop\slacecodes\FACET_model_current\wavelength_runs\525nm_5mm.csv"
+fpath = r"C:\Users\pwfa-facet2\Desktop\slacecodes\FACET_model_current\wavelength_runs\525nm_1mm.csv"
 
 np.savetxt(fpath, all_waist)
