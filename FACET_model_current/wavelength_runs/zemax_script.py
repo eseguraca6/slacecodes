@@ -19,7 +19,7 @@ def POP_Generator(ln, beam_size, window_size):
     S_512 = 5
     grid_size = window_size
     cfgfile = ln.zSetPOPSettings('cross', setfile, 2, endSurf=2, field=1, wave=1, beamType=GAUSS_WAIST,
-                             paramN=((WAIST_X, WAIST_Y), (beam_waist, beam_waist)), sampx=S_512, sampy=S_512,
+                             paramN=((WAIST_X, WAIST_Y), (beam_waist, beam_waist), (0,0)), sampx=S_512, sampy=S_512,
                              widex=grid_size, widey=grid_size, tPow=1)
     tmp_irr, tmp = ln.zGetPOP(settingsFile=cfgfile, displayData=True)
 
@@ -57,11 +57,12 @@ link.ipzGetLDE()
 link.zSetWave(1, .800, 1)
 print(link.zGetWave(1))
 setfile = link.zGetFile().lower().replace('.zmx', '.CFG')
-GAUSS_WAIST, WAIST_X, WAIST_Y, beam_waist = 0, 1, 2, 1
+GAUSS_WAIST, WAIST_X, WAIST_Y, beam_waist = 0, 1, 2, 5
+DECENTER_X, DECENTER_Y = 0, 0
 S_512 = 5
 grid_size = 20
 cfgfile = link.zSetPOPSettings('cross', setfile, 4, endSurf=4, field=1, wave=1, beamType=GAUSS_WAIST,
-                             paramN=((WAIST_X, WAIST_Y), (beam_waist, beam_waist)), sampx=S_512, sampy=S_512,
+                             paramN=((WAIST_X, WAIST_Y), (beam_waist, beam_waist), (DECENTER_X, DECENTER_Y)), sampx=S_512, sampy=S_512,
                              widex=grid_size, widey=grid_size, tPow=1)
 
 tmp_irr, tmp = link.zGetPOP(settingsFile=cfgfile, displayData=True)
@@ -130,6 +131,9 @@ def gaussian_extractor(pos_list):
     return(tmp_waist)
 
 ####################
+
+
+
 m1_m2_drift_loc = [10,12]
 m2_end_drift_loc = [20,22]
 nondrifts_data_loc = [4, 8,18]
@@ -155,18 +159,21 @@ for i in waist_drifts_m2_end:
     waists.append(i)
 
 #print(waists)
+#fpath = r"C:\Users\pwfa-facet2\Desktop\slacecodes\FACET_model_current\wavelength_runs\mirror_800_1_no_offset.csv"
 
-plt.scatter(pos, waists, label = 'No Offset')
+#np.savetxt(fpath, waists)
+plt.figure(figsize=(10,10))
+plt.scatter(pos, waists, label = 'No Offset ($w_0$ = $5mm)')
 plt.plot(pos, waists, linestyle = ':')
-plt.savefig('mirrortest.pdf')
+plt.savefig('mirrortest1mm.pdf')
 
 ##########################
 
 #give offset to first mirror
 
 
-link.zSetSurfaceParameter(surfNum=5, param=3, value=47)
-link.zSetSurfaceParameter(surfNum=5, param=3, value=47)
+#link.zSetSurfaceParameter(surfNum=5, param=3, value=47)
+#link.zSetSurfaceParameter(surfNum=5, param=3, value=47)
 
 #link.zSetSurfaceParameter(surfNum=7,  param=2, value=-2)
 #link.zSetSurfaceParameter(surfNum=7,  param=2, value=-2)
@@ -180,7 +187,19 @@ link.zSaveFile(file)
 
 #################
 
-#propagate beam again with 2mm offset (only on first mirror
+
+setfile = link.zGetFile().lower().replace('.zmx', '.CFG')
+GAUSS_WAIST, WAIST_X, WAIST_Y, beam_waist = 0, 1, 2, 5
+DECENTER_X, DECENTER_Y = -5, -5
+S_512 = 5
+grid_size = 20
+cfgfile = link.zSetPOPSettings('cross', setfile, 2, endSurf=2, field=1, wave=1, beamType=GAUSS_WAIST,
+                             paramN=((WAIST_X, WAIST_Y), (beam_waist, beam_waist), (DECENTER_X, DECENTER_Y)), sampx=S_512, sampy=S_512,
+                             widex=grid_size, widey=grid_size, tPow=1)
+
+tmp_irr, tmp = link.zGetPOP(settingsFile=cfgfile, displayData=True)
+
+#propagate beam again with 5mm offset (from source)
 m1_m2_drift_loc = [10,12]
 m2_end_drift_loc = [20,22]
 nondrifts_data_loc = [4, 8,18]
@@ -206,10 +225,103 @@ waists_offset.append(waist_drifts_mirrors_start_offset[2])
 for i in waist_drifts_m2_end_offset:
     waists_offset.append(i)
 
+fpath = r"C:\Users\pwfa-facet2\Desktop\slacecodes\FACET_model_current\wavelength_runs\mirror_800_1_offset.csv"
 
-plt.scatter(pos, waists_offset, label = '2mm Offset $M_1$')
+np.savetxt(fpath, waists_offset)
+plt.scatter(pos, waists_offset, label = '5mmx5mm Offset ($w_0$ = $5mm)')
 plt.plot(pos, waists_offset, linestyle = '-.')
+
+plt.xlabel('Beam Position (mm)')
+plt.ylabel('Beam Size(mm')
+plt.title('Beam in Two-Mirror System with initial (5,5) Source Offset')
+
+##########################
+
+#################
+
+
+setfile = link.zGetFile().lower().replace('.zmx', '.CFG')
+GAUSS_WAIST, WAIST_X, WAIST_Y, beam_waist = 0, 1, 2, 5
+DECENTER_X, DECENTER_Y = -5, -28
+S_512 = 5
+grid_size = 20
+cfgfile = link.zSetPOPSettings('cross', setfile, 2, endSurf=2, field=1, wave=1, beamType=GAUSS_WAIST,
+                             paramN=((WAIST_X, WAIST_Y), (beam_waist, beam_waist), (DECENTER_X, DECENTER_Y)), sampx=S_512, sampy=S_512,
+                             widex=grid_size, widey=grid_size, tPow=1)
+
+tmp_irr, tmp = link.zGetPOP(settingsFile=cfgfile, displayData=True)
+
+
+m1_m2_drift_loc = [10,12]
+m2_end_drift_loc = [20,22]
+nondrifts_data_loc = [4, 8,18]
+
+waist_drifts_m1_m2_5 = gaussian_extractor(m1_m2_drift_loc)
+#print(waist_drifts_m1_m2)
+waist_drifts_m2_end_5 = gaussian_extractor(m2_end_drift_loc)
+#print(waist_drifts_m2_end)
+waist_drifts_mirrors_start_5 = gaussian_extractor(nondrifts_data_loc)
+#print(waist_drifts_mirrors_start)
+
+waists_5 = []
+
+waists_5.append(waist_drifts_mirrors_start_5[0])
+waists_5.append(waist_drifts_mirrors_start_5[1])
+
+
+for i in waist_drifts_m1_m2_5:
+    waists_5.append(i)
+
+waists_5.append(waist_drifts_mirrors_start_5[2])
+
+for i in waist_drifts_m2_end_5:
+    waists_5.append(i)
+
+plt.scatter(pos, waists_5, label = '($w_0$ = $5mm$, (5x28)mm offset')
+plt.plot(pos, waists_5, linestyle = '-.')
+#plt.savefig('mirrortestranges.pdf')
+
+#################
+
+
+setfile = link.zGetFile().lower().replace('.zmx', '.CFG')
+GAUSS_WAIST, WAIST_X, WAIST_Y, beam_waist = 0, 1, 2, 5
+DECENTER_X, DECENTER_Y = -28, -5
+S_512 = 5
+grid_size = 20
+cfgfile = link.zSetPOPSettings('cross', setfile, 2, endSurf=2, field=1, wave=1, beamType=GAUSS_WAIST,
+                             paramN=((WAIST_X, WAIST_Y), (beam_waist, beam_waist), (DECENTER_X, DECENTER_Y)), sampx=S_512, sampy=S_512,
+                             widex=grid_size, widey=grid_size, tPow=1)
+
+tmp_irr, tmp = link.zGetPOP(settingsFile=cfgfile, displayData=True)
+
+
+m1_m2_drift_loc = [10,12]
+m2_end_drift_loc = [20,22]
+nondrifts_data_loc = [4, 8,18]
+
+waist_drifts_m1_m2_5_offset = gaussian_extractor(m1_m2_drift_loc)
+#print(waist_drifts_m1_m2)
+waist_drifts_m2_end_5_offset = gaussian_extractor(m2_end_drift_loc)
+#print(waist_drifts_m2_end)
+waist_drifts_mirrors_start_5_offset = gaussian_extractor(nondrifts_data_loc)
+#print(waist_drifts_mirrors_start)
+
+waists_5_offset = []
+
+waists_5_offset.append(waist_drifts_mirrors_start_5[0])
+waists_5_offset.append(waist_drifts_mirrors_start_5[1])
+
+
+for i in waist_drifts_m1_m2_5_offset:
+    waists_5_offset.append(i)
+
+waists_5_offset.append(waist_drifts_mirrors_start_5_offset[2])
+
+for i in waist_drifts_m2_end_5_offset:
+    waists_5_offset.append(i)
+
+plt.scatter(pos, waists_5_offset, label = '($w_0$ = $5mm$ (28mmx5mm offset)')
+plt.plot(pos, waists_5_offset, linestyle = '-.')
 plt.legend(loc = 'lower right')
-plt.savefig('mirrortestoffset.pdf')
-
-
+plt.savefig('testofrangesneg5.pdf')
