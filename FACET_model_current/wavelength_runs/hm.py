@@ -47,7 +47,7 @@ ln.ipzGetLDE()
 ln.zSetWave(1, .800, 1)
 print(ln.zGetWave(1))
 setfile = ln.zGetFile().lower().replace('.zmx', '.CFG')
-GAUSS_WAIST, WAIST_X, WAIST_Y, beam_waist = 0, 1, 2, 5
+GAUSS_WAIST, WAIST_X, WAIST_Y, beam_waist = 0, 1, 2, 1
 DECENTER_X, DECENTER_Y = 0, 0
 S_512 = 5
 grid_size = 40
