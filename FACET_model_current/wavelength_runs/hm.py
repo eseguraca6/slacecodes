@@ -367,7 +367,7 @@ print(len(pos))
 
 data = np.array([pos, all_waist])
 data = data.T
-fpath = r"C:\Users\pwfa-facet2\Desktop\slacecodes\FACET_model_current\wavelength_runs\800nm_1mm_20grid_aperturesmodified_2maway.csv"
+fpath = r"C:\Users\pwfa-facet2\Desktop\slacecodes\FACET_model_current\wavelength_runs\800nm_1mm_20grid_aperturesmodified_1faway.csv"
 
 np.savetxt(fpath, all_waist)
 
