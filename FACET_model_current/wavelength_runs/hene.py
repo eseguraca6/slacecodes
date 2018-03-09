@@ -56,7 +56,7 @@ cfgfile = ln.zSetPOPSettings('cross', setfile, 2, endSurf=2, field=1, wave=1, be
                              widex=grid_size, widey=grid_size, tPow=1)
 
 tmp_irr, tmp = ln.zGetPOP(settingsFile=cfgfile, displayData=True)
-fpath = r"C:\Users\pwfa-facet2\Desktop\slacecodes\FACET_model_current\wavelength_runs\525nm_1mm_20grid_aperturesmodified_1faway.csv"
+fpath = r"C:\Users\pwfa-facet2\Desktop\slacecodes\FACET_model_current\wavelength_runs\525nm_1mm_20grid_aperturesmodified_2maway.csv"
 print(tmp_irr)
 irr_data = []
 irr_grid_data = []
