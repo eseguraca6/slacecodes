@@ -115,7 +115,7 @@ def facet_transport(wv, gridsize, bwaist, x_off, y_off, start_pos, pos_arr):
     GAUSS_WAIST, WAIST_X, WAIST_Y, beam_waist = 0, 1, 2, bwaist
     DECENTER_X, DECENTER_Y = 0, 0
     S_512 = 5
-    grid_size = 6
+    grid_size = gridsize
     cfgfile = link.zSetPOPSettings('irr', setfile, 2, endSurf=2, field=1, wave=1, beamType=GAUSS_WAIST,
                              paramN=((WAIST_X, WAIST_Y), (beam_waist, beam_waist), (DECENTER_X, DECENTER_Y)), sampx=S_512, sampy=S_512,
                              widex=grid_size, widey=grid_size, tPow=1)
@@ -127,16 +127,16 @@ def facet_transport(wv, gridsize, bwaist, x_off, y_off, start_pos, pos_arr):
     np.savetxt(waist_file, waists_values)
     return(waists_values)
 
-facet_transport(800, 25, 5, 0,0, 541, pos_transport)
-facet_transport(800, 25, 1, 0,0, 541, pos_transport)
+facet_transport(800, 20, 5, 0,0, 541, pos_transport)
+facet_transport(800, 20, 1, 0,0, 541, pos_transport)
 
-facet_transport(527, 25, 5, 0,0, 541, pos_transport)
-facet_transport(527, 25, 1, 0,0, 541, pos_transport)
+facet_transport(527, 20, 5, 0,0, 541, pos_transport)
+facet_transport(527, 20, 1, 0,0, 541, pos_transport)
 
-facet_transport(800, 25, 5, 0,0, 2000, pos_transport)
-facet_transport(800, 25, 1, 0,0, 2000, pos_transport)
+facet_transport(800, 20, 5, 0,0, 2000, pos_transport)
+facet_transport(800, 20, 1, 0,0, 2000, pos_transport)
 
-facet_transport(527, 25, 5, 0,0, 2000, pos_transport)
-facet_transport(527, 25, 1, 0,0, 2000, pos_transport)
+facet_transport(527, 20, 5, 0,0, 2000, pos_transport)
+facet_transport(527, 20, 1, 0,0, 2000, pos_transport)
     
 
