@@ -108,7 +108,7 @@ def facet_transport(wv, gridsize, bwaist, x_off, y_off, start_pos, pos_arr):
 
     #link.ipzGetLDE()
 
-    link.zSetSurfaceData(3, 3, start_pos)
+    link.zSetSurfaceData(2, 3, start_pos)
     link.zSetWave(1, wavelength, 1)
     print(link.zGetWave(1))
     setfile = link.zGetFile().lower().replace('.zmx', '.CFG')
@@ -127,16 +127,16 @@ def facet_transport(wv, gridsize, bwaist, x_off, y_off, start_pos, pos_arr):
     np.savetxt(waist_file, waists_values)
     return(waists_values)
 
-facet_transport(800, 20, 5, 0,0, 541, pos_transport)
-facet_transport(800, 20, 1, 0,0, 541, pos_transport)
+facet_transport(800, 25, 5, 0,0, 541, pos_transport)
+facet_transport(800, 10, 1, 0,0, 541, pos_transport)
 
-facet_transport(527, 20, 5, 0,0, 541, pos_transport)
-facet_transport(527, 20, 1, 0,0, 541, pos_transport)
+facet_transport(527, 25, 5, 0,0, 541, pos_transport)
+facet_transport(527, 10, 1, 0,0, 541, pos_transport)
 
-facet_transport(800, 20, 5, 0,0, 2000, pos_transport)
-facet_transport(800, 20, 1, 0,0, 2000, pos_transport)
+facet_transport(800, 25, 5, 0,0, 2000, pos_transport)
+facet_transport(800, 10, 1, 0,0, 2000, pos_transport)
 
-facet_transport(527, 20, 5, 0,0, 2000, pos_transport)
-facet_transport(527, 20, 1, 0,0, 2000, pos_transport)
+facet_transport(527, 25, 5, 0,0, 2000, pos_transport)
+facet_transport(527, 10, 1, 0,0, 2000, pos_transport)
     
 
