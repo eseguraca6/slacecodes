@@ -112,7 +112,7 @@ def facet_transport(wv, gridsize, bwaist, x_off, y_off, start_pos, pos_arr, f_na
     link.zSetWave(1, wavelength, 1)
     print(link.zGetWave(1))
     setfile = link.zGetFile().lower().replace('.zmx', '.CFG')
-    GAUSS_WAIST, WAIST_X, WAIST_Y, beam_waist = 0, 1, 2, bwaist
+    GAUSS_WAIST, WAIST_X, WAIST_Y, beam_waist = 3, 1, 2, bwaist
     DECENTER_X, DECENTER_Y = x_off, y_off
     S_512 = 5
     grid_size = gridsize
@@ -123,9 +123,9 @@ def facet_transport(wv, gridsize, bwaist, x_off, y_off, start_pos, pos_arr, f_na
     waists_values = waist_extractor(pos_arr, cfgfile, link)
     pyz.closeLink()
     fpath = r"C:\Users\pwfa-facet2\Desktop\slacecodes\FACET_model_current\wavelength_runs"
-    waist_file = fpath+"\\"+str(wv)+"_"+str(bwaist)+"_"+str(start_pos)+'.csv'
+    waist_file = fpath+"\\"+str(wv)+"_"+str(bwaist)+"_"+str(start_pos)+'ft.csv'
     np.savetxt(waist_file, waists_values)
-    irr_file= fpath+"\\"+str(wv)+"_"+str(bwaist)+"_"+str(start_pos)+ "_irr"'.csv'
+    irr_file= fpath+"\\"+str(wv)+"_"+str(bwaist)+"_"+str(start_pos)+ "_irr_ft"'.csv'
     #link.zSaveFile(
     return(waists_values)
 
