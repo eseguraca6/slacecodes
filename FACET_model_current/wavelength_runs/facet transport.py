@@ -98,25 +98,25 @@ for i in range(86, 91, 2):
 #tisaph_f_1mm_settings = beam_settings(link, 800, 1, 20, 0,0,541)
 
 
+file = r"C:\Users\pwfa-facet2\Desktop\slacecodes\FACET_model_current\wavelength_runs\transport.zmx"
+def facet_transport(wv, gridsize, bwaist, x_off, y_off, start_pos, pos_arr, f_name):
 
-def facet_transport(wv, gridsize, bwaist, x_off, y_off, start_pos, pos_arr):
-    file = r"C:\Users\pwfa-facet2\Desktop\slacecodes\FACET_model_current\wavelength_runs\transport.zmx"
     link = pyz.createLink()
-    link.zLoadFile(file)
+    link.zLoadFile(f_name)
     wavelength = wv/1000
     
 
     #link.ipzGetLDE()
-
+    #change start position
     link.zSetSurfaceData(2, 3, start_pos)
     link.zSetWave(1, wavelength, 1)
     print(link.zGetWave(1))
     setfile = link.zGetFile().lower().replace('.zmx', '.CFG')
     GAUSS_WAIST, WAIST_X, WAIST_Y, beam_waist = 0, 1, 2, bwaist
-    DECENTER_X, DECENTER_Y = 0, 0
+    DECENTER_X, DECENTER_Y = x_off, y_off
     S_512 = 5
     grid_size = gridsize
-    cfgfile = link.zSetPOPSettings('irr', setfile, 2, endSurf=2, field=1, wave=1, beamType=GAUSS_WAIST,
+    cfgfile = link.zSetPOPSettings('irr', setfile, startSurf=2, endSurf=2, field=1, wave=1, beamType=GAUSS_WAIST,
                              paramN=((WAIST_X, WAIST_Y), (beam_waist, beam_waist), (DECENTER_X, DECENTER_Y)), sampx=S_512, sampy=S_512,
                              widex=grid_size, widey=grid_size, tPow=1)
     
@@ -125,18 +125,20 @@ def facet_transport(wv, gridsize, bwaist, x_off, y_off, start_pos, pos_arr):
     fpath = r"C:\Users\pwfa-facet2\Desktop\slacecodes\FACET_model_current\wavelength_runs"
     waist_file = fpath+"\\"+str(wv)+"_"+str(bwaist)+"_"+str(start_pos)+'.csv'
     np.savetxt(waist_file, waists_values)
+    irr_file= fpath+"\\"+str(wv)+"_"+str(bwaist)+"_"+str(start_pos)+ "_irr"'.csv'
+    #link.zSaveFile(
     return(waists_values)
 
-facet_transport(800, 25, 5, 0,0, 541, pos_transport)
-facet_transport(800, 10, 1, 0,0, 541, pos_transport)
+facet_transport(800, 25, 5, 0,0, 541, pos_transport, file)
+facet_transport(800, 10, 1, 0,0, 541, pos_transport, file)
 
-facet_transport(527, 25, 5, 0,0, 541, pos_transport)
-facet_transport(527, 10, 1, 0,0, 541, pos_transport)
+facet_transport(527, 25, 5, 0,0, 541, pos_transport, file)
+facet_transport(527, 10, 1, 0,0, 541, pos_transport, file)
 
-facet_transport(800, 25, 5, 0,0, 2000, pos_transport)
-facet_transport(800, 10, 1, 0,0, 2000, pos_transport)
+facet_transport(800, 25, 5, 0,0, 2000, pos_transport, file)
+facet_transport(800, 10, 1, 0,0, 2000, pos_transport, file)
 
-facet_transport(527, 25, 5, 0,0, 2000, pos_transport)
-facet_transport(527, 10, 1, 0,0, 2000, pos_transport)
+facet_transport(527, 25, 5, 0,0, 2000, pos_transport, file)
+facet_transport(527, 10, 1, 0,0, 2000, pos_transport, file)
     
 
