@@ -130,15 +130,15 @@ def facet_transport(wv, gridsize, bwaist, x_off, y_off, start_pos, pos_arr, f_na
     return(waists_values)
 
 facet_transport(800, 25, 5, 0,0, 541, pos_transport, file)
-facet_transport(800, 10, 1, 0,0, 541, pos_transport, file)
+facet_transport(800, 5, 1, 0,0, 541, pos_transport, file)
 
 facet_transport(527, 25, 5, 0,0, 541, pos_transport, file)
-facet_transport(527, 10, 1, 0,0, 541, pos_transport, file)
+facet_transport(527, 5, 1, 0,0, 541, pos_transport, file)
 
 facet_transport(800, 25, 5, 0,0, 2000, pos_transport, file)
-facet_transport(800, 10, 1, 0,0, 2000, pos_transport, file)
+facet_transport(800, 5, 1, 0,0, 2000, pos_transport, file)
 
 facet_transport(527, 25, 5, 0,0, 2000, pos_transport, file)
-facet_transport(527, 10, 1, 0,0, 2000, pos_transport, file)
+facet_transport(527, 5, 1, 0,0, 2000, pos_transport, file)
     
 
