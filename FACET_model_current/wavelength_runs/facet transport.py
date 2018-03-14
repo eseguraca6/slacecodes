@@ -40,7 +40,7 @@ def waist_extractor(pos_list, cfgfile, link):
     for i in range(len(tmp_grid)):
         popt, pcov = curve_fit(gaussian, tmp_x[i], tmp_grid[i][256], maxfev=18000)
         tmp_waist.append(2 * np.abs(popt[2]))
-    return(tmp_waist)
+    return(tmp_waist, irr_data, grid_data)
     
 
 def beam_settings(zlink):
@@ -99,6 +99,39 @@ for i in range(86, 91, 2):
 
 
 file = r"C:\Users\pwfa-facet2\Desktop\slacecodes\FACET_model_current\wavelength_runs\transport.zmx"
+
+
+def facet_ccd(wv, gridsize, bwaist, x_off, y_off, start_pos, pos_arr, f_name):
+    link = pyz.createLink()
+    link.zLoadFile(f_name)
+    wavelength = wv/1000
+    
+
+    #link.ipzGetLDE()
+    #change start position
+    link.zSetSurfaceData(2, 3, start_pos)
+    link.zSetWave(1, wavelength, 1)
+    print(link.zGetWave(1))
+    setfile = link.zGetFile().lower().replace('.zmx', '.CFG')
+    S_512 = 5
+    grid_size = gridsize
+    GAUSS_WAIST, WAIST_X, WAIST_Y, DECENTER_X, DECENTER_Y = 0, 1, 2, 3, 4
+    beam_waist, x_off, y_off = 3, 2,2
+    cfgfile = link.zSetPOPSettings('irr', setfile, startSurf=2, endSurf=18, field=1, wave=1, beamType=GAUSS_WAIST,
+                             paramN=( (WAIST_X, WAIST_Y, DECENTER_X, DECENTER_Y), (beam_waist, beam_waist,
+                                     x_off, y_off) ), sampx=S_512, sampy=S_512,
+                             widex=grid_size, widey=grid_size, tPow=1)
+
+    for i in range(len(pos_arr)):
+        link.zModifyPOPSettings(cfgfile, endSurf=pos_arr[i])
+        irr_data, grid_data = link.zGetPOP(cfgfile, displayData=True)
+        #print(irr_data)
+        #irr_data, irr_grid_plot = link.zGetPOP(settingsFile=setfile, displayData=True)
+        fpath = r"C:\Users\pwfa-facet2\Desktop\slacecodes\FACET_model_current\wavelength_runs\facet_2_2_offset_img"
+        irr_file = fpath+"\\"+str(wv)+"_"+str(bwaist)+"_"+str(start_pos)+"_pos"+str(pos_arr[i])+ "_irr_offset.csv"
+        np.savetxt(irr_file,grid_data)
+        
+    pyz.closeLink()
 def facet_transport(wv, gridsize, bwaist, x_off, y_off, start_pos, pos_arr, f_name):
 
     link = pyz.createLink()
@@ -112,33 +145,36 @@ def facet_transport(wv, gridsize, bwaist, x_off, y_off, start_pos, pos_arr, f_na
     link.zSetWave(1, wavelength, 1)
     print(link.zGetWave(1))
     setfile = link.zGetFile().lower().replace('.zmx', '.CFG')
-    GAUSS_WAIST, WAIST_X, WAIST_Y, beam_waist = 3, 1, 2, bwaist
-    DECENTER_X, DECENTER_Y = x_off, y_off
     S_512 = 5
     grid_size = gridsize
-    cfgfile = link.zSetPOPSettings('irr', setfile, startSurf=2, endSurf=2, field=1, wave=1, beamType=GAUSS_WAIST,
-                             paramN=((WAIST_X, WAIST_Y), (beam_waist, beam_waist), (DECENTER_X, DECENTER_Y)), sampx=S_512, sampy=S_512,
+    GAUSS_WAIST, WAIST_X, WAIST_Y, DECENTER_X, DECENTER_Y = 0, 1, 2, 3, 4
+    beam_waist, x_off, y_off = 3, 2,2
+    cfgfile = link.zSetPOPSettings('irr', setfile, startSurf=2, endSurf=18, field=1, wave=1, beamType=GAUSS_WAIST,
+                             paramN=( (WAIST_X, WAIST_Y, DECENTER_X, DECENTER_Y), (beam_waist, beam_waist,
+                                     x_off, y_off) ), sampx=S_512, sampy=S_512,
                              widex=grid_size, widey=grid_size, tPow=1)
     
     waists_values = waist_extractor(pos_arr, cfgfile, link)
     pyz.closeLink()
     fpath = r"C:\Users\pwfa-facet2\Desktop\slacecodes\FACET_model_current\wavelength_runs"
-    waist_file = fpath+"\\"+str(wv)+"_"+str(bwaist)+"_"+str(start_pos)+'ft.csv'
-    np.savetxt(waist_file, waists_values)
-    irr_file= fpath+"\\"+str(wv)+"_"+str(bwaist)+"_"+str(start_pos)+ "_irr_ft"'.csv'
-    #link.zSaveFile(
+    waist_file = fpath+"\\"+str(wv)+"_"+str(bwaist)+"_"+str(start_pos)+'offset.csv'
+    np.savetxt(waist_file, waists_values[0])
+    irr_file= fpath+"\\"+str(wv)+"_"+str(bwaist)+"_"+str(start_pos)+ "_irr_offset"'.csv'
+    np.savetxt(irr_file,waists_values[2])
+    surf_pop_file= fpath+"\\"+str(wv)+"_"+str(bwaist)+"_"+str(start_pos)+ "_popinfo_offset"'.txt'
+    #np.savetxt(surf_pop_file,waists_values[1] )
     return(waists_values)
 
-facet_transport(800, 25, 5, 0,0, 541, pos_transport, file)
-facet_transport(800, 5, 1, 0,0, 541, pos_transport, file)
+facet_ccd(800, 20, 5, 0,0, 541, pos_transport, file)
+#facet_ccd(800, 5, 1, 0,0, 541, pos_transport, file)
+"""
+facet_ccd(527, 25, 5, 0,0, 541, pos_transport, file)
+facet_ccd(527, 5, 1, 0,0, 541, pos_transport, file)
 
-facet_transport(527, 25, 5, 0,0, 541, pos_transport, file)
-facet_transport(527, 5, 1, 0,0, 541, pos_transport, file)
+facet_ccd(800, 25, 5, 0,0, 2000, pos_transport, file)
+facet_ccd(800, 5, 1, 0,0, 2000, pos_transport, file)
 
-facet_transport(800, 25, 5, 0,0, 2000, pos_transport, file)
-facet_transport(800, 5, 1, 0,0, 2000, pos_transport, file)
-
-facet_transport(527, 25, 5, 0,0, 2000, pos_transport, file)
-facet_transport(527, 5, 1, 0,0, 2000, pos_transport, file)
-    
+facet_ccd(527, 25, 5, 0,0, 2000, pos_transport, file)
+facet_ccd(527, 5, 1, 0,0, 2000, pos_transport, file)
+"""   
 

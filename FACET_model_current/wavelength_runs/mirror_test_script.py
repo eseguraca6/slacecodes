@@ -69,10 +69,10 @@ link.zLoadFile(file)
 
 link.ipzGetLDE()
 
-link.zSetSurfaceParameter(5, 3,50)
-link.zSetSurfaceParameter(7, 3, 50)
-#link.zSetSurfaceParameter(4, 1, 8)
-#link.zSetSurfaceParameter(6, 1, 8)
+link.zSetSurfaceParameter(5, 3,45)
+link.zSetSurfaceParameter(7, 3, 45)
+link.zSetSurfaceParameter(5, 2,0)
+link.zSetSurfaceParameter(7, 2, 0)
 #link.zSetSurfaceParameter(6, 6, 0)
 #link.zSetSurfaceParameter(4, 1, 10)
 #link.zSetSurfaceParameter(6, 1, 0)
@@ -94,9 +94,9 @@ link.zSetSurfaceParameter(4, 6, 1)
 link.zSetWave(1, 0.800, 1)
 setfile = link.zGetFile().lower().replace('.zmx', '.CFG')
 GAUSS_WAIST, WAIST_X, WAIST_Y, DECENTER_X, DECENTER_Y = 0, 1, 2, 3, 4
-beam_waist, x_off, y_off = 5, 0,0
-S_512 = 5
-grid_size=30
+beam_waist, x_off, y_off = 3, 1,1
+S_512 = 6
+grid_size=15
 cfgfile = link.zSetPOPSettings('irr', setfile, startSurf=2, endSurf=18, field=1, wave=1, beamType=GAUSS_WAIST,
                              paramN=( (WAIST_X, WAIST_Y, DECENTER_X, DECENTER_Y), (beam_waist, beam_waist,
                                      x_off, y_off) ), sampx=S_512, sampy=S_512,
