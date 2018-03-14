@@ -101,7 +101,7 @@ for i in range(86, 91, 2):
 file = r"C:\Users\pwfa-facet2\Desktop\slacecodes\FACET_model_current\wavelength_runs\transport.zmx"
 
 
-def facet_ccd(wv, gridsize, bwaist, x_off, y_off, start_pos, pos_arr, f_name):
+def facet_ccd(wv, gridsize, bwaist, xoff, yoff, start_pos, pos_arr, f_name):
     link = pyz.createLink()
     link.zLoadFile(f_name)
     wavelength = wv/1000
@@ -116,30 +116,33 @@ def facet_ccd(wv, gridsize, bwaist, x_off, y_off, start_pos, pos_arr, f_name):
     S_512 = 5
     grid_size = gridsize
     GAUSS_WAIST, WAIST_X, WAIST_Y, DECENTER_X, DECENTER_Y = 0, 1, 2, 3, 4
-    beam_waist, x_off, y_off = 3, 2,2
-    cfgfile = link.zSetPOPSettings('irr', setfile, startSurf=2, endSurf=18, field=1, wave=1, beamType=GAUSS_WAIST,
+    beam_waist, x_off, y_off = bwaist, xoff,yoff
+    cfgfile = link.zSetPOPSettings('irr', setfile, startSurf=2, endSurf=2, field=1, wave=1, beamType=GAUSS_WAIST,
                              paramN=( (WAIST_X, WAIST_Y, DECENTER_X, DECENTER_Y), (beam_waist, beam_waist,
                                      x_off, y_off) ), sampx=S_512, sampy=S_512,
-                             widex=grid_size, widey=grid_size, tPow=1)
-
-    for i in range(len(pos_arr)):
-        link.zModifyPOPSettings(cfgfile, endSurf=pos_arr[i])
-        irr_data, grid_data = link.zGetPOP(cfgfile, displayData=True)
-        #print(irr_data)
+                             widex=grid_size, widey=grid_size, tPow=1, auto=0)
+                             
+   #ipath = r"C:\Users\pwfa-facet2\Desktop\slacecodes\FACET_model_current\wavelength_runs\\facet_2_2_offset_img\\"
+    outfile =r"C:\Users\pwfa-facet2\Desktop\slacecodes\FACET_model_current\wavelength_runs\facet_2_2_offset_img\irradiancesetttings.txt"
+    with open(outfile, "w") as text_file:                      
+        for i in range(len(pos_arr)):
+            link.zModifyPOPSettings(cfgfile, endSurf=pos_arr[i])
+            irr_data, grid_data = link.zGetPOP(cfgfile, displayData=True)
+            #print(irr_data)
+            text_file.write(str(irr_data) + '\n')
+            print(irr_data)
         #irr_data, irr_grid_plot = link.zGetPOP(settingsFile=setfile, displayData=True)
-        fpath = r"C:\Users\pwfa-facet2\Desktop\slacecodes\FACET_model_current\wavelength_runs\facet_2_2_offset_img"
-        grid_file = fpath+"\\"+str(wv)+"_"+str(bwaist)+"_"+str(start_pos)+"_pos"+str(pos_arr[i])+ "_irr_offset.csv"
-        
-        np.savetxt(grid_file,grid_data)
+            fpath = r"C:\Users\pwfa-facet2\Desktop\slacecodes\FACET_model_current\wavelength_runs\facet_2_2_offset_img"
+            grid_file = fpath+"\\"+str(wv)+"_"+str(bwaist)+"_"+str(start_pos)+"_pos"+str(pos_arr[i])+ "_irr_offset.csv"
+            np.savetxt(grid_file,grid_data)
 
 
-        ipath = r"C:\Users\pwfa-facet2\Desktop\slacecodes\FACET_model_current\wavelength_runs\\facet_2_2_offset_img\\"
-        outfile = open(ipath+"\\"+"irrdata_pos"+str(pos_arr[i])+".txt", "w")
-        outfile.write(str(irr_data))
-        outfile.close()
-        
+       
+        #out_file = open(ipath+"\\"+"irrdata_pos"+str(start_pos)+".txt", "w")
+       
+
     pyz.closeLink()
-def facet_transport(wv, gridsize, bwaist, x_off, y_off, start_pos, pos_arr, f_name):
+def facet_transport(wv, gridsize, bwaist, xoff, yoff, start_pos, pos_arr, f_name):
 
     link = pyz.createLink()
     link.zLoadFile(f_name)
@@ -155,8 +158,8 @@ def facet_transport(wv, gridsize, bwaist, x_off, y_off, start_pos, pos_arr, f_na
     S_512 = 5
     grid_size = gridsize
     GAUSS_WAIST, WAIST_X, WAIST_Y, DECENTER_X, DECENTER_Y = 0, 1, 2, 3, 4
-    beam_waist, x_off, y_off = 3, 2,2
-    cfgfile = link.zSetPOPSettings('irr', setfile, startSurf=2, endSurf=18, field=1, wave=1, beamType=GAUSS_WAIST,
+    beam_waist, x_off, y_off = bwaist, xoff,yoff
+    cfgfile = link.zSetPOPSettings('irr', setfile, startSurf=2, endSurf=2, field=1, wave=1, beamType=GAUSS_WAIST,
                              paramN=( (WAIST_X, WAIST_Y, DECENTER_X, DECENTER_Y), (beam_waist, beam_waist,
                                      x_off, y_off) ), sampx=S_512, sampy=S_512,
                              widex=grid_size, widey=grid_size, tPow=1)
@@ -172,7 +175,7 @@ def facet_transport(wv, gridsize, bwaist, x_off, y_off, start_pos, pos_arr, f_na
     #np.savetxt(surf_pop_file,waists_values[1] )
     return(waists_values)
 
-facet_ccd(800, 20, 5, 0,0, 541, pos_transport, file)
+facet_ccd(800, 20, 5, 2,2, 541, pos_transport, file)
 #facet_ccd(800, 5, 1, 0,0, 541, pos_transport, file)
 """
 facet_ccd(527, 25, 5, 0,0, 541, pos_transport, file)
