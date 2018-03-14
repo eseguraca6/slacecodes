@@ -1,0 +1,1 @@
+POPinfo(surf=15, peakIrr=0.10404, totPow=1.0, fibEffSys=None, fibEffRec=None, coupling=None, pilotSize=2.47234, pilotWaist=0.048213, pos=-468.004, rayleigh=9.12828, gridX=512, gridY=512, widthX=16.479232, widthY=16.479232)

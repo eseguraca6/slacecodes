@@ -97,13 +97,17 @@ GAUSS_WAIST, WAIST_X, WAIST_Y, DECENTER_X, DECENTER_Y = 0, 1, 2, 3, 4
 beam_waist, x_off, y_off = 3, 1,1
 S_512 = 6
 grid_size=15
-cfgfile = link.zSetPOPSettings('irr', setfile, startSurf=2, endSurf=18, field=1, wave=1, beamType=GAUSS_WAIST,
+cfgfile = link.zSetPOPSettings('irr', setfile, startSurf=2, endSurf=2, field=1, wave=1, beamType=GAUSS_WAIST,
                              paramN=( (WAIST_X, WAIST_Y, DECENTER_X, DECENTER_Y), (beam_waist, beam_waist,
                                      x_off, y_off) ), sampx=S_512, sampy=S_512,
                              widex=grid_size, widey=grid_size, tPow=1)
 
 irr_data, irr_grid_plot = link.zGetPOP(settingsFile=setfile, displayData=True)
 print(irr_data)
+fpath = r"C:\Users\pwfa-facet2\Desktop\slacecodes\FACET_model_current\wavelength_runs\image_test"
+outfile = open(fpath+"\\"+"irrdata.txt", "w")
+outfile.write(str(irr_data))
+outfile.close()
 pyz.closeLink()
 
 fig = plt.figure(figsize=(10,10))
@@ -113,6 +117,10 @@ ax.set_title('Beam Spot on CCD', fontsize=14)
 irrmax = np.max(irr_grid_plot)
 ext = [-irr_data.widthX/2, irr_data.widthX/2, 
        -irr_data.widthY/2, irr_data.widthY/2]
+
+
+file = r"C:\Users\pwfa-facet2\Desktop\slacecodes\FACET_model_current\wavelength_runs\image_test\mtest.zmx"
+
 
 ax.imshow(irr_grid_plot, extent=ext, cmap = 'jet', vmin=0, vmax=irrmax, origin='upper')
 fig.savefig('beam')

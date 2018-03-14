@@ -128,8 +128,15 @@ def facet_ccd(wv, gridsize, bwaist, x_off, y_off, start_pos, pos_arr, f_name):
         #print(irr_data)
         #irr_data, irr_grid_plot = link.zGetPOP(settingsFile=setfile, displayData=True)
         fpath = r"C:\Users\pwfa-facet2\Desktop\slacecodes\FACET_model_current\wavelength_runs\facet_2_2_offset_img"
-        irr_file = fpath+"\\"+str(wv)+"_"+str(bwaist)+"_"+str(start_pos)+"_pos"+str(pos_arr[i])+ "_irr_offset.csv"
-        np.savetxt(irr_file,grid_data)
+        grid_file = fpath+"\\"+str(wv)+"_"+str(bwaist)+"_"+str(start_pos)+"_pos"+str(pos_arr[i])+ "_irr_offset.csv"
+        
+        np.savetxt(grid_file,grid_data)
+
+
+        ipath = r"C:\Users\pwfa-facet2\Desktop\slacecodes\FACET_model_current\wavelength_runs\\facet_2_2_offset_img\\"
+        outfile = open(ipath+"\\"+"irrdata_pos"+str(pos_arr[i])+".txt", "w")
+        outfile.write(str(irr_data))
+        outfile.close()
         
     pyz.closeLink()
 def facet_transport(wv, gridsize, bwaist, x_off, y_off, start_pos, pos_arr, f_name):
