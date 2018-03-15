@@ -105,9 +105,8 @@ cfgfile = link.zSetPOPSettings('irr', setfile, startSurf=2, endSurf=2, field=1, 
 irr_data, irr_grid_plot = link.zGetPOP(settingsFile=setfile, displayData=True)
 print(irr_data)
 fpath = r"C:\Users\pwfa-facet2\Desktop\slacecodes\FACET_model_current\wavelength_runs\image_test"
-outfile = open(fpath+"\\"+"irrdata.txt", "w")
-outfile.write(str(irr_data))
-outfile.close()
+outfile = (fpath+"\\"+"irrdata.txt")
+np.savetxt(outfile, (irr_data.widthX, irr_data.widthY))
 pyz.closeLink()
 
 fig = plt.figure(figsize=(10,10))

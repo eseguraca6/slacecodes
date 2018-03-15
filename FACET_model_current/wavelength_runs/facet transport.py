@@ -124,18 +124,25 @@ def facet_ccd(wv, gridsize, bwaist, xoff, yoff, start_pos, pos_arr, f_name):
                              
    #ipath = r"C:\Users\pwfa-facet2\Desktop\slacecodes\FACET_model_current\wavelength_runs\\facet_2_2_offset_img\\"
     outfile =r"C:\Users\pwfa-facet2\Desktop\slacecodes\FACET_model_current\wavelength_runs\facet_2_2_offset_img\irradiancesetttings.txt"
+    screen_width_file= r"C:\Users\pwfa-facet2\Desktop\slacecodes\FACET_model_current\wavelength_runs\facet_2_2_offset_img\widths.txt"
+    waists_gridx = []
+    waists_gridy = []
     with open(outfile, "w") as text_file:                      
         for i in range(len(pos_arr)):
             link.zModifyPOPSettings(cfgfile, endSurf=pos_arr[i])
             irr_data, grid_data = link.zGetPOP(cfgfile, displayData=True)
+            #waistxy.write(float(irr_data.widthX) + '\t')
+            #waistxy.write(float(irr_data.widthY) + '\n')
             #print(irr_data)
+            waists_gridx.append(irr_data.widthX)
+            waists_gridy.append(irr_data.widthY)
             text_file.write(str(irr_data) + '\n')
-            print(irr_data)
+            #print(irr_data)
         #irr_data, irr_grid_plot = link.zGetPOP(settingsFile=setfile, displayData=True)
             fpath = r"C:\Users\pwfa-facet2\Desktop\slacecodes\FACET_model_current\wavelength_runs\facet_2_2_offset_img"
             grid_file = fpath+"\\"+str(wv)+"_"+str(bwaist)+"_"+str(start_pos)+"_pos"+str(pos_arr[i])+ "_irr_offset.csv"
             np.savetxt(grid_file,grid_data)
-
+    np.savetxt(screen_width_file, list(zip(waists_gridx, waists_gridy)))
 
        
         #out_file = open(ipath+"\\"+"irrdata_pos"+str(start_pos)+".txt", "w")
