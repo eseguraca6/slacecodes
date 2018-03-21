@@ -182,7 +182,7 @@ def facet_transport(wv, gridsize, bwaist, xoff, yoff, start_pos, pos_arr, f_name
     #np.savetxt(surf_pop_file,waists_values[1] )
     return(waists_values)
 
-facet_ccd(800, 20, 5, 2,2, 541, pos_transport, file)
+facet_ccd(800, 35, 5, 0,0, 541, pos_transport, file)
 #facet_ccd(800, 5, 1, 0,0, 541, pos_transport, file)
 """
 facet_ccd(527, 25, 5, 0,0, 541, pos_transport, file)
