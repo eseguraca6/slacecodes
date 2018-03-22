@@ -28,6 +28,7 @@ def facet_ccd(wv, gridsize, bwaist, xdeg_off, pos_ccd, f_name):
     link.zSetWave(1, wavelength, 1)
     print(link.zGetWave(1))
     setfile = link.zGetFile().lower().replace('.zmx', '.CFG')
+    """
     S_512 = 5
     grid_size = gridsize
     GAUSS_WAIST, WAIST_X, WAIST_Y, DECENTER_X, DECENTER_Y = 0, 1, 2, 3, 4
@@ -36,9 +37,11 @@ def facet_ccd(wv, gridsize, bwaist, xdeg_off, pos_ccd, f_name):
                              paramN=( (WAIST_X, WAIST_Y, DECENTER_X, DECENTER_Y), (beam_waist, beam_waist,
                                      x_off, y_off) ), sampx=S_512, sampy=S_512,
                              widex=grid_size, widey=grid_size, tPow=1, auto=0)
-    link.zModifyPOPSettings(cfgfile, endSurf=pos_ccd)
-    irr_data, grid_data = link.zGetPOP(cfgfile, displayData=True)
-    waists_gridx, waists_gridy = irr_data.widthX, irr_data.widthY                          
+    """
+    link.zModifyPOPSettings(setfile, endSurf=pos_ccd)
+    irr_data, grid_data = link.zGetPOP(setfile, displayData=True)
+    waists_gridx, waists_gridy = irr_data.widthX, irr_data.widthY 
+    print(waists_gridx, waists_gridy)                         
     pyz.closeLink()
     irr_file = outfile + "\\" +str(xdeg_off)+".csv"
     np.savetxt(irr_file, grid_data)
@@ -47,5 +50,5 @@ def facet_ccd(wv, gridsize, bwaist, xdeg_off, pos_ccd, f_name):
    
    #ipath = r"C:\Users\pwfa-facet2\Desktop\slacecodes\FACET_model_current\wavelength_runs\\facet_2_2_offset_img\\"
 
-for i in range(0, 20, 5):
+for i in range(0, 20, 2):
     facet_ccd(800, 50, 5, i,  22, file)
