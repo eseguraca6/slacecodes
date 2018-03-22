@@ -47,5 +47,5 @@ def facet_ccd(wv, gridsize, bwaist, xdeg_off, pos_ccd, f_name):
    
    #ipath = r"C:\Users\pwfa-facet2\Desktop\slacecodes\FACET_model_current\wavelength_runs\\facet_2_2_offset_img\\"
 
-for i in range(0, 10, 2):
+for i in range(0, 20, 5):
     facet_ccd(800, 50, 5, i,  22, file)
