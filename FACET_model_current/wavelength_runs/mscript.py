@@ -46,7 +46,7 @@ def facet_ccd(wv, gridsize, bwaist, xdeg_off, pos_ccd, f_name):
     irr_file = outfile + "\\" +str(xdeg_off)+".csv"
     np.savetxt(irr_file, grid_data)
     screen_width_file = outfile + "\\" +str(xdeg_off)+"_"+"widths.txt"
-    np.savetxt(screen_width_file, list((waists_gridx, waists_gridy)))
+    np.savetxt(screen_width_file, ((waists_gridx, waists_gridy)))
    
    #ipath = r"C:\Users\pwfa-facet2\Desktop\slacecodes\FACET_model_current\wavelength_runs\\facet_2_2_offset_img\\"
 
