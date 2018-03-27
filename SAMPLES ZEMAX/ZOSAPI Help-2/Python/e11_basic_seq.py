@@ -92,17 +92,18 @@ if __name__ == '__main__':
     zosapi = PythonStandaloneApplication()
     value = zosapi.ExampleConstants()
 
-    if not os.path.exists(zosapi.TheApplication.SamplesDir + "\\API\\Python"):
-        os.makedirs(zosapi.TheApplication.SamplesDir + "\\API\\Python")
+    #if not os.path.exists(zosapi.TheApplication.SamplesDir + "\\API\\Python"):
+    #    os.makedirs(zosapi.TheApplication.SamplesDir + "\\API\\Python")
 
     #! [e11s01_py]
     # Create New Sequential File
     TheSystem = zosapi.TheSystem
     TheSystem.New(False)
 
-    TheSystem.LoadFile(zosapi.TheApplication.ZemaxDataDir + "\\Samples\\Sequential\\Objectives\\Doublet.zmx")
+    TheSystem.LoadFile(file = r"C:\Users\pwfa-facet2\Desktop\slacecodes\centroid_test.zmx")
 
     TheLDE = TheSystem.LDE
+    """
     Surface_1 = TheLDE.InsertSurfaceAt(1)
     Surface_5 = TheLDE.InsertSurfaceAt(4)
     SurfaceType_1_CB = Surface_1.GetSurfaceTypeSettings(constants.SurfaceType_CoordinateBreak)
@@ -111,7 +112,7 @@ if __name__ == '__main__':
     Surface_5.ChangeType(SurfaceType_5_CB)
 
     TheSystem.SaveAs(zosapi.TheApplication.SamplesDir + "\\API\\Python\\CB_demo.zmx")
-
+    """
 
     # This will clean up the connection to OpticStudio.
     # Note that it closes down the server instance of OpticStudio, so you for maximum performance do not do

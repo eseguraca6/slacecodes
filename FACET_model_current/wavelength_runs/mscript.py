@@ -40,18 +40,20 @@ def facet_ccd(wv, gridsize, bwaist, xdeg_off, pos_ccd, f_name):
                              widex=grid_size, widey=grid_size, tPow=1, auto=0)
     """
     link.zModifyPOPSettings(setfile, endSurf=pos_ccd)
+    link.zModifyPOPSettings(setfile, paramN=( (1, 2, 3, 4), (5, 5,
+                                     0, 0) ))
+    link.zModifyPOPSettings(setfile, widex=gridsize)
+    link.zModifyPOPSettings(setfile, widey=gridsize)
     irr_data, grid_data = link.zGetPOP(setfile, displayData=True)
     waists_gridx, waists_gridy = irr_data.widthX, irr_data.widthY 
-    print(waists_gridx, waists_gridy) 
-    waistx.append(waists_gridx)
-    waisty.append(waists_gridy)                        
+    print(waists_gridx, waists_gridy)                         
     pyz.closeLink()
     irr_file = outfile + "\\" +str(xdeg_off)+".csv"
     np.savetxt(irr_file, grid_data)
-    screen_width_file = outfile + "\\" +"widths.txt"
-    np.savetxt(screen_width_file, np.transpose([waistx, waisty]))
+    screen_width_file = outfile + "\\" +str(xdeg_off)+"_"+"widths.txt"
+    np.savetxt(screen_width_file, ((waists_gridx, waists_gridy)))
    
    #ipath = r"C:\Users\pwfa-facet2\Desktop\slacecodes\FACET_model_current\wavelength_runs\\facet_2_2_offset_img\\"
 
-for i in range(0, 20, 2):
-    facet_ccd(800, 50, 5, i,  22, file)
+for i in range(0,6, 1):
+    facet_ccd(800, 100, 5, i,  22, file)
