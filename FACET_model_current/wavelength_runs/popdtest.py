@@ -27,6 +27,8 @@ def facet_ccd(wv, gridsize, bwaist, xdeg_off, pos_ccd, f_name):
     link.zSaveFile(file)
     link.zSetWave(1, wavelength, 1)
     print(link.zGetWave(1))
+    
+    """
     setfile = link.zGetFile().lower().replace('.zmx', '.CFG')
     S_512 = 5
     grid_size = gridsize
@@ -49,7 +51,7 @@ def facet_ccd(wv, gridsize, bwaist, xdeg_off, pos_ccd, f_name):
     np.savetxt(irr_file, grid_data)
     screen_width_file = outfile + "\\" +str(xdeg_off)+"_"+"widths.txt"
     np.savetxt(screen_width_file, ((waists_gridx, waists_gridy)))
-   
+    """
 
 
 file = r"C:\Users\pwfa-facet2\Desktop\slacecodes\centroid_test.zmx"
@@ -71,8 +73,42 @@ waists_gridx, waists_gridy = irr_data.widthX, irr_data.widthY
 #print(waists_gridx, waists_gridy)                         
 
 #facet_ccd(800, 20, 5, 10, 22, file)
+degrees = range(-10,12,2)
+chief_y = []
+chief_x = []
+for i in range(-10,12,2):
+    link.zSetSurfaceParameter(4, 3, i)
+    link.zSetSurfaceParameter(6, 3, -i)
+    link.zSaveFile(file)
+    a =link.zGetTrace(waveNum=1, mode=0, surf=22,hx=0,hy=0,px=0,py=0)
+    print(a[3])
+    print(i)
+    chief_y.append(a[3])
+    chief_x.append(a[2])
 
-
-a =link.zGetTrace(waveNum=1, mode=0, surf=22,hx=0,hy=0,px=0,py=0)
-print(a)
+    
+    
 pyz.closeLink()
+
+def offset_th(spacing, degree):
+    return(spacing*np.tan(2*np.deg2rad(degree)))
+
+space_th = []
+
+for i in degrees:
+    space_th.append(offset_th(600, i))
+print(space_th)
+fig = plt.figure(figsize=(10,10))
+f1 = fig.add_subplot(221)
+f1.scatter(degrees, chief_y, marker = '^', color = 'orange')
+f1.plot(degrees, space_th, linestyle = ':')
+f1.set_xlabel('Degree Offset Mirror 1 (deg)')
+f1.set_ylabel('Beam Position (Y) On Screen After Mirror 2 (mm)')
+f2 = fig.add_subplot(222)
+f2.scatter(degrees, chief_x)
+f2.set_xlabel('Degree Offset Mirror 1 (deg)')
+f2.set_ylabel('Beam Position (X) On Screen After Mirror 2 (mm)')
+fig.tight_layout()
+fig.suptitle('Beam Centroid Effects of Mirror Offset')
+fig.subplots_adjust(top=0.9)
+fig.savefig('noaperturebeamoffset.pdf')
