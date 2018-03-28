@@ -11,6 +11,10 @@ from scipy.optimize import curve_fit
 #import pyzdde.arraytrace as at
 import pyzdde.zdde as pyz
 
+import random as rand
+
+
+
 
 def facet_ccd(wv, gridsize, bwaist, xdeg_off, pos_ccd, f_name):
     link = pyz.createLink()
@@ -57,22 +61,42 @@ def facet_ccd(wv, gridsize, bwaist, xdeg_off, pos_ccd, f_name):
 file = r"C:\Users\pwfa-facet2\Desktop\slacecodes\centroid_test.zmx"
 outfile =r"C:\Users\pwfa-facet2\Desktop\slacecodes\offsets_m1"
 
-link = pyz.createLink()
-
-link.zLoadFile(file)
 #link.ipzGetLDE()
-setfile = link.zGetFile().lower().replace('.zmx', '.CFG')
 
-link.zModifyPOPSettings(setfile, endSurf=22)
-link.zModifyPOPSettings(setfile, paramN=( (1, 2, 3, 4), (5, 5,
-                                     0, 0) ))
-link.zModifyPOPSettings(setfile, widex=50)
-link.zModifyPOPSettings(setfile, widey=50)
-irr_data, grid_data = link.zGetPOP(setfile, displayData=True, txtFile = r"C:\Users\pwfa-facet2\Desktop\slacecodes\mirror_test_surf_22.txt", keepFile=True)
-waists_gridx, waists_gridy = irr_data.widthX, irr_data.widthY 
-#print(waists_gridx, waists_gridy)                         
 
-#facet_ccd(800, 20, 5, 10, 22, file)
+def vector_generator_cdd(start_angle, end_angle, f):
+    
+    #generate random angles
+    alpha_1 = np.random.uniform(start_angle, end_angle) # offset on mirror 1
+    alpha_2 = np.random.uniform(start_angle, end_angle) #offset on mirror 2
+    offset_1_pos_x = []
+    offset_1_pos_y = []
+    offset_2_pos_x = []
+    offset_2_pos_y = []
+    link = pyz.createLink()
+    link.zLoadFile(f)
+    #for i in range(len(alpha_1)):
+    i = alpha_1
+    j = alpha_2
+    link.zSetSurfaceParameter(4, 3, i)
+    link.zSetSurfaceParameter(6, 3, -i)
+    link.zSetSurfaceParameter(17, 4, j)
+    link.zSetSurfaceParameter(19, 4, -j)
+    link.zSaveFile(file)
+    ccd1 = link.zGetTrace(waveNum=1, mode=0, surf=22,hx=0,hy=0,px=0,py=0)
+    ccd2 = link.zGetTrace(waveNum=1, mode=0, surf=24,hx=0,hy=0,px=0,py=0)
+        #errors, vig, x,y,z, dcos...
+    offset_1_pos_x.append(ccd1[2]) # x-pos change (tilt on x)
+    offset_1_pos_y.append(ccd1[3]) # y-pos change (tilt on x)
+    offset_2_pos_x.append(ccd2[2]) # x-pos change (tilt on y)
+    offset_2_pos_y.append(ccd2[3]) # x-pos change (tilt on y)
+        
+        
+    pyz.closeLink()
+    return(offset_1_pos_x, offset_1_pos_y,offset_2_pos_x, offset_2_pos_y, alpha_1, alpha_2)
+
+
+"""
 degrees = range(-10,12,2)
 chief_y = []
 chief_x = []
@@ -98,19 +122,54 @@ space_th = []
 for i in degrees:
     space_th.append(offset_th(600, i))
 print(space_th)
-fig = plt.figure(figsize=(10,10))
+"""
+
+data = vector_generator_cdd(0, 5, file)
+print(data)
+
+f = plt.figure(figsize=(8,8))
+f0 = f.add_subplot(111)
+f0.scatter(data[0], data[1], marker = 'd', color = 'green', label = 'CCD-1 Centroid Position '+ '(angle-1):'+'%.3g'%data[4])
+f0.scatter(data[2], data[3], marker = 'd', color = 'blue', label = 'CCD-2 Centroid Position'+'(angle-2):'+'%.3g'%data[5])
+f0.set_xlabel('Beam Position (X) (mm)')
+f0.set_ylabel('Beam Position (Y) (mm)')
+f0.legend(loc = 'lower right')
+
+box = f0.get_position()
+f0.set_position([box.x0, box.y0, box.width * 0.8, box.height])
+
+f.tight_layout()
+f.suptitle('Beam Position Under Variable Mirror Offset ')
+f.subplots_adjust(top=0.9)
+f.savefig('onescreen.pdf')
+
+fig = plt.figure(figsize=(8,8))
 f1 = fig.add_subplot(221)
-f1.scatter(degrees, chief_y, marker = '^', color = 'orange', label='CCD Pos')
-f1.plot(degrees, space_th, linestyle = ':', label = 'Theory')
+f1.scatter(data[4], data[0], marker = '^', color = 'orange', label='CCD-1 Pos')
+#f1.plot(degrees, space_th, linestyle = ':', label = 'Theory')
 f1.set_xlabel('Degree Offset Mirror 1 (deg)')
-f1.set_ylabel('Beam Position (Y) On Screen After Mirror 2 (mm)')
+f1.set_ylabel('Beam Position (X) On Screen1 (mm)')
 f1.legend(loc = 'lower right')
+
 f2 = fig.add_subplot(222)
-f2.scatter(degrees, chief_x, label='CCD Pos')
+f2.scatter(data[4], data[1], label='CCD-1 Pos', marker = '^', color = 'orange')
 f2.set_xlabel('Degree Offset Mirror 1 (deg)')
-f2.set_ylabel('Beam Position (X) On Screen After Mirror 2 (mm)')
+f2.set_ylabel('Beam Position (Y) On Screen1 (mm)')
 f2.legend(loc = 'lower right')
+
+f3 = fig.add_subplot(223)
+f3.scatter(data[5], data[3], label='CCD-2 Pos', marker = 'd', color = 'red')
+f3.set_xlabel('Degree Offset Mirror 2 (deg)')
+f3.set_ylabel('Beam Position (X) On Screen2 (mm)')
+f3.legend(loc = 'lower right')
+
+f4 = fig.add_subplot(224)
+f4.scatter(data[5], data[4], label='CCD-2 Pos', marker = 'd', color = 'red')
+f4.set_xlabel('Degree Offset Mirror 2 (deg)')
+f4.set_ylabel('Beam Position (Y) On Screen2 (mm)')
+f4.legend(loc = 'lower right')
+
 fig.tight_layout()
-fig.suptitle('Beam Position Under Variable Mirror Offset')
+fig.suptitle('Beam Position On Each Screen')
 fig.subplots_adjust(top=0.9)
 fig.savefig('noaperturebeamoffset.pdf')
