@@ -82,51 +82,78 @@ def vector_generator_cdd(start_angle, end_angle, f):
     link.zSetSurfaceParameter(17, 4, 0)
     link.zSetSurfaceParameter(19, 4, 0)
     link.zSaveFile(f)
+    
     ccd1_noffset = link.zGetTrace(waveNum=1, mode=0, surf=22,hx=0,hy=0,px=0,py=0)
     ccd2_noffset = link.zGetTrace(waveNum=1, mode=0, surf=24,hx=0,hy=0,px=0,py=0)
-    print(ccd1_noffset)
-    #for i in range(len(alpha_1)):
+
+    
+    alpha_2_norm = 0
+   #offset only on m1 
     i = alpha_1
+    j = alpha_2_norm
+    link.zSetSurfaceParameter(4, 3, i)
+    link.zSetSurfaceParameter(6, 3, -i)
+    link.zSetSurfaceParameter(17, 4, j)
+    link.zSetSurfaceParameter(19, 4, -j)
+    link.zSaveFile(f)
+    
+    ccd1_offset_m1 = link.zGetTrace(waveNum=1, mode=0, surf=22,hx=0,hy=0,px=0,py=0)
+    ccd2_offset_m1 = link.zGetTrace(waveNum=1, mode=0, surf=24,hx=0,hy=0,px=0,py=0)
+        #errors, vig, x,y,z, dcos...
+    
+
+    ##offset on m1 and m2 (m2 added)
+    
     j = alpha_2
     link.zSetSurfaceParameter(4, 3, i)
     link.zSetSurfaceParameter(6, 3, -i)
     link.zSetSurfaceParameter(17, 4, j)
     link.zSetSurfaceParameter(19, 4, -j)
     link.zSaveFile(f)
-    ccd1 = link.zGetTrace(waveNum=1, mode=0, surf=22,hx=0,hy=0,px=0,py=0)
-    ccd2 = link.zGetTrace(waveNum=1, mode=0, surf=24,hx=0,hy=0,px=0,py=0)
-        #errors, vig, x,y,z, dcos...
-    offset_1_pos_x.append(ccd1[2]) # x-pos change (tilt on x)
-    offset_1_pos_y.append(ccd1[3]) # y-pos change (tilt on x)
-    offset_2_pos_x.append(ccd2[2]) # x-pos change (tilt on y)
-    offset_2_pos_y.append(ccd2[3]) # x-pos change (tilt on y)
-        
+    
+    ccd1_offset_m2 = link.zGetTrace(waveNum=1, mode=0, surf=22,hx=0,hy=0,px=0,py=0)
+    ccd2_offset_m2 = link.zGetTrace(waveNum=1, mode=0, surf=24,hx=0,hy=0,px=0,py=0)
         
     pyz.closeLink()
-    return(offset_1_pos_x, offset_1_pos_y, # 0,1
-           offset_2_pos_x, offset_2_pos_y, #2,3
-           alpha_1, alpha_2, #4,5
-           ccd1_noffset[2], ccd1_noffset[3], #6,7
-           ccd2_noffset[2], ccd2_noffset[3])  #8, 9
+    return(ccd1_noffset[2], ccd1_noffset[3], #0,1
+           ccd2_noffset[2], ccd2_noffset[3], #2,3
+           0,0, #4,5
+           ccd1_offset_m1[2], ccd1_offset_m1[3], #6,7
+           ccd2_offset_m1[2], ccd2_offset_m1[3], #8,9
+           alpha_1, alpha_2_norm, #10,11
+           ccd1_offset_m2[2], ccd1_offset_m2[3], #12,13
+           ccd2_offset_m2[2], ccd2_offset_m2[3], #14,15
+           alpha_1, alpha_2) #16,17
+
      
 data = vector_generator_cdd(0, 5, file)
-print(data)
 
-f = plt.figure(figsize=(8,8))
-f0 = f.add_subplot(111)
-f0.scatter(data[0], data[1], marker = 'd', color = 'green', label = 'CCD-1 Centroid Position '+ '(angle-1):'+'%.3g'%data[4])
-f0.scatter(data[2], data[3], marker = 'd', color = 'blue', label = 'CCD-2 Centroid Position'+'(angle-2):'+'%.3g'%data[5])
-f0.scatter(data[6], data[7], marker = 'd', color = 'brown', label = 'Centroid Position No Offset')
+from matplotlib.legend import Legend
+
+f = plt.figure(figsize=(16,5))
+f0 = f.add_subplot(121)
+f0.scatter(data[0], data[1], marker = 'd', color = 'green', label = 'No Offset', s=40)
+f0.scatter(data[6], data[7], marker = 'd', color = 'blue', label = 'CCD-1 Centroid Position ('+ '%.3g'%data[10] + ' ' + '%.3g'%data[11] +')', s=40)
+f0.scatter(data[8], data[9], marker = 'd', color = 'orange', label = 'CCD-2 Centroid Position('+ '%.3g'%data[10] + ' ' + '%.3g'%data[11] +')', s=40)
+f0.legend(loc='best')
 f0.set_xlabel('Beam Position (X) (mm)')
 f0.set_ylabel('Beam Position (Y) (mm)')
-f0.legend(loc ='best')
 
+f1 = f.add_subplot(122)
+f1.scatter(data[0], data[1], marker = 'd', color = 'green', label = 'No Offset', s=40)
+f1.scatter(data[12], data[13], marker = 'P', color = 'blue', label = 'CCD-1 Centroid Position ('+ '%.3g'%data[16] + ' ' + '%.3g'%data[17] +')', s=60)
+f1.scatter(data[14], data[15], marker = 'P', color = 'red', label = 'CCD-2 Centroid Position('+ '%.3g'%data[16] + ' ' + '%.3g'%data[17] +')',s=60)
+f1.set_xlabel('Beam Position (X) (mm)')
+f1.set_ylabel('Beam Position (Y) (mm)')
+f1.legend(loc ='best')
 
 
 f.tight_layout()
-f.suptitle('Beam Position Under Variable Mirror Offset ')
-f.subplots_adjust(top=0.9)
+f.suptitle('Effects of Angle Variations on Two-Mirror System on Beam Centroid')
+f.subplots_adjust(top=0.90)
 f.savefig('onescreen.pdf')
+
+"""
 
 fig = plt.figure(figsize=(12,8))
 f1 = fig.add_subplot(121)
@@ -171,7 +198,7 @@ d0.title.set_text('(angle-1):'+'%.3g'%data[4]+ ' ' +'(angle-2):'+'%.3g'%data[5] 
 d1 =  deg.add_subplot(122)
 d1.scatter(0, data[7], marker = 'v', label = 'No Offset')
 d1.scatter(data[4], data[0], marker = 'v', label = 'CCD-1')
-d1.scatter(0, data[2], marker = 'v', label = 'CCD-2')
+d1.scatter(data[5], data[2], marker = 'v', label = 'CCD-2')
 d1.set_xlabel('Angle Variations (Degrees)')
 d1.set_ylabel('Beam Position (Y) (mm)')
 d1.legend(loc = 'best')
@@ -179,3 +206,4 @@ d1.title.set_text('(angle-1):'+'%.3g'%data[4]+ ' ' +'(angle-2):'+'%.3g'%data[5] 
 
 deg.tight_layout()
 deg.savefig('degreerange.pdf')
+"""
