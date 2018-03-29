@@ -84,7 +84,7 @@ def vector_generator_cdd(start_angle, end_angle, f):
     link.zSaveFile(f)
     ccd1_noffset = link.zGetTrace(waveNum=1, mode=0, surf=22,hx=0,hy=0,px=0,py=0)
     ccd2_noffset = link.zGetTrace(waveNum=1, mode=0, surf=24,hx=0,hy=0,px=0,py=0)
-    
+    print(ccd1_noffset)
     #for i in range(len(alpha_1)):
     i = alpha_1
     j = alpha_2
@@ -145,8 +145,8 @@ f2.scatter(data[2], data[3], label='Under Variations', marker = 'P', color = 're
 
 
 
-f2.set_xlabel('Beam Position (X) On Screen1 (mm)')
-f2.set_ylabel('Beam Position (Y) On Screen1 (mm)')
+f2.set_xlabel('Beam Position (X) On Screen2 (mm)')
+f2.set_ylabel('Beam Position (Y) On Screen2 (mm)')
 f2.title.set_text('CCD-2')
 f2.legend(loc = 'best')
 
@@ -160,18 +160,18 @@ fig.savefig('ccds.pdf')
 
 deg = plt.figure(figsize=(8,8))
 d0 =  deg.add_subplot(121)
-d0.scatter(0, data[7], marker = 'v', label = 'No Offset')
+d0.scatter(0, data[6], marker = 'v', label = 'No Offset')
 d0.scatter(data[4], data[1], marker = 'v', label = 'CCD-1')
-d0.scatter(data[5], data[3], marker = 'v', label = 'CCD-2')
+d0.scatter(0, data[3], marker = 'v', label = 'CCD-2')
 d0.set_xlabel('Angle Variations (Degrees)')
 d0.set_ylabel('Beam Position (X) (mm)')
 d0.legend(loc = 'best')
 d0.title.set_text('(angle-1):'+'%.3g'%data[4]+ ' ' +'(angle-2):'+'%.3g'%data[5] )
 
 d1 =  deg.add_subplot(122)
-d1.scatter(0, data[6], marker = 'v', label = 'No Offset')
+d1.scatter(0, data[7], marker = 'v', label = 'No Offset')
 d1.scatter(data[4], data[0], marker = 'v', label = 'CCD-1')
-d1.scatter(data[5], data[2], marker = 'v', label = 'CCD-2')
+d1.scatter(0, data[2], marker = 'v', label = 'CCD-2')
 d1.set_xlabel('Angle Variations (Degrees)')
 d1.set_ylabel('Beam Position (Y) (mm)')
 d1.legend(loc = 'best')
