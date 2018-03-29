@@ -73,8 +73,18 @@ def vector_generator_cdd(start_angle, end_angle, f):
     offset_1_pos_y = []
     offset_2_pos_x = []
     offset_2_pos_y = []
+    
     link = pyz.createLink()
     link.zLoadFile(f)
+    #no offset to chief ray
+    link.zSetSurfaceParameter(4, 3, 0)
+    link.zSetSurfaceParameter(6, 3, 0)
+    link.zSetSurfaceParameter(17, 4, 0)
+    link.zSetSurfaceParameter(19, 4, 0)
+    link.zSaveFile(f)
+    ccd1_noffset = link.zGetTrace(waveNum=1, mode=0, surf=22,hx=0,hy=0,px=0,py=0)
+    ccd2_noffset = link.zGetTrace(waveNum=1, mode=0, surf=24,hx=0,hy=0,px=0,py=0)
+    
     #for i in range(len(alpha_1)):
     i = alpha_1
     j = alpha_2
@@ -82,7 +92,7 @@ def vector_generator_cdd(start_angle, end_angle, f):
     link.zSetSurfaceParameter(6, 3, -i)
     link.zSetSurfaceParameter(17, 4, j)
     link.zSetSurfaceParameter(19, 4, -j)
-    link.zSaveFile(file)
+    link.zSaveFile(f)
     ccd1 = link.zGetTrace(waveNum=1, mode=0, surf=22,hx=0,hy=0,px=0,py=0)
     ccd2 = link.zGetTrace(waveNum=1, mode=0, surf=24,hx=0,hy=0,px=0,py=0)
         #errors, vig, x,y,z, dcos...
@@ -93,37 +103,12 @@ def vector_generator_cdd(start_angle, end_angle, f):
         
         
     pyz.closeLink()
-    return(offset_1_pos_x, offset_1_pos_y,offset_2_pos_x, offset_2_pos_y, alpha_1, alpha_2)
-
-
-"""
-degrees = range(-10,12,2)
-chief_y = []
-chief_x = []
-for i in range(-10,12,2):
-    link.zSetSurfaceParameter(4, 3, i)
-    link.zSetSurfaceParameter(6, 3, -i)
-    link.zSaveFile(file)
-    a =link.zGetTrace(waveNum=1, mode=0, surf=22,hx=0,hy=0,px=0,py=0)
-    print(a[3])
-    print(i)
-    chief_y.append(a[3])
-    chief_x.append(a[2])
-
-    
-    
-pyz.closeLink()
-
-def offset_th(spacing, degree):
-    return(spacing*np.tan(2*np.deg2rad(degree)))
-
-space_th = []
-
-for i in degrees:
-    space_th.append(offset_th(600, i))
-print(space_th)
-"""
-
+    return(offset_1_pos_x, offset_1_pos_y, # 0,1
+           offset_2_pos_x, offset_2_pos_y, #2,3
+           alpha_1, alpha_2, #4,5
+           ccd1_noffset[2], ccd1_noffset[3], #6,7
+           ccd2_noffset[2], ccd2_noffset[3])  #8, 9
+     
 data = vector_generator_cdd(0, 5, file)
 print(data)
 
@@ -131,45 +116,66 @@ f = plt.figure(figsize=(8,8))
 f0 = f.add_subplot(111)
 f0.scatter(data[0], data[1], marker = 'd', color = 'green', label = 'CCD-1 Centroid Position '+ '(angle-1):'+'%.3g'%data[4])
 f0.scatter(data[2], data[3], marker = 'd', color = 'blue', label = 'CCD-2 Centroid Position'+'(angle-2):'+'%.3g'%data[5])
+f0.scatter(data[6], data[7], marker = 'd', color = 'brown', label = 'Centroid Position No Offset')
 f0.set_xlabel('Beam Position (X) (mm)')
 f0.set_ylabel('Beam Position (Y) (mm)')
-f0.legend(loc = 'lower right')
+f0.legend(loc ='best')
 
-box = f0.get_position()
-f0.set_position([box.x0, box.y0, box.width * 0.8, box.height])
+
 
 f.tight_layout()
 f.suptitle('Beam Position Under Variable Mirror Offset ')
 f.subplots_adjust(top=0.9)
 f.savefig('onescreen.pdf')
 
-fig = plt.figure(figsize=(8,8))
-f1 = fig.add_subplot(221)
-f1.scatter(data[4], data[0], marker = '^', color = 'orange', label='CCD-1 Pos')
+fig = plt.figure(figsize=(12,8))
+f1 = fig.add_subplot(121)
+f1.scatter(data[6], data[7], label='No Variations', marker = '<', color = 'green', s=80)
+f1.scatter(data[0], data[1], label='Under Variations', marker = '<', color = 'red', s=80)
 #f1.plot(degrees, space_th, linestyle = ':', label = 'Theory')
-f1.set_xlabel('Degree Offset Mirror 1 (deg)')
-f1.set_ylabel('Beam Position (X) On Screen1 (mm)')
-f1.legend(loc = 'lower right')
+f1.set_xlabel('Beam Position (X) On Screen1 (mm)')
+f1.set_ylabel('Beam Position (Y) On Screen1 (mm)')
+f1.legend(loc = 'best')
+f1.title.set_text('CCD-1')
 
-f2 = fig.add_subplot(222)
-f2.scatter(data[4], data[1], label='CCD-1 Pos', marker = '^', color = 'orange')
-f2.set_xlabel('Degree Offset Mirror 1 (deg)')
+
+f2 = fig.add_subplot(122)
+f2.scatter(data[8], data[9], label='No Variations', marker = 'P', color = 'green', s=80)
+f2.scatter(data[2], data[3], label='Under Variations', marker = 'P', color = 'red', s=80)
+
+
+
+f2.set_xlabel('Beam Position (X) On Screen1 (mm)')
 f2.set_ylabel('Beam Position (Y) On Screen1 (mm)')
-f2.legend(loc = 'lower right')
+f2.title.set_text('CCD-2')
+f2.legend(loc = 'best')
 
-f3 = fig.add_subplot(223)
-f3.scatter(data[5], data[3], label='CCD-2 Pos', marker = 'd', color = 'red')
-f3.set_xlabel('Degree Offset Mirror 2 (deg)')
-f3.set_ylabel('Beam Position (X) On Screen2 (mm)')
-f3.legend(loc = 'lower right')
-
-f4 = fig.add_subplot(224)
-f4.scatter(data[5], data[4], label='CCD-2 Pos', marker = 'd', color = 'red')
-f4.set_xlabel('Degree Offset Mirror 2 (deg)')
-f4.set_ylabel('Beam Position (Y) On Screen2 (mm)')
-f4.legend(loc = 'lower right')
 
 fig.tight_layout()
 fig.suptitle('Beam Position On Each Screen')
 fig.subplots_adjust(top=0.9)
-fig.savefig('noaperturebeamoffset.pdf')
+fig.savefig('ccds.pdf')
+
+
+
+deg = plt.figure(figsize=(8,8))
+d0 =  deg.add_subplot(121)
+d0.scatter(0, data[7], marker = 'v', label = 'No Offset')
+d0.scatter(data[4], data[1], marker = 'v', label = 'CCD-1')
+d0.scatter(data[5], data[3], marker = 'v', label = 'CCD-2')
+d0.set_xlabel('Angle Variations (Degrees)')
+d0.set_ylabel('Beam Position (X) (mm)')
+d0.legend(loc = 'best')
+d0.title.set_text('(angle-1):'+'%.3g'%data[4]+ ' ' +'(angle-2):'+'%.3g'%data[5] )
+
+d1 =  deg.add_subplot(122)
+d1.scatter(0, data[6], marker = 'v', label = 'No Offset')
+d1.scatter(data[4], data[0], marker = 'v', label = 'CCD-1')
+d1.scatter(data[5], data[2], marker = 'v', label = 'CCD-2')
+d1.set_xlabel('Angle Variations (Degrees)')
+d1.set_ylabel('Beam Position (Y) (mm)')
+d1.legend(loc = 'best')
+d1.title.set_text('(angle-1):'+'%.3g'%data[4]+ ' ' +'(angle-2):'+'%.3g'%data[5] )
+
+deg.tight_layout()
+deg.savefig('degreerange.pdf')
