@@ -130,7 +130,7 @@ data = vector_generator_cdd(0, 5, file)
 
 from matplotlib.legend import Legend
 
-f = plt.figure(figsize=(15,20))
+f = plt.figure(figsize=(15,8))
 f0 = f.add_subplot(121)
 f0.scatter(data[0], data[1], marker = 'd', color = 'green', label = 'No Offset', s=100)
 f0.scatter(data[6], data[7], marker = 'd', color = 'blue', label = 'CCD-1 Centroid Position ('+ '%.3g'%data[10] + ' ' + '%.3g'%data[11] +')', s=100)
