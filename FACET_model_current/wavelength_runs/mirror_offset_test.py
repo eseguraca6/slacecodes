@@ -1,4 +1,4 @@
-# -*- coding: utf-8 -*-
+# -*- coding: utf-8 -*-3
 """
 Created on Fri Mar 30 14:53:54 2018
 
@@ -59,21 +59,36 @@ def ccd_system(start_angle, end_angle, file):
            alpha_1x, alpha_1y,
            ccd2_offset[2], ccd2_offset[3],
            alpha_2x, alpha_2y)
-    
+
+
+
 
 file = r"C:\Users\pwfa-facet2\Desktop\slacecodes\centroid_test.zmx"
 
+
 data = ccd_system(-0.6,0.6,file)
+
+print('ccd1 pos and angles:')
+print(data[2], data[3], data[4], data[5])
+print('ccd2 pos and angles:')
+print(data[6], data[7], data[8], data[9])
 
 f = plt.figure(figsize=(15,8))
 f0 = f.add_subplot(121)
 f0.scatter(data[0], data[1], marker = 'd', color = 'green', label = 'No Offset', s=100)
 f0.scatter(data[2], data[3], marker = 'd', color = 'blue', label = 'Variations: ('+ '%.3g'%data[4] + ', ' + '%.3g'%data[5] +')', s=100)
+
+
+
+
 #f0.scatter(data[8], data[9], marker = 'd', color = 'orange', label = 'CCD-2 Centroid Position ('+ '%.3g'%data[10] + ' ' + '%.3g'%data[11] +')', s=100)
 f0.legend(loc='best', fontsize=12)
 f0.set_xlabel('Beam Position (X) (mm)', fontsize=20)
 f0.set_ylabel('Beam Position (Y) (mm)', fontsize=20)
 f0.set_title('CCD-1', fontsize=20)
+
+
+
 
 f1 = f.add_subplot(122)
 f1.scatter(data[0], data[1], marker = 'd', color = 'green', label = 'No Offset', s=120)
