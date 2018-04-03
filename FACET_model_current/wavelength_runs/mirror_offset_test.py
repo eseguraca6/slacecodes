@@ -21,6 +21,20 @@ def ccd_system(start_angle, end_angle, file):
     
     link = pyz.createLink()
     link.zLoadFile(file)
+    
+    setfile = link.zGetFile().lower().replace('.zmx', '.CFG')
+    S_512 = 5
+    grid_size = 20
+    GAUSS_WAIST, WAIST_X, WAIST_Y, DECENTER_X, DECENTER_Y = 0, 1, 2, 3, 4
+    beam_waist, x_off, y_off = 5, 0, 0
+    cfgfile = link.zSetPOPSettings('irr', setfile, startSurf=2, endSurf=2, field=1, wave=1, beamType=GAUSS_WAIST,
+                             paramN=( (WAIST_X, WAIST_Y, DECENTER_X, DECENTER_Y), (beam_waist, beam_waist,
+                                     x_off, y_off) ), sampx=S_512, sampy=S_512, widex=grid_size, widey=grid_size, tPow=1, auto=0)
+    link.zModifyPOPSettings(setfile, endSurf=27)
+    link.zModifyPOPSettings(setfile, paramN=( (1, 2, 3, 4), (5, 5, 0, 0) ))
+    link.zModifyPOPSettings(setfile, widex=grid_size)
+    link.zModifyPOPSettings(setfile, widey=grid_size) 
+    link.zSaveFile(file)
     #no offset to chief ray
     link.zSetSurfaceParameter(4, 3, 0) #3 = x-tilt, 4=y-tilt
     link.zSetSurfaceParameter(6, 3, 0)
@@ -33,31 +47,35 @@ def ccd_system(start_angle, end_angle, file):
     link.zSetSurfaceParameter(19, 4, 0)
     link.zSaveFile(file)
     
-    ccd1_noffset = link.zGetTrace(waveNum=1, mode=0, surf=22,hx=0,hy=0,px=0,py=0)
-    ccd2_noffset = link.zGetTrace(waveNum=1, mode=0, surf=24,hx=0,hy=0,px=0,py=0)
-    
+    nooffset_t_ccdx = link.zOperandValue('POPD', 24, 1, 0, 11)
+    nooffset_t_ccdy = link.zOperandValue('POPD', 24, 1, 0, 12)    
     #add the offsets
     
+    alpha_1x=0
     link.zSetSurfaceParameter(4, 3, alpha_1x)
     link.zSetSurfaceParameter(6, 3, -alpha_1x)
     link.zSetSurfaceParameter(4, 4, alpha_1y)
     link.zSetSurfaceParameter(6, 4, -alpha_1y)
-    
+    alpha_2x=0
+    alpha_2y=0
     link.zSetSurfaceParameter(17, 3, alpha_2x)
     link.zSetSurfaceParameter(19, 3, -alpha_2x)
     link.zSetSurfaceParameter(17, 4, alpha_2y)
     link.zSetSurfaceParameter(19, 4, -alpha_2y)
     link.zSaveFile(file)
     
-    ccd1_offset = link.zGetTrace(waveNum=1, mode=0, surf=22,hx=0,hy=0,px=0,py=0)
-    ccd2_offset = link.zGetTrace(waveNum=1, mode=0, surf=24,hx=0,hy=0,px=0,py=0)
+    ccd1_offsetx = link.zOperandValue('POPD', 24, 1, 0, 11)
+    ccd1_offsety = link.zOperandValue('POPD', 24, 1, 0, 12)
+    
+    ccd2_offsetx = link.zOperandValue('POPD', 26, 1, 0, 11)
+    ccd2_offsety = link.zOperandValue('POPD', 26, 1, 0, 12)
     
     pyz.closeLink()
     
-    return(ccd1_noffset[2], ccd1_noffset[3],
-           ccd1_offset[2], ccd1_offset[3],
+    return(nooffset_t_ccdx, nooffset_t_ccdy,
+           ccd1_offsetx, ccd1_offsety,
            alpha_1x, alpha_1y,
-           ccd2_offset[2], ccd2_offset[3],
+           ccd2_offsetx, ccd2_offsety,
            alpha_2x, alpha_2y)
 
 
@@ -66,7 +84,7 @@ def ccd_system(start_angle, end_angle, file):
 file = r"C:\Users\pwfa-facet2\Desktop\slacecodes\centroid_test.zmx"
 
 
-data = ccd_system(-0.6,0.6,file)
+data = ccd_system(0,3.6,file)
 
 print('ccd1 pos and angles:')
 print(data[2], data[3], data[4], data[5])
@@ -77,7 +95,7 @@ f = plt.figure(figsize=(15,8))
 f0 = f.add_subplot(121)
 f0.scatter(data[0], data[1], marker = 'd', color = 'green', label = 'No Offset', s=100)
 f0.scatter(data[2], data[3], marker = 'd', color = 'blue', label = 'Variations: ('+ '%.3g'%data[4] + ', ' + '%.3g'%data[5] +')', s=100)
-
+f0.scatter(data[6], data[7], marker = 'd', color = 'red', label= 'CCD-2' +  'Variations: ('+ '%.3g'%data[8] + ', ' + '%.3g'%data[9] +')', s=200)
 
 
 
@@ -85,7 +103,7 @@ f0.scatter(data[2], data[3], marker = 'd', color = 'blue', label = 'Variations: 
 f0.legend(loc='best', fontsize=12)
 f0.set_xlabel('Beam Position (X) (mm)', fontsize=20)
 f0.set_ylabel('Beam Position (Y) (mm)', fontsize=20)
-f0.set_title('CCD-1', fontsize=20)
+f0.set_title('Beam in Space', fontsize=20)
 
 
 

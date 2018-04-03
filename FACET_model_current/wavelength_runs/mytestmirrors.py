@@ -29,7 +29,22 @@ file = r"C:\Users\pwfa-facet2\Desktop\slacecodes\centroid_test.zmx"
 
 link.zLoadFile(file)
 
-angles_xtilt = np.arange(0, 21, 1)
+setfile = link.zGetFile().lower().replace('.zmx', '.CFG')
+S_512 = 5
+grid_size = 20
+GAUSS_WAIST, WAIST_X, WAIST_Y, DECENTER_X, DECENTER_Y = 0, 1, 2, 3, 4
+beam_waist, x_off, y_off = 5, 0, 0
+cfgfile = link.zSetPOPSettings('irr', setfile, startSurf=2, endSurf=2, field=1, wave=1, beamType=GAUSS_WAIST,
+                             paramN=( (WAIST_X, WAIST_Y, DECENTER_X, DECENTER_Y), (beam_waist, beam_waist,
+                                     x_off, y_off) ), sampx=S_512, sampy=S_512,
+                             widex=grid_size, widey=grid_size, tPow=1, auto=0)
+link.zModifyPOPSettings(setfile, endSurf=24)
+link.zModifyPOPSettings(setfile, paramN=( (1, 2, 3, 4), (5, 5,
+                                     0, 0) ))
+link.zModifyPOPSettings(setfile, widex=grid_size)
+link.zModifyPOPSettings(setfile, widey=grid_size) 
+link.zSaveFile(file)
+angles_xtilt = np.arange(0, 11, 1)
 
 print(angles_xtilt)
 
@@ -45,23 +60,48 @@ link.zSetSurfaceParameter(19, 4, 0)
 link.zSaveFile(file)
 
 ccd1 = link.zGetTrace(waveNum=1, mode=0, surf=22,hx=0,hy=0,px=0,py=0)
-ccd2 = link.zGetTrace(waveNum=1, mode=0, surf=24,hx=0,hy=0,px=0,py=0)
+
 
 beam_y=[]
 beam_x = []
+
 
 for i in angles_xtilt:
     link.zSetSurfaceParameter(4, 3, i)
     link.zSetSurfaceParameter(6, 3, -i)
     link.zSaveFile(file)
-    t_ccd  = link.zGetTrace(waveNum=1, mode=0, surf=22,hx=0,hy=0,px=0,py=0)
-    print(t_ccd)
-    beam_x.append(t_ccd[2])
-    beam_y.append(t_ccd[3])
-   
+    t_ccdx = link.zOperandValue('POPD', 24, 1, 0, 11)
+    t_ccdy = link.zOperandValue('POPD', 24, 1, 0, 12)
+    print(t_ccdx, t_ccdy)
+    beam_x.append(t_ccdx)
+    beam_y.append(t_ccdy)
+
 pyz.closeLink()
 
-th = 600*np.tan(np.deg2rad(2*angles_xtilt))
+"""
+link.zSetSurfaceParameter(4, 3, 3) #3 = x-tilt, 4=y-tilt
+link.zSetSurfaceParameter(6, 3, -3)
+link.zSetSurfaceParameter(4, 4, 0)
+link.zSetSurfaceParameter(6, 4, 0)
+    
+link.zSetSurfaceParameter(17, 3, 0)
+link.zSetSurfaceParameter(19, 3, 0)
+link.zSetSurfaceParameter(17, 4, 0)
+link.zSetSurfaceParameter(19, 4, 0)
+link.zSaveFile(file)
+
+ccd1 = link.zGetTrace(waveNum=1, mode=0, surf=22,hx=0,hy=0,px=0,py=0)
+ccd2 = link.zGetTrace(waveNum=1, mode=0, surf=24,hx=0,hy=0,px=0,py=0)
+
+t = link.zOperandValue('POPD', 24, 1, 0, 12)
+
+print(pyz.findZOperand('Physical Optics Propagation Data'))
+
+
+print(t)
+pyz.closeLink()
+"""
+th = 600*(np.tan(np.deg2rad(2*angles_xtilt)))
 print(np.size(th))
 a= plt.figure(figsize=(8,8))
 a0 = a.add_subplot(121)
@@ -69,7 +109,6 @@ a0.scatter(angles_xtilt,beam_y)
 a0.plot(angles_xtilt, th, color = 'red', linestyle = ":")
 a1 = a.add_subplot(122)
 a1.scatter(angles_xtilt, beam_x)
-
 """
 link.zSetSurfaceParameter(4, 3, 0) #3 = x-tilt, 4=y-tilt
 link.zSetSurfaceParameter(6, 3, 0)

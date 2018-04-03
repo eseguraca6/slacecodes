@@ -49,7 +49,7 @@ pos_transport.append(84)
 for i in range(86, 91, 2):  
     pos_transport.append(i)
 
-def facet_chief_ray_tracker(file_name, surface_tbvariated, surface_pos_list, wavenum,  ll_angle, ul_angle):
+def facet_chief_ray_tracker(file_name, surface_tbvariated, surface_pos_list, wavenum,  angle_variation):
     unmodified_beam_x =[]
     unmodified_beam_y = []
     
@@ -58,21 +58,92 @@ def facet_chief_ray_tracker(file_name, surface_tbvariated, surface_pos_list, wav
     wavelength = wavenum /1000
     link.zSetWave(1, wavelength, 1) 
     
+    link.zSetSurfaceParameter(4, 3, 0) #3 = x-tilt, 4=y-tilt
+    link.zSetSurfaceParameter(6, 3, 0)
+    link.zSetSurfaceParameter(4, 4, 0)
+    link.zSetSurfaceParameter(6, 4, 0)
+
+    link.zSaveFile(file)
+
     for curr_surface in surface_pos_list:
-        t_ccd = link.zGetTrace(waveNum=1, mode=0, surf=curr_surface,hx=0,hy=0,px=0,py=0)
-        unmodified_beam_x.append(t_ccd[2])
-        unmodified_beam_y.append(t_ccd[3])
+        t_ccdx = link.zOperandValue('POPD', curr_surface, 1, 0, 11)
+        t_ccdy = link.zOperandValue('POPD', curr_surface, 1, 0, 12)
+       #print(t_ccdx, t_ccdy)
+        unmodified_beam_x.append(t_ccdx)
+        unmodified_beam_y.append(t_ccdy)
     
     ##add initial offset to first mirror
     
+    offset_x =[]
+    offset_y = []
+    
+    #modify entries 
+    link.zSetSurfaceParameter(surface_tbvariated, 3, angle_variation)
+    link.zSetSurfaceParameter(surface_tbvariated+2, 3, -angle_variation)
+    link.zSaveFile(file_name)
+    
+    for curr_surface in surface_pos_list:
+        t_ccdx = link.zOperandValue('POPD', curr_surface, 1, 0, 11)
+        t_ccdy = link.zOperandValue('POPD', curr_surface, 1, 0, 12)
+       #print(t_ccdx, t_ccdy)
+        offset_x.append(t_ccdx)
+        offset_y.append(t_ccdy)
     
     pyz.closeLink()
-    return(unmodified_beam_x, unmodified_beam_y)
+    return(unmodified_beam_x, unmodified_beam_y, offset_x, offset_y)
     
-file = r"C:\Users\pwfa-facet2\Desktop\slacecodes\FACET_model_current\wavelength_runs\transport.zmx"
+file = r"C:\Users\pwfa-facet2\Desktop\slacecodes\FACET_model_current\wavelength_runs\transportwithoffsetentries.zmx"
 
-a = facet_chief_ray_tracker(file, 0, pos_transport, 800, 0, 0)
+transport = [0]
+transport.append(transport[-1]+541)
+transport.append(transport[-1]+27)
 
-print(a[0])
-print(a[1])
-    
+for i in range(0,3):
+    transport.append(transport[-1]+517)
+
+transport.append(transport[-1]+517)
+transport.append(transport[-1]+100)
+
+for i in range(0,3):
+    transport.append(transport[-1]+770.5)
+
+transport.append(transport[-1]+770.5)
+
+for i in range(0,3):
+    transport.append(transport[-1]+1530.25)
+
+transport.append(transport[-1]+1530.25)
+
+for i in range(0,3):
+    transport.append(transport[-1]+503.25)
+
+transport.append(transport[-1]+503.25)
+transport.append(transport[-1]+381.7)
+
+for i in range(0,3):
+    transport.append(transport[-1]+2934.575)
+
+transport.append(transport[-1]+2934.575)
+transport.append(transport[-1]+381.7)
+
+for i in range(0,3):
+    transport.append(transport[-1]+472.5)
+
+
+
+a = facet_chief_ray_tracker(file, 4, pos_transport, 800, .3)
+
+np.savetxt('offset3.csv', list(zip(a[0], a[1], a[2], a[3])))
+
+"""
+p= plt.figure(figsize=(12,8))
+p0 = p.add_subplot(111)
+p0.scatter(transport, a[1], marker = 'd', s=80, label = 'No Offset')
+p0.scatter(transport,a[3], marker = '^', s=60, label = 'Offset at Mirror-1')
+p0.legend(loc='best')
+p.suptitle('Beam Position in FACET-II Laser Transport')
+p.subplots_adjust(top=0.8)
+p.tight_layout()    
+p.savefig('simpletest.pdf')
+
+"""
