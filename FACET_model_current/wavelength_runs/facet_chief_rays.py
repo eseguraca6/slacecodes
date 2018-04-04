@@ -81,6 +81,45 @@ def facet_chief_ray_tracker(file_name, surface_tbvariated, surface_pos_list, wav
     pyz.closeLink()
     return(offset_x, offset_y)
     
+    
+def ccd_camera_variations(file_name , surf_modified, surface_list, wavenum, angle_variation):
+    link = pyz.createLink()
+    link.zLoadFile(file_name)
+    wavelength = wavenum /1000
+    link.zSetWave(1, wavelength, 1) 
+    
+    link.zSetSurfaceParameter(4, 3, 0) #3 = x-tilt, 4=y-tilt
+    link.zSetSurfaceParameter(6, 3, 0)
+    link.zSetSurfaceParameter(4, 4, 0)
+    link.zSetSurfaceParameter(6, 4, 0)
+
+    link.zSaveFile(file_name)
+     #modify entries 
+    link.zSetSurfaceParameter(surf_modified, 3, angle_variation)
+    link.zSetSurfaceParameter(surf_modified+2, 3, -angle_variation)
+    link.zSaveFile(file_name)
+    
+    setfile = link.zGetFile().lower().replace('.zmx', '.CFG')
+    S_512 = 5
+    grid_size = 20
+    GAUSS_WAIST, WAIST_X, WAIST_Y, DECENTER_X, DECENTER_Y = 0, 1, 2, 3, 4
+    beam_waist, x_off, y_off = 5, 0, 0
+    cfgfile = link.zSetPOPSettings('irr', setfile, startSurf=2, endSurf=2, field=1, wave=1, beamType=GAUSS_WAIST,
+                             paramN=( (WAIST_X, WAIST_Y, DECENTER_X, DECENTER_Y), (beam_waist, beam_waist,
+                                     x_off, y_off) ), sampx=S_512, sampy=S_512, widex=grid_size, widey=grid_size, tPow=1, auto=0)
+    link.zModifyPOPSettings(cfgfile, endSurf=2)
+    link.zModifyPOPSettings(cfgfile, paramN=( (1, 2, 3, 4), (5, 5, 0, 0) ))
+    link.zModifyPOPSettings(cfgfile, widex=grid_size)
+    link.zModifyPOPSettings(cfgfile, widey=grid_size) 
+    
+    for i in surface_list:
+        link.zModifyPOPSettings(settingsFile=cfgfile, endSurf=i)
+        fname =  r"C:\Users\pwfa-facet2\Desktop\slacecodes\FACET_model_current\wavelength_runs\\" +str(wavenum)+ str("_")+str(i)+'_1.csv'
+        #print(fname)
+        link.zGetPOP(settingsFile=cfgfile, displayData=True, keepFile=True, txtFile=fname)
+        #link.zGetTextFile(fname, analysisType='POP',settingsFile=cfgfile, flag=0)
+    pyz.closeLink()
+    
 file = r"C:\Users\pwfa-facet2\Desktop\slacecodes\FACET_model_current\wavelength_runs\transportwithoffsetentries.zmx"
 
 transport = [0]
@@ -120,19 +159,19 @@ for i in range(0,3):
 
 
 
-a = facet_chief_ray_tracker(file, 4, pos_transport, 800, .3)
-b = facet_chief_ray_tracker(file, 4, pos_transport, 800, .2)
-c = facet_chief_ray_tracker(file, 4, pos_transport, 800, .4)
-d = facet_chief_ray_tracker(file, 4, pos_transport, 800, .5)
-e = facet_chief_ray_tracker(file, 4, pos_transport, 800, .1)
-f = facet_chief_ray_tracker(file, 4, pos_transport, 800, 0.0)
+a = ccd_camera_variations(file, 4, pos_transport, 800, .3)
+#b = facet_chief_ray_tracker(file, 4, pos_transport, 800, .2)
+#c = facet_chief_ray_tracker(file, 4, pos_transport, 800, .4)
+#d = facet_chief_ray_tracker(file, 4, pos_transport, 800, .5)
+#e = facet_chief_ray_tracker(file, 4, pos_transport, 800, .1)
+#f = facet_chief_ray_tracker(file, 4, pos_transport, 800, 0.0)
 
-np.savetxt('facetwithoffset_3_static_space_pop.csv', list(zip(a[0], a[1],pos_transport, transport)))
-np.savetxt('facetwithoffset_2_static_space_pop.csv', list(zip(b[0], b[1], pos_transport, transport)))
-np.savetxt('facetwithoffset_1_static_space_pop.csv', list(zip(e[0], e[1], pos_transport, transport)))
-np.savetxt('facetwithoffset_4_static_space_pop.csv', list(zip(c[0], c[1],  pos_transport, transport)))
-np.savetxt('facetwithoffset_5_static_space_pop.csv', list(zip(d[0], d[1], pos_transport, transport)))
-np.savetxt('facetwithoffset_0_static_space_pop.csv', list(zip(f[0], f[1], pos_transport, transport)))
+#np.savetxt('facetwithoffset_3_static_space_pop.csv', list(zip(a[0], a[1],pos_transport, transport)))
+#np.savetxt('facetwithoffset_2_static_space_pop.csv', list(zip(b[0], b[1], pos_transport, transport)))
+#np.savetxt('facetwithoffset_1_static_space_pop.csv', list(zip(e[0], e[1], pos_transport, transport)))
+#np.savetxt('facetwithoffset_4_static_space_pop.csv', list(zip(c[0], c[1],  pos_transport, transport)))
+#np.savetxt('facetwithoffset_5_static_space_pop.csv', list(zip(d[0], d[1], pos_transport, transport)))
+#np.savetxt('facetwithoffset_0_static_space_pop.csv', list(zip(f[0], f[1], pos_transport, transport)))
 """
 p= plt.figure(figsize=(12,8))
 p0 = p.add_subplot(111)
