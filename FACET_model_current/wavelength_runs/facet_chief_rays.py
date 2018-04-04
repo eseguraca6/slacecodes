@@ -132,8 +132,16 @@ for i in range(0,3):
 
 
 a = facet_chief_ray_tracker(file, 4, pos_transport, 800, .3)
+b = facet_chief_ray_tracker(file, 4, pos_transport, 800, .2)
+c = facet_chief_ray_tracker(file, 4, pos_transport, 800, .4)
+d = facet_chief_ray_tracker(file, 4, pos_transport, 800, .5)
+e = facet_chief_ray_tracker(file, 4, pos_transport, 800, .1)
 
-np.savetxt('facetwithoffset.csv', list(zip(a[0], a[1], a[2], a[3], pos_transport, transport)))
+np.savetxt('facetwithoffset_3.csv', list(zip(a[0], a[1], a[2], a[3], pos_transport, transport)))
+np.savetxt('facetwithoffset_2.csv', list(zip(b[0], b[1], b[2], b[3], pos_transport, transport)))
+np.savetxt('facetwithoffset_1.csv', list(zip(e[0], e[1], e[2], e[3], pos_transport, transport)))
+np.savetxt('facetwithoffset_4.csv', list(zip(c[0], c[1], c[2], c[3], pos_transport, transport)))
+np.savetxt('facetwithoffset_5.csv', list(zip(d[0], d[1], d[2], d[3], pos_transport, transport)))
 
 """
 p= plt.figure(figsize=(12,8))
