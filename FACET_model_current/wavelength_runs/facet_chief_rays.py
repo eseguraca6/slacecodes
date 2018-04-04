@@ -50,8 +50,6 @@ for i in range(96, 101, 2):
     pos_transport.append(i)
 
 def facet_chief_ray_tracker(file_name, surface_tbvariated, surface_pos_list, wavenum,  angle_variation):
-    unmodified_beam_x =[]
-    unmodified_beam_y = []
     
     link = pyz.createLink()
     link.zLoadFile(file_name)
@@ -64,15 +62,6 @@ def facet_chief_ray_tracker(file_name, surface_tbvariated, surface_pos_list, wav
     link.zSetSurfaceParameter(6, 4, 0)
 
     link.zSaveFile(file)
-
-    for curr_surface in surface_pos_list:
-        t_ccdx = link.zOperandValue('POPD', curr_surface, 1, 0, 11)
-        t_ccdy = link.zOperandValue('POPD', curr_surface, 1, 0, 12)
-       #print(t_ccdx, t_ccdy)
-        unmodified_beam_x.append(t_ccdx)
-        unmodified_beam_y.append(t_ccdy)
-    
-    ##add initial offset to first mirror
     
     offset_x =[]
     offset_y = []
@@ -90,7 +79,7 @@ def facet_chief_ray_tracker(file_name, surface_tbvariated, surface_pos_list, wav
         offset_y.append(t_ccdy)
     
     pyz.closeLink()
-    return(unmodified_beam_x, unmodified_beam_y, offset_x, offset_y)
+    return(offset_x, offset_y)
     
 file = r"C:\Users\pwfa-facet2\Desktop\slacecodes\FACET_model_current\wavelength_runs\transportwithoffsetentries.zmx"
 
@@ -136,13 +125,14 @@ b = facet_chief_ray_tracker(file, 4, pos_transport, 800, .2)
 c = facet_chief_ray_tracker(file, 4, pos_transport, 800, .4)
 d = facet_chief_ray_tracker(file, 4, pos_transport, 800, .5)
 e = facet_chief_ray_tracker(file, 4, pos_transport, 800, .1)
+f = facet_chief_ray_tracker(file, 4, pos_transport, 800, 0)
 
-np.savetxt('facetwithoffset_3.csv', list(zip(a[0], a[1], a[2], a[3], pos_transport, transport)))
-np.savetxt('facetwithoffset_2.csv', list(zip(b[0], b[1], b[2], b[3], pos_transport, transport)))
-np.savetxt('facetwithoffset_1.csv', list(zip(e[0], e[1], e[2], e[3], pos_transport, transport)))
-np.savetxt('facetwithoffset_4.csv', list(zip(c[0], c[1], c[2], c[3], pos_transport, transport)))
-np.savetxt('facetwithoffset_5.csv', list(zip(d[0], d[1], d[2], d[3], pos_transport, transport)))
-
+np.savetxt('facetwithoffset_3_static_space.csv', list(zip(a[0], a[1],pos_transport, transport)))
+np.savetxt('facetwithoffset_2_static_space.csv', list(zip(b[0], b[1], pos_transport, transport)))
+np.savetxt('facetwithoffset_1_static_space.csv', list(zip(e[0], e[1], pos_transport, transport)))
+np.savetxt('facetwithoffset_4_static_space.csv', list(zip(c[0], c[1],  pos_transport, transport)))
+np.savetxt('facetwithoffset_5_static_space.csv', list(zip(d[0], d[1], pos_transport, transport)))
+np.savetxt('facetwithoffset_0_static_space.csv', list(zip(f[0], f[1], pos_transport, transport)))
 """
 p= plt.figure(figsize=(12,8))
 p0 = p.add_subplot(111)
