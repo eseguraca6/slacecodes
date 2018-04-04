@@ -14,39 +14,39 @@ import pyzdde.zdde as pyz
 
 import random as rand
 
-pos_transport = [2, 7, 11]
+pos_transport = [2, 8, 12]
 
 optical_pos = [2, 7, 11, 24, 28, 40, 52, 63, 68, 80, 84]
 
-for i in range(13,18,2):
+for i in range(14,20,2):
     pos_transport.append(i)
 
-pos_transport.append(24)
-pos_transport.append(28)
+pos_transport.append(26)
+pos_transport.append(30)
 
-for i in range(30,35,2):   
-    pos_transport.append(i)
-    
-pos_transport.append(40)
-
-for i in range(42,47,2):   
-    pos_transport.append(i)
-
-pos_transport.append(52)
-
-for i in range(54, 59, 2):  
-    pos_transport.append(i)
-
-pos_transport.append(63)
-pos_transport.append(68)    
-    
-for i in range(70,75, 2): 
+for i in range(32,37,2):   
     pos_transport.append(i)
     
-pos_transport.append(80)
-pos_transport.append(84)
+pos_transport.append(44)
+
+for i in range(46,51,2):   
+    pos_transport.append(i)
+
+pos_transport.append(58)
+
+for i in range(59, 65, 2):  
+    pos_transport.append(i)
+
+pos_transport.append(69)
+pos_transport.append(76)    
     
-for i in range(86, 91, 2):  
+for i in range(78,83, 2): 
+    pos_transport.append(i)
+    
+pos_transport.append(90)
+pos_transport.append(94)
+    
+for i in range(96, 101, 2):  
     pos_transport.append(i)
 
 def facet_chief_ray_tracker(file_name, surface_tbvariated, surface_pos_list, wavenum,  angle_variation):
@@ -133,7 +133,7 @@ for i in range(0,3):
 
 a = facet_chief_ray_tracker(file, 4, pos_transport, 800, .3)
 
-np.savetxt('offset3.csv', list(zip(a[0], a[1], a[2], a[3])))
+np.savetxt('facetwithoffset.csv', list(zip(a[0], a[1], a[2], a[3], pos_transport, transport)))
 
 """
 p= plt.figure(figsize=(12,8))
