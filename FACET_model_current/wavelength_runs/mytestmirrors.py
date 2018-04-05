@@ -44,9 +44,9 @@ link.zModifyPOPSettings(setfile, paramN=( (1, 2, 3, 4), (5, 5,
 link.zModifyPOPSettings(setfile, widex=grid_size)
 link.zModifyPOPSettings(setfile, widey=grid_size) 
 link.zSaveFile(file)
-angles_xtilt = np.arange(0, 11, 1)
+angles_xtilt = np.arange(-1, 1, 0.1)
 
-print(angles_xtilt)
+
 
 link.zSetSurfaceParameter(4, 3, 0) #3 = x-tilt, 4=y-tilt
 link.zSetSurfaceParameter(6, 3, 0)
@@ -59,7 +59,6 @@ link.zSetSurfaceParameter(17, 4, 0)
 link.zSetSurfaceParameter(19, 4, 0)
 link.zSaveFile(file)
 
-ccd1 = link.zGetTrace(waveNum=1, mode=0, surf=22,hx=0,hy=0,px=0,py=0)
 
 
 beam_y=[]
@@ -72,10 +71,11 @@ for i in angles_xtilt:
     link.zSaveFile(file)
     t_ccdx = link.zOperandValue('POPD', 24, 1, 0, 11)
     t_ccdy = link.zOperandValue('POPD', 24, 1, 0, 12)
-    print(t_ccdx, t_ccdy)
+    #print(t_ccdx, t_ccdy)
     beam_x.append(t_ccdx)
     beam_y.append(t_ccdy)
-
+#ccd1 = link.zGetTrace(waveNum=1, mode=0, surf=24,hx=0,hy=0,px=0,py=0)
+#print(ccd1)
 pyz.closeLink()
 
 """
@@ -109,6 +109,9 @@ a0.scatter(angles_xtilt,beam_y)
 a0.plot(angles_xtilt, th, color = 'red', linestyle = ":")
 a1 = a.add_subplot(122)
 a1.scatter(angles_xtilt, beam_x)
+
+np.savetxt('dataoffsetsonm1alpha1x.csv', list(zip(beam_x, beam_y, angles_xtilt)))
+
 """
 link.zSetSurfaceParameter(4, 3, 0) #3 = x-tilt, 4=y-tilt
 link.zSetSurfaceParameter(6, 3, 0)
