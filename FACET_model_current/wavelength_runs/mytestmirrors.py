@@ -44,7 +44,7 @@ link.zModifyPOPSettings(setfile, paramN=( (1, 2, 3, 4), (5, 5,
 link.zModifyPOPSettings(setfile, widex=grid_size)
 link.zModifyPOPSettings(setfile, widey=grid_size) 
 link.zSaveFile(file)
-angles_xtilt = np.arange(-1, 1, 0.1)
+angles_xtilt = np.arange(-1, 1.1, 0.1)
 
 
 
