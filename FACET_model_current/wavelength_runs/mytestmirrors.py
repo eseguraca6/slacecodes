@@ -66,8 +66,8 @@ beam_x = []
 
 
 for i in angles_xtilt:
-    link.zSetSurfaceParameter(4, 4, i)
-    link.zSetSurfaceParameter(6, 4, -i)
+    link.zSetSurfaceParameter(4, 3, i)
+    link.zSetSurfaceParameter(6, 3, -i)
     link.zSaveFile(file)
     t_ccdx = link.zOperandValue('POPD', 24, 1, 0, 11)
     t_ccdy = link.zOperandValue('POPD', 24, 1, 0, 12)
@@ -110,7 +110,7 @@ a0.plot(angles_xtilt, th, color = 'red', linestyle = ":")
 a1 = a.add_subplot(122)
 a1.scatter(angles_xtilt, beam_x)
 
-np.savetxt('dataoffsetsonm1alpha1y.csv', list(zip(beam_x, beam_y, angles_xtilt)))
+np.savetxt('dataoffsetsonm1alpha1xx.csv', list(zip(beam_x, beam_y, angles_xtilt)))
 
 """
 link.zSetSurfaceParameter(4, 3, 0) #3 = x-tilt, 4=y-tilt
