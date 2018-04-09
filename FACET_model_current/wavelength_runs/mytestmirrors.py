@@ -42,7 +42,8 @@ link.zModifyPOPSettings(setfile, endSurf=24)
 link.zModifyPOPSettings(setfile, paramN=( (1, 2, 3, 4), (5, 5,
                                      0, 0) ))
 link.zModifyPOPSettings(setfile, widex=grid_size)
-link.zModifyPOPSettings(setfile, widey=grid_size) 
+link.zModifyPOPSettings(setfile, widey=grid_size)
+link.zModifyPOPSettings(setfile, ignPol=0)
 link.zSaveFile(file)
 angles_xtilt = np.arange(-1, 1.1, 0.1)
 
@@ -82,11 +83,11 @@ error, vig, x,y,x,
 """
 
 for i in angles_xtilt:
-    link.zSetSurfaceParameter(4, 3, i)
-    link.zSetSurfaceParameter(6, 3, -i)
+    link.zSetSurfaceParameter(4, 4, i)
+    link.zSetSurfaceParameter(6, 4, -i)
     link.zSaveFile(file)
-    t_ccdx = link.zOperandValue('POPD', 15, 1, 0, 11)
-    t_ccdy = link.zOperandValue('POPD', 15, 1, 0, 12)
+    t_ccdx = link.zOperandValue('POPD', 24, 1, 0, 11)
+    t_ccdy = link.zOperandValue('POPD', 24, 1, 0, 12)
     #print(t_ccdx, t_ccdy)
     beam_x.append(t_ccdx)
     beam_y.append(t_ccdy)
@@ -95,7 +96,7 @@ for i in angles_xtilt:
 pyz.closeLink()
 
 
-th = 400*(np.tan(-np.deg2rad(angles_xtilt)))
+th = 500*(np.tan(-np.deg2rad(angles_xtilt)))
 
 a= plt.figure(figsize=(8,8))
 a0 = a.add_subplot(121)
@@ -104,12 +105,12 @@ a0.plot(angles_xtilt, th, color = 'red', linestyle = ":")
 a1 = a.add_subplot(122)
 a1.scatter(angles_xtilt, beam_x,marker='D')
 #a1.plot(angles_xtilt, th, color = 'green', linestyle = ":")
-a0.set_xlabel('Degrees alphax')
+a0.set_xlabel('Degrees alphay')
 a0.set_ylabel('Beam Position Y')
-a1.set_xlabel('Degrees alphax')
+a1.set_xlabel('Degrees alphay')
 a1.set_ylabel('Beam Position X')
 
-np.savetxt('datapolalphax', list(zip(angles_xtilt, beam_x, beam_y)))
+np.savetxt('datapolalphay', list(zip(angles_xtilt, beam_x, beam_y)))
 
 """
 link.zSetSurfaceParameter(4, 3, 0) #3 = x-tilt, 4=y-tilt
