@@ -82,11 +82,11 @@ error, vig, x,y,x,
 """
 
 for i in angles_xtilt:
-    link.zSetSurfaceParameter(4, 4, i)
-    link.zSetSurfaceParameter(6, 4, -i)
+    link.zSetSurfaceParameter(4, 3, i)
+    link.zSetSurfaceParameter(6, 3, -i)
     link.zSaveFile(file)
-    t_ccdx = link.zOperandValue('POPD', 14, 1, 0, 11)
-    t_ccdy = link.zOperandValue('POPD', 14, 1, 0, 12)
+    t_ccdx = link.zOperandValue('POPD', 15, 1, 0, 11)
+    t_ccdy = link.zOperandValue('POPD', 15, 1, 0, 12)
     #print(t_ccdx, t_ccdy)
     beam_x.append(t_ccdx)
     beam_y.append(t_ccdy)
@@ -95,16 +95,21 @@ for i in angles_xtilt:
 pyz.closeLink()
 
 
-th = 400*(np.tan(np.deg2rad(angles_xtilt)))
-print(np.size(th))
+th = 400*(np.tan(-np.deg2rad(angles_xtilt)))
+
 a= plt.figure(figsize=(8,8))
 a0 = a.add_subplot(121)
-a0.scatter(angles_xtilt,beam_y)
+a0.scatter(angles_xtilt,beam_y, marker ='^', color = 'orange')
 a0.plot(angles_xtilt, th, color = 'red', linestyle = ":")
 a1 = a.add_subplot(122)
-a1.scatter(angles_xtilt, beam_x)
-a1.plot(angles_xtilt, th, color = 'green', linestyle = ":")
-np.savetxt('datapolalphay', list(zip(angles_xtilt, beam_x, beam_y)))
+a1.scatter(angles_xtilt, beam_x,marker='D')
+#a1.plot(angles_xtilt, th, color = 'green', linestyle = ":")
+a0.set_xlabel('Degrees alphax')
+a0.set_ylabel('Beam Position Y')
+a1.set_xlabel('Degrees alphax')
+a1.set_ylabel('Beam Position X')
+
+np.savetxt('datapolalphax', list(zip(angles_xtilt, beam_x, beam_y)))
 
 """
 link.zSetSurfaceParameter(4, 3, 0) #3 = x-tilt, 4=y-tilt
