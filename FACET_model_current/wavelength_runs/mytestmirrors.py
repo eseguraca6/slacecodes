@@ -63,14 +63,30 @@ link.zSaveFile(file)
 
 beam_y=[]
 beam_x = []
+"""
+link.zSetSurfaceParameter(4, 3, .5)
+link.zSetSurfaceParameter(6, 3, .5)
+link.zSaveFile(file)
+t_ccdx = link.zOperandValue('POPD', 24, 1, 0, 11)
+t_ccdy = link.zOperandValue('POPD', 24, 1, 0, 12)
 
+print(t_ccdx, t_ccdy)
+    
+tx = link.zGetTrace(waveNum=1, mode=0,surf=24,hx=0,hy=0,px=0,py=0)
+ttx = link.zGetTraceDirect(waveNum=1, mode=0, startSurf=2, stopSurf=13, x=0,y=0,z=0, l=0,m=0,n=0)
+print(tx)
+print(ttx)
+pyz.closeLink()
+
+error, vig, x,y,x, 
+"""
 
 for i in angles_xtilt:
-    link.zSetSurfaceParameter(4, 3, i)
-    link.zSetSurfaceParameter(6, 3, -i)
+    link.zSetSurfaceParameter(4, 4, i)
+    link.zSetSurfaceParameter(6, 4, -i)
     link.zSaveFile(file)
-    t_ccdx = link.zOperandValue('POPD', 24, 1, 0, 11)
-    t_ccdy = link.zOperandValue('POPD', 24, 1, 0, 12)
+    t_ccdx = link.zOperandValue('POPD', 14, 1, 0, 11)
+    t_ccdy = link.zOperandValue('POPD', 14, 1, 0, 12)
     #print(t_ccdx, t_ccdy)
     beam_x.append(t_ccdx)
     beam_y.append(t_ccdy)
@@ -78,30 +94,8 @@ for i in angles_xtilt:
 #print(ccd1)
 pyz.closeLink()
 
-"""
-link.zSetSurfaceParameter(4, 3, 3) #3 = x-tilt, 4=y-tilt
-link.zSetSurfaceParameter(6, 3, -3)
-link.zSetSurfaceParameter(4, 4, 0)
-link.zSetSurfaceParameter(6, 4, 0)
-    
-link.zSetSurfaceParameter(17, 3, 0)
-link.zSetSurfaceParameter(19, 3, 0)
-link.zSetSurfaceParameter(17, 4, 0)
-link.zSetSurfaceParameter(19, 4, 0)
-link.zSaveFile(file)
 
-ccd1 = link.zGetTrace(waveNum=1, mode=0, surf=22,hx=0,hy=0,px=0,py=0)
-ccd2 = link.zGetTrace(waveNum=1, mode=0, surf=24,hx=0,hy=0,px=0,py=0)
-
-t = link.zOperandValue('POPD', 24, 1, 0, 12)
-
-print(pyz.findZOperand('Physical Optics Propagation Data'))
-
-
-print(t)
-pyz.closeLink()
-"""
-th = 600*(np.tan(np.deg2rad(2*angles_xtilt)))
+th = 400*(np.tan(np.deg2rad(angles_xtilt)))
 print(np.size(th))
 a= plt.figure(figsize=(8,8))
 a0 = a.add_subplot(121)
@@ -109,8 +103,8 @@ a0.scatter(angles_xtilt,beam_y)
 a0.plot(angles_xtilt, th, color = 'red', linestyle = ":")
 a1 = a.add_subplot(122)
 a1.scatter(angles_xtilt, beam_x)
-
-np.savetxt('dataoffsetsonm1alpha1xx.csv', list(zip(beam_x, beam_y, angles_xtilt)))
+a1.plot(angles_xtilt, th, color = 'green', linestyle = ":")
+np.savetxt('datapolalphay', list(zip(angles_xtilt, beam_x, beam_y)))
 
 """
 link.zSetSurfaceParameter(4, 3, 0) #3 = x-tilt, 4=y-tilt
@@ -191,5 +185,4 @@ f.suptitle('Effects of Angle Variations on Two-Mirror System on Beam Centroid', 
 f.subplots_adjust(top=0.8)
 f.savefig('test.pdf')
 #add xtilt on m1 and ytilt on m2 
-
 """
