@@ -45,7 +45,7 @@ link.zModifyPOPSettings(setfile, widex=grid_size)
 link.zModifyPOPSettings(setfile, widey=grid_size)
 link.zModifyPOPSettings(setfile, ignPol=0)
 link.zSaveFile(file)
-angles_xtilt = np.arange(-1, 1.1, 0.1)
+
 
 
 
@@ -54,12 +54,11 @@ link.zSetSurfaceParameter(6, 3, 0)
 link.zSetSurfaceParameter(4, 4, 0)
 link.zSetSurfaceParameter(6, 4, 0)
     
-link.zSetSurfaceParameter(17, 3, 0)
-link.zSetSurfaceParameter(19, 3, 0)
-link.zSetSurfaceParameter(17, 4, 0)
-link.zSetSurfaceParameter(19, 4, 0)
+link.zSetSurfaceParameter(18, 3, 0)
+link.zSetSurfaceParameter(18, 3, 0)
+link.zSetSurfaceParameter(20, 4, 0)
+link.zSetSurfaceParameter(20, 4, 0)
 link.zSaveFile(file)
-
 
 
 beam_y=[]
@@ -81,20 +80,22 @@ pyz.closeLink()
 
 error, vig, x,y,x, 
 """
-
+angles_xtilt = np.arange(-1, -1.1, 0.1)
 for i in angles_xtilt:
     link.zSetSurfaceParameter(4, 4, i)
     link.zSetSurfaceParameter(6, 4, -i)
+    print(i)
     link.zSaveFile(file)
-    t_ccdx = link.zOperandValue('POPD', 24, 1, 0, 11)
-    t_ccdy = link.zOperandValue('POPD', 24, 1, 0, 12)
-    #print(t_ccdx, t_ccdy)
+    t_ccdx = link.zOperandValue('POPD', 17, 1, 0, 11)
+    t_ccdy = link.zOperandValue('POPD', 17, 1, 0, 12)
+    
+    print(t_ccdx, t_ccdy)
     beam_x.append(t_ccdx)
     beam_y.append(t_ccdy)
 #ccd1 = link.zGetTrace(waveNum=1, mode=0, surf=24,hx=0,hy=0,px=0,py=0)
 #print(ccd1)
 pyz.closeLink()
-
+"""
 
 th = 500*(np.tan(-np.deg2rad(angles_xtilt)))
 
@@ -110,8 +111,8 @@ a0.set_ylabel('Beam Position Y')
 a1.set_xlabel('Degrees alphay')
 a1.set_ylabel('Beam Position X')
 
-np.savetxt('datapolalphay', list(zip(angles_xtilt, beam_x, beam_y)))
-
+np.savetxt('alphayvar', list(zip(angles_xtilt, beam_x, beam_y)))
+"""
 """
 link.zSetSurfaceParameter(4, 3, 0) #3 = x-tilt, 4=y-tilt
 link.zSetSurfaceParameter(6, 3, 0)
