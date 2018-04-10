@@ -39,10 +39,10 @@ link.zModifyPOPSettings(cfgfile, ignPol=1)
 #1 to ignore pol;0 to use
 link.zSaveFile(file)
 
-link.zSetSurfaceParameter(4, 3, 0) #3 = x-tilt, 4=y-tilt
-link.zSetSurfaceParameter(6, 3, 0)
-link.zSetSurfaceParameter(4, 4, 1)
-link.zSetSurfaceParameter(6, 4, -1)
+link.zSetSurfaceParameter(4, 3, 1) #3 = x-tilt, 4=y-tilt
+link.zSetSurfaceParameter(6, 3, -1)
+link.zSetSurfaceParameter(4, 4, 0)
+link.zSetSurfaceParameter(6, 4, 0)
     
 link.zSetSurfaceParameter(18, 3, 0)
 link.zSetSurfaceParameter(18, 3, 0)
@@ -83,8 +83,8 @@ error, vig, x,y,x,
 angles_xtilt = np.arange(-1, 1.1, 0.1)
 #print(angles_xtilt)
 for i in angles_xtilt:
-    link.zSetSurfaceParameter(4, 3, i)
-    link.zSetSurfaceParameter(6, 3, -i)
+    link.zSetSurfaceParameter(4, 4, i)
+    link.zSetSurfaceParameter(6, 4, -i)
     #print(i)
     link.zSaveFile(file)
     t_ccdx = link.zOperandValue('POPD', 15, 1, 0, 11)
@@ -121,8 +121,8 @@ beam_xp=[]
 beam_yp=[]
 
 for i in angles_xtilt:
-    link.zSetSurfaceParameter(4, 3, i)
-    link.zSetSurfaceParameter(6, 3, -i)
+    link.zSetSurfaceParameter(4, 4, i)
+    link.zSetSurfaceParameter(6, 4, -i)
     print(i)
     link.zSaveFile(file)
     t_ccdxp = link.zOperandValue('POPD', 15, 1, 0, 11)
@@ -146,4 +146,4 @@ b1.set_ylabel('Beam Position Y')
 
 pyz.closeLink()
 
-np.savetxt('alphayminus1alphaxvar.csv', list(zip(angles_xtilt, beam_x, beam_y)))
+np.savetxt('alphayvaralphax1.csv', list(zip(angles_xtilt, beam_x, beam_y)))
