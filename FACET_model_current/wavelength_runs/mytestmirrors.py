@@ -79,7 +79,7 @@ pyz.closeLink()
 
 error, vig, x,y,x, 
 """
-angles_xtilt = np.arange(0, 1.1, 0.01)
+angles_xtilt = np.arange(1, 2.01, 0.01)
 for i in angles_xtilt:
     link.zSetSurfaceParameter(4, 4, i)
     link.zSetSurfaceParameter(6, 4, -i)
