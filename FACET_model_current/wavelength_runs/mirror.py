@@ -39,26 +39,86 @@ link.zModifyPOPSettings(cfgfile, ignPol=1)
 #1 to ignore pol;0 to use
 link.zSaveFile(file)
 
-link.zSetSurfaceParameter(4, 3, 1) #3 = x-tilt, 4=y-tilt
-link.zSetSurfaceParameter(6, 3, -1)
-link.zSetSurfaceParameter(4, 4, 0)
-link.zSetSurfaceParameter(6, 4, 0)
+
+
+
+def matrix_var(angle_var, delta_var, file):
+    link.zSetSurfaceParameter(4, 3, 0) #3 = x-tilt, 4=y-tilt
+    link.zSetSurfaceParameter(6, 3, 0)
+    link.zSetSurfaceParameter(4, 4, 0)
+    link.zSetSurfaceParameter(6, 4, 0)
     
-link.zSetSurfaceParameter(18, 3, 0)
-link.zSetSurfaceParameter(18, 3, 0)
-link.zSetSurfaceParameter(20, 4, 0)
-link.zSetSurfaceParameter(20, 4, 0)
-link.zSaveFile(file)
+    delta = np.deg2rad(delta_var)    
+    
+    link.zSaveFile(file)    
+    
+    x_pos = []
+    y_pos =[]
+    
+    link.zSetSurfaceParameter(4, 3, angle_var) #3 = x-tilt, 4=y-tilt
+    link.zSetSurfaceParameter(6, 3, -angle_var)
+    link.zSetSurfaceParameter(4, 4, 0)
+    link.zSetSurfaceParameter(6, 4, 0)
+    link.zSaveFile(file)  
+    
+    delta = np.deg2rad(delta_var)    
+    
+    t_ccdx = link.zOperandValue('POPD', 15, 1, 0, 11)
+    t_ccdy = link.zOperandValue('POPD', 15, 1, 0, 12)
+    #print(t_ccdx, t_ccdy)
+    new_angle = angle_var+delta_var
+    
+    link.zSetSurfaceParameter(4, 3, new_angle) #3 = x-tilt, 4=y-tilt
+    link.zSetSurfaceParameter(6, 3, -new_angle)
+    link.zSetSurfaceParameter(4, 4, 0)
+    link.zSetSurfaceParameter(6, 4, 0)
+    link.zSaveFile(file)  
+    
+    delta_ccdx = link.zOperandValue('POPD', 15, 1, 0, 11)
+    delta_ccdy= link.zOperandValue('POPD', 15, 1, 0, 12)
+    print(delta_ccdx, delta_ccdy)
+    f_21 = np.divide(delta_ccdy-t_ccdy, delta)
+    
+    print('F_{21}:')
+    print(f_21)
+    ######
+    
+    link.zSetSurfaceParameter(4, 3, 0) #3 = x-tilt, 4=y-tilt
+    link.zSetSurfaceParameter(6, 3, 0)
+    link.zSetSurfaceParameter(4, 4, angle_var)
+    link.zSetSurfaceParameter(6, 4, -angle_var)
+    link.zSaveFile(file)  
+    
+    alphay_ccdy = link.zOperandValue('POPD', 15, 1, 0, 11)
+    alphay_ccdx = link.zOperandValue('POPD', 15, 1, 0, 12)
+    
+    #nt(alphay_ccdx, alphay_ccdy)
+    
+    link.zSetSurfaceParameter(4, 3, 0) #3 = x-tilt, 4=y-tilt
+    link.zSetSurfaceParameter(6, 3, 0)
+    link.zSetSurfaceParameter(4, 4, new_angle)
+    link.zSetSurfaceParameter(6, 4, -new_angle)
+    link.zSaveFile(file)  
+    
+    d_alphay_ccdy = link.zOperandValue('POPD', 15, 1, 0, 11)
+    d_alphay_ccdx = link.zOperandValue('POPD', 15, 1, 0, 12)
+    
+    
+    
+    
+    f_12 = np.divide(d_alphay_ccdx - alphay_ccdx, delta)
+    f_22 = np.divide(d_alphay_ccdy - alphay_ccdy, delta)
+    
+    print('F_{12}:')
+    print(f_12)
+    print('F_{22}:')
+    print(f_22)
+    np.savetxt('alph', list(zip(angles_xtilt, beam_x, beam_y)))
 
 
-beam_y=[]
-beam_x = []
-
-
-#print(link.zGetPolState())
+matrix_var(1, 0.01,file)
 """
-t_ccdx = link.zOperandValue('POPD', 24, 1, 0, 11)
-t_ccdy = link.zOperandValue('POPD', 24, 1, 0, 12)
+
 print(t_ccdx,t_ccdy)
 tx = link.zGetTrace(waveNum=1, mode=0,surf=24,hx=0,hy=0,px=0,py=0)
 print(tx)
@@ -80,6 +140,7 @@ pyz.closeLink()
 
 error, vig, x,y,x, 
 """
+"""
 angles_xtilt = np.arange(-1, 1.1, 0.1)
 #print(angles_xtilt)
 for i in angles_xtilt:
@@ -100,8 +161,8 @@ for i in angles_xtilt:
 link.zSetPolState(1, 0, 0, 0,0)
 link.zSaveFile(file)
 print(link.zGetPolState())
-
-
+"""
+"""
 a= plt.figure(figsize=(8,8))
 a0 = a.add_subplot(121)
 a0.scatter(angles_xtilt,beam_x, marker ='^', color = 'orange')
@@ -119,7 +180,8 @@ print(link.zGetPolState())
 link.zModifyPOPSettings(cfgfile, ignPol=0)
 beam_xp=[]
 beam_yp=[]
-
+"""
+"""
 for i in angles_xtilt:
     link.zSetSurfaceParameter(4, 4, i)
     link.zSetSurfaceParameter(6, 4, -i)
@@ -143,7 +205,7 @@ b0.set_xlabel('Degrees alphay')
 b0.set_ylabel('Beam Position X')
 b1.set_xlabel('Degrees alphay')
 b1.set_ylabel('Beam Position Y')
-
+"""
 pyz.closeLink()
 
-np.savetxt('alphayvaralphax1.csv', list(zip(angles_xtilt, beam_x, beam_y)))
+#np.savetxt('alphayvaralphax1.csv', list(zip(angles_xtilt, beam_x, beam_y)))
