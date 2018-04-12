@@ -79,7 +79,7 @@ pyz.closeLink()
 
 error, vig, x,y,x, 
 """
-angles_xtilt = np.arange(1, 2.01, 0.01)
+angles_xtilt = np.arange(-1,1.01, 0.01)
 for i in angles_xtilt:
     link.zSetSurfaceParameter(4, 4, i)
     link.zSetSurfaceParameter(6, 4, -i)
@@ -94,7 +94,7 @@ for i in angles_xtilt:
 #print(ccd1)
 pyz.closeLink()
 
-np.savetxt('deltaalphay.csv', list(zip(angles_xtilt, beam_x, beam_y)))
+np.savetxt('neg1pos1delta001alphay.csv', list(zip(angles_xtilt, beam_x, beam_y)))
 print("done")
 """
 

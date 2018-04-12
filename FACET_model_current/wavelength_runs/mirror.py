@@ -47,8 +47,7 @@ def matrix_var(angle_var, delta_var, file):
     link.zSetSurfaceParameter(6, 3, 0)
     link.zSetSurfaceParameter(4, 4, 0)
     link.zSetSurfaceParameter(6, 4, 0)
-    
-    delta = np.deg2rad(delta_var)    
+     
     
     link.zSaveFile(file)    
     
@@ -60,12 +59,11 @@ def matrix_var(angle_var, delta_var, file):
     link.zSetSurfaceParameter(4, 4, 0)
     link.zSetSurfaceParameter(6, 4, 0)
     link.zSaveFile(file)  
-    
-    delta = np.deg2rad(delta_var)    
-    
+       
+    delta= np.radians(delta_var)
     t_ccdx = link.zOperandValue('POPD', 15, 1, 0, 11)
     t_ccdy = link.zOperandValue('POPD', 15, 1, 0, 12)
-    #print(t_ccdx, t_ccdy)
+    print(t_ccdx, t_ccdy)
     new_angle = angle_var+delta_var
     
     link.zSetSurfaceParameter(4, 3, new_angle) #3 = x-tilt, 4=y-tilt
@@ -92,7 +90,7 @@ def matrix_var(angle_var, delta_var, file):
     alphay_ccdy = link.zOperandValue('POPD', 15, 1, 0, 11)
     alphay_ccdx = link.zOperandValue('POPD', 15, 1, 0, 12)
     
-    #nt(alphay_ccdx, alphay_ccdy)
+    print(alphay_ccdx, alphay_ccdy)
     
     link.zSetSurfaceParameter(4, 3, 0) #3 = x-tilt, 4=y-tilt
     link.zSetSurfaceParameter(6, 3, 0)
@@ -104,7 +102,7 @@ def matrix_var(angle_var, delta_var, file):
     d_alphay_ccdx = link.zOperandValue('POPD', 15, 1, 0, 12)
     
     
-    
+    print(d_alphay_ccdx, d_alphay_ccdy)
     
     f_12 = np.divide(d_alphay_ccdx - alphay_ccdx, delta)
     f_22 = np.divide(d_alphay_ccdy - alphay_ccdy, delta)
@@ -113,10 +111,10 @@ def matrix_var(angle_var, delta_var, file):
     print(f_12)
     print('F_{22}:')
     print(f_22)
-    np.savetxt('alph', list(zip(angles_xtilt, beam_x, beam_y)))
+    #np.savetxt('alph', list(zip(angles_xtilt, beam_x, beam_y)))
 
 
-matrix_var(1, 0.01,file)
+matrix_var(1, 0.0001,file)
 """
 
 print(t_ccdx,t_ccdy)
