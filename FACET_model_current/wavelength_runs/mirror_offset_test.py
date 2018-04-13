@@ -13,12 +13,7 @@ import pyzdde.zdde as pyz
 
 import random as rand
 
-def ccd_system(start_angle, end_angle, file):
-    alpha_1x = np.random.uniform(start_angle, end_angle)
-    alpha_1y = np.random.uniform(start_angle, end_angle)
-    alpha_2x = np.random.uniform(start_angle, end_angle)
-    alpha_2y = np.random.uniform(start_angle, end_angle)
-    
+def ccd_system(start_angle, end_angle, file, exp_run):
     link = pyz.createLink()
     link.zLoadFile(file)
     
@@ -46,37 +41,45 @@ def ccd_system(start_angle, end_angle, file):
     link.zSetSurfaceParameter(17, 4, 0)
     link.zSetSurfaceParameter(19, 4, 0)
     link.zSaveFile(file)
+    non_var_bx = []
+    non_var_by = []
     
-    nooffset_t_ccdx = link.zOperandValue('POPD', 24, 1, 0, 11)
-    nooffset_t_ccdy = link.zOperandValue('POPD', 24, 1, 0, 12)    
-    #add the offsets
+    for i in range(exp_run+1):
+        nooffset_t_ccdx = link.zOperandValue('POPD', 15, 1, 0, 11)
+        nooffset_t_ccdy = link.zOperandValue('POPD', 15, 1, 0, 12)
+        non_var_bx.append(nooffset_t_ccdx)
+        non_var_by.append(nooffset_t_ccdy)
     
-    alpha_1x=0
-    link.zSetSurfaceParameter(4, 3, alpha_1x)
-    link.zSetSurfaceParameter(6, 3, -alpha_1x)
-    link.zSetSurfaceParameter(4, 4, alpha_1y)
-    link.zSetSurfaceParameter(6, 4, -alpha_1y)
-    alpha_2x=0
-    alpha_2y=0
-    link.zSetSurfaceParameter(17, 3, alpha_2x)
-    link.zSetSurfaceParameter(19, 3, -alpha_2x)
-    link.zSetSurfaceParameter(17, 4, alpha_2y)
-    link.zSetSurfaceParameter(19, 4, -alpha_2y)
-    link.zSaveFile(file)
+    alphax_arr =[]
+    alphay_arr= []
+    beamx_offset =[]
+    beamy_offset = []
+    exp_run_arr = []
+    for i in range(exp_run+1):
+        alpha_1x = np.random.uniform(start_angle, end_angle)
+        alpha_1y = np.random.uniform(start_angle, end_angle)
+        alphax_arr.append(alpha_1x)
+        alphay_arr.append(alpha_1y)
+        exp_run_arr.append(i)
+        #make offsets in zemax system 
+        link.zSetSurfaceParameter(4, 3, alpha_1x) #3 = x-tilt, 4=y-tilt
+        link.zSetSurfaceParameter(6, 3, -alpha_1x)
+        link.zSetSurfaceParameter(4, 4, alpha_1y)
+        link.zSetSurfaceParameter(6, 4, -alpha_1y)
+        link.zSaveFile(file)
+        #alpha_2x = np.random.uniform(start_angle, end_angle)
+        #alpha_2y = np.random.uniform(start_angle, end_angle)
     
-    ccd1_offsetx = link.zOperandValue('POPD', 24, 1, 0, 11)
-    ccd1_offsety = link.zOperandValue('POPD', 24, 1, 0, 12)
-    
-    ccd2_offsetx = link.zOperandValue('POPD', 26, 1, 0, 11)
-    ccd2_offsety = link.zOperandValue('POPD', 26, 1, 0, 12)
-    
+        #add offsets
+        
+        ccd1_offsetx = link.zOperandValue('POPD', 15, 1, 0, 11)
+        ccd1_offsety = link.zOperandValue('POPD', 15, 1, 0, 12)
+        beamx_offset.append(ccd1_offsetx)
+        beamy_offset.append(ccd1_offsety)
+
     pyz.closeLink()
-    
-    return(nooffset_t_ccdx, nooffset_t_ccdy,
-           ccd1_offsetx, ccd1_offsety,
-           alpha_1x, alpha_1y,
-           ccd2_offsetx, ccd2_offsety,
-           alpha_2x, alpha_2y)
+    np.savetxt('ccd-1sys_'+str(start_angle)+'_'+str(end_angle)+'_'+str(exp_run)+ '.csv', list(zip(exp_run_arr, alphax_arr, alphay_arr, beamx_offset, beamy_offset, non_var_bx, non_var_by)))
+    return(exp_run_arr, alphax_arr, alphay_arr, beamx_offset, beamy_offset, non_var_bx, non_var_by)
 
 
 
@@ -84,8 +87,8 @@ def ccd_system(start_angle, end_angle, file):
 file = r"C:\Users\pwfa-facet2\Desktop\slacecodes\centroid_test.zmx"
 
 
-data = ccd_system(0,3.6,file)
-
+data = ccd_system(-5,5,file, 20)
+"""
 print('ccd1 pos and angles:')
 print(data[2], data[3], data[4], data[5])
 print('ccd2 pos and angles:')
@@ -124,3 +127,4 @@ f.tight_layout()
 f.suptitle('Effects of Angle Variations on Two-Mirror System on Beam Centroid', fontsize=30)
 f.subplots_adjust(top=0.8)
 f.savefig('updated screens.pdf')
+"""
