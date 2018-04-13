@@ -45,7 +45,13 @@ link.zModifyPOPSettings(setfile, widex=grid_size)
 link.zModifyPOPSettings(setfile, widey=grid_size)
 link.zSaveFile(file)
 
+chief_angle_x = 45
+chief_angle_y = 0
 
+link.zSetSurfaceParameter(3, 3, chief_angle_x)
+link.zSetSurfaceParameter(7, 3, chief_angle_x)
+link.zSetSurfaceParameter(3, 4, chief_angle_y)
+link.zSetSurfaceParameter(7, 4, chief_angle_y)
 
 
 link.zSetSurfaceParameter(4, 3, 0) #3 = x-tilt, 4=y-tilt
@@ -94,7 +100,8 @@ for i in angles_xtilt:
 #print(ccd1)
 pyz.closeLink()
 
-np.savetxt('neg1pos1delta001alphay.csv', list(zip(angles_xtilt, beam_x, beam_y)))
+np.savetxt('alphay_chiefx_'+str(chief_angle_x)+ '_chiefy_'+ str(chief_angle_y)+
+           'rangeminus1pos1.csv', list(zip(angles_xtilt, beam_x, beam_y)))
 print("done")
 """
 

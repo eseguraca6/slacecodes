@@ -13,7 +13,7 @@ import pyzdde.zdde as pyz
 
 import random as rand
 
-def ccd_system(start_angle, end_angle, file, exp_run):
+def ccd_system(start_angle, end_angle, chief_angle_x, chief_angle_y, file, exp_run):
     link = pyz.createLink()
     link.zLoadFile(file)
     
@@ -31,6 +31,12 @@ def ccd_system(start_angle, end_angle, file, exp_run):
     link.zModifyPOPSettings(setfile, widey=grid_size) 
     link.zSaveFile(file)
     #no offset to chief ray
+    link.zSetSurfaceParameter(3, 3, chief_angle_x)
+    link.zSetSurfaceParameter(7, 3, chief_angle_x)
+    link.zSetSurfaceParameter(3, 4, chief_angle_y)
+    link.zSetSurfaceParameter(7, 4, chief_angle_y)
+    
+    
     link.zSetSurfaceParameter(4, 3, 0) #3 = x-tilt, 4=y-tilt
     link.zSetSurfaceParameter(6, 3, 0)
     link.zSetSurfaceParameter(4, 4, 0)
@@ -40,6 +46,7 @@ def ccd_system(start_angle, end_angle, file, exp_run):
     link.zSetSurfaceParameter(19, 3, 0)
     link.zSetSurfaceParameter(17, 4, 0)
     link.zSetSurfaceParameter(19, 4, 0)
+    
     link.zSaveFile(file)
     non_var_bx = []
     non_var_by = []
@@ -78,7 +85,8 @@ def ccd_system(start_angle, end_angle, file, exp_run):
         beamy_offset.append(ccd1_offsety)
 
     pyz.closeLink()
-    np.savetxt('ccd-1sys_'+str(start_angle)+'_'+str(end_angle)+'_'+str(exp_run)+ '.csv', list(zip(exp_run_arr, alphax_arr, alphay_arr, beamx_offset, beamy_offset, non_var_bx, non_var_by)))
+    np.savetxt('ccd1sys_chief_anglex_' + str(chief_angle_x)+ '_chief_angley_'+ 
+               str(chief_angle_y) +'_start_angle'+str(start_angle)+'_end_angle_'+str(end_angle)+'_'+str(exp_run)+ '.csv', list(zip(exp_run_arr, alphax_arr, alphay_arr, beamx_offset, beamy_offset, non_var_bx, non_var_by)))
     return(exp_run_arr, alphax_arr, alphay_arr, beamx_offset, beamy_offset, non_var_bx, non_var_by)
 
 
@@ -87,7 +95,7 @@ def ccd_system(start_angle, end_angle, file, exp_run):
 file = r"C:\Users\pwfa-facet2\Desktop\slacecodes\centroid_test.zmx"
 
 
-data = ccd_system(-5,5,file, 20)
+data = ccd_system(-5,5, 46, 0, file, 20)
 """
 print('ccd1 pos and angles:')
 print(data[2], data[3], data[4], data[5])
