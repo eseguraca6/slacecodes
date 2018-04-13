@@ -87,8 +87,8 @@ error, vig, x,y,x,
 """
 angles_xtilt = np.arange(-1,1.01, 0.01)
 for i in angles_xtilt:
-    link.zSetSurfaceParameter(4, 3, i)
-    link.zSetSurfaceParameter(6, 3, -i)
+    link.zSetSurfaceParameter(4, 4, i)
+    link.zSetSurfaceParameter(6, 4, -i)
     link.zSaveFile(file)
     t_ccdx = link.zOperandValue('POPD', 15, 1, 0, 11)
     t_ccdy = link.zOperandValue('POPD', 15, 1, 0, 12)
@@ -100,7 +100,7 @@ for i in angles_xtilt:
 #print(ccd1)
 pyz.closeLink()
 
-np.savetxt('alphax_chiefx_'+str(chief_angle_x)+ '_chiefy_'+ str(chief_angle_y)+
+np.savetxt('alphay_chiefx_'+str(chief_angle_x)+ '_chiefy_'+ str(chief_angle_y)+
            'rangeminus1pos1.csv', list(zip(angles_xtilt, beam_x, beam_y)))
 print("done")
 """
