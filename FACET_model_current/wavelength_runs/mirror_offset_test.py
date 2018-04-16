@@ -95,7 +95,7 @@ def ccd_system(start_angle, end_angle, chief_angle_x, chief_angle_y, file, exp_r
 file = r"C:\Users\pwfa-facet2\Desktop\slacecodes\centroid_test.zmx"
 
 
-data = ccd_system(-5,5, 46, 0, file, 20)
+data = ccd_system(-1,1, 45, 0, file, 20)
 """
 print('ccd1 pos and angles:')
 print(data[2], data[3], data[4], data[5])
