@@ -47,11 +47,14 @@ link.zSaveFile(file)
 
 chief_angle_x = 45
 chief_angle_y = 0
+chiez_angle_z= 0
 
 link.zSetSurfaceParameter(4, 3, 0) #3 = x-tilt, 4=y-tilt
 link.zSetSurfaceParameter(6, 3, 0)
 link.zSetSurfaceParameter(4, 4, 0)
 link.zSetSurfaceParameter(6, 4, 0)
+link.zSetSurfaceParameter(4, 5, 0) #5 = z-tilt
+link.zSetSurfaceParameter(6, 5, 0)
     
 link.zSetSurfaceParameter(18, 3, 0)
 link.zSetSurfaceParameter(18, 3, 0)
@@ -67,6 +70,8 @@ link.zSaveFile(file)
 
 beam_y=[]
 beam_x = []
+
+beam_z = []
 """
 link.zSetSurfaceParameter(4, 3, .5)
 link.zSetSurfaceParameter(6, 3, .5)
@@ -86,21 +91,22 @@ error, vig, x,y,x,
 """
 angles_xtilt = np.arange(-1,1.01, 0.01)
 for i in angles_xtilt:
-    link.zSetSurfaceParameter(18, 4, i)
-    link.zSetSurfaceParameter(20, 4, -i)
+    link.zSetSurfaceParameter(4, 4, i)
+    link.zSetSurfaceParameter(6, 4, -i)
     link.zSaveFile(file)
-    t_ccdx = link.zOperandValue('POPD', 26, 1, 0, 11)
-    t_ccdy = link.zOperandValue('POPD', 26, 1, 0, 12)
-    
+    t_ccdx = link.zOperandValue('POPD', 16, 1, 0, 11)
+    t_ccdy = link.zOperandValue('POPD', 16, 1, 0, 12)
+    t_ccdz = link.zOperandValue('POPD', 16, 1, 0, 13)
     #print(t_ccdx, t_ccdy)
     beam_x.append(t_ccdx)
     beam_y.append(t_ccdy)
+    beam_z.append(t_ccdz)
 #ccd1 = link.zGetTrace(waveNum=1, mode=0, surf=24,hx=0,hy=0,px=0,py=0)
 #print(ccd1)
 pyz.closeLink()
 
-np.savetxt('alpha2y_chiefx_'+str(chief_angle_x)+ '_chiefy_'+ str(chief_angle_y)+
-           'rangeminus1pos1.csv', list(zip(angles_xtilt, beam_x, beam_y)))
+np.savetxt('alpha1y_chiefy_'+str(chief_angle_x)+ '_chiefy_'+ str(chief_angle_y)+
+           'rangeminus1pos1.csv', list(zip(angles_xtilt, beam_x, beam_y, beam_z)))
 print("done")
 """
 

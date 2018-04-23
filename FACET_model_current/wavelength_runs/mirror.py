@@ -114,7 +114,7 @@ def matrix_var(angle_var, delta_var, file):
     #np.savetxt('alph', list(zip(angles_xtilt, beam_x, beam_y)))
 
 
-matrix_var(1, 0.0001,file)
+matrix_var(1, 0.01,file)
 """
 
 print(t_ccdx,t_ccdy)
