@@ -45,7 +45,7 @@ link.zModifyPOPSettings(setfile, widex=grid_size)
 link.zModifyPOPSettings(setfile, widey=grid_size)
 link.zSaveFile(file)
 
-chief_angle_x = 45
+chief_angle_x = 60
 chief_angle_y = 0
 chiez_angle_z= 0
 
@@ -62,10 +62,10 @@ link.zSetSurfaceParameter(20, 4, 0)
 link.zSetSurfaceParameter(20, 4, 0)
 link.zSaveFile(file)
 
-#link.zSetSurfaceParameter(3, 3, chief_angle_x)
-#link.zSetSurfaceParameter(7, 3, chief_angle_x)
-#link.zSetSurfaceParameter(3, 4, chief_angle_y)
-#link.zSetSurfaceParameter(7, 4, chief_angle_y)
+link.zSetSurfaceParameter(3, 3, chief_angle_x)
+link.zSetSurfaceParameter(7, 3, chief_angle_x)
+link.zSetSurfaceParameter(3, 4, chief_angle_y)
+link.zSetSurfaceParameter(7, 4, chief_angle_y)
 
 
 beam_y=[]
@@ -109,7 +109,7 @@ for i in angles_xtilt:
 #print(ccd1)
 pyz.closeLink()
 
-np.savetxt('allchanging'+str(chief_angle_x)+ '_chiefy_'+ str(chief_angle_y)+
+np.savetxt('allchanging'+str(chief_angle_x)+ '_chiefx_'+ str(chief_angle_y)+ '_chiefy_'+
            'rangeminus1pos1.csv', list(zip(angles_xtilt, beam_x, beam_y, beam_z)))
 print("done")
 """
