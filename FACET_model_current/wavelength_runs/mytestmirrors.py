@@ -45,7 +45,7 @@ link.zModifyPOPSettings(setfile, widex=grid_size)
 link.zModifyPOPSettings(setfile, widey=grid_size)
 link.zSaveFile(file)
 
-chief_angle_x = 50
+chief_angle_x = 45
 chief_angle_y = 0
 chiez_angle_z= 0
 
