@@ -106,10 +106,8 @@ def ccd_system(start_angle, end_angle, chief_angle_x, chief_angle_y, file, exp_r
 
     pyz.closeLink()
     np.savetxt('algotest_crosstalk_onlyerrorm1arrayneg1pos1' + str(chief_angle_x)+ '_chief_angley_'+ 
-               str(chief_angle_y) +'_start_angle'+str(start_angle)+'_end_angle_'+str(end_angle)+'_'+str(exp_run)+ '.csv', list(zip(exp_run_arr, alphax_arr, alphay_arr, beamx_offset, beamy_offset, alpha2x_arr, alpha2y_arr, ccd2_beamx_offset, ccd2_beamy_offset,
-           non_var_bx, non_var_by)))
-    return(exp_run_arr, alphax_arr, alphay_arr, beamx_offset, beamy_offset, alpha2x_arr, alpha2y_arr, ccd2_beamx_offset, ccd2_beamy_offset,
-           non_var_bx, non_var_by)
+               str(chief_angle_y) +'_start_angle'+str(start_angle)+'_end_angle_'+str(end_angle)+'_'+str(exp_run)+ '.csv', list(zip(exp_run_arr, alphax_arr, alphay_arr, beamx_offset, beamy_offset, ccd2_beamx_offset, ccd2_beamy_offset)))
+    return(exp_run_arr, alphax_arr, alphay_arr, beamx_offset, beamy_offset, ccd2_beamx_offset, ccd2_beamy_offset)
 
 
 
