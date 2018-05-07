@@ -98,7 +98,7 @@ ccd1y_arr = []
 ccd2x_arr=[]
 ccd2y_arr=[]
 
-angles_xtilt = np.arange(-1,1.01, 0.01)
+angles_xtilt = np.arange(-10,10, 0.1)
 for i in angles_xtilt:
     link.zSetSurfaceParameter(4, 3, i)
     link.zSetSurfaceParameter(4, 4, i)
@@ -107,6 +107,12 @@ for i in angles_xtilt:
     link.zSetSurfaceParameter(6, 3, -i)
     link.zSetSurfaceParameter(6, 4, -i)
     link.zSetSurfaceParameter(6, 5, 0)
+    
+    link.zSetSurfaceParameter(18, 3, i)
+    link.zSetSurfaceParameter(18, 3, i) 
+    link.zSetSurfaceParameter(20, 4, -i)
+    link.zSetSurfaceParameter(20, 4, -i)
+    
     link.zSaveFile(file)
     
     t_ccdx = link.zOperandValue('POPD', 15, 1, 0, 11)
@@ -133,7 +139,7 @@ for i in angles_xtilt:
 #print(ccd1)
 pyz.closeLink()
 
-np.savetxt('alphaxchangingm1nom2change'+str(chief_angle_x)+ '_chiefx_'+ str(chief_angle_y)+ '_chiefy_'+
+np.savetxt('twomirrorsystemneg10pos10diff01'+str(chief_angle_x)+ '_chiefx_'+ str(chief_angle_y)+ '_chiefy_'+
            'rangeminus1pos1.csv', list(zip(angles_xtilt, beam_x, beam_y,ccd1x_arr,ccd1y_arr,ccd2x_arr,ccd2y_arr)))
 print("done")
 """
