@@ -66,15 +66,17 @@ def ccd_system(start_angle, end_angle, chief_angle_x, chief_angle_y, file, exp_r
     ccd2_beamx_offset =[]
     ccd2_beamy_offset = []
     exp_run_arr = []
+    beam_y=[]
+    beam_x = []
     for i in range(exp_run+1):
         alpha_1x = np.random.uniform(start_angle, end_angle)
         alpha_1y = np.random.uniform(start_angle, end_angle)
-        #alpha_2x = np.random.uniform(start_angle, end_angle)
-        #alpha_2y = np.random.uniform(start_angle, end_angle) 
+        alpha_2x = np.random.uniform(start_angle, end_angle)
+        alpha_2y = np.random.uniform(start_angle, end_angle) 
         alphax_arr.append(alpha_1x)
         alphay_arr.append(alpha_1y)
-        #alpha2x_arr.append(alpha_2x)
-        #alpha2y_arr.append(alpha_2y)
+        alpha2x_arr.append(alpha_2x)
+        alpha2y_arr.append(alpha_2y)
         exp_run_arr.append(i)
         #make offsets in zemax system 
         link.zSetSurfaceParameter(4, 3, alpha_1x) #3 = x-tilt, 4=y-tilt
@@ -82,10 +84,10 @@ def ccd_system(start_angle, end_angle, chief_angle_x, chief_angle_y, file, exp_r
         link.zSetSurfaceParameter(4, 4, alpha_1y)
         link.zSetSurfaceParameter(6, 4, -alpha_1y)
         
-        #link.zSetSurfaceParameter(18, 3, alpha_2x) #3 = x-tilt, 4=y-tilt
-        #link.zSetSurfaceParameter(20, 3, -alpha_2x)
-        #link.zSetSurfaceParameter(18, 4, alpha_2y)
-        #link.zSetSurfaceParameter(20, 4, -alpha_2y)
+        link.zSetSurfaceParameter(18, 3, alpha_2x) #3 = x-tilt, 4=y-tilt
+        link.zSetSurfaceParameter(20, 3, -alpha_2x)
+        link.zSetSurfaceParameter(18, 4, alpha_2y)
+        link.zSetSurfaceParameter(20, 4, -alpha_2y)
         
         
         
@@ -94,19 +96,29 @@ def ccd_system(start_angle, end_angle, chief_angle_x, chief_angle_y, file, exp_r
         #alpha_2y = np.random.uniform(start_angle, end_angle)
     
         #add offsets
+        t_ccdx = link.zOperandValue('POPD', 15, 1, 0, 11)
+        t_ccdy = link.zOperandValue('POPD', 15, 1, 0, 12)
         
         ccd1_offsetx = link.zOperandValue('POPD', 26, 1, 0, 11)
         ccd1_offsety = link.zOperandValue('POPD', 26, 1, 0, 12)
+        
         ccd2_x = link.zOperandValue('POPD', 28, 1, 0, 11)
         ccd2_y = link.zOperandValue('POPD', 28, 1, 0, 12)
+        
+        beam_x.append(t_ccdx)
+        beam_y.append(t_ccdy)
+        
         beamx_offset.append(ccd1_offsetx)
         beamy_offset.append(ccd1_offsety)
+        
         ccd2_beamx_offset.append(ccd2_x)
         ccd2_beamy_offset.append(ccd2_y)
 
     pyz.closeLink()
-    np.savetxt('algotest_crosstalk_onlyerrorm1arrayneg1pos1' + str(chief_angle_x)+ '_chief_angley_'+ 
-               str(chief_angle_y) +'_start_angle'+str(start_angle)+'_end_angle_'+str(end_angle)+'_'+str(exp_run)+ '.csv', list(zip(exp_run_arr, alphax_arr, alphay_arr, beamx_offset, beamy_offset, ccd2_beamx_offset, ccd2_beamy_offset)))
+    np.savetxt('testbothmirrors' + str(chief_angle_x)+ '_chief_angley_'+ 
+               str(chief_angle_y) +'_start_angle'+str(start_angle)+'_end_angle_'+str(end_angle)+'_'+str(exp_run)+ '.csv', 
+               list(zip(exp_run_arr, alphax_arr, alphay_arr, alpha2x_arr, alpha2y_arr, beam_x,beam_y,
+                        beamx_offset, beamy_offset, ccd2_beamx_offset, ccd2_beamy_offset)))
     return(exp_run_arr, alphax_arr, alphay_arr, beamx_offset, beamy_offset, ccd2_beamx_offset, ccd2_beamy_offset)
 
 
