@@ -139,8 +139,7 @@ for i in angles_xtilt:
 #print(ccd1)
 pyz.closeLink()
 
-np.savetxt('twomirrorsystemneg10pos10diff01'+str(chief_angle_x)+ '_chiefx_'+ str(chief_angle_y)+ '_chiefy_'+
-           'rangeminus1pos1.csv', list(zip(angles_xtilt, beam_x, beam_y,ccd1x_arr,ccd1y_arr,ccd2x_arr,ccd2y_arr)))
+np.savetxt('twomirrorsystem_rangeminus10pos10.csv', list(zip(angles_xtilt, beam_x, beam_y,ccd1x_arr,ccd1y_arr,ccd2x_arr,ccd2y_arr)))
 print("done")
 """
 
