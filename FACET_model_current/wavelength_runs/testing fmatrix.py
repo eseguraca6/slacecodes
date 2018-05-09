@@ -41,39 +41,72 @@ chief_angle1_y = 0
 chief_angle1_z= 0
 
 chief_angle2_x =0
-chief_angle2_y=45
+chief_angle2_y= 45
 chief_angle2_z = 0
 
 link.zSetSurfaceParameter(3,3, chief_angle1_x)
 link.zSetSurfaceParameter(3,4, chief_angle1_y)
-link.zSetSurfaceParameter(3,4, chief_angle1_z)
+link.zSetSurfaceParameter(3,5, chief_angle1_z)
 
-link.zSetSurfaceParameter(7,3, chief_angle1_x)
-link.zSetSurfaceParameter(7,4, chief_angle1_y)
-link.zSetSurfaceParameter(7,4, chief_angle1_z)
+link.zSetSurfaceParameter(9,3, chief_angle1_x)
+link.zSetSurfaceParameter(9,4, chief_angle1_y)
+link.zSetSurfaceParameter(9,5 , chief_angle1_z)
 
-link.zSetSurfaceParameter(17,3, chief_angle2_x)
-link.zSetSurfaceParameter(17,4, chief_angle2_y)
-link.zSetSurfaceParameter(17,4, chief_angle2_z)
+link.zSetSurfaceParameter(19,3, chief_angle2_x)
+link.zSetSurfaceParameter(19,4, chief_angle2_y)
+link.zSetSurfaceParameter(19,5, chief_angle2_z)
 
-link.zSetSurfaceParameter(21,3, chief_angle2_x)
-link.zSetSurfaceParameter(21,4, chief_angle2_y)
-link.zSetSurfaceParameter(21,4, chief_angle2_z)
+link.zSetSurfaceParameter(25,3, chief_angle2_x)
+link.zSetSurfaceParameter(25,4, chief_angle2_y)
+link.zSetSurfaceParameter(25,5, chief_angle2_z)
+
+#fix var/pos empty 
 
 
+
+
+link.zSaveFile(file)
 
 
 link.zSetSurfaceParameter(4, 3, 0) #3 = x-tilt, 4=y-tilt
-link.zSetSurfaceParameter(6, 3, 0)
 link.zSetSurfaceParameter(4, 4, 0)
-link.zSetSurfaceParameter(6, 4, 0)
-link.zSetSurfaceParameter(4, 5, 0) #5 = z-tilt
-link.zSetSurfaceParameter(6, 5, 0)
-    
-link.zSetSurfaceParameter(18, 3, 0)
-link.zSetSurfaceParameter(18, 3, 0)
+link.zSetSurfaceParameter(4, 5, 0)
+
+link.zSetSurfaceParameter(8, 3, 0) #3 = x-tilt, 4=y-tilt
+link.zSetSurfaceParameter(8, 4, 0)
+link.zSetSurfaceParameter(8, 5, 0)
+
+#####
+link.zSetSurfaceParameter(5, 3, 0) #3 = x-tilt, 4=y-tilt
+link.zSetSurfaceParameter(5, 4, 0)
+link.zSetSurfaceParameter(5, 5, 0)
+
+link.zSetSurfaceParameter(7, 3, 0) #3 = x-tilt, 4=y-tilt
+link.zSetSurfaceParameter(7, 4, 0)
+link.zSetSurfaceParameter(7, 5, 0)
+
+
+
+#####
+
+link.zSetSurfaceParameter(20, 3, 0) #3 = x-tilt, 4=y-tilt
 link.zSetSurfaceParameter(20, 4, 0)
-link.zSetSurfaceParameter(20, 4, 0)
+link.zSetSurfaceParameter(20, 5, 0)
+
+link.zSetSurfaceParameter(24, 3, 0) #3 = x-tilt, 4=y-tilt
+link.zSetSurfaceParameter(24, 4, 0)
+link.zSetSurfaceParameter(24, 5, 0)
+
+#####
+link.zSetSurfaceParameter(21, 3, 0) #3 = x-tilt, 4=y-tilt
+link.zSetSurfaceParameter(21 ,4, 0)
+link.zSetSurfaceParameter(21, 5, 0)
+
+link.zSetSurfaceParameter(23, 3, 0) #3 = x-tilt, 4=y-tilt
+link.zSetSurfaceParameter(23, 4, 0)
+link.zSetSurfaceParameter(23, 5, 0)
+
+
 link.zSaveFile(file)
 
 ccd1x_var =[]
@@ -88,8 +121,6 @@ ccd1y_fix = []
 ccd2x_fix =[]
 ccd2y_fix = []
 
-start_angle=-5
-end_angle =5
 
 alpha1x_arr=[]
 alpha1y_arr=[]
@@ -135,12 +166,15 @@ def two_mirror_system(alpha1x, alpha1y, alpha2x, alpha2y, rev1, rev2, d_m1_m2, d
     return(system)
 
 f_sys = two_mirror_system(chief_angle1_x, chief_angle1_y, chief_angle2_x, chief_angle2_y, 90,-90, 400, 200,500)
-exp_run=19
+exp_run=20
+start_angle=-5
+end_angle = 5
 for i in range(exp_run+1):
         alpha_1x = np.random.uniform(start_angle, end_angle)
         alpha_1y = np.random.uniform(start_angle, end_angle)
         alpha_2x = np.random.uniform(start_angle, end_angle)
         alpha_2y = np.random.uniform(start_angle, end_angle) 
+        #print(alpha_1x, alpha_1y, alpha_2x, alpha_2y)
         alpha1x_arr.append(alpha_1x)
         alpha1y_arr.append(alpha_1y)
         alpha2x_arr.append(alpha_2x)
@@ -148,14 +182,14 @@ for i in range(exp_run+1):
         exp_run_arr.append(i)
         #make offsets in zemax system 
         link.zSetSurfaceParameter(4, 3, alpha_1x) #3 = x-tilt, 4=y-tilt
-        link.zSetSurfaceParameter(6, 3, -alpha_1x)
+        link.zSetSurfaceParameter(8, 3, -alpha_1x)
         link.zSetSurfaceParameter(4, 4, alpha_1y)
-        link.zSetSurfaceParameter(6, 4, -alpha_1y)
+        link.zSetSurfaceParameter(8, 4, -alpha_1y)
         
-        link.zSetSurfaceParameter(18, 3, alpha_2x) #3 = x-tilt, 4=y-tilt
-        link.zSetSurfaceParameter(20, 3, -alpha_2x)
-        link.zSetSurfaceParameter(18, 4, alpha_2y)
-        link.zSetSurfaceParameter(20, 4, -alpha_2y)
+        link.zSetSurfaceParameter(20, 3, alpha_2x) #3 = x-tilt, 4=y-tilt
+        link.zSetSurfaceParameter(24, 3, -alpha_2x)
+        link.zSetSurfaceParameter(20, 4, alpha_2y)
+        link.zSetSurfaceParameter(24, 4, -alpha_2y)
         
         
         
@@ -188,6 +222,8 @@ for i in range(exp_run+1):
         #extract predictions of the variations
         curr_angle_vector = np.rad2deg(np.matmul(inv_f, np.transpose(curr_vec)))
         
+        #print(curr_angle_vector)
+        
         pred_alpha1x=(curr_angle_vector.item(0))
         pred_alpha1y=(curr_angle_vector.item(1))
         pred_alpha2x=(curr_angle_vector.item(2))
@@ -200,15 +236,15 @@ for i in range(exp_run+1):
         
         #test them
         
-        link.zSetSurfaceParameter(4, 3, pred_alpha1x) #3 = x-tilt, 4=y-tilt
-        link.zSetSurfaceParameter(6, 3, -pred_alpha1x)
-        link.zSetSurfaceParameter(4, 4, pred_alpha1y)
-        link.zSetSurfaceParameter(6, 4, -pred_alpha1y)
+        link.zSetSurfaceParameter(5, 3, -pred_alpha1x) #3 = x-tilt, 4=y-tilt
+        link.zSetSurfaceParameter(7, 3, pred_alpha1x)
+        link.zSetSurfaceParameter(5, 4, -pred_alpha1y)
+        link.zSetSurfaceParameter(7, 4, pred_alpha1y)
         
-        link.zSetSurfaceParameter(18, 3, pred_alpha2x) #3 = x-tilt, 4=y-tilt
-        link.zSetSurfaceParameter(20, 3, -pred_alpha2x)
-        link.zSetSurfaceParameter(18, 4, pred_alpha2y)
-        link.zSetSurfaceParameter(20, 4, -pred_alpha2y)
+        link.zSetSurfaceParameter(21, 3, -pred_alpha2x) #3 = x-tilt, 4=y-tilt
+        link.zSetSurfaceParameter(23, 3, pred_alpha2x)
+        link.zSetSurfaceParameter(21, 4, -pred_alpha2y)
+        link.zSetSurfaceParameter(23, 4, pred_alpha2y)
         
         link.zSaveFile(file)
         
@@ -228,10 +264,10 @@ for i in range(exp_run+1):
 
 pyz.closeLink()
 
-np.savetxt('vardata-f.csv', list(zip(exp_run_arr, alpha1x_arr, alpha1y_arr, alpha2x_arr, alpha2y_arr, 
+np.savetxt('vardata-f-t1.csv', list(zip(exp_run_arr, alpha1x_arr, alpha1y_arr, alpha2x_arr, alpha2y_arr, 
                                      beamx_offset, beamy_offset, ccd2_beamx_offset, ccd2_beamy_offset 
                         )))
-np.savetxt('fixdata-f.csv', list(zip(exp_run_arr, pred_alpha1x_arr, pred_alpha1y_arr, pred_alpha2x_arr, pred_alpha2y_arr,
+np.savetxt('fixdata-f-t1.csv', list(zip(exp_run_arr, pred_alpha1x_arr, pred_alpha1y_arr, pred_alpha2x_arr, pred_alpha2y_arr,
                        ccd1x_fix, ccd1y_fix, ccd2x_fix, ccd2y_fix 
                         )))
 print("done with code!")
