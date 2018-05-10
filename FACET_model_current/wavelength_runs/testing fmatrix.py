@@ -165,16 +165,18 @@ def two_mirror_system(alpha1x, alpha1y, alpha2x, alpha2y, rev1, rev2, d_m1_m2, d
     
     return(system)
 
-f_sys = two_mirror_system(chief_angle1_x, chief_angle1_y, chief_angle2_x, chief_angle2_y, 90,-90, 400, 200,500)
-exp_run=20
-start_angle=-5
-end_angle = 5
+f_sys = two_mirror_system(45, 0, 0, 45, 90,-90, 400, 200,500)
+print(f_sys)
+exp_run=1
+start_angle=-1
+end_angle = 1
 for i in range(exp_run+1):
         alpha_1x = np.random.uniform(start_angle, end_angle)
         alpha_1y = np.random.uniform(start_angle, end_angle)
         alpha_2x = np.random.uniform(start_angle, end_angle)
         alpha_2y = np.random.uniform(start_angle, end_angle) 
-        #print(alpha_1x, alpha_1y, alpha_2x, alpha_2y)
+        print("input var:")
+        print(alpha_1x, alpha_1y, alpha_2x, alpha_2y)
         alpha1x_arr.append(alpha_1x)
         alpha1y_arr.append(alpha_1y)
         alpha2x_arr.append(alpha_2x)
@@ -190,25 +192,22 @@ for i in range(exp_run+1):
         link.zSetSurfaceParameter(24, 3, -alpha_2x)
         link.zSetSurfaceParameter(20, 4, alpha_2y)
         link.zSetSurfaceParameter(24, 4, -alpha_2y)
-        
-        
-        
         link.zSaveFile(file)
         #alpha_2x = np.random.uniform(start_angle, end_angle)
         #alpha_2y = np.random.uniform(start_angle, end_angle)
     
         #add offsets
-        t_ccdx = link.zOperandValue('POPD', 15, 1, 0, 11)
-        t_ccdy = link.zOperandValue('POPD', 15, 1, 0, 12)
+        #t_ccdx = link.zOperandValue('POPD', 15, 1, 0, 11)
+        #t_ccdy = link.zOperandValue('POPD', 15, 1, 0, 12)
         
-        ccd1_offsetx = link.zOperandValue('POPD', 26, 1, 0, 11)
-        ccd1_offsety = link.zOperandValue('POPD', 26, 1, 0, 12)
+        ccd1_offsetx = link.zOperandValue('POPD', 30, 1, 0, 11)
+        ccd1_offsety = link.zOperandValue('POPD', 30, 1, 0, 12)
         
-        ccd2_x = link.zOperandValue('POPD', 28, 1, 0, 11)
-        ccd2_y = link.zOperandValue('POPD', 28, 1, 0, 12)
+        ccd2_x = link.zOperandValue('POPD', 32, 1, 0, 11)
+        ccd2_y = link.zOperandValue('POPD', 32, 1, 0, 12)
         
-        beam_x.append(t_ccdx)
-        beam_y.append(t_ccdy)
+        #beam_x.append(t_ccdx)
+        #beam_y.append(t_ccdy)
         
         beamx_offset.append(ccd1_offsetx)
         beamy_offset.append(ccd1_offsety)
@@ -217,13 +216,14 @@ for i in range(exp_run+1):
         ccd2_beamy_offset.append(ccd2_y)
         
         
-        curr_vec = ccd1_offsetx, ccd1_offsety, ccd2_x, ccd2_y
+        curr_vec = np.matrix([[ccd1_offsetx], [ccd1_offsety], [ccd2_x], [ccd2_y]])
+        print("offsets:")
+        print(curr_vec)
         inv_f = np.linalg.inv(f_sys)
         #extract predictions of the variations
-        curr_angle_vector = np.rad2deg(np.matmul(inv_f, np.transpose(curr_vec)))
         
-        #print(curr_angle_vector)
-        
+        curr_angle_vector = np.rad2deg(np.matmul(inv_f, (curr_vec)))
+
         pred_alpha1x=(curr_angle_vector.item(0))
         pred_alpha1y=(curr_angle_vector.item(1))
         pred_alpha2x=(curr_angle_vector.item(2))
@@ -233,7 +233,8 @@ for i in range(exp_run+1):
         pred_alpha1y_arr.append(pred_alpha1y)
         pred_alpha2x_arr.append(pred_alpha2x)
         pred_alpha2y_arr.append(pred_alpha2y)
-        
+        print("pred var:")
+        print(pred_alpha1x, pred_alpha1y, pred_alpha2x, pred_alpha2y)
         #test them
         
         link.zSetSurfaceParameter(5, 3, -pred_alpha1x) #3 = x-tilt, 4=y-tilt
@@ -243,25 +244,26 @@ for i in range(exp_run+1):
         
         link.zSetSurfaceParameter(21, 3, -pred_alpha2x) #3 = x-tilt, 4=y-tilt
         link.zSetSurfaceParameter(23, 3, pred_alpha2x)
+        
         link.zSetSurfaceParameter(21, 4, -pred_alpha2y)
         link.zSetSurfaceParameter(23, 4, pred_alpha2y)
-        
         link.zSaveFile(file)
         
-        ccd1_offsetx_fix = link.zOperandValue('POPD', 26, 1, 0, 11)
-        ccd1_offsety_fix = link.zOperandValue('POPD', 26, 1, 0, 12)
+        ccd1_offsetx_fix = link.zOperandValue('POPD', 30, 1, 0, 11)
+        ccd1_offsety_fix = link.zOperandValue('POPD', 30, 1, 0, 12)
         
-        ccd2_offsetx_fix = link.zOperandValue('POPD', 28, 1, 0, 11)
-        ccd2_offsety_fix = link.zOperandValue('POPD', 28, 1, 0, 12)
+        ccd2_offsetx_fix = link.zOperandValue('POPD', 32, 1, 0, 11)
+        ccd2_offsety_fix = link.zOperandValue('POPD', 32, 1, 0, 12)
         
         ccd1x_fix.append(ccd1_offsetx_fix)
         ccd1y_fix.append(ccd1_offsety_fix)
         ccd2x_fix.append(ccd2_offsetx_fix)
         ccd2y_fix.append(ccd2_offsety_fix)
+        print("fix pos:")
+        print(ccd1_offsetx_fix, ccd1_offsety_fix, ccd2_offsetx_fix, ccd2_offsety_fix)
         
         
         
-
 pyz.closeLink()
 
 np.savetxt('vardata-f-t1.csv', list(zip(exp_run_arr, alpha1x_arr, alpha1y_arr, alpha2x_arr, alpha2y_arr, 
