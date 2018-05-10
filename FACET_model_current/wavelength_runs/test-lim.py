@@ -167,15 +167,16 @@ def algo_var_test(file, low_angle, high_angle, sample_size):
         ccd2_y = link.zOperandValue('POPD', 32, 1, 0, 12)
         #make offsets vector
         
-        pyz.closeLink()
         ccd1x_arr.append(ccd1_offsetx)
         ccd1y_arr.append(ccd1_offsety)
         ccd2x_arr.append(ccd2_x)
         ccd2y_arr.append(ccd2_y)
-    np.savetxt('var'+str(low_angle)+"-"+str(high_angle)+"-"+str(sample_size)+".csv",
+    pyz.closeLink()
+    np.savetxt('var neg'+str(low_angle)+"-"+str(high_angle)+"-"+str(sample_size)+".csv",
                list(zip(angle1_xarr,angle1_yarr,angle2_xarr,angle2_yarr,ccd1x_arr, ccd1y_arr,ccd2x_arr,ccd2y_arr)))
     print("finished with variations!")
+    
 config_simulation(file,45,0,0,0,45,0)
 
 for i in range(2,11,2):
-    algo_var_test(file, -i, i, 20)
+    algo_var_test(file, -i,i,20)
