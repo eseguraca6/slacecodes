@@ -324,14 +324,15 @@ def feedback_method(file, low_angle, high_angle, run_num):
     f_sys = two_mirror_system(45,0,0,45,90,-90,400,200,500)
     config_simulation(file, 45,0,0,0,45,0)
     #execute the variations
-    for i in range(0,run_num):
+    for i in range(0,run_num+1):
         curr_var = algo_var(file, low_angle, high_angle)
         print("input random:", curr_var)
         #fix this.
         curr_fix = algo_fix(file)
         np.savetxt('var-'+ str(i)+'.csv', list(zip(curr_fix[0], curr_fix[1], curr_fix[2],
                    curr_fix[3], curr_fix[4], curr_fix[5], curr_fix[6], curr_fix[7])))
-
+        np.savetxt('inputvar'+str(i)+'.csv',curr_var)
+        
 feedback_method(file, -5,5,2)
         
     
