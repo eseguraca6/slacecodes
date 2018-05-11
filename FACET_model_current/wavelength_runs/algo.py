@@ -310,7 +310,7 @@ def algo_fix(file):
             status="not done"
         #return(angle_fix_approx_arr, offset_correction_arr)
 #algo_var(file, 9,10)
-#a= initial_algo_fix(file)
+#a= algo_fix(file)
 #print(a[0])
 #print("=====")
 #print(a[1])
@@ -326,6 +326,7 @@ def feedback_method(file, low_angle, high_angle, run_num):
     #execute the variations
     for i in range(0,run_num):
         curr_var = algo_var(file, low_angle, high_angle)
+        print("input random:", curr_var)
         #fix this.
         curr_fix = algo_fix(file)
         np.savetxt('var-'+ str(i)+'.csv', list(zip(curr_fix[0], curr_fix[1], curr_fix[2],
