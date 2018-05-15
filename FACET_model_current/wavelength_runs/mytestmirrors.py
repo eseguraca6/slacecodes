@@ -13,84 +13,97 @@ import pyzdde.zdde as pyz
 
 import random as rand
 
-start_angle = 0
-end_angle = .6
-
-
-alpha_1x = np.random.uniform(start_angle, end_angle)
-alpha_1y = np.random.uniform(start_angle, end_angle)
-alpha_2x = np.random.uniform(start_angle, end_angle)
-alpha_2y = np.random.uniform(start_angle, end_angle)
-
-link = pyz.createLink()
-
-
 file = r"C:\Users\pwfa-facet2\Desktop\slacecodes\centroid_test.zmx"
+def config_simulation(file, chief_angle1_x,chief_angle1_y, chief_angle1_z,
+                      chief_angle2_x,chief_angle2_y, chief_angle2_z):
+    link = pyz.createLink()
+    link.zLoadFile(file)
 
-link.zLoadFile(file)
-
-setfile = link.zGetFile().lower().replace('.zmx', '.CFG')
-S_512 = 5
-grid_size = 20
-GAUSS_WAIST, WAIST_X, WAIST_Y, DECENTER_X, DECENTER_Y = 0, 1, 2, 3, 4
-beam_waist, x_off, y_off = 5, 0, 0
-cfgfile = link.zSetPOPSettings('irr', setfile, startSurf=2, endSurf=2, field=1, wave=1, beamType=GAUSS_WAIST,
-                             paramN=( (WAIST_X, WAIST_Y, DECENTER_X, DECENTER_Y), (beam_waist, beam_waist,
-                                     x_off, y_off) ), sampx=S_512, sampy=S_512,
-                             widex=grid_size, widey=grid_size, tPow=1, auto=0)
-link.zModifyPOPSettings(setfile, endSurf=24)
-link.zModifyPOPSettings(setfile, paramN=( (1, 2, 3, 4), (5, 5,
+    setfile = link.zGetFile().lower().replace('.zmx', '.CFG')
+    S_512 = 5
+    grid_size = 20
+    GAUSS_WAIST, WAIST_X, WAIST_Y, DECENTER_X, DECENTER_Y = 0, 1, 2, 3, 4
+    beam_waist, x_off, y_off = 5, 0, 0
+    cfgfile = link.zSetPOPSettings('irr', setfile, startSurf=2, endSurf=2, field=1,
+                                   wave=1, beamType=GAUSS_WAIST, paramN=( (WAIST_X, WAIST_Y, DECENTER_X, DECENTER_Y), (beam_waist, beam_waist, x_off, y_off) ),
+                                   sampx=S_512, sampy=S_512, widex=grid_size, widey=grid_size, tPow=1, auto=0, ignPol=1)
+    link.zModifyPOPSettings(cfgfile, endSurf=24)
+    link.zModifyPOPSettings(cfgfile, paramN=( (1, 2, 3, 4), (5, 5,
                                      0, 0) ))
-link.zModifyPOPSettings(setfile, widex=grid_size)
-link.zModifyPOPSettings(setfile, widey=grid_size)
-link.zSaveFile(file)
-
-chief_angle_x = 45
-chief_angle_y = 0
-chiez_angle_z= 0
-
-link.zSetSurfaceParameter(4, 3, 0) #3 = x-tilt, 4=y-tilt
-link.zSetSurfaceParameter(6, 3, 0)
-link.zSetSurfaceParameter(4, 4, 0)
-link.zSetSurfaceParameter(6, 4, 0)
-link.zSetSurfaceParameter(4, 5, 0) #5 = z-tilt
-link.zSetSurfaceParameter(6, 5, 0)
+    link.zModifyPOPSettings(cfgfile, widex=grid_size)
+    link.zModifyPOPSettings(cfgfile, widey=grid_size)
+    link.zModifyPOPSettings(cfgfile, ignPol=1)
+#1 to ignore pol;0 to use
+    link.zSaveFile(file)
+    link.zSetSurfaceParameter(3,3, chief_angle1_x)
+    link.zSetSurfaceParameter(3,4, chief_angle1_y)
+    link.zSetSurfaceParameter(3,5, chief_angle1_z)
     
-link.zSetSurfaceParameter(18, 3, 0)
-link.zSetSurfaceParameter(18, 3, 0)
-link.zSetSurfaceParameter(20, 4, 0)
-link.zSetSurfaceParameter(20, 4, 0)
-link.zSaveFile(file)
+    link.zSetSurfaceParameter(9,3, chief_angle1_x)
+    link.zSetSurfaceParameter(9,4, chief_angle1_y)
+    link.zSetSurfaceParameter(9,5 , chief_angle1_z)
+    
+    link.zSetSurfaceParameter(19,3, chief_angle2_x)
+    link.zSetSurfaceParameter(19,4, chief_angle2_y)
+    link.zSetSurfaceParameter(19,5, chief_angle2_z)
 
-link.zSetSurfaceParameter(3, 3, chief_angle_x)
-link.zSetSurfaceParameter(7, 3, chief_angle_x)
-link.zSetSurfaceParameter(3, 4, chief_angle_y)
-link.zSetSurfaceParameter(7, 4, chief_angle_y)
+    link.zSetSurfaceParameter(25,3, chief_angle2_x)
+    link.zSetSurfaceParameter(25,4, chief_angle2_y)
+    link.zSetSurfaceParameter(25,5, chief_angle2_z)
+
+#fix var/pos empty 
+    link.zSaveFile(file)
+
+#var
+    link.zSetSurfaceParameter(4, 3, 0) #3 = x-tilt, 4=y-tilt
+    link.zSetSurfaceParameter(4, 4, 0)
+    link.zSetSurfaceParameter(4, 5, 0)
+
+    link.zSetSurfaceParameter(8, 3, 0) #3 = x-tilt, 4=y-tilt
+    link.zSetSurfaceParameter(8, 4, 0)
+    link.zSetSurfaceParameter(8, 5, 0)
+
+#####
+#fix
+    link.zSetSurfaceParameter(5, 3, 0) #3 = x-tilt, 4=y-tilt
+    link.zSetSurfaceParameter(5, 4, 0)
+    link.zSetSurfaceParameter(5, 5, 0)
+
+    link.zSetSurfaceParameter(7, 3, 0) #3 = x-tilt, 4=y-tilt
+    link.zSetSurfaceParameter(7, 4, 0)
+    link.zSetSurfaceParameter(7, 5, 0)
 
 
+
+#####
+
+    link.zSetSurfaceParameter(20, 3, 0) #3 = x-tilt, 4=y-tilt
+    link.zSetSurfaceParameter(20, 4, 0)
+    link.zSetSurfaceParameter(20, 5, 0)
+
+    link.zSetSurfaceParameter(24, 3, 0) #3 = x-tilt, 4=y-tilt
+    link.zSetSurfaceParameter(24, 4, 0)
+    link.zSetSurfaceParameter(24, 5, 0)
+
+#####
+    link.zSetSurfaceParameter(21, 3, 0) #3 = x-tilt, 4=y-tilt
+    link.zSetSurfaceParameter(21 ,4, 0)
+    link.zSetSurfaceParameter(21, 5, 0)
+
+    link.zSetSurfaceParameter(23, 3, 0) #3 = x-tilt, 4=y-tilt
+    link.zSetSurfaceParameter(23, 4, 0)
+    link.zSetSurfaceParameter(23, 5, 0)
+
+    link.zSaveFile(file)    
+    pyz.closeLink()
+    print('config set for testing!')
+
+config_simulation(file, 45,0,0,0,45,0)
+link = pyz.createLink()
+link.zLoadFile(file)
+beam_x =[]
 beam_y=[]
-beam_x = []
-beam_z = []
-
-
-
-"""
-link.zSetSurfaceParameter(4, 3, .5)
-link.zSetSurfaceParameter(6, 3, .5)
-link.zSaveFile(file)
-t_ccdx = link.zOperandValue('POPD', 24, 1, 0, 11)
-t_ccdy = link.zOperandValue('POPD', 24, 1, 0, 12)
-
-print(t_ccdx, t_ccdy)
-    
-tx = link.zGetTrace(waveNum=1, mode=0,surf=24,hx=0,hy=0,px=0,py=0)
-ttx = link.zGetTraceDirect(waveNum=1, mode=0, startSurf=2, stopSurf=13, x=0,y=0,z=0, l=0,m=0,n=0)
-print(tx)
-print(ttx)
-pyz.closeLink()
-
-error, vig, x,y,x, 
-"""
+beam_z=[]
 
 ccd1x_arr =[]
 ccd1y_arr = []
@@ -102,27 +115,29 @@ angles_xtilt = np.arange(-10,10, 0.1)
 for i in angles_xtilt:
     link.zSetSurfaceParameter(4, 3, i)
     link.zSetSurfaceParameter(4, 4, i)
-    
     link.zSetSurfaceParameter(4, 5, 0)
-    link.zSetSurfaceParameter(6, 3, -i)
-    link.zSetSurfaceParameter(6, 4, -i)
-    link.zSetSurfaceParameter(6, 5, 0)
     
-    link.zSetSurfaceParameter(18, 3, i)
-    link.zSetSurfaceParameter(18, 3, i) 
-    link.zSetSurfaceParameter(20, 4, -i)
-    link.zSetSurfaceParameter(20, 4, -i)
+    link.zSetSurfaceParameter(8, 3, -i)
+    link.zSetSurfaceParameter(8, 4, -i)
+    link.zSetSurfaceParameter(8, 5, 0)
     
+    link.zSetSurfaceParameter(20, 3, i)
+    link.zSetSurfaceParameter(20, 4, i)
+    link.zSetSurfaceParameter(20, 5, 0)
+    
+    link.zSetSurfaceParameter(24, 3, -i)
+    link.zSetSurfaceParameter(24, 4, -i)
+    link.zSetSurfaceParameter(24, 5, 0)
     link.zSaveFile(file)
     
-    t_ccdx = link.zOperandValue('POPD', 15, 1, 0, 11)
-    t_ccdy = link.zOperandValue('POPD', 15, 1, 0, 12)
-    t_ccdz = link.zOperandValue('POPD', 15, 1, 0, 13)
+    t_ccdx = link.zOperandValue('POPD', 17, 1, 0, 11)
+    t_ccdy = link.zOperandValue('POPD', 17, 1, 0, 12)
+    t_ccdz = link.zOperandValue('POPD', 17, 1, 0, 13)
     
-    ccd1_offsetx = link.zOperandValue('POPD', 26, 1, 0, 11)
-    ccd1_offsety = link.zOperandValue('POPD', 26, 1, 0, 12)
-    ccd2_x = link.zOperandValue('POPD', 28, 1, 0, 11)
-    ccd2_y = link.zOperandValue('POPD', 28, 1, 0, 12)
+    ccd1_offsetx = link.zOperandValue('POPD', 30, 1, 0, 11)
+    ccd1_offsety = link.zOperandValue('POPD', 30, 1, 0, 12)
+    ccd2_x = link.zOperandValue('POPD', 32, 1, 0, 11)
+    ccd2_y = link.zOperandValue('POPD', 32, 1, 0, 12)
     
     #print(t_ccdx, t_ccdy)
     beam_x.append(t_ccdx)
