@@ -164,7 +164,7 @@ a= plt.figure(figsize=(8,8))
 a0 = a.add_subplot(121)
 a0.scatter(angles_xtilt,beam_y, marker ='^', color = 'orange')
 a0.plot(angles_xtilt, th, color = 'red', linestyle = ":")
-a1 = a.add_subplot(122)
+a1 = a.add_subplot(122)3
 a1.scatter(angles_xtilt, beam_x,marker='D')
 #a1.plot(angles_xtilt, th, color = 'green', linestyle = ":")
 a0.set_xlabel('Degrees alphay')

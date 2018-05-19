@@ -333,14 +333,7 @@ def feedback_method(file, low_angle, high_angle, run_num):
                    curr_fix[3], curr_fix[4], curr_fix[5], curr_fix[6], curr_fix[7])))
         np.savetxt(str(low_angle)+"-"+str(high_angle)+'-inputvar'+str(i)+'.csv',curr_var)
         
-feedback_method(file, -2,0,2)
-feedback_method(file,  0,2,2)
-feedback_method(file,  3,5,2)
-feedback_method(file, -3,-5,2)
 
-feedback_method(file, -10,-5,2)
-feedback_method(file, 5,10,2)
-feedback_method(file, 10,20, 2)
     
 """
  for i in range(0, run_num):
