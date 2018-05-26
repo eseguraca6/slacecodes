@@ -158,7 +158,7 @@ def standard_variation(low_var, high_var, delta):
     ccd2xarr=[]
     ccd2yarr=[]
     #fix lens decentering too
-    link.zSetSurfaceParameter(17,1,2)#decenter x,y : 1,2
+    link.zSetSurfaceParameter(14,1,2)#decenter x,y : 1,2
     link.zSetSurfaceParameter(17,2,-2)
     #link.zSetSurfaceParameter(3,5, chief_angle1_z)
 
@@ -203,4 +203,4 @@ def standard_variation(low_var, high_var, delta):
     #return(beforem1_x, beforem1_y, ccd1xarr, ccd1yarr,ccd2_x,ccd2_y)
     
 config_simulation(file, 45,0,0,0,45,0)
-standard_variation(-2,2,0.1)
+standard_variation(-.5,.5,0.01)
