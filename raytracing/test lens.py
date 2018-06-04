@@ -80,8 +80,8 @@ def config_simulation(file, chief_angle1_x,chief_angle1_y, chief_angle1_z,
     link.zSetSurfaceParameter(30,5, chief_angle2_z)
 
 #fix lens decentering too
-    link.zSetSurfaceParameter(17,1, 0)#decenter x,y : 1,2
-    link.zSetSurfaceParameter(17,2, 0)
+    link.zSetSurfaceParameter(14,1, 0)#decenter x,y : 1,2
+    link.zSetSurfaceParameter(17,1, 0)
     #link.zSetSurfaceParameter(3,5, chief_angle1_z)
 
 #fix var/pos empty 
@@ -158,18 +158,18 @@ def standard_variation(low_var, high_var, delta):
     ccd2xarr=[]
     ccd2yarr=[]
     #fix lens decentering too
-    link.zSetSurfaceParameter(14,1,2)#decenter x,y : 1,2
-    link.zSetSurfaceParameter(17,2,-2)
+    link.zSetSurfaceParameter(14,1,0)#decenter x,y : 1,2
+    link.zSetSurfaceParameter(17,1,0)
     #link.zSetSurfaceParameter(3,5, chief_angle1_z)
 
 #fix var/pos empty 
     link.zSaveFile(file)
     for i in deg_range:
-        link.zSetSurfaceParameter(3, 3, i) #3 = x-tilt, 4=y-tilt
+        link.zSetSurfaceParameter(3, 3, 0) #3 = x-tilt, 4=y-tilt
         link.zSetSurfaceParameter(3, 4, i)
         link.zSetSurfaceParameter(3, 5, 0)
 
-        link.zSetSurfaceParameter(7, 3, -i) #3 = x-tilt, 4=y-tilt
+        link.zSetSurfaceParameter(7, 3, 0) #3 = x-tilt, 4=y-tilt
         link.zSetSurfaceParameter(7, 4, -i)
         link.zSetSurfaceParameter(7, 5, 0)
     
@@ -198,9 +198,9 @@ def standard_variation(low_var, high_var, delta):
         ccd2xarr.append(ccd2_x)
         ccd2yarr.append(ccd2_y)
     pyz.closeLink()
-    np.savetxt(str(r"C:\Users\pwfa-facet2\Desktop\slacecodes\raytracing\\") + "m1m2l1decenteringby2mm-"+str(low_var)+"-"+str(high_var)+"-"+str(delta)+'.csv', list(zip(deg_range, beforem1_x, beforem1_y, ccd1xarr, ccd1yarr,ccd2xarr,ccd2yarr)))
+    np.savetxt(str(r"C:\Users\pwfa-facet2\Desktop\slacecodes\raytracing\\") + "m1m2l1-nodecenteringlensy-"+str(low_var)+"-"+str(high_var)+"-"+str(delta)+'.csv', list(zip(deg_range, beforem1_x, beforem1_y, ccd1xarr, ccd1yarr,ccd2xarr,ccd2yarr)))
     print("done")
     #return(beforem1_x, beforem1_y, ccd1xarr, ccd1yarr,ccd2_x,ccd2_y)
     
 config_simulation(file, 45,0,0,0,45,0)
-standard_variation(-.5,.5,0.01)
+standard_variation(-1.5,1.5,0.1)
