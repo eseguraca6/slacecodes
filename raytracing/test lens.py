@@ -227,7 +227,8 @@ def algo_fix(file):
     ccd1x_arr.append(n_ccd1_offsetx)
     ccd1y_arr.append(n_ccd1_offsety)
     #print(np.transpose(angle_fix_approx_arr))
-
+    img_str = str(r'C:\Users\pwfa-facet2\Desktop\slacecodes\raytracing')+'\\'+'img-it'+str(i)+'.csv'
+    link.zGetTextFile(textFileName=img_str, analysisType='Pop')
     while status != "done":
         #get new variations 
         curr_r = curr_r+1
@@ -268,7 +269,6 @@ def algo_fix(file):
         ccd1y_arr.append(n_ccd1_offsety)      
         error = 0.00001 # 10 nm error 
         img_str = str(r'C:\Users\pwfa-facet2\Desktop\slacecodes\raytracing')+'\\'+'img-it'+str(i)+'.csv'
-        print(img_str)
         link.zGetTextFile(textFileName=img_str, analysisType='Pop')
         if np.abs(n_ccd1_offsetx) <= error and np.abs(n_ccd1_offsety):
             status = "done"
@@ -308,7 +308,6 @@ def feedback_method_l(file, low_angle, high_angle, run_num, x_off, y_off):
     #execute the variations
     for i in range(0,run_num):
         #variations
-        algo_var(file, low_angle, high_angle)
         #fix this.
         curr_fix = algo_fix(file)
         np.savetxt('variation-files-trial-'+ str(i)+'.csv', list(zip(curr_fix[0], curr_fix[1], curr_fix[2], curr_fix[3])))
