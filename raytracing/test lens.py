@@ -40,7 +40,7 @@ def config_simulation(file, chief_angle1_x,chief_angle1_y, chief_angle1_z):
     cfgfile = link.zSetPOPSettings('irr', setfile, startSurf=2, endSurf=2, field=1,
                                    wave=1, beamType=GAUSS_WAIST, paramN=( (WAIST_X, WAIST_Y, DECENTER_X, DECENTER_Y), (beam_waist, beam_waist, x_off, y_off) ),
                                    sampx=S_512, sampy=S_512, widex=grid_size, widey=grid_size, tPow=1, auto=0, ignPol=1)
-    link.zModifyPOPSettings(cfgfile, endSurf=24)
+    link.zModifyPOPSettings(cfgfile, endSurf=22)
     link.zModifyPOPSettings(cfgfile, paramN=( (1, 2, 3, 4), (5, 5,
                                      0, 0) ))
     link.zModifyPOPSettings(cfgfile, widex=grid_size)
@@ -105,7 +105,7 @@ def standard_variation(low_var, high_var, delta):
     cfgfile = link.zSetPOPSettings('irr', setfile, startSurf=2, endSurf=2, field=1,
                                    wave=1, beamType=GAUSS_WAIST, paramN=( (WAIST_X, WAIST_Y, DECENTER_X, DECENTER_Y), (beam_waist, beam_waist, x_off, y_off) ),
                                    sampx=S_512, sampy=S_512, widex=grid_size, widey=grid_size, tPow=1, auto=0, ignPol=1)
-    link.zModifyPOPSettings(cfgfile, endSurf=24)
+    link.zModifyPOPSettings(cfgfile, endSurf=22)
     link.zModifyPOPSettings(cfgfile, paramN=( (1, 2, 3, 4), (5, 5,
                                      0, 0) ))
     link.zModifyPOPSettings(cfgfile, widex=grid_size)
