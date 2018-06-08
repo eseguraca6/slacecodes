@@ -314,4 +314,4 @@ def feedback_method_l(file, low_angle, high_angle, run_num, x_off, y_off):
         np.savetxt('variation-files-trial-'+ str(i)+'.csv', list(zip(curr_fix[0], curr_fix[1], curr_fix[2], curr_fix[3])))
 
 config_simulation(file, 45,0,0)
-feedback_method_l(file, -1, 1, 1, 4, 1)
+feedback_method_l(file, 1, 1.5, 1, 4, -3)
