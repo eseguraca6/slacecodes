@@ -267,7 +267,7 @@ def algo_fix(file):
         ccd1x_arr.append(n_ccd1_offsetx)
         ccd1y_arr.append(n_ccd1_offsety)      
         error = 0.00001 # 10 nm error 
-        img_str = str(r'C:\Users\pwfa-facet2\Desktop\slacecodes\raytracing')+'\\'+str(i)+"_"+str(n_ccd1_offsetx)+"_"+str(n_ccd1_offsety)+'.csv'
+        img_str = str(r'C:\Users\pwfa-facet2\Desktop\slacecodes\raytracing')+'\\'+'img-it'+str(i)+'.csv'
         print(img_str)
         link.zGetTextFile(textFileName=img_str, analysisType='Pop')
         if np.abs(n_ccd1_offsetx) <= error and np.abs(n_ccd1_offsety):
@@ -311,7 +311,7 @@ def feedback_method_l(file, low_angle, high_angle, run_num, x_off, y_off):
         algo_var(file, low_angle, high_angle)
         #fix this.
         curr_fix = algo_fix(file)
-        np.savetxt('var-'+ str(i)+'.csv', list(zip(curr_fix[0], curr_fix[1], curr_fix[2], curr_fix[3])))
+        np.savetxt('variation-files-trial-'+ str(i)+'.csv', list(zip(curr_fix[0], curr_fix[1], curr_fix[2], curr_fix[3])))
 
 config_simulation(file, 45,0,0)
 feedback_method_l(file, -1, 1, 1, 4, 1)
