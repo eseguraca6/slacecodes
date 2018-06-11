@@ -88,6 +88,9 @@ def config_simulation(file, chief_angle1_x,chief_angle1_y, chief_angle1_z):
     link.zSetSurfaceParameter(6, 3, 0) #3 = x-tilt, 4=y-tilt
     link.zSetSurfaceParameter(6, 4, 0)
     link.zSetSurfaceParameter(6, 5, 0)
+    img_str = str(r'C:\Users\pwfa-facet2\Desktop\slacecodes\raytracing\img-norm.csv')
+    print(img_str)
+    link.zGetTextFile(textFileName=img_str, analysisType='Pop')
     link.zSaveFile(file)    
     pyz.closeLink()
     print('config set for testing!')
@@ -134,6 +137,9 @@ def standard_variation(low_var, high_var, delta):
         t_ccdy = link.zOperandValue('POPD', 22, 1, 0, 12)
         beforem1_x.append(t_ccdx)
         beforem1_y.append(t_ccdy)
+    img_str = str(r'C:\Users\pwfa-facet2\Desktop\slacecodes\raytracing')+'\\'+'img-norm.csv'
+    print(img_str)
+    link.zGetTextFile(textFileName=img_str, analysisType='Pop')
     pyz.closeLink()
     np.savetxt(str(r"C:\Users\pwfa-facet2\Desktop\slacecodes\raytracing\\") + "m1m2l1-nodecenteringlensy-"+str(low_var)+"-"+str(high_var)+"-"+str(delta)+'.csv', list(zip(deg_range, beforem1_x, beforem1_y)))
     print("done")
@@ -157,6 +163,9 @@ def algo_var(file, low_angle, high_angle):
     link.zSaveFile(file)  
    # print("random input variations:",alpha1_x, alpha1_y, alpha2_x, alpha2_y)
     #print('config set for fixing!')
+    img_str = str(r'C:\Users\pwfa-facet2\Desktop\slacecodes\raytracing\varinput-norm.csv')
+    print(img_str)
+    link.zGetTextFile(textFileName=img_str, analysisType='Pop')
     pyz.closeLink()
     return(alpha1_x, alpha1_y)
 
