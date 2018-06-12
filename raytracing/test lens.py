@@ -88,10 +88,10 @@ def config_simulation(file, chief_angle1_x,chief_angle1_y, chief_angle1_z):
     link.zSetSurfaceParameter(6, 3, 0) #3 = x-tilt, 4=y-tilt
     link.zSetSurfaceParameter(6, 4, 0)
     link.zSetSurfaceParameter(6, 5, 0)
+    link.zSaveFile(file)   
     img_str = str(r'C:\Users\pwfa-facet2\Desktop\slacecodes\raytracing\img-norm.csv')
     print(img_str)
-    link.zGetTextFile(textFileName=img_str, analysisType='Pop')
-    link.zSaveFile(file)    
+    link.zGetTextFile(textFileName=img_str, analysisType='Pop') 
     pyz.closeLink()
     print('config set for testing!')
 
