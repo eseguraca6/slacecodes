@@ -40,7 +40,7 @@ def config_simulation(file, chief_angle1_x,chief_angle1_y, chief_angle1_z):
     cfgfile = link.zSetPOPSettings('irr', setfile, startSurf=2, endSurf=2, field=1,
                                    wave=1, beamType=GAUSS_WAIST, paramN=( (WAIST_X, WAIST_Y, DECENTER_X, DECENTER_Y), (beam_waist, beam_waist, x_off, y_off) ),
                                    sampx=S_512, sampy=S_512, widex=grid_size, widey=grid_size, tPow=1, auto=0, ignPol=1)
-    link.zModifyPOPSettings(cfgfile, endSurf=22)
+    link.zModifyPOPSettings(cfgfile, endSurf=24)
     link.zModifyPOPSettings(cfgfile, paramN=( (1, 2, 3, 4), (5, 5,
                                      0, 0) ))
     link.zModifyPOPSettings(cfgfile, widex=grid_size)
@@ -89,9 +89,9 @@ def config_simulation(file, chief_angle1_x,chief_angle1_y, chief_angle1_z):
     link.zSetSurfaceParameter(6, 4, 0)
     link.zSetSurfaceParameter(6, 5, 0)
     link.zSaveFile(file)  
-    n_ccd1_offsetx = link.zOperandValue('POPD', 22, 1, 0, 11)
-    n_ccd1_offsety = link.zOperandValue('POPD', 22, 1, 0, 12)
-    print(n_ccd1_offsetx, n_ccd1_offsety)
+    n_ccd1_offsetx = link.zOperandValue('POPD', 24, 1, 0, 11)
+    n_ccd1_offsety = link.zOperandValue('POPD', 24, 1, 0, 12)
+    print(n_ccd1_offsetx, )
     img_str = str(r'C:\Users\pwfa-facet2\Desktop\slacecodes\raytracing\img-norm.csv')
     print(img_str)
     link.zGetTextFile(textFileName=img_str, analysisType='Pop') 
@@ -138,8 +138,8 @@ def algo_fix(file):
 
     curr_r=0
     print("current trial num (this is the initial must fix):",curr_r)
-    ccd1_offsetx = link.zOperandValue('POPD', 22, 1, 0, 11)
-    ccd1_offsety = link.zOperandValue('POPD', 22, 1, 0, 12)
+    ccd1_offsetx = link.zOperandValue('POPD', 24, 1, 0, 11)
+    ccd1_offsety = link.zOperandValue('POPD', 24, 1, 0, 12)
     
     ccd1x_arr.append(ccd1_offsetx)
     ccd1y_arr.append(ccd1_offsety)
@@ -178,8 +178,8 @@ def algo_fix(file):
     link.zSetSurfaceParameter(6, 5, 0)
     link.zSaveFile(file)
     
-    n_ccd1_offsetx = link.zOperandValue('POPD', 22, 1, 0, 11)
-    n_ccd1_offsety = link.zOperandValue('POPD', 22, 1, 0, 12)
+    n_ccd1_offsetx = link.zOperandValue('POPD', 24, 1, 0, 11)
+    n_ccd1_offsety = link.zOperandValue('POPD', 24, 1, 0, 12)
     
     #make offsets vector
     n_curr_vec = np.matrix([[n_ccd1_offsetx], [n_ccd1_offsety]])
@@ -220,8 +220,8 @@ def algo_fix(file):
         pred_alpha1x_arr.append(b_pred_alpha1x)
         pred_alpha1y_arr.append(b_pred_alpha1y)        
         #see fixes
-        n_ccd1_offsetx = link.zOperandValue('POPD', 22, 1, 0, 11)
-        n_ccd1_offsety = link.zOperandValue('POPD', 22, 1, 0, 12)  
+        n_ccd1_offsetx = link.zOperandValue('POPD', 24, 1, 0, 11)
+        n_ccd1_offsety = link.zOperandValue('POPD', 24, 1, 0, 12)  
         n_curr_vec = np.matrix([[n_ccd1_offsetx], [n_ccd1_offsety]])
         print("new offsets:", np.transpose(n_curr_vec))
         offset_correction_arr.append(n_curr_vec)
@@ -270,7 +270,7 @@ def standard_variation(low_var, high_var, delta):
     cfgfile = link.zSetPOPSettings('irr', setfile, startSurf=2, endSurf=2, field=1,
                                    wave=1, beamType=GAUSS_WAIST, paramN=( (WAIST_X, WAIST_Y, DECENTER_X, DECENTER_Y), (beam_waist, beam_waist, x_off, y_off) ),
                                    sampx=S_512, sampy=S_512, widex=grid_size, widey=grid_size, tPow=1, auto=0, ignPol=1)
-    link.zModifyPOPSettings(cfgfile, endSurf=22)
+    link.zModifyPOPSettings(cfgfile, endSurf=24)
     link.zModifyPOPSettings(cfgfile, paramN=( (1, 2, 3, 4), (5, 5,
                                      0, 0) ))
     link.zModifyPOPSettings(cfgfile, widex=grid_size)
@@ -295,8 +295,8 @@ def standard_variation(low_var, high_var, delta):
         link.zSetSurfaceParameter(7, 5, 0)
         link.zSaveFile(file)
         #get offsets 
-        t_ccdx = link.zOperandValue('POPD', 22, 1, 0, 11)
-        t_ccdy = link.zOperandValue('POPD', 22, 1, 0, 12)
+        t_ccdx = link.zOperandValue('POPD', 24, 1, 0, 11)
+        t_ccdy = link.zOperandValue('POPD', 24, 1, 0, 12)
         beforem1_x.append(t_ccdx)
         beforem1_y.append(t_ccdy)
     img_str = str(r'C:\Users\pwfa-facet2\Desktop\slacecodes\raytracing')+'\\'+'img-norm.csv'
@@ -321,4 +321,4 @@ def feedback_method_l(file, low_angle, high_angle, run_num, x_off, y_off):
         np.savetxt('variation-files-trial-'+ str(i)+'.csv', list(zip(curr_fix[0], curr_fix[1], curr_fix[2], curr_fix[3])))
 
 #config_simulation(file, 45,0,0)
-feedback_method_l(file, -1.5, 1.5, 1, 4, -3)
+feedback_method_l(file, 0, 1, 1, 4, -3)
