@@ -88,62 +88,15 @@ def config_simulation(file, chief_angle1_x,chief_angle1_y, chief_angle1_z):
     link.zSetSurfaceParameter(6, 3, 0) #3 = x-tilt, 4=y-tilt
     link.zSetSurfaceParameter(6, 4, 0)
     link.zSetSurfaceParameter(6, 5, 0)
-    link.zSaveFile(file)   
+    link.zSaveFile(file)  
+    n_ccd1_offsetx = link.zOperandValue('POPD', 22, 1, 0, 11)
+    n_ccd1_offsety = link.zOperandValue('POPD', 22, 1, 0, 12)
+    print(n_ccd1_offsetx, n_ccd1_offsety)
     img_str = str(r'C:\Users\pwfa-facet2\Desktop\slacecodes\raytracing\img-norm.csv')
     print(img_str)
     link.zGetTextFile(textFileName=img_str, analysisType='Pop') 
     pyz.closeLink()
     print('config set for testing!')
-
-def standard_variation(low_var, high_var, delta):
-    deg_range = np.arange(low_var, high_var+delta,delta)
-    
-    link = pyz.createLink()
-    link.zLoadFile(file)
-    setfile = link.zGetFile().lower().replace('.zmx', '.CFG')
-    S_512 = 5
-    grid_size = 20
-    GAUSS_WAIST, WAIST_X, WAIST_Y, DECENTER_X, DECENTER_Y = 0, 1, 2, 3, 4
-    beam_waist, x_off, y_off = 5, 0, 0
-    cfgfile = link.zSetPOPSettings('irr', setfile, startSurf=2, endSurf=2, field=1,
-                                   wave=1, beamType=GAUSS_WAIST, paramN=( (WAIST_X, WAIST_Y, DECENTER_X, DECENTER_Y), (beam_waist, beam_waist, x_off, y_off) ),
-                                   sampx=S_512, sampy=S_512, widex=grid_size, widey=grid_size, tPow=1, auto=0, ignPol=1)
-    link.zModifyPOPSettings(cfgfile, endSurf=22)
-    link.zModifyPOPSettings(cfgfile, paramN=( (1, 2, 3, 4), (5, 5,
-                                     0, 0) ))
-    link.zModifyPOPSettings(cfgfile, widex=grid_size)
-    link.zModifyPOPSettings(cfgfile, widey=grid_size)
-    link.zModifyPOPSettings(cfgfile, ignPol=1)
-#1 to ignore pol;0 to use
-    link.zSaveFile(file)
-    #add variations
-    beforem1_x=[]
-    beforem1_y=[]
-        #link.zSetSurfaceParameter(3,5, chief_angle1_z)
-
-#fix var/pos empty 
-    link.zSaveFile(file)
-    for i in deg_range:
-        link.zSetSurfaceParameter(3, 3, i) #3 = x-tilt, 4=y-tilt
-        link.zSetSurfaceParameter(3, 4, i)
-        link.zSetSurfaceParameter(3, 5, 0)
-
-        link.zSetSurfaceParameter(7, 3, i) #3 = x-tilt, 4=y-tilt
-        link.zSetSurfaceParameter(7, 4, -i)
-        link.zSetSurfaceParameter(7, 5, 0)
-        link.zSaveFile(file)
-        #get offsets 
-        t_ccdx = link.zOperandValue('POPD', 22, 1, 0, 11)
-        t_ccdy = link.zOperandValue('POPD', 22, 1, 0, 12)
-        beforem1_x.append(t_ccdx)
-        beforem1_y.append(t_ccdy)
-    img_str = str(r'C:\Users\pwfa-facet2\Desktop\slacecodes\raytracing')+'\\'+'img-norm.csv'
-    print(img_str)
-    link.zGetTextFile(textFileName=img_str, analysisType='Pop')
-    pyz.closeLink()
-    np.savetxt(str(r"C:\Users\pwfa-facet2\Desktop\slacecodes\raytracing\\") + "m1m2l1-nodecenteringlensy-"+str(low_var)+"-"+str(high_var)+"-"+str(delta)+'.csv', list(zip(deg_range, beforem1_x, beforem1_y)))
-    print("done")
-    #return(beforem1_x, beforem1_y, ccd1xarr, ccd1yarr,ccd2_x,ccd2_y
 
 def algo_var(file, low_angle, high_angle):
     link = pyz.createLink()
@@ -304,13 +257,57 @@ def decentering(file, x_off, y_off):
     link.zSaveFile(file)
     pyz.closeLink()
 
+def standard_variation(low_var, high_var, delta):
+    deg_range = np.arange(low_var, high_var+delta,delta)
+    
+    link = pyz.createLink()
+    link.zLoadFile(file)
+    setfile = link.zGetFile().lower().replace('.zmx', '.CFG')
+    S_512 = 5
+    grid_size = 20
+    GAUSS_WAIST, WAIST_X, WAIST_Y, DECENTER_X, DECENTER_Y = 0, 1, 2, 3, 4
+    beam_waist, x_off, y_off = 5, 0, 0
+    cfgfile = link.zSetPOPSettings('irr', setfile, startSurf=2, endSurf=2, field=1,
+                                   wave=1, beamType=GAUSS_WAIST, paramN=( (WAIST_X, WAIST_Y, DECENTER_X, DECENTER_Y), (beam_waist, beam_waist, x_off, y_off) ),
+                                   sampx=S_512, sampy=S_512, widex=grid_size, widey=grid_size, tPow=1, auto=0, ignPol=1)
+    link.zModifyPOPSettings(cfgfile, endSurf=22)
+    link.zModifyPOPSettings(cfgfile, paramN=( (1, 2, 3, 4), (5, 5,
+                                     0, 0) ))
+    link.zModifyPOPSettings(cfgfile, widex=grid_size)
+    link.zModifyPOPSettings(cfgfile, widey=grid_size)
+    link.zModifyPOPSettings(cfgfile, ignPol=1)
+#1 to ignore pol;0 to use
+    link.zSaveFile(file)
+    #add variations
+    beforem1_x=[]
+    beforem1_y=[]
+        #link.zSetSurfaceParameter(3,5, chief_angle1_z)
+
+#fix var/pos empty 
+    link.zSaveFile(file)
+    for i in deg_range:
+        link.zSetSurfaceParameter(3, 3, i) #3 = x-tilt, 4=y-tilt
+        link.zSetSurfaceParameter(3, 4, i)
+        link.zSetSurfaceParameter(3, 5, 0)
+
+        link.zSetSurfaceParameter(7, 3, i) #3 = x-tilt, 4=y-tilt
+        link.zSetSurfaceParameter(7, 4, -i)
+        link.zSetSurfaceParameter(7, 5, 0)
+        link.zSaveFile(file)
+        #get offsets 
+        t_ccdx = link.zOperandValue('POPD', 22, 1, 0, 11)
+        t_ccdy = link.zOperandValue('POPD', 22, 1, 0, 12)
+        beforem1_x.append(t_ccdx)
+        beforem1_y.append(t_ccdy)
+    img_str = str(r'C:\Users\pwfa-facet2\Desktop\slacecodes\raytracing')+'\\'+'img-norm.csv'
+    print(img_str)
+    link.zGetTextFile(textFileName=img_str, analysisType='Pop')
+    pyz.closeLink()
+    np.savetxt(str(r"C:\Users\pwfa-facet2\Desktop\slacecodes\raytracing\\") + "m1m2l1-nodecenteringlensy-"+str(low_var)+"-"+str(high_var)+"-"+str(delta)+'.csv', list(zip(deg_range, beforem1_x, beforem1_y)))
+    print("done")
+    #return(beforem1_x, beforem1_y, ccd1xarr, ccd1yarr,ccd2_x,ccd2_y
 
 def feedback_method_l(file, low_angle, high_angle, run_num, x_off, y_off):
-    #get the system running 
-    approx_arr =[] #this has the initial adjustment and subsequent adjustments. It will tend to the input value
-    correction_arr = [] #contains the corrections to find the best adjustment; first item is the intial variation pred.
-    input_variations =[]
-    beamoffset_arr =[]
     f_sys =beamline_matrix(400, 45,0,90)
     config_simulation(file, 45,0,0)
     #fix lens decentering too    ## add the lens decentering
@@ -324,4 +321,4 @@ def feedback_method_l(file, low_angle, high_angle, run_num, x_off, y_off):
         np.savetxt('variation-files-trial-'+ str(i)+'.csv', list(zip(curr_fix[0], curr_fix[1], curr_fix[2], curr_fix[3])))
 
 #config_simulation(file, 45,0,0)
-feedback_method_l(file, 1, 1.5, 1, 4, -3)
+feedback_method_l(file, -1.5, 1.5, 1, 4, -3)
