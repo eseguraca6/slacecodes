@@ -40,7 +40,7 @@ def config_simulation(file, chief_angle1_x,chief_angle1_y, chief_angle1_z):
     cfgfile = link.zSetPOPSettings('irr', setfile, startSurf=2, endSurf=2, field=1,
                                    wave=1, beamType=GAUSS_WAIST, paramN=( (WAIST_X, WAIST_Y, DECENTER_X, DECENTER_Y), (beam_waist, beam_waist, x_off, y_off) ),
                                    sampx=S_512, sampy=S_512, widex=grid_size, widey=grid_size, tPow=1, auto=0, ignPol=1)
-    link.zModifyPOPSettings(cfgfile, endSurf=24)
+    link.zModifyPOPSettings(cfgfile, endSurf=26)
     link.zModifyPOPSettings(cfgfile, paramN=( (1, 2, 3, 4), (5, 5,
                                      0, 0) ))
     link.zModifyPOPSettings(cfgfile, widex=grid_size)
@@ -48,50 +48,49 @@ def config_simulation(file, chief_angle1_x,chief_angle1_y, chief_angle1_z):
     link.zModifyPOPSettings(cfgfile, ignPol=1)
 #1 to ignore pol;0 to use
     link.zSaveFile(file)
-    link.zSetSurfaceParameter(2,3, chief_angle1_x)
-    link.zSetSurfaceParameter(2,4, chief_angle1_y)
-    link.zSetSurfaceParameter(2,5, chief_angle1_z)
+    link.zSetSurfaceParameter(3,3, chief_angle1_x)
+    link.zSetSurfaceParameter(3,4, chief_angle1_y)
+    link.zSetSurfaceParameter(3,5, chief_angle1_z)
     
-    link.zSetSurfaceParameter(8,3, chief_angle1_x)
-    link.zSetSurfaceParameter(8,4, chief_angle1_y)
-    link.zSetSurfaceParameter(8,5 , chief_angle1_z)
+    link.zSetSurfaceParameter(9,3, chief_angle1_x)
+    link.zSetSurfaceParameter(9,4, chief_angle1_y)
+    link.zSetSurfaceParameter(9,5 , chief_angle1_z)
 
 #fix lens decentering too
-    link.zSetSurfaceParameter(14,1, 0)#decenter x,y : 1,2
-    link.zSetSurfaceParameter(19,1, 0)
-    link.zSetSurfaceParameter(14,2, 0)#decenter x,y : 1,2
-    link.zSetSurfaceParameter(19,2, 0)
+    link.zSetSurfaceParameter(16,1, 0)#decenter x,y : 1,2
+    link.zSetSurfaceParameter(21,1, 0)
+    link.zSetSurfaceParameter(16,2, 0)#decenter x,y : 1,2
+    link.zSetSurfaceParameter(21,2, 0)
+    
+    link.zSetSurfaceParameter(17,1, 0)#decenter x,y : 1,2
+    link.zSetSurfaceParameter(20,1, 0)
+    link.zSetSurfaceParameter(17,2, 0)#decenter x,y : 1,2
+    link.zSetSurfaceParameter(20,2, 0)
     #link.zSetSurfaceParameter(3,5, chief_angle1_z)
-#fix lens decentering too
-    link.zSetSurfaceParameter(15,1, 0)#decenter x,y : 1,2
-    link.zSetSurfaceParameter(18,1, 0)
-    link.zSetSurfaceParameter(15,2, 0)#decenter x,y : 1,2
-    link.zSetSurfaceParameter(18,2, 0)
-#fix var/pos empty 
     link.zSaveFile(file)
 
 #var
-    link.zSetSurfaceParameter(3, 3, 0) #3 = x-tilt, 4=y-tilt
-    link.zSetSurfaceParameter(3, 4, 0)
-    link.zSetSurfaceParameter(3, 5, 0)
-
-    link.zSetSurfaceParameter(7, 3, 0) #3 = x-tilt, 4=y-tilt
-    link.zSetSurfaceParameter(7, 4, 0)
-    link.zSetSurfaceParameter(7, 5, 0)
-
-#####
-#fix
     link.zSetSurfaceParameter(4, 3, 0) #3 = x-tilt, 4=y-tilt
     link.zSetSurfaceParameter(4, 4, 0)
     link.zSetSurfaceParameter(4, 5, 0)
 
-    link.zSetSurfaceParameter(6, 3, 0) #3 = x-tilt, 4=y-tilt
-    link.zSetSurfaceParameter(6, 4, 0)
-    link.zSetSurfaceParameter(6, 5, 0)
+    link.zSetSurfaceParameter(8, 3, 0) #3 = x-tilt, 4=y-tilt
+    link.zSetSurfaceParameter(8, 4, 0)
+    link.zSetSurfaceParameter(8, 5, 0)
+
+#####
+#fix
+    link.zSetSurfaceParameter(5, 3, 0) #3 = x-tilt, 4=y-tilt
+    link.zSetSurfaceParameter(5, 4, 0)
+    link.zSetSurfaceParameter(5, 5, 0)
+
+    link.zSetSurfaceParameter(7, 3, 0) #3 = x-tilt, 4=y-tilt
+    link.zSetSurfaceParameter(7, 4, 0)
+    link.zSetSurfaceParameter(7, 5, 0)
     link.zSaveFile(file)  
-    n_ccd1_offsetx = link.zOperandValue('POPD', 24, 1, 0, 11)
-    n_ccd1_offsety = link.zOperandValue('POPD', 24, 1, 0, 12)
-    print(n_ccd1_offsetx, )
+    n_ccd1_offsetx = link.zOperandValue('POPD', 26, 1, 0, 11)
+    n_ccd1_offsety = link.zOperandValue('POPD', 26, 1, 0, 12)
+    print(n_ccd1_offsetx, n_ccd1_offsety)
     img_str = str(r'C:\Users\pwfa-facet2\Desktop\slacecodes\raytracing\img-norm.csv')
     print(img_str)
     link.zGetTextFile(textFileName=img_str, analysisType='Pop') 
@@ -105,13 +104,13 @@ def algo_var(file, low_angle, high_angle):
     alpha1_y = np.random.uniform(low_angle, high_angle)
     
     #insert variations
-    link.zSetSurfaceParameter(3, 3, alpha1_x) #3 = x-tilt, 4=y-tilt
-    link.zSetSurfaceParameter(3, 4, alpha1_y)
-    link.zSetSurfaceParameter(3, 5, 0)
+    link.zSetSurfaceParameter(4, 3, alpha1_x) #3 = x-tilt, 4=y-tilt
+    link.zSetSurfaceParameter(4, 4, alpha1_y)
+    link.zSetSurfaceParameter(4, 5, 0)
 
-    link.zSetSurfaceParameter(7, 3, -alpha1_x) #3 = x-tilt, 4=y-tilt
-    link.zSetSurfaceParameter(7, 4, -alpha1_y)
-    link.zSetSurfaceParameter(7, 5, 0)
+    link.zSetSurfaceParameter(8, 3, -alpha1_x) #3 = x-tilt, 4=y-tilt
+    link.zSetSurfaceParameter(8, 4, -alpha1_y)
+    link.zSetSurfaceParameter(8, 5, 0)
     
     link.zSaveFile(file)  
    # print("random input variations:",alpha1_x, alpha1_y, alpha2_x, alpha2_y)
@@ -138,8 +137,8 @@ def algo_fix(file):
 
     curr_r=0
     print("current trial num (this is the initial must fix):",curr_r)
-    ccd1_offsetx = link.zOperandValue('POPD', 24, 1, 0, 11)
-    ccd1_offsety = link.zOperandValue('POPD', 24, 1, 0, 12)
+    ccd1_offsetx = link.zOperandValue('POPD', 26, 1, 0, 11)
+    ccd1_offsety = link.zOperandValue('POPD', 26, 1, 0, 12)
     
     ccd1x_arr.append(ccd1_offsetx)
     ccd1y_arr.append(ccd1_offsety)
@@ -169,17 +168,17 @@ def algo_fix(file):
     print("predicted variations:", np.transpose(curr_angle_vector))
     
         #input this adjustments to system to see rectification
-    link.zSetSurfaceParameter(4, 3, -pred_alpha1x) #3 = x-tilt, 4=y-tilt
-    link.zSetSurfaceParameter(4, 4, -pred_alpha1y)
-    link.zSetSurfaceParameter(4, 5, 0)
+    link.zSetSurfaceParameter(5, 3, -pred_alpha1x) #3 = x-tilt, 4=y-tilt
+    link.zSetSurfaceParameter(5, 4, -pred_alpha1y)
+    link.zSetSurfaceParameter(5, 5, 0)
 
-    link.zSetSurfaceParameter(6, 3, pred_alpha1x) #3 = x-tilt, 4=y-tilt
-    link.zSetSurfaceParameter(6, 4, pred_alpha1y)
-    link.zSetSurfaceParameter(6, 5, 0)
+    link.zSetSurfaceParameter(7, 3, pred_alpha1x) #3 = x-tilt, 4=y-tilt
+    link.zSetSurfaceParameter(7, 4, pred_alpha1y)
+    link.zSetSurfaceParameter(7, 5, 0)
     link.zSaveFile(file)
     
-    n_ccd1_offsetx = link.zOperandValue('POPD', 24, 1, 0, 11)
-    n_ccd1_offsety = link.zOperandValue('POPD', 24, 1, 0, 12)
+    n_ccd1_offsetx = link.zOperandValue('POPD', 26, 1, 0, 11)
+    n_ccd1_offsety = link.zOperandValue('POPD', 26, 1, 0, 12)
     
     #make offsets vector
     n_curr_vec = np.matrix([[n_ccd1_offsetx], [n_ccd1_offsety]])
@@ -207,21 +206,21 @@ def algo_fix(file):
         #print(angle_fix_approx_arr)
         print("new correction (adding predictions):", np.transpose(best_fix))
         #make adjustments for better fit
-        link.zSetSurfaceParameter(4, 3, -b_pred_alpha1x) #3 = x-tilt, 4=y-tilt
-        link.zSetSurfaceParameter(4, 4, -b_pred_alpha1y)
-        link.zSetSurfaceParameter(4, 5, 0)
+        link.zSetSurfaceParameter(5, 3, -b_pred_alpha1x) #3 = x-tilt, 4=y-tilt
+        link.zSetSurfaceParameter(5, 4, -b_pred_alpha1y)
+        link.zSetSurfaceParameter(5, 5, 0)
                 
-        link.zSetSurfaceParameter(6, 3, b_pred_alpha1x) #3 = x-tilt, 4=y-tilt
-        link.zSetSurfaceParameter(6, 4, b_pred_alpha1y)
-        link.zSetSurfaceParameter(6, 5, 0)
+        link.zSetSurfaceParameter(7, 3, b_pred_alpha1x) #3 = x-tilt, 4=y-tilt
+        link.zSetSurfaceParameter(7, 4, b_pred_alpha1y)
+        link.zSetSurfaceParameter(7, 5, 0)
         link.zSaveFile(file)
         
         #add new fit angles
         pred_alpha1x_arr.append(b_pred_alpha1x)
         pred_alpha1y_arr.append(b_pred_alpha1y)        
         #see fixes
-        n_ccd1_offsetx = link.zOperandValue('POPD', 24, 1, 0, 11)
-        n_ccd1_offsety = link.zOperandValue('POPD', 24, 1, 0, 12)  
+        n_ccd1_offsetx = link.zOperandValue('POPD', 26, 1, 0, 11)
+        n_ccd1_offsety = link.zOperandValue('POPD', 26, 1, 0, 12)  
         n_curr_vec = np.matrix([[n_ccd1_offsetx], [n_ccd1_offsety]])
         print("new offsets:", np.transpose(n_curr_vec))
         offset_correction_arr.append(n_curr_vec)
@@ -250,10 +249,10 @@ def algo_fix(file):
 def decentering(file, x_off, y_off):
     link = pyz.createLink()
     link.zLoadFile(file)
-    link.zSetSurfaceParameter(14,1, x_off)#decenter x,y : 1,2
-    link.zSetSurfaceParameter(19,1, -x_off)
-    link.zSetSurfaceParameter(14,2, y_off)#decenter x,y : 1,2
-    link.zSetSurfaceParameter(19,2, -y_off)
+    link.zSetSurfaceParameter(16,1, x_off)#decenter x,y : 1,2
+    link.zSetSurfaceParameter(21,1, -x_off)
+    link.zSetSurfaceParameter(16,2, y_off)#decenter x,y : 1,2
+    link.zSetSurfaceParameter(21,2, -y_off)
     link.zSaveFile(file)
     pyz.closeLink()
 
@@ -270,7 +269,7 @@ def standard_variation(low_var, high_var, delta):
     cfgfile = link.zSetPOPSettings('irr', setfile, startSurf=2, endSurf=2, field=1,
                                    wave=1, beamType=GAUSS_WAIST, paramN=( (WAIST_X, WAIST_Y, DECENTER_X, DECENTER_Y), (beam_waist, beam_waist, x_off, y_off) ),
                                    sampx=S_512, sampy=S_512, widex=grid_size, widey=grid_size, tPow=1, auto=0, ignPol=1)
-    link.zModifyPOPSettings(cfgfile, endSurf=24)
+    link.zModifyPOPSettings(cfgfile, endSurf=26)
     link.zModifyPOPSettings(cfgfile, paramN=( (1, 2, 3, 4), (5, 5,
                                      0, 0) ))
     link.zModifyPOPSettings(cfgfile, widex=grid_size)
@@ -286,17 +285,17 @@ def standard_variation(low_var, high_var, delta):
 #fix var/pos empty 
     link.zSaveFile(file)
     for i in deg_range:
-        link.zSetSurfaceParameter(3, 3, i) #3 = x-tilt, 4=y-tilt
-        link.zSetSurfaceParameter(3, 4, i)
-        link.zSetSurfaceParameter(3, 5, 0)
+        link.zSetSurfaceParameter(4, 3, i) #3 = x-tilt, 4=y-tilt
+        link.zSetSurfaceParameter(4, 4, i)
+        link.zSetSurfaceParameter(4, 5, 0)
 
-        link.zSetSurfaceParameter(7, 3, i) #3 = x-tilt, 4=y-tilt
-        link.zSetSurfaceParameter(7, 4, -i)
-        link.zSetSurfaceParameter(7, 5, 0)
+        link.zSetSurfaceParameter(8, 3, i) #3 = x-tilt, 4=y-tilt
+        link.zSetSurfaceParameter(8, 4, -i)
+        link.zSetSurfaceParameter(8, 5, 0)
         link.zSaveFile(file)
         #get offsets 
-        t_ccdx = link.zOperandValue('POPD', 24, 1, 0, 11)
-        t_ccdy = link.zOperandValue('POPD', 24, 1, 0, 12)
+        t_ccdx = link.zOperandValue('POPD', 26, 1, 0, 11)
+        t_ccdy = link.zOperandValue('POPD', 26, 1, 0, 12)
         beforem1_x.append(t_ccdx)
         beforem1_y.append(t_ccdy)
     img_str = str(r'C:\Users\pwfa-facet2\Desktop\slacecodes\raytracing')+'\\'+'img-norm.csv'
@@ -320,5 +319,5 @@ def feedback_method_l(file, low_angle, high_angle, run_num, x_off, y_off):
         curr_fix = algo_fix(file)
         np.savetxt('variation-files-trial-'+ str(i)+'.csv', list(zip(curr_fix[0], curr_fix[1], curr_fix[2], curr_fix[3])))
 
-#config_simulation(file, 45,0,0)
-feedback_method_l(file, 0, 1, 1, 4, -3)
+config_simulation(file, 45,0,0)
+#feedback_method_l(file, 0, 1, 1, 4, -3)
