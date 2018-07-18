@@ -92,13 +92,16 @@ def standard_var(low_angle, high_angle, file):
     link = pyz.createLink()
     link.zLoadFile(file)
     
-    angles_ytilt = np.arange(low_angle, high_angle, 0.01)
+    angles= np.arange(low_angle, high_angle+0.01, 0.01)
     beam_x = []
     beam_y = []
     
     #extract at surface 11
-    for i in angles_ytilt:
+    for i in angles:
         #input in zemax system 
+        link.zSetSurfaceParameter(4,3,i)
+        link.zSetSurfaceParameter(8,3,-i)
+        
         link.zSetSurfaceParameter(4,4,i)
         link.zSetSurfaceParameter(8,4,-i)
         link.zSaveFile(file) 
@@ -107,7 +110,7 @@ def standard_var(low_angle, high_angle, file):
         offsety = link.zOperandValue('POPD', 12, 1, 0, 12)  
         beam_x.append(offsetx)
         beam_y.append(offsety) 
-    np.savetxt(r'C:\Users\pwfa-facet2\Desktop\slacecodes\yvar_400_700'+'.csv', list(zip(angles_ytilt, beam_x, beam_y)))
+    np.savetxt(r'C:\Users\pwfa-facet2\Desktop\slacecodes\xyvar_400_700'+'.csv', list(zip(angles, beam_x, beam_y)))
     print('done')
 config_simulation(file, 45,0,0,-45,0,0)
 standard_var(-1,1,file)
