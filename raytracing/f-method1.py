@@ -274,16 +274,23 @@ def align_m1(file):
     beam_vec = np.matrix([[ccd1_offsetx], [ccd1_offsety]])
     print("initial beam vector:")
     print(beam_vec)
+    beam_vec = np.matrix([ [.5*beam_vec.item(0)], 
+                            [.25*beam_vec.item(1)]])
+    print('adjusting beam vector:')
+    print(beam_vec)
     
     #var_vec
     inv_beamline = np.linalg.inv(one_mirror(45,0,400))
     vec = np.matrix([[0], [0], [0], [0], [1]])
-    var_vec = np.matmul(inv_beamline, 0.5*beam_vec) 
+    var_vec = np.matmul(inv_beamline, beam_vec) 
     print("print initial variation vector:")
     print(np.rad2deg(var_vec))
     ##feed them into system 
     
-    t_varx, t_vary = np.rad2deg(var_vec.item(0)),np.rad2deg(var_vec.item(1))
+
+    
+    """
+        t_varx, t_vary = np.rad2deg(var_vec.item(0)),np.rad2deg(var_vec.item(1))
     
     no_decenter_sys = lens_dec_matrix(201.654, 200,200,200,45,0,90,t_varx,t_vary,0,0)*vec
     print(no_decenter_sys)
@@ -317,7 +324,6 @@ def align_m1(file):
     no_decenter_sys = lens_dec_matrix(201.654, 200,200,200,45,0,90,t_varx,t_vary,0,0)*vec
     print(no_decenter_sys)
     
-    """
     link.zSetSurfaceParameter(5, 3, -float(t_varx)) #3 = x-tilt, 4=y-tilt
     link.zSetSurfaceParameter(5, 4, -float(t_vary))
     link.zSetSurfaceParameter(5, 5, 0)
