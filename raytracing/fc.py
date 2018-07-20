@@ -13,7 +13,7 @@ import pyzdde.zdde as pyz
 import random as rand
 
 
-file = r'C:\Users\pwfa-facet2\Desktop\slacecodes\raytracing\ftest.zmx'
+file = r'C:\Users\pwfa-facet2\Desktop\slacecodes\raytracing\f2test.zmx'
 
 def config_simulation(file, chief_angle1_x,chief_angle1_y, chief_angle1_z, chief_angle2_x,chief_angle2_y, chief_angle2_z):
     link = pyz.createLink()
@@ -109,7 +109,8 @@ def standard_var(low_angle, high_angle, file):
         offsetx = link.zOperandValue('POPD', 12, 1, 0, 11)
         offsety = link.zOperandValue('POPD', 12, 1, 0, 12)  
         beam_x.append(offsetx)
-        beam_y.append(offsety) 
+        beam_y.append(offsety)
+    pyz.closeLink()
     np.savetxt(r'C:\Users\pwfa-facet2\Desktop\slacecodes\raytracing\xyvar_400_700'+'.csv', list(zip(angles, beam_x, beam_y)))
     print('done')
 config_simulation(file, 45,0,0,-45,0,0)
