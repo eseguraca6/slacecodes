@@ -106,8 +106,8 @@ def standard_var(low_angle, high_angle, file):
         link.zSetSurfaceParameter(8,4,-i)
         link.zSaveFile(file) 
         #get output in surf 12
-        offsetx = link.zOperandValue('POPD', 12, 1, 0, 11)
-        offsety = link.zOperandValue('POPD', 12, 1, 0, 12)  
+        offsetx = link.zOperandValue('POPD', 11, 1, 0, 11)
+        offsety = link.zOperandValue('POPD', 11, 1, 0, 12)  
         beam_x.append(offsetx)
         beam_y.append(offsety)
     pyz.closeLink()
