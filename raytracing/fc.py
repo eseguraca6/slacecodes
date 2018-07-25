@@ -111,7 +111,7 @@ def standard_var(low_angle, high_angle, file):
         beam_x.append(offsetx)
         beam_y.append(offsety)
     pyz.closeLink()
-    np.savetxt(r'C:\Users\pwfa-facet2\Desktop\slacecodes\raytracing\xyvar_400_700'+'.csv', list(zip(angles, beam_x, beam_y)))
+    np.savetxt(r'C:\Users\pwfa-facet2\Desktop\slacecodes\raytracing\xyvar_400_700'+'.csv',  list(zip(angles, beam_x, beam_y)))
     print('done')
 config_simulation(file, 45,0,0,-45,0,0)
 standard_var(-1,1,file)
