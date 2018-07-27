@@ -391,7 +391,7 @@ def algo_fix(file):
     link= pyz.createLink()
     link.zLoadFile(file)
       
-    imax = 2
+    imax = 1
     corr_mem = []
     it = 0
     
@@ -476,28 +476,27 @@ def algo_fix(file):
     memory_var.append(misalign_vec)
     
     #execute corrections 
-    surface_control_xcorr(file, 5, v_1x[0])
-    surface_control_ycorr(file, 5, v_1y[0])
+    surface_control_xcorr(file, 5, -v_1x[0])
+    surface_control_ycorr(file, 5, -v_1y[0])
     
-    surface_control_xcorr(file, 25, v_2x[0])
-    surface_control_ycorr(file, 25, v_2y[0])
+    surface_control_xcorr(file, 25, -v_2x[0])
+    surface_control_ycorr(file, 25, -v_2y[0])
     
-    surface_control_xcorr(file, 45, v_3x[0])
-    surface_control_ycorr(file, 45, v_3y[0])
+    surface_control_xcorr(file, 45, -v_3x[0])
+    surface_control_ycorr(file, 45, -v_3y[0])
     
-    surface_control_xcorr(file, 63, v_4x[0])
-    surface_control_ycorr(file, 63, v_4y[0])
+    surface_control_xcorr(file, 63, -v_4x[0])
+    surface_control_ycorr(file, 63, -v_4y[0])
     
-    surface_control_xcorr(file, 81, v_5x[0])
-    surface_control_ycorr(file, 81, v_5y[0])
+    surface_control_xcorr(file, 81, -v_5x[0])
+    surface_control_ycorr(file, 81, -v_5y[0])
     
-    surface_control_xcorr(file, 97, v_6x[0])
-    surface_control_ycorr(file, 97, v_6y[0])
+    surface_control_xcorr(file, 97, -v_6x[0])
+    surface_control_ycorr(file, 97, -v_6y[0])
     #update it count
     status = 'not done'
     
     np.savetxt(r'C:\Users\pwfa-facet2\Desktop\slacecodes\raytracing\f2firstvarmod.csv', misalign_vec)
-    """
     while status == 'not done':
         print("currentg it:", it)
         #get beam positions to check for
@@ -592,28 +591,28 @@ def algo_fix(file):
             v_6y.append(adjustments.item(11))
             
             #feed them 
-            surface_control_xcorr(file, 5, adjustments.item(0))
-            surface_control_ycorr(file, 5, adjustments.item(1))
+            surface_control_xcorr(file, 5, -adjustments.item(0))
+            surface_control_ycorr(file, 5, -adjustments.item(1))
     
-            surface_control_xcorr(file, 25, adjustments.item(2))
-            surface_control_ycorr(file, 25, adjustments.item(3))
+            surface_control_xcorr(file, 25, -adjustments.item(2))
+            surface_control_ycorr(file, 25, -adjustments.item(3))
     
-            surface_control_xcorr(file, 45, adjustments.item(4))
-            surface_control_ycorr(file, 45, adjustments.item(5))
+            surface_control_xcorr(file, 45, -adjustments.item(4))
+            surface_control_ycorr(file, 45, -adjustments.item(5))
     
-            surface_control_xcorr(file, 63, adjustments.item(6))
-            surface_control_ycorr(file, 63, adjustments.item(7))
+            surface_control_xcorr(file, 63, -adjustments.item(6))
+            surface_control_ycorr(file, 63, -adjustments.item(7))
             
-            surface_control_xcorr(file, 81, adjustments.item(8))
-            surface_control_ycorr(file, 81, adjustments.item(9))
+            surface_control_xcorr(file, 81, -adjustments.item(8))
+            surface_control_ycorr(file, 81, -adjustments.item(9))
     
-            surface_control_xcorr(file, 97,adjustments.item(10))
-            surface_control_ycorr(file, 97, adjustments.item(11))
+            surface_control_xcorr(file, 97, -adjustments.item(10))
+            surface_control_ycorr(file, 97, -adjustments.item(11))
             it = it+1
             print('=========')
             print('=========')
             print('=========')
-    """
+    
     np.savetxt(r'C:\Users\pwfa-facet2\Desktop\slacecodes\raytracing\f2beamtrackmod.csv', \
                list(zip(beam_1x, beam_1y, beam_2x, beam_2y, \
                         beam_3x, beam_3y, beam_4x, beam_4y, \
