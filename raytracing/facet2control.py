@@ -317,18 +317,18 @@ optics_deg = [45, 0, 90,
               45,0,-90]
 
 def f_beamline(config_optics):
-    m1_mat = f_block(optics_deg[0], optics_deg[1], optics_deg[2], 2068)
+    m1_mat = f_block(optics_deg[0], optics_deg[1], optics_deg[2], 2095)
     m2_mat = f_block(optics_deg[3], optics_deg[4], optics_deg[5], 3082)
     m3_mat = f_block(optics_deg[6], optics_deg[7], optics_deg[8], 6121)
     m4_mat = f_block(optics_deg[9], optics_deg[10], optics_deg[11], 2394)
     m5_mat = f_block(optics_deg[12], optics_deg[13], optics_deg[14], 11738.3)
     m6_mat = f_block(optics_deg[15], optics_deg[16], optics_deg[17], 3745.7)
     
-    m1xtm2 = f_block(optics_deg[0], optics_deg[1], optics_deg[2], 2068+3082)
-    m1xtm3 =  f_block(optics_deg[0], optics_deg[1], optics_deg[2], 2068+3082+6121)
-    m1xtm4 =  f_block(optics_deg[0], optics_deg[1], optics_deg[2], 2068+3082+6121+2394)
-    m1xtm5 =  f_block(optics_deg[0], optics_deg[1], optics_deg[2], 2068+3082+6121+2394+11738.3)
-    m1xtm6 =  f_block(optics_deg[0], optics_deg[1], optics_deg[2], 2068+3082+6121+2394+11738.3+3745.7)
+    m1xtm2 = f_block(optics_deg[0], optics_deg[1], optics_deg[2], 2095+3082)
+    m1xtm3 =  f_block(optics_deg[0], optics_deg[1], optics_deg[2], 2095+3082+6121)
+    m1xtm4 =  f_block(optics_deg[0], optics_deg[1], optics_deg[2], 2095+3082+6121+2394)
+    m1xtm5 =  f_block(optics_deg[0], optics_deg[1], optics_deg[2], 2095+3082+6121+2394+11738.3)
+    m1xtm6 =  f_block(optics_deg[0], optics_deg[1], optics_deg[2], 2095+3082+6121+2394+11738.3+3745.7)
     
     m2xtm3 =  f_block(optics_deg[3], optics_deg[4], optics_deg[5], 3082+6121)
     m2xtm4 =  f_block(optics_deg[3], optics_deg[4], optics_deg[5], 3082+6121+2394)
@@ -391,7 +391,7 @@ def algo_fix(file):
     link= pyz.createLink()
     link.zLoadFile(file)
       
-    imax = 3
+    imax = 2
     corr_mem = []
     it = 0
     
@@ -497,7 +497,7 @@ def algo_fix(file):
     status = 'not done'
     
     np.savetxt(r'C:\Users\pwfa-facet2\Desktop\slacecodes\raytracing\f2firstvarmod.csv', misalign_vec)
-    
+    """
     while status == 'not done':
         print("currentg it:", it)
         #get beam positions to check for
@@ -559,7 +559,7 @@ def algo_fix(file):
             status = 'done'
             print(status)
             pyz.closeLink()
-        elif it>= imax:
+        elif it> imax:
             print('max it')
             break;
         else:
@@ -613,6 +613,7 @@ def algo_fix(file):
             print('=========')
             print('=========')
             print('=========')
+    """
     np.savetxt(r'C:\Users\pwfa-facet2\Desktop\slacecodes\raytracing\f2beamtrackmod.csv', \
                list(zip(beam_1x, beam_1y, beam_2x, beam_2y, \
                         beam_3x, beam_3y, beam_4x, beam_4y, \
