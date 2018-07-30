@@ -485,8 +485,8 @@ def algo_fix(file):
     surface_control_xcorr(file, 45, -v_3x[0])
     surface_control_ycorr(file, 45, -v_3y[0])
     
-    surface_control_xcorr(file, 63, -v_4x[0])
-    surface_control_ycorr(file, 63, -v_4y[0])
+    surface_control_xcorr(file, 61, -v_4x[0])
+    surface_control_ycorr(file, 61, -v_4y[0])
     
     surface_control_xcorr(file, 81, -v_5x[0])
     surface_control_ycorr(file, 81, -v_5y[0])
