@@ -16,7 +16,14 @@ import random as rand
 
 file = r'C:\Users\pwfa-facet2\Desktop\slacecodes\facet2controlsystem.zmx'
 
-configuration_angles = [45, 0, 0, -45, 0,-45, 0, 45, 0, -45, 45, 0]
+configuration_angles =  [45, 0,
+                         -45,0,
+                         -45,0,
+                         45,0,
+                         -45,0,
+                         -45,0]
+                         
+                         #[45, 0, 0, -45, 0,-45, 0, 45, 0, -45, 45, 0]
 
 def config_simulation(file, conf_array):
     link = pyz.createLink()
@@ -38,6 +45,7 @@ def config_simulation(file, conf_array):
     link.zModifyPOPSettings(cfgfile, ignPol=1)
 #1 to ignore pol;0 to use
     link.zSaveFile(file)
+    
     chief_angle1_x = conf_array[0]
     chief_angle1_y = conf_array[1]
     
@@ -245,23 +253,23 @@ def algo_facet2_var(file, var_arr):
     link.zLoadFile(file)
     l_var =0
     h_var = var_arr[0]
-    var1x = np.random.uniform(l_var, h_var)/10
-    var1y = np.random.uniform(l_var, h_var)/10
+    var1x = np.random.uniform(l_var, h_var)
+    var1y = np.random.uniform(l_var, h_var)
     h_var = var_arr[1]
-    var2x = np.random.uniform(l_var, h_var)/10
-    var2y = np.random.uniform(l_var, h_var)/10
+    var2x = np.random.uniform(l_var, h_var)
+    var2y = np.random.uniform(l_var, h_var)
     h_var = var_arr[2]
-    var3x = np.random.uniform(l_var, h_var)/10
-    var3y = np.random.uniform(l_var, h_var)/10
+    var3x = np.random.uniform(l_var, h_var)
+    var3y = np.random.uniform(l_var, h_var)
     h_var = var_arr[3]
-    var4x = np.random.uniform(l_var, h_var)/10
-    var4y = np.random.uniform(l_var, h_var)/10
+    var4x = np.random.uniform(l_var, h_var)
+    var4y = np.random.uniform(l_var, h_var)
     h_var = var_arr[4]
-    var5x = np.random.uniform(l_var, h_var)/10
-    var5y = np.random.uniform(l_var, h_var)/10
+    var5x = np.random.uniform(l_var, h_var)
+    var5y = np.random.uniform(l_var, h_var)
 
-    var6x = np.random.uniform(l_var, h_var)/10
-    var6y = np.random.uniform(l_var, h_var)/10
+    var6x = np.random.uniform(l_var, h_var)
+    var6y = np.random.uniform(l_var, h_var)
     print('variations inputs:')
     vec = np.matrix([ 
             [var1x],
@@ -310,11 +318,11 @@ def f_block(cx, cy, rot, d_t):
 
 
 optics_deg = [45, 0, 90,
-              0, -45, -90,
-              0, -45, -90, 
-              0, 45, 90, 
-              0,-45, -90,
-              45,0,-90]
+              -45, 0, -90,
+              -45, 0, -90, 
+              45, 0, 90, 
+              -45,0, -90,
+              -45,0,-90]
 
 def f_beamline(config_optics):
     m1_mat = f_block(optics_deg[0], optics_deg[1], optics_deg[2], 2095)
