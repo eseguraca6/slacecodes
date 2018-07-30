@@ -391,7 +391,7 @@ def algo_fix(file):
     link= pyz.createLink()
     link.zLoadFile(file)
       
-    imax = 1
+    imax = 2
     corr_mem = []
     it = 0
     
@@ -498,7 +498,7 @@ def algo_fix(file):
     
     np.savetxt(r'C:\Users\pwfa-facet2\Desktop\slacecodes\raytracing\f2firstvarmod.csv', misalign_vec)
     
-    """
+    
     while status == 'not done':
         print("currentg it:", it)
         #get beam positions to check for
@@ -562,6 +562,7 @@ def algo_fix(file):
             pyz.closeLink()
         elif it> imax:
             print('max it')
+            pyz.closeLink()
             break;
         else:
             #calculate neew variations
@@ -602,8 +603,8 @@ def algo_fix(file):
             surface_control_xcorr(file, 45, -adjustments.item(4))
             surface_control_ycorr(file, 45, -adjustments.item(5))
     
-            surface_control_xcorr(file, 63, -adjustments.item(6))
-            surface_control_ycorr(file, 63, -adjustments.item(7))
+            surface_control_xcorr(file, 61, -adjustments.item(6))
+            surface_control_ycorr(file, 61, -adjustments.item(7))
             
             surface_control_xcorr(file, 81, -adjustments.item(8))
             surface_control_ycorr(file, 81, -adjustments.item(9))
@@ -614,7 +615,7 @@ def algo_fix(file):
             print('=========')
             print('=========')
             print('=========')
-    """
+            
     np.savetxt(r'C:\Users\pwfa-facet2\Desktop\slacecodes\raytracing\f2beamtrackmod.csv', \
                list(zip(beam_1x, beam_1y, beam_2x, beam_2y, \
                         beam_3x, beam_3y, beam_4x, beam_4y, \
