@@ -497,6 +497,8 @@ def algo_fix(file):
     status = 'not done'
     
     np.savetxt(r'C:\Users\pwfa-facet2\Desktop\slacecodes\raytracing\f2firstvarmod.csv', misalign_vec)
+    
+    """
     while status == 'not done':
         print("currentg it:", it)
         #get beam positions to check for
@@ -612,7 +614,7 @@ def algo_fix(file):
             print('=========')
             print('=========')
             print('=========')
-    
+    """
     np.savetxt(r'C:\Users\pwfa-facet2\Desktop\slacecodes\raytracing\f2beamtrackmod.csv', \
                list(zip(beam_1x, beam_1y, beam_2x, beam_2y, \
                         beam_3x, beam_3y, beam_4x, beam_4y, \
