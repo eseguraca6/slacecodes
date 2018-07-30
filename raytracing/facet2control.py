@@ -245,23 +245,23 @@ def algo_facet2_var(file, var_arr):
     link.zLoadFile(file)
     l_var =0
     h_var = var_arr[0]
-    var1x = np.random.uniform(l_var, h_var)
-    var1y = np.random.uniform(l_var, h_var)
+    var1x = np.random.uniform(l_var, h_var)/10
+    var1y = np.random.uniform(l_var, h_var)/10
     h_var = var_arr[1]
-    var2x = np.random.uniform(l_var, h_var)
-    var2y = np.random.uniform(l_var, h_var)
+    var2x = np.random.uniform(l_var, h_var)/10
+    var2y = np.random.uniform(l_var, h_var)/10
     h_var = var_arr[2]
-    var3x = np.random.uniform(l_var, h_var)
-    var3y = np.random.uniform(l_var, h_var)
+    var3x = np.random.uniform(l_var, h_var)/10
+    var3y = np.random.uniform(l_var, h_var)/10
     h_var = var_arr[3]
-    var4x = np.random.uniform(l_var, h_var)
-    var4y = np.random.uniform(l_var, h_var)
+    var4x = np.random.uniform(l_var, h_var)/10
+    var4y = np.random.uniform(l_var, h_var)/10
     h_var = var_arr[4]
-    var5x = np.random.uniform(l_var, h_var)
-    var5y = np.random.uniform(l_var, h_var)
+    var5x = np.random.uniform(l_var, h_var)/10
+    var5y = np.random.uniform(l_var, h_var)/10
 
-    var6x = np.random.uniform(l_var, h_var)
-    var6y = np.random.uniform(l_var, h_var)
+    var6x = np.random.uniform(l_var, h_var)/10
+    var6y = np.random.uniform(l_var, h_var)/10
     print('variations inputs:')
     vec = np.matrix([ 
             [var1x],
@@ -391,7 +391,7 @@ def algo_fix(file):
     link= pyz.createLink()
     link.zLoadFile(file)
       
-    imax = 2
+    imax = 5
     corr_mem = []
     it = 0
     
@@ -500,7 +500,7 @@ def algo_fix(file):
     
     
     while status == 'not done':
-        print("currentg it:", it)
+        print("currentg it (inside loop):", it)
         #get beam positions to check for
         #misalignment 
         curr_beam_pos = ccd_screens(file)
@@ -560,7 +560,7 @@ def algo_fix(file):
             status = 'done'
             print(status)
             pyz.closeLink()
-        elif it> imax:
+        elif it > imax:
             print('max it')
             pyz.closeLink()
             break;
