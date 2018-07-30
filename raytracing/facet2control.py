@@ -399,7 +399,7 @@ def algo_fix(file):
     link= pyz.createLink()
     link.zLoadFile(file)
       
-    imax = 5
+    imax = 2
     corr_mem = []
     it = 0
     
@@ -428,8 +428,9 @@ def algo_fix(file):
     v_5y =[]
     v_6x =[]
     v_6y =[]
-    
+    integral =[]
     #check for misalignments 
+    beam_mem =[] 
     status = 'not done'
     while status == 'not done':
         curr_beam_pos=ccd_screens(file)
@@ -439,6 +440,7 @@ def algo_fix(file):
         curr_beam_pos = ccd_screens(file)
         print('current beam position on feedback:')
         print(curr_beam_pos)
+        beam_mem.append(curr_beam_pos)
         nccd1x = curr_beam_pos.item(0)
         nccd1y = curr_beam_pos.item(1)
     
@@ -457,7 +459,7 @@ def algo_fix(file):
         nccd6x =  curr_beam_pos.item(10)
         nccd6y =  curr_beam_pos.item(11)
         
-        #ppend elements
+        #append elements
         beam_1x.append(nccd1x)
         beam_1y.append(nccd1y)
     
@@ -476,20 +478,33 @@ def algo_fix(file):
         beam_6x.append(nccd6x)
         beam_6y.append(nccd6x)
         
+        diff1x = 0 - nccd1x
+        diff1y = 0 - nccd1y
+        diff2x = 0 - nccd2x
+        diff2y = 0 - nccd2y
+        diff3x = 0 - nccd3x
+        diff3y = 0 - nccd3y
+        diff4x = 0 - nccd4x
+        diff4y = 0 - nccd4y
+        diff5x = 0 - nccd5x
+        diff5y = 0 - nccd5y
+        diff6x = 0 - nccd6x
+        diff6y = 0 - nccd6y
+        
         
         #check misalignment
-        if nccd1x < 0.01 and \
-           nccd1y < 0.01 and \
-           nccd2x < 0.01 and \
-           nccd2y < 0.01 and \
-           nccd3x < 0.01 and \
-           nccd3y < 0.01 and \
-           nccd4x < 0.01 and \
-           nccd4y < 0.01 and \
-           nccd5x < 0.01 and \
-           nccd5y < 0.01 and \
-           nccd6x < 0.01 and \
-           nccd6y < 0.01:
+        if diff1x < 0.01 and \
+           diff1y < 0.01 and \
+           diff2x < 0.01 and \
+           diff2y < 0.01 and \
+           diff3x < 0.01 and \
+           diff3y < 0.01 and \
+           diff4x < 0.01 and \
+           diff4y < 0.01 and \
+           diff5x < 0.01 and \
+           diff5y < 0.01 and \
+           diff6x < 0.01 and \
+           diff6y < 0.01:
             status = 'done'
             print(status)
             pyz.closeLink()
@@ -500,7 +515,7 @@ def algo_fix(file):
         else:
             #extract variations 
             finv = np.linalg.inv(f_beamline(optics_deg))
-            misalign_vec = np.rad2deg(np.matmul(finv, curr_beam_pos))
+            misalign_vec = np.rad2deg(np.matmul(finv, -curr_beam_pos))
             #append elements
             v_1x.append(misalign_vec.item(0))
             v_1y.append(misalign_vec.item(1))
