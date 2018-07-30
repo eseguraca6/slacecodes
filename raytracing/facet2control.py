@@ -578,7 +578,7 @@ def algo_fix(file):
             curr_misalign_vec = np.rad2deg(np.matmul(finv, curr_beam_pos))
             print('variations to adjust original variation:')
             print(curr_misalign_vec)
-            adjustments = curr_misalign_vec + memory_var[it]
+            adjustments = (1/100)*curr_misalign_vec + memory_var[it]
             memory_var.append(adjustments)
             print('corrections with adjustments:')
             print(adjustments)
