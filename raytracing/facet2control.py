@@ -429,86 +429,11 @@ def algo_fix(file):
     v_6x =[]
     v_6y =[]
     
-    print('current it:',it)
-    #extract data across the ccds:
-    beam_pos_vec= ccd_screens(file)
-    print('current beam pos:')
-    print(beam_pos_vec)
-    
-    #ppend elements
-    beam_1x.append(beam_pos_vec.item(0))
-    beam_1y.append(beam_pos_vec.item(1))
-    
-    beam_2x.append(beam_pos_vec.item(2))
-    beam_2y.append(beam_pos_vec.item(3))
-    
-    beam_3x.append(beam_pos_vec.item(4))
-    beam_3y.append(beam_pos_vec.item(5))
-    
-    beam_4x.append(beam_pos_vec.item(6))
-    beam_4y.append(beam_pos_vec.item(7))
-    
-    beam_5x.append(beam_pos_vec.item(8))
-    beam_5y.append(beam_pos_vec.item(9))
-    
-    beam_6x.append(beam_pos_vec.item(10))
-    beam_6y.append(beam_pos_vec.item(11))
-    
-    finv = np.linalg.inv(f_beamline(optics_deg))
-    
-    
-    misalign_vec = np.rad2deg(np.matmul(finv, beam_pos_vec))
-        #ppend elements
-    v_1x.append(misalign_vec.item(0))
-    v_1y.append(misalign_vec.item(1))
-    
-    v_2x.append(misalign_vec.item(2))
-    v_2y.append(misalign_vec.item(3))
-    
-    v_3x.append(misalign_vec.item(4))
-    v_3y.append(misalign_vec.item(5))
-    
-    v_4x.append(misalign_vec.item(6))
-    v_4y.append(misalign_vec.item(7))
-    
-    v_5x.append(misalign_vec.item(8))
-    v_5y.append(misalign_vec.item(9))
-    
-    v_6x.append(misalign_vec.item(10))
-    v_6y.append(misalign_vec.item(11))
-    
-    print('current variations:')
-    print(misalign_vec)
-    
-    memory_var = []
-    memory_var.append(misalign_vec)
-    
-    #execute corrections 
-    surface_control_xcorr(file, 5, -v_1x[0])
-    surface_control_ycorr(file, 5, -v_1y[0])
-    
-    surface_control_xcorr(file, 25, -v_2x[0])
-    surface_control_ycorr(file, 25, -v_2y[0])
-    
-    surface_control_xcorr(file, 45, -v_3x[0])
-    surface_control_ycorr(file, 45, -v_3y[0])
-    
-    surface_control_xcorr(file, 61, -v_4x[0])
-    surface_control_ycorr(file, 61, -v_4y[0])
-    
-    surface_control_xcorr(file, 81, -v_5x[0])
-    surface_control_ycorr(file, 81, -v_5y[0])
-    
-    surface_control_xcorr(file, 97, -v_6x[0])
-    surface_control_ycorr(file, 97, -v_6y[0])
-    #update it count
+    #check for misalignments 
     status = 'not done'
-    
-    np.savetxt(r'C:\Users\pwfa-facet2\Desktop\slacecodes\raytracing\f2firstvarmod.csv', misalign_vec)
-    
-    
     while status == 'not done':
-        print("currentg it (inside loop):", it)
+        curr_beam_pos=ccd_screens(file)
+        print("current it (inside loop):", it)
         #get beam positions to check for
         #misalignment 
         curr_beam_pos = ccd_screens(file)
@@ -573,56 +498,56 @@ def algo_fix(file):
             pyz.closeLink()
             break;
         else:
-            #calculate neew variations
-            #to do corrections
-            curr_misalign_vec = np.rad2deg(np.matmul(finv, curr_beam_pos))
-            print('variations to adjust original variation:')
-            print(curr_misalign_vec)
-            adjustments = (1/100)*curr_misalign_vec + memory_var[it]
-            memory_var.append(adjustments)
-            print('corrections with adjustments:')
-            print(adjustments)
-            
-            v_1x.append(adjustments.item(0))
-            v_1y.append(adjustments.item(1))
+            #extract variations 
+            finv = np.linalg.inv(f_beamline(optics_deg))
+            misalign_vec = np.rad2deg(np.matmul(finv, curr_beam_pos))
+            #append elements
+            v_1x.append(misalign_vec.item(0))
+            v_1y.append(misalign_vec.item(1))
     
-            v_2x.append(adjustments.item(2))
-            v_2y.append(adjustments.item(3))
-            
-            v_3x.append(adjustments.item(4))
-            v_3y.append(adjustments.item(5))
-            
-            v_4x.append(adjustments.item(6))
-            v_4y.append(adjustments.item(7))
-            
-            v_5x.append(adjustments.item(8))
-            v_5y.append(adjustments.item(9))
-            
-            v_6x.append(adjustments.item(10))
-            v_6y.append(adjustments.item(11))
-            
-            #feed them 
-            surface_control_xcorr(file, 5, -adjustments.item(0))
-            surface_control_ycorr(file, 5, -adjustments.item(1))
+            v_2x.append(misalign_vec.item(2))
+            v_2y.append(misalign_vec.item(3))
     
-            surface_control_xcorr(file, 25, -adjustments.item(2))
-            surface_control_ycorr(file, 25, -adjustments.item(3))
+            v_3x.append(misalign_vec.item(4))
+            v_3y.append(misalign_vec.item(5))
     
-            surface_control_xcorr(file, 45, -adjustments.item(4))
-            surface_control_ycorr(file, 45, -adjustments.item(5))
+            v_4x.append(misalign_vec.item(6))
+            v_4y.append(misalign_vec.item(7))
     
-            surface_control_xcorr(file, 61, -adjustments.item(6))
-            surface_control_ycorr(file, 61, -adjustments.item(7))
+            v_5x.append(misalign_vec.item(8))
+            v_5y.append(misalign_vec.item(9))
             
-            surface_control_xcorr(file, 81, -adjustments.item(8))
-            surface_control_ycorr(file, 81, -adjustments.item(9))
+            v_6x.append(misalign_vec.item(10))
+            v_6y.append(misalign_vec.item(11))
     
-            surface_control_xcorr(file, 97, -adjustments.item(10))
-            surface_control_ycorr(file, 97, -adjustments.item(11))
+            print('current variations:')
+            print(misalign_vec)
+    
+            
+            memory_var = []
+            memory_var.append(misalign_vec)
+            #execute corrections 
+            surface_control_xcorr(file, 5, -v_1x[it])
+            surface_control_ycorr(file, 5, -v_1y[it])
+    
+            surface_control_xcorr(file, 25, -v_2x[it])
+            surface_control_ycorr(file, 25, -v_2y[it])
+    
+            surface_control_xcorr(file, 45, -v_3x[it])
+            surface_control_ycorr(file, 45, -v_3y[it])
+    
+            surface_control_xcorr(file, 61, -v_4x[it])
+            surface_control_ycorr(file, 61, -v_4y[it])
+    
+            surface_control_xcorr(file, 81, -v_5x[it])
+            surface_control_ycorr(file, 81, -v_5y[it])
+    
+            surface_control_xcorr(file, 97, -v_6x[it])
+            surface_control_ycorr(file, 97, -v_6y[it])
             it = it+1
-            print('=========')
-            print('=========')
-            print('=========')
+
+    
+   
             
     np.savetxt(r'C:\Users\pwfa-facet2\Desktop\slacecodes\raytracing\f2beamtrackmod.csv', \
                list(zip(beam_1x, beam_1y, beam_2x, beam_2y, \
@@ -643,3 +568,4 @@ def algo_fix(file):
 config_simulation(file, configuration_angles)
 algo_facet2_var(file,var_vec)
 algo_fix(file)
+
