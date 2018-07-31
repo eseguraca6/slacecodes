@@ -399,7 +399,7 @@ def algo_fix(file):
     link= pyz.createLink()
     link.zLoadFile(file)
       
-    imax = 6
+    imax = 10
     corr_mem = []
     it = 0
     
@@ -508,7 +508,9 @@ def algo_fix(file):
     
     #input integral element
     corr_mem.append(misalign_vec)
+    delta_dev.append(misalign_vec)
     it = it+1
+    
     
     
     
@@ -596,10 +598,14 @@ def algo_fix(file):
             print('current variations')
             print(misalign_vec)
             #append elements
-            
-            c_vec = (1/5)*misalign_vec + (1/100)*corr_mem[it-1]
+            c_vec = (1/10)*misalign_vec + (1/100)*corr_mem[it-1]
+
+            derivative_comp = c_vec - delta_dev[it-1]
+            c_vec = c_vec + (1/20)*derivative_comp
+            print('corrections into system:')
+            print(c_vec)
+            delta_dev.append(c_vec)
             corr_mem.append(c_vec)
-            
             c_1x = c_vec.item(0)
             c_1y = c_vec.item(1)
             c_2x = c_vec.item(2)
