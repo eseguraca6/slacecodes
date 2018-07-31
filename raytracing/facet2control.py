@@ -429,6 +429,7 @@ def algo_fix(file):
     v_6x =[]
     v_6y =[]
     integral =[]
+    derivative=[]
     #check for misalignments 
     beam_mem =[] 
     status = 'not done'
@@ -459,25 +460,6 @@ def algo_fix(file):
         nccd6x =  curr_beam_pos.item(10)
         nccd6y =  curr_beam_pos.item(11)
         
-        #append elements
-        beam_1x.append(nccd1x)
-        beam_1y.append(nccd1y)
-    
-        beam_2x.append(nccd2x)
-        beam_2y.append(nccd2x)
-    
-        beam_3x.append(nccd3x)
-        beam_3y.append(nccd3x)
-        
-        beam_4x.append(nccd4x)
-        beam_4y.append(nccd4x)
-    
-        beam_5x.append(nccd5x)
-        beam_5y.append(nccd5x)
-    
-        beam_6x.append(nccd6x)
-        beam_6y.append(nccd6x)
-        
         diff1x = 0 - nccd1x
         diff1y = 0 - nccd1y
         diff2x = 0 - nccd2x
@@ -490,7 +472,6 @@ def algo_fix(file):
         diff5y = 0 - nccd5y
         diff6x = 0 - nccd6x
         diff6y = 0 - nccd6y
-        
         
         #check misalignment
         if diff1x < 0.01 and \
@@ -512,54 +493,155 @@ def algo_fix(file):
             print('max it')
             pyz.closeLink()
             break;
+        elif it == 0:
+                #extract variations 
+                finv = np.linalg.inv(f_beamline(optics_deg))
+                misalign_vec = np.rad2deg(np.matmul(finv, curr_beam_pos))
+                #append elements
+                v_1x.append(misalign_vec.item(0))
+                v_1y.append(misalign_vec.item(1))
+    
+                v_2x.append(misalign_vec.item(2))
+                v_2y.append(misalign_vec.item(3))
+    
+                v_3x.append(misalign_vec.item(4))
+                v_3y.append(misalign_vec.item(5))
+                
+                v_4x.append(misalign_vec.item(6))
+                v_4y.append(misalign_vec.item(7))
+    
+                v_5x.append(misalign_vec.item(8))
+                v_5y.append(misalign_vec.item(9))
+            
+                v_6x.append(misalign_vec.item(10))
+                v_6y.append(misalign_vec.item(11))
+    
+                mod = [v_1x, v_1y, v_2x, v_2y, v_3x, v_3y, v_4x, v_4y, v_5x, v_5y, v_6x, v_6y]
+                print('current variations:')
+                print(np.transpose(mod))
+    
+                
+                integral.append(misalign_vec)
+                derivative.append(misalign_vec)
+                #execute corrections 
+                surface_control_xcorr(file, 5, -v_1x[it])
+                surface_control_ycorr(file, 5, -v_1y[it])
+    
+                surface_control_xcorr(file, 25, -v_2x[it])
+                surface_control_ycorr(file, 25, -v_2y[it])
+    
+                surface_control_xcorr(file, 45, -v_3x[it])
+                surface_control_ycorr(file, 45, -v_3y[it])
+                
+                surface_control_xcorr(file, 61, -v_4x[it])
+                surface_control_ycorr(file, 61, -v_4y[it])
+    
+                surface_control_xcorr(file, 81, -v_5x[it])
+                surface_control_ycorr(file, 81, -v_5y[it])
+    
+                surface_control_xcorr(file, 97, -v_6x[it])
+                surface_control_ycorr(file, 97, -v_6y[it])
+        elif it == 1:
+                #extract variations 
+                finv = np.linalg.inv(f_beamline(optics_deg))
+                misalign_vec = np.rad2deg(np.matmul(finv, curr_beam_pos))
+                #append elements
+
+                derivative.append(misalign_vec)
+                integral.append(misalign_vec)
+                int_sum = np.sum(integral)
+                v_1x.append(misalign_vec.item(0) + (1/100)*int_sum)
+                v_1y.append(misalign_vec.item(1) + (1/100)*int_sum)
+    
+                v_2x.append(misalign_vec.item(2) + (1/100)*int_sum)
+                v_2y.append(misalign_vec.item(3) + (1/100)*int_sum)
+    
+                v_3x.append(misalign_vec.item(4) + (1/100)*int_sum)
+                v_3y.append(misalign_vec.item(5) + (1/100)*int_sum)
+                
+                v_4x.append(misalign_vec.item(6) + (1/100)*int_sum)
+                v_4y.append(misalign_vec.item(7) + (1/100)*int_sum)
+    
+                v_5x.append(misalign_vec.item(8) + (1/100)*int_sum)
+                v_5y.append(misalign_vec.item(9) + (1/100)*int_sum)
+            
+                v_6x.append(misalign_vec.item(10) + (1/100)*int_sum)
+                v_6y.append(misalign_vec.item(11) + (1/100)*int_sum)
+                
+                mod = [v_1x, v_1y, v_2x, v_2y, v_3x, v_3y, v_4x, v_4y, v_5x, v_5y, v_6x, v_6y]
+                print('current variations:')
+                print(np.transpose(mod))
+                
+                #execute corrections 
+                surface_control_xcorr(file, 5, -v_1x[it])
+                surface_control_ycorr(file, 5, -v_1y[it])
+    
+                surface_control_xcorr(file, 25, -v_2x[it])
+                surface_control_ycorr(file, 25, -v_2y[it])
+    
+                surface_control_xcorr(file, 45, -v_3x[it])
+                surface_control_ycorr(file, 45, -v_3y[it])
+                
+                surface_control_xcorr(file, 61, -v_4x[it])
+                surface_control_ycorr(file, 61, -v_4y[it])
+    
+                surface_control_xcorr(file, 81, -v_5x[it])
+                surface_control_ycorr(file, 81, -v_5y[it])
+    
+                surface_control_xcorr(file, 97, -v_6x[it])
+                surface_control_ycorr(file, 97, -v_6y[it])
         else:
-            #extract variations 
-            finv = np.linalg.inv(f_beamline(optics_deg))
-            misalign_vec = np.rad2deg(np.matmul(finv, -curr_beam_pos))
-            #append elements
-            v_1x.append(misalign_vec.item(0))
-            v_1y.append(misalign_vec.item(1))
+                finv = np.linalg.inv(f_beamline(optics_deg))
+                misalign_vec = np.rad2deg(np.matmul(finv, curr_beam_pos))
+                #append elements
+
+                derivative.append(misalign_vec)
+                integral.append(misalign_vec)
+                int_sum = np.sum(integral)
+                v_1x.append(misalign_vec.item(0) + (1/100)*int_sum)
+                v_1y.append(misalign_vec.item(1) + (1/100)*int_sum)
     
-            v_2x.append(misalign_vec.item(2))
-            v_2y.append(misalign_vec.item(3))
+                v_2x.append(misalign_vec.item(2) + (1/100)*int_sum)
+                v_2y.append(misalign_vec.item(3) + (1/100)*int_sum)
     
-            v_3x.append(misalign_vec.item(4))
-            v_3y.append(misalign_vec.item(5))
+                v_3x.append(misalign_vec.item(4) + (1/100)*int_sum)
+                v_3y.append(misalign_vec.item(5) + (1/100)*int_sum)
+                
+                v_4x.append(misalign_vec.item(6) + (1/100)*int_sum)
+                v_4y.append(misalign_vec.item(7) + (1/100)*int_sum)
     
-            v_4x.append(misalign_vec.item(6))
-            v_4y.append(misalign_vec.item(7))
-    
-            v_5x.append(misalign_vec.item(8))
-            v_5y.append(misalign_vec.item(9))
+                v_5x.append(misalign_vec.item(8) + (1/100)*int_sum)
+                v_5y.append(misalign_vec.item(9) + (1/100)*int_sum)
             
-            v_6x.append(misalign_vec.item(10))
-            v_6y.append(misalign_vec.item(11))
+                v_6x.append(misalign_vec.item(10) + (1/100)*int_sum)
+                v_6y.append(misalign_vec.item(11) + (1/100)*int_sum)
+                
+                mod = [v_1x, v_1y, v_2x, v_2y, v_3x, v_3y, v_4x, v_4y, v_5x, v_5y, v_6x, v_6y]
+                print('current variations:')
+                print(np.transpose(mod))
+                
+                #execute corrections 
+                surface_control_xcorr(file, 5, -v_1x[it])
+                surface_control_ycorr(file, 5, -v_1y[it])
     
-            print('current variations:')
-            print(misalign_vec)
+                surface_control_xcorr(file, 25, -v_2x[it])
+                surface_control_ycorr(file, 25, -v_2y[it])
     
-            
-            memory_var = []
-            memory_var.append(misalign_vec)
-            #execute corrections 
-            surface_control_xcorr(file, 5, -v_1x[it])
-            surface_control_ycorr(file, 5, -v_1y[it])
+                surface_control_xcorr(file, 45, -v_3x[it])
+                surface_control_ycorr(file, 45, -v_3y[it])
+                
+                surface_control_xcorr(file, 61, -v_4x[it])
+                surface_control_ycorr(file, 61, -v_4y[it])
     
-            surface_control_xcorr(file, 25, -v_2x[it])
-            surface_control_ycorr(file, 25, -v_2y[it])
+                surface_control_xcorr(file, 81, -v_5x[it])
+                surface_control_ycorr(file, 81, -v_5y[it])
     
-            surface_control_xcorr(file, 45, -v_3x[it])
-            surface_control_ycorr(file, 45, -v_3y[it])
-    
-            surface_control_xcorr(file, 61, -v_4x[it])
-            surface_control_ycorr(file, 61, -v_4y[it])
-    
-            surface_control_xcorr(file, 81, -v_5x[it])
-            surface_control_ycorr(file, 81, -v_5y[it])
-    
-            surface_control_xcorr(file, 97, -v_6x[it])
-            surface_control_ycorr(file, 97, -v_6y[it])
-            it = it+1
+                surface_control_xcorr(file, 97, -v_6x[it])
+                surface_control_ycorr(file, 97, -v_6y[it])
+                it = it+1
+
+
+                
 
     
    
