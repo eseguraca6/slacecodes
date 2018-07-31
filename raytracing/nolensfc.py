@@ -325,7 +325,7 @@ optics_deg = [45, 0, 90,
               -45,0,-90]
 
 def f_beamline(config_optics):
-    m1_mat = f_block(optics_deg[0], optics_deg[1], optics_deg[2], 2095)
+    m1_mat = f_block(optics_deg[0], optics_deg[1], optics_deg[2], 2068)
     m2_mat = f_block(optics_deg[3], optics_deg[4], optics_deg[5], 3082)
     m3_mat = f_block(optics_deg[6], optics_deg[7], optics_deg[8], 6121)
     m4_mat = f_block(optics_deg[9], optics_deg[10], optics_deg[11], 2394)
@@ -505,9 +505,12 @@ def algo_fix(file):
     surface_control_xcorr(file, 49, -c_6x)
     surface_control_ycorr(file, 49, -c_6y)
             
+    
     #input integral element
     corr_mem.append(misalign_vec)
     it = it+1
+    
+    
     
     while status == 'not done':
         curr_beam_pos=ccd_screens(file)
@@ -594,7 +597,7 @@ def algo_fix(file):
             print(misalign_vec)
             #append elements
             
-            c_vec = misalign_vec + (1/50)*corr_mem[it-1]
+            c_vec = misalign_vec + (1/2)*corr_mem[it-1]
             corr_mem.append(c_vec)
             
             c_1x = c_vec.item(0)
