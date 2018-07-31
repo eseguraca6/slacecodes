@@ -435,7 +435,8 @@ def algo_fix(file):
     finv = np.linalg.inv(f_beamline(optics_deg))
     curr_beam_pos = ccd_screens(file)
     beam_mem.append(curr_beam_pos)
-    
+    print("start misaligned vector:")
+    print(curr_beam_pos)
     
     beam_1x.append(curr_beam_pos.item(0))
     beam_1y.append(curr_beam_pos.item(1))
@@ -511,9 +512,12 @@ def algo_fix(file):
     delta_dev.append(misalign_vec)
     it = it+1
     
+    curr_beam_pos = ccd_screens(file)
+    print("after changes misaligned vector:")
+    print(curr_beam_pos)
     
     
-    
+    exit
     while status == 'not done':
         curr_beam_pos=ccd_screens(file)
         print("current it (inside loop):", it)
@@ -559,7 +563,7 @@ def algo_fix(file):
         nccd6x =  curr_beam_pos.item(10)
         nccd6y =  curr_beam_pos.item(11)
         
-        diff1x =  nccd1x
+        diff1x = nccd1x
         diff1y = nccd1y
         diff2x = nccd2x
         diff2y = nccd2y
@@ -598,10 +602,10 @@ def algo_fix(file):
             print('current variations')
             print(misalign_vec)
             #append elements
-            c_vec = (1/10)*misalign_vec + (1/100)*corr_mem[it-1]
+            c_vec = (1)*misalign_vec + (1/1000)*(corr_mem[it-1])
 
-            derivative_comp = c_vec - delta_dev[it-1]
-            c_vec = c_vec + (1/20)*derivative_comp
+            #derivative_comp = c_vec - delta_dev[it-1]
+            #c_vec = c_vec + (1/200)*derivative_comp
             print('corrections into system:')
             print(c_vec)
             delta_dev.append(c_vec)
