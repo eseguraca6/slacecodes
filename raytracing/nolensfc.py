@@ -433,6 +433,81 @@ def algo_fix(file):
     beam_mem =[] 
     status = 'not done'
     finv = np.linalg.inv(f_beamline(optics_deg))
+    curr_beam_pos = ccd_screens(file)
+    beam_mem.append(curr_beam_pos)
+    
+    
+    beam_1x.append(curr_beam_pos.item(0))
+    beam_1y.append(curr_beam_pos.item(1))
+    
+    beam_2x.append(curr_beam_pos.item(2))
+    beam_2y.append(curr_beam_pos.item(3))
+    
+    beam_3x.append(curr_beam_pos.item(4))
+    beam_3y.append(curr_beam_pos.item(5))
+    
+    beam_4x.append(curr_beam_pos.item(6))
+    beam_4y.append(curr_beam_pos.item(7))
+    
+    beam_5x.append(curr_beam_pos.item(8))
+    beam_5y.append(curr_beam_pos.item(9))
+    
+    beam_6x.append(curr_beam_pos.item(10))
+    beam_6y.append(curr_beam_pos.item(11))
+    
+    delta_dev = []
+    #check for the first variations 
+    misalign_vec = np.rad2deg(np.matmul(finv, curr_beam_pos))
+    print('current variations')
+    print(misalign_vec)
+    c_1x = misalign_vec.item(0)
+    c_1y = misalign_vec.item(1)
+    c_2x = misalign_vec.item(2)
+    c_2y = misalign_vec.item(3)
+    c_3x = misalign_vec.item(4)
+    c_3y = misalign_vec.item(5)
+    c_4x = misalign_vec.item(6)
+    c_4y = misalign_vec.item(7)
+    c_5x = misalign_vec.item(8)
+    c_5y = misalign_vec.item(9)
+    c_6x = misalign_vec.item(10)
+    c_6y = misalign_vec.item(11)
+            
+    v_1x.append(c_1x)
+    v_1y.append(c_1y)
+    v_2x.append(c_2x)
+    v_2y.append(c_2y)
+    v_3x.append(c_3x)
+    v_3y.append(c_3y)
+    v_4x.append(c_4x)
+    v_4y.append(c_4y)
+            
+    v_5x.append(c_5x)
+    v_5y.append(c_5y)
+    v_6x.append(c_6x)
+    v_6y.append(c_6y)
+    #feed those variations
+    surface_control_xcorr(file, 4, -c_1x)
+    surface_control_ycorr(file, 4, -c_1y)
+    
+    surface_control_xcorr(file, 13, -c_2x)
+    surface_control_ycorr(file, 13, -c_2y)
+    
+    surface_control_xcorr(file, 22, -c_3x)
+    surface_control_ycorr(file, 22, -c_3y)
+                
+    surface_control_xcorr(file, 31, -c_4x)
+    surface_control_ycorr(file, 31, -c_4y)
+    
+    surface_control_xcorr(file, 40, -c_5x)
+    surface_control_ycorr(file, 40, -c_5y)
+    
+    surface_control_xcorr(file, 49, -c_6x)
+    surface_control_ycorr(file, 49, -c_6y)
+            
+    #input integral element
+    corr_mem.append(misalign_vec)
+    it = it+1
     
     while status == 'not done':
         curr_beam_pos=ccd_screens(file)
@@ -443,6 +518,24 @@ def algo_fix(file):
         print('current beam position on feedback:')
         print(curr_beam_pos)
         beam_mem.append(curr_beam_pos)
+        beam_1x.append(curr_beam_pos.item(0))
+        beam_1y.append(curr_beam_pos.item(1))
+    
+        beam_2x.append(curr_beam_pos.item(2))
+        beam_2y.append(curr_beam_pos.item(3))
+    
+        beam_3x.append(curr_beam_pos.item(4))
+        beam_3y.append(curr_beam_pos.item(5))
+    
+        beam_4x.append(curr_beam_pos.item(6))
+        beam_4y.append(curr_beam_pos.item(7))
+    
+        beam_5x.append(curr_beam_pos.item(8))
+        beam_5y.append(curr_beam_pos.item(9))
+    
+        beam_6x.append(curr_beam_pos.item(10))
+        beam_6y.append(curr_beam_pos.item(11))
+    
         nccd1x = curr_beam_pos.item(0)
         nccd1y = curr_beam_pos.item(1)
     
@@ -461,18 +554,18 @@ def algo_fix(file):
         nccd6x =  curr_beam_pos.item(10)
         nccd6y =  curr_beam_pos.item(11)
         
-        diff1x = - nccd1x
-        diff1y = - nccd1y
-        diff2x = - nccd2x
-        diff2y = - nccd2y
-        diff3x = - nccd3x
-        diff3y = - nccd3y
-        diff4x = - nccd4x
-        diff4y = - nccd4y
-        diff5x = - nccd5x
-        diff5y = - nccd5y
-        diff6x = - nccd6x
-        diff6y = - nccd6y
+        diff1x =  nccd1x
+        diff1y = nccd1y
+        diff2x = nccd2x
+        diff2y = nccd2y
+        diff3x = nccd3x
+        diff3y = nccd3y
+        diff4x = nccd4x
+        diff4y = nccd4y
+        diff5x = nccd5x
+        diff5y = nccd5y
+        diff6x = nccd6x
+        diff6y = nccd6y
         
         #check misalignment
         if diff1x < 0.01 and \
@@ -494,70 +587,14 @@ def algo_fix(file):
             print('max it')
             pyz.closeLink()
             break;
-        elif it == 0:
+        else:
             #extract variations 
-
-            misalign_vec = np.rad2deg(np.matmul(finv, curr_beam_pos))
-            print('current variations')
-            print(misalign_vec)
-            #append elements
-            c_1x = misalign_vec.item(0)
-            c_1y = misalign_vec.item(1)
-            c_2x = misalign_vec.item(2)
-            c_2y = misalign_vec.item(3)
-            c_3x = misalign_vec.item(4)
-            c_3y = misalign_vec.item(5)
-            c_4x = misalign_vec.item(6)
-            c_4y = misalign_vec.item(7)
-            c_5x = misalign_vec.item(8)
-            c_5y = misalign_vec.item(9)
-            c_6x = misalign_vec.item(10)
-            c_6y = misalign_vec.item(11)
-            
-            v_1x.append(c_1x)
-            v_1y.append(c_1y)
-            v_2x.append(c_2x)
-            v_2y.append(c_2y)
-            v_3x.append(c_3x)
-            v_3y.append(c_3y)
-            v_4x.append(c_4x)
-            v_4y.append(c_4y)
-            
-            v_5x.append(c_5x)
-            v_5y.append(c_5y)
-            v_6x.append(c_6x)
-            v_6y.append(c_6y)
-            
-            #execute correction
-            surface_control_xcorr(file, 4, -c_1x)
-            surface_control_ycorr(file, 4, -c_1y)
-    
-            surface_control_xcorr(file, 13, -c_2x)
-            surface_control_ycorr(file, 13, -c_2y)
-    
-            surface_control_xcorr(file, 22, -c_3x)
-            surface_control_ycorr(file, 22, -c_3y)
-                
-            surface_control_xcorr(file, 31, -c_4x)
-            surface_control_ycorr(file, 31, -c_4y)
-    
-            surface_control_xcorr(file, 40, -c_5x)
-            surface_control_ycorr(file, 40, -c_5y)
-    
-            surface_control_xcorr(file, 49, -c_6x)
-            surface_control_ycorr(file, 49, -c_6y)
-            
-            corr_mem.append(misalign_vec)
-            it = it+1
-        elif it > 0:
-            #extract variations 
-            finv = np.linalg.inv(f_beamline(optics_deg))
             misalign_vec = np.rad2deg(np.matmul(finv, curr_beam_pos))
             print('current variations')
             print(misalign_vec)
             #append elements
             
-            c_vec = misalign_vec + corr_mem[it-1]
+            c_vec = misalign_vec + (1/50)*corr_mem[it-1]
             corr_mem.append(c_vec)
             
             c_1x = c_vec.item(0)
