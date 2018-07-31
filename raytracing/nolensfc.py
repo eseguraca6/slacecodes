@@ -602,7 +602,11 @@ def algo_fix(file):
             print('current variations')
             print(misalign_vec)
             #append elements
-            c_vec = (1)*misalign_vec + (1/100)*(corr_mem[it-1])
+            print(corr_mem)
+
+            c_vec = (1)*misalign_vec + ((1/10)*corr_mem[it-1])
+            corr_mem.append(c_vec)
+            print(corr_mem)
 
             #derivative_comp = c_vec - delta_dev[it-1]
             #c_vec = c_vec + (1/200)*derivative_comp
