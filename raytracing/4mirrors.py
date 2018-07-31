@@ -478,7 +478,7 @@ def algo_fix(file):
             #append elements
             #print(corr_mem)
 
-            c_vec = (1/10)*misalign_vec + ((-1/500)*corr_mem[it])
+            c_vec = (0.45)*misalign_vec + ((.54)*corr_mem[it])
             corr_mem.append(c_vec)
             #print(corr_mem)
 
