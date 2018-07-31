@@ -399,7 +399,7 @@ def algo_fix(file):
     link= pyz.createLink()
     link.zLoadFile(file)
       
-    imax = 2
+    imax = 6
     corr_mem = []
     it = 0
     
@@ -597,7 +597,7 @@ def algo_fix(file):
             print(misalign_vec)
             #append elements
             
-            c_vec = misalign_vec + (1/2)*corr_mem[it-1]
+            c_vec = (1/5)*misalign_vec + (1/100)*corr_mem[it-1]
             corr_mem.append(c_vec)
             
             c_1x = c_vec.item(0)

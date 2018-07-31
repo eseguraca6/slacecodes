@@ -399,7 +399,7 @@ def algo_fix(file):
     link= pyz.createLink()
     link.zLoadFile(file)
       
-    imax = 2
+    imax = 5
     corr_mem = []
     it = 0
     
