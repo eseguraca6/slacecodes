@@ -23,6 +23,79 @@ configuration_angles =  [45, 0,
                          
                          #[45, 0, 0, -45, 0,-45, 0, 45, 0, -45, 45, 0]
 
+def chief_surface(file, surface, anglex, angley):
+    link = pyz.createLink()
+    link.zLoadFile(file)
+    
+    #chief x
+    link.zSetSurfaceParameter(surface, 3, anglex)
+    link.zSetSurfaceParameter(surface+6, 3, anglex)
+    #chief y
+    link.zSetSurfaceParameter(surface, 4, angley)
+    link.zSetSurfaceParameter(surface+6, 4, angley)
+    #chief z
+    link.zSetSurfaceParameter(surface, 5, 0)
+    link.zSetSurfaceParameter(surface+6, 5, 0)
+    link.zSaveFile(file) 
+    pyz.closeLink()
+    
+def set_start_vars_fix(file):
+    link= pyz.createLink()
+    link.zLoadFile(file)
+#var
+    link.zSetSurfaceParameter(3, 3, 0) #3 = x-tilt, 4=y-tilt
+    link.zSetSurfaceParameter(3, 4, 0)
+    link.zSetSurfaceParameter(3, 5, 0)
+
+    link.zSetSurfaceParameter(7, 3, 0) #3 = x-tilt, 4=y-tilt
+    link.zSetSurfaceParameter(7, 4, 0)
+    link.zSetSurfaceParameter(7, 5, 0)
+
+#fix
+    link.zSetSurfaceParameter(4, 3, 0) #3 = x-tilt, 4=y-tilt
+    link.zSetSurfaceParameter(4, 4, 0)
+    link.zSetSurfaceParameter(4, 5, 0)
+    
+    link.zSetSurfaceParameter(6, 3, 0) #3 = x-tilt, 4=y-tilt
+    link.zSetSurfaceParameter(6, 4, 0)
+    link.zSetSurfaceParameter(6, 5, 0)
+
+#var
+    link.zSetSurfaceParameter(12, 3, 0) #3 = x-tilt, 4=y-tilt
+    link.zSetSurfaceParameter(12, 4, 0)
+    link.zSetSurfaceParameter(12, 5, 0)
+
+    link.zSetSurfaceParameter(16, 3, 0) #3 = x-tilt, 4=y-tilt
+    link.zSetSurfaceParameter(16, 4, 0)
+    link.zSetSurfaceParameter(16, 5, 0)
+#fix
+    link.zSetSurfaceParameter(13, 3, 0) #3 = x-tilt, 4=y-tilt
+    link.zSetSurfaceParameter(13, 4, 0)
+    link.zSetSurfaceParameter(13, 5, 0)
+
+    link.zSetSurfaceParameter(15, 3, 0) #3 = x-tilt, 4=y-tilt
+    link.zSetSurfaceParameter(15, 4, 0)
+    link.zSetSurfaceParameter(15, 5, 0)
+
+#var
+    link.zSetSurfaceParameter(21, 3, 0) #3 = x-tilt, 4=y-tilt
+    link.zSetSurfaceParameter(21, 4, 0)
+    link.zSetSurfaceParameter(21, 5, 0)
+
+    link.zSetSurfaceParameter(25, 3, 0) #3 = x-tilt, 4=y-tilt
+    link.zSetSurfaceParameter(25, 4, 0)
+    link.zSetSurfaceParameter(25, 5, 0)
+#fix
+    link.zSetSurfaceParameter(22, 3, 0) #3 = x-tilt, 4=y-tilt
+    link.zSetSurfaceParameter(22, 4, 0)
+    link.zSetSurfaceParameter(22, 5, 0)
+
+    link.zSetSurfaceParameter(24, 3, 0) #3 = x-tilt, 4=y-tilt
+    link.zSetSurfaceParameter(24, 4, 0)
+    link.zSetSurfaceParameter(24, 5, 0)
+    link.zSaveFile(file)
+    pyz.closeLink()
+
 def config_simulation(file, conf_array):
     link = pyz.createLink()
     link.zLoadFile(file)
@@ -41,8 +114,6 @@ def config_simulation(file, conf_array):
     link.zModifyPOPSettings(cfgfile, widex=grid_size)
     link.zModifyPOPSettings(cfgfile, widey=grid_size)
     link.zModifyPOPSettings(cfgfile, ignPol=1)
-#1 to ignore pol;0 to use
-    link.zSaveFile(file)
     
     chief_angle1_x = conf_array[0]
     chief_angle1_y = conf_array[1]
@@ -53,107 +124,12 @@ def config_simulation(file, conf_array):
     chief_angle3_x = conf_array[4]
     chief_angle3_y = conf_array[5]
     
-    chief_angle4_x = conf_array[6]
-    chief_angle4_y = conf_array[7]
+    chief_surface(file, 2, chief_angle1_x, chief_angle1_y)
+    chief_surface(file, 11, chief_angle2_x, chief_angle2_y)
+    chief_surface(file, 20, chief_angle3_x, chief_angle3_y)
     
+    set_start_vars_fix(file)
     
-    link.zSetSurfaceParameter(2,3, chief_angle1_x)
-    link.zSetSurfaceParameter(2,4, chief_angle1_y)
-    link.zSetSurfaceParameter(2,5, 0)
-    
-    link.zSetSurfaceParameter(8,3, chief_angle1_x)
-    link.zSetSurfaceParameter(8,4, chief_angle1_y)
-    link.zSetSurfaceParameter(8,5 ,0)
-#var
-    link.zSetSurfaceParameter(3, 3, 0) #3 = x-tilt, 4=y-tilt
-    link.zSetSurfaceParameter(3, 4, 0)
-    link.zSetSurfaceParameter(3, 5, 0)
-
-    link.zSetSurfaceParameter(7, 3, 0) #3 = x-tilt, 4=y-tilt
-    link.zSetSurfaceParameter(7, 4, 0)
-    link.zSetSurfaceParameter(7, 5, 0)
-#fix
-    link.zSetSurfaceParameter(4, 3, 0) #3 = x-tilt, 4=y-tilt
-    link.zSetSurfaceParameter(4, 4, 0)
-    link.zSetSurfaceParameter(4, 5, 0)
-    
-    link.zSetSurfaceParameter(6, 3, 0) #3 = x-tilt, 4=y-tilt
-    link.zSetSurfaceParameter(6, 4, 0)
-    link.zSetSurfaceParameter(6, 5, 0)
-#SAME FOR SECOND MIRROR
-    link.zSetSurfaceParameter(11,3, chief_angle2_x)
-    link.zSetSurfaceParameter(11,4, chief_angle2_y)
-    link.zSetSurfaceParameter(11,5, 0)
-    
-    link.zSetSurfaceParameter(17,3, chief_angle2_x)
-    link.zSetSurfaceParameter(17,4, chief_angle2_y)
-    link.zSetSurfaceParameter(17,5, 0)
-#var
-    link.zSetSurfaceParameter(12, 3, 0) #3 = x-tilt, 4=y-tilt
-    link.zSetSurfaceParameter(12, 4, 0)
-    link.zSetSurfaceParameter(12, 5, 0)
-
-    link.zSetSurfaceParameter(16, 3, 0) #3 = x-tilt, 4=y-tilt
-    link.zSetSurfaceParameter(16, 4, 0)
-    link.zSetSurfaceParameter(16, 5, 0)
-#fix
-    link.zSetSurfaceParameter(13, 3, 0) #3 = x-tilt, 4=y-tilt
-    link.zSetSurfaceParameter(13, 4, 0)
-    link.zSetSurfaceParameter(13, 5, 0)
-
-    link.zSetSurfaceParameter(15, 3, 0) #3 = x-tilt, 4=y-tilt
-    link.zSetSurfaceParameter(15, 4, 0)
-    link.zSetSurfaceParameter(15, 5, 0)
-    
-#SAME FOR THRID MIRROR
-    link.zSetSurfaceParameter(20,3, chief_angle3_x)
-    link.zSetSurfaceParameter(20,4, chief_angle3_y)
-    link.zSetSurfaceParameter(20,5, 0)
-    
-    link.zSetSurfaceParameter(26,3, chief_angle3_x)
-    link.zSetSurfaceParameter(26,4, chief_angle3_y)
-    link.zSetSurfaceParameter(26,5, 0)
-#var
-    link.zSetSurfaceParameter(21, 3, 0) #3 = x-tilt, 4=y-tilt
-    link.zSetSurfaceParameter(21, 4, 0)
-    link.zSetSurfaceParameter(21, 5, 0)
-
-    link.zSetSurfaceParameter(25, 3, 0) #3 = x-tilt, 4=y-tilt
-    link.zSetSurfaceParameter(25, 4, 0)
-    link.zSetSurfaceParameter(25, 5, 0)
-#fix
-    link.zSetSurfaceParameter(22, 3, 0) #3 = x-tilt, 4=y-tilt
-    link.zSetSurfaceParameter(22, 4, 0)
-    link.zSetSurfaceParameter(22, 5, 0)
-
-    link.zSetSurfaceParameter(24, 3, 0) #3 = x-tilt, 4=y-tilt
-    link.zSetSurfaceParameter(24, 4, 0)
-    link.zSetSurfaceParameter(24, 5, 0)
-    
-#SAME FOR FOURTH MIRROR
-    link.zSetSurfaceParameter(29,3, chief_angle4_x)
-    link.zSetSurfaceParameter(29,4, chief_angle4_y)
-    link.zSetSurfaceParameter(29,5, 0)
-    
-    link.zSetSurfaceParameter(35,3, chief_angle4_x)
-    link.zSetSurfaceParameter(35,4, chief_angle4_y)
-    link.zSetSurfaceParameter(35,5, 0)
-#var
-    link.zSetSurfaceParameter(30, 3, 0) #3 = x-tilt, 4=y-tilt
-    link.zSetSurfaceParameter(30, 4, 0)
-    link.zSetSurfaceParameter(30, 5, 0)
-
-    link.zSetSurfaceParameter(34, 3, 0) #3 = x-tilt, 4=y-tilt
-    link.zSetSurfaceParameter(34, 4, 0)
-    link.zSetSurfaceParameter(34, 5, 0)
-#fix
-    link.zSetSurfaceParameter(31, 3, 0) #3 = x-tilt, 4=y-tilt
-    link.zSetSurfaceParameter(31, 4, 0)
-    link.zSetSurfaceParameter(31, 5, 0)
-
-    link.zSetSurfaceParameter(33, 3, 0) #3 = x-tilt, 4=y-tilt
-    link.zSetSurfaceParameter(33, 4, 0)
-    link.zSetSurfaceParameter(33, 5, 0)
     link.zSaveFile(file)  
     pyz.closeLink()
     print('config set for testing!')
@@ -194,14 +170,16 @@ def surface_control_yvar(file, surface_num, val):
 def algo_facet2_var(file, var_arr):
     link = pyz.createLink()
     link.zLoadFile(file)
-    l_var =0
+    l_var = -var_arr[0]
     h_var = var_arr[0]
     var1x = np.random.uniform(l_var, h_var)
     var1y = np.random.uniform(l_var, h_var)
+    l_var = -var_arr[1]
     h_var = var_arr[1]
     var2x = np.random.uniform(l_var, h_var)
     var2y = np.random.uniform(l_var, h_var)
     h_var = var_arr[2]
+    l_var = -var_arr[2]
     var3x = np.random.uniform(l_var, h_var)
     var3y = np.random.uniform(l_var, h_var)
     #h_var = var_arr[3]
@@ -234,7 +212,7 @@ def algo_facet2_var(file, var_arr):
     #surface_control_yvar(file, 30, var4y)
     print('variations finished')
     pyz.closeLink()
-    np.savetxt(r'C:\Users\pwfa-facet2\Desktop\slacecodes\raytracing\f2beamvarmod.csv', vec)
+    np.savetxt(r'C:\Users\pwfa-facet2\Desktop\slacecodes\raytracing\f2beam-org-var.csv', vec)
     
     
 def f_block(cx, cy, rot, d_t):
@@ -361,200 +339,17 @@ def algo_fix(file):
     #beam_4x.append(curr_beam_pos.item(6))
     #beam_4y.append(curr_beam_pos.item(7))
     
-    delta_dev = []
+    
     #check for the first variations 
     misalign_vec = np.rad2deg(np.matmul(finv, curr_beam_pos))
-    c_vec_3 = (45/100)*misalign_vec
     print('current variations')
-    print(misalign_vec)
-    c_1x = misalign_vec.item(0)
-    c_1y = misalign_vec.item(1)
-    c_2x = misalign_vec.item(2)
-    c_2y = misalign_vec.item(3)
-    c_3x = c_vec_3.item(4)
-    c_3y = c_vec_3.item(5)
-    #c_4x = misalign_vec.item(6)
-    #c_4y = misalign_vec.item(7)
-
-            
-    v_1x.append(c_1x)
-    v_1y.append(c_1y)
-    v_2x.append(c_2x)
-    v_2y.append(c_2y)
-    v_3x.append(c_3x)
-    v_3y.append(c_3y)
-    #v_4x.append(c_4x)
-    #v_4y.append(c_4y)
-            
-
-    #feed those variations
-    surface_control_xcorr(file, 4, -c_1x)
-    surface_control_ycorr(file, 4, -c_1y)
+    print(misalign_vec)    
+    np.savetxt(r'C:\Users\pwfa-facet2\Desktop\slacecodes\raytracing\f2beamtrackmod-1st.csv', misalign_vec)
     
-    surface_control_xcorr(file, 13, -c_2x)
-    surface_control_ycorr(file, 13, -c_2y)
-    
-    surface_control_xcorr(file, 22, -c_3x)
-    surface_control_ycorr(file, 22, -c_3y)
-                
-    #surface_control_xcorr(file, 31, -c_4x)
-    #surface_control_ycorr(file, 31, -c_4y)
-    
-
-            
-    
-    #input integral element
-    misalign_vec = np.matrix([ [misalign_vec.item(0)], 
-                                 [misalign_vec.item(1)],
-                                 [misalign_vec.item(2)],
-                                 [misalign_vec.item(3)],
-                                 [c_vec_3.item(4)],
-                                 [c_vec_3.item(5)]])
-            
-    corr_mem.append(misalign_vec)
-    
-    curr_beam_pos = ccd_screens(file)
-    print("after changes misaligned vector:")
-    print(curr_beam_pos)
-    
-    
-    exit
-    while status == 'not done':
-        curr_beam_pos=ccd_screens(file)
-        print("current it (inside loop):", it)
-        #get beam positions to check for
-        #misalignment 
-        curr_beam_pos = ccd_screens(file)
-        print('current beam position on feedback:')
-        print(curr_beam_pos)
-        beam_mem.append(curr_beam_pos)
-        beam_1x.append(curr_beam_pos.item(0))
-        beam_1y.append(curr_beam_pos.item(1))
-    
-        beam_2x.append(curr_beam_pos.item(2))
-        beam_2y.append(curr_beam_pos.item(3))
-    
-        beam_3x.append(curr_beam_pos.item(4))
-        beam_3y.append(curr_beam_pos.item(5))
-    
-        #beam_4x.append(curr_beam_pos.item(6))
-        #beam_4y.append(curr_beam_pos.item(7))
-    
-        nccd1x = curr_beam_pos.item(0)
-        nccd1y = curr_beam_pos.item(1)
-    
-        nccd2x = curr_beam_pos.item(2)
-        nccd2y = curr_beam_pos.item(3)
-        
-        nccd3x =  curr_beam_pos.item(4)
-        nccd3y =  curr_beam_pos.item(5)
-        
-        #nccd4x =  curr_beam_pos.item(6)
-        #nccd4y =  curr_beam_pos.item(7)
-
-        
-        diff1x = np.abs(nccd1x)
-        diff1y = np.abs(nccd1y)
-        diff2x = np.abs(nccd2x)
-        diff2y = np.abs(nccd2y)
-        diff3x = np.abs(nccd3x)
-        diff3y = np.abs(nccd3y)
-        """
-        diff4x = nccd4x
-        diff4y = nccd4y
-        """        
-        #check misalignment
-        if it > imax:
-            print('max it')
-            pyz.closeLink()
-            break;
-        elif(diff1x > 0.00001) and \
-            (diff1y > 0.00001) and \
-            (diff2x > 0.00001) and \
-            (diff2y > 0.00001) and \
-            (diff3x > 0.00001) and \
-            (diff3y > 0.00001): 
-            #extract variations
-            status = 'not done'
-            misalign_vec = np.rad2deg(np.matmul(finv, curr_beam_pos))
-            print('current variations')
-            print(misalign_vec)
-            #append elements
-            #print(corr_mem)
-            c_vec_3 = (45/100)*misalign_vec + ((1/100)*corr_mem[it])
-            c_vec = misalign_vec + corr_mem[it]
-            
-            c_vec = np.matrix([ [c_vec.item(0)], 
-                                 [c_vec.item(1)],
-                                 [c_vec.item(2)],
-                                 [c_vec.item(3)],
-                                 [c_vec_3.item(4)],
-                                 [c_vec_3.item(5)]])
-            
-            corr_mem.append(c_vec)
-            #print(corr_mem)
-
-            #derivative_comp = c_vec - delta_dev[it-1]
-            #c_vec = c_vec + (1/200)*derivative_comp
-            print('corrections into system:')
-            print(c_vec)
-            delta_dev.append(c_vec)
-            corr_mem.append(c_vec)
-            c_1x = c_vec.item(0)
-            c_1y = c_vec.item(1)
-            c_2x = c_vec.item(2)
-            c_2y = c_vec.item(3)
-            c_3x = c_vec_3.item(4)
-            c_3y = c_vec_3.item(5)
-            #c_4x = c_vec.item(6)
-            #c_4y = c_vec.item(7)
-
-            
-            v_1x.append(c_1x)
-            v_1y.append(c_1y)
-            v_2x.append(c_2x)
-            v_2y.append(c_2y)
-            v_3x.append(c_3x)
-            v_3y.append(c_3y)
-            #v_4x.append(c_4x)
-            #v_4y.append(c_4y)
-
-            
-            #execute correction
-            surface_control_xcorr(file, 4, -c_1x)
-            surface_control_ycorr(file, 4, -c_1y)
-    
-            surface_control_xcorr(file, 13, -c_2x)
-            surface_control_ycorr(file, 13, -c_2y)
-    
-            surface_control_xcorr(file, 22, -c_3x)
-            surface_control_ycorr(file, 22, -c_3y)
-                
-            #surface_control_xcorr(file, 31, -c_4x)
-            #surface_control_ycorr(file, 31, -c_4y)
-            it=it+1
-            print('next')
-        else:
-                print('final vector vector:')
-                print(curr_beam_pos)
-                pyz.closeLink()
-                status = 'done'
-                print(status)
-    np.savetxt(r'C:\Users\pwfa-facet2\Desktop\slacecodes\raytracing\f2beamtrackmod.csv', \
-               list(zip(beam_1x, beam_1y, beam_2x, beam_2y, \
-                        beam_3x, beam_3y \
-                       )))
-    np.savetxt(r'C:\Users\pwfa-facet2\Desktop\slacecodes\raytracing\f2vartrackmod.csv', \
-               list(zip(v_1x, v_1y, v_2x, v_2y, \
-                        v_3x, v_3y \
-                        )))
-    
-            
+    pyz.closeLink()
             
 
                     
-    
-        
     
 config_simulation(file, configuration_angles)
 algo_facet2_var(file,var_vec)
