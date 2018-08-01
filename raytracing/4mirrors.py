@@ -326,6 +326,8 @@ def algo_fix(file):
     print("start misaligned vector:")
     print(curr_beam_pos)
     beam_mem.append(curr_beam_pos)
+    np.savetxt(r'C:\Users\pwfa-facet2\Desktop\slacecodes\raytracing\1stmisalignedbeam.csv', curr_beam_pos)
+
     
     beam_1x.append(curr_beam_pos.item(0))
     beam_1y.append(curr_beam_pos.item(1))
