@@ -226,7 +226,7 @@ def f_block(cx, cy, rot, d_t):
 
 optics_deg = [45, 0, 90,
               -45, 0, -90,
-              -45, 0, -90]
+              45, 45, 90]
 
 def f_beamline(config_optics):
     m1_mat = f_block(optics_deg[0], optics_deg[1], optics_deg[2], 2068)
@@ -236,8 +236,8 @@ def f_beamline(config_optics):
     #m5_mat = f_block(optics_deg[12], optics_deg[13], optics_deg[14], 11738.3)
     #m6_mat = f_block(optics_deg[15], optics_deg[16], optics_deg[17], 3000)
     
-    m1xtm2 = f_block(optics_deg[0], optics_deg[1], optics_deg[2], 2095+3082)
-    m1xtm3 =  f_block(optics_deg[0], optics_deg[1], optics_deg[2], 2095+3082+6121)
+    m1xtm2 = f_block(optics_deg[0], optics_deg[1], optics_deg[2], 2068+3082)
+    m1xtm3 =  f_block(optics_deg[0], optics_deg[1], optics_deg[2], 2068+3082+6121)
     #m1xtm4 =  f_block(optics_deg[0], optics_deg[1], optics_deg[2], 2095+3082+6121+2394)
     #m1xtm5 =  f_block(optics_deg[0], optics_deg[1], optics_deg[2], 2095+3082+6121+2394+11738.3)
     #m1xtm6 =  f_block(optics_deg[0], optics_deg[1], optics_deg[2], 2095+3082+6121+2394+11738.3+3000)
@@ -289,7 +289,6 @@ def ccd_screens(file):
     pyz.closeLink()
     return(beam_pos_vec)
     
-f_beamline(optics_deg)
 def algo_fix(file):
     link= pyz.createLink()
     link.zLoadFile(file)
@@ -340,39 +339,40 @@ def algo_fix(file):
     
     #beam_4x.append(curr_beam_pos.item(6))
     #beam_4y.append(curr_beam_pos.item(7))
-    
-    
+    print(curr_beam_pos[3])
+    curr_beam_pos[3] = np.multiply(curr_beam_pos.item(3),1.78)
+    curr_beam_pos[5] = np.multiply(curr_beam_pos.item(5),.8144)
+    print('new vector:')
+    print(curr_beam_pos)
+    beam_mem.append(curr_beam_pos)
     #check for the first variations 
     misalign_vec = np.rad2deg(np.matmul(finv, curr_beam_pos))
     print('current variations')
     print(misalign_vec)    
-    np.savetxt(r'C:\Users\pwfa-facet2\Desktop\slacecodes\raytracing\f2beamtrackmod-1st.csv', misalign_vec)
+    #np.savetxt(r'C:\Users\pwfa-facet2\Desktop\slacecodes\raytracing\f2beamtrackmod-1st.csv', misalign_vec)
     c_1x = misalign_vec.item(0)
     c_1y = misalign_vec.item(1)
     c_2x = misalign_vec.item(2)
     c_2y = misalign_vec.item(3)
-    c_3x = misalign_vec.item(4)
-    c_3y = misalign_vec.item(5)
-            
+    c_3x = -misalign_vec.item(4)
+    c_3y = -misalign_vec.item(5)
+
     #execute variations 
     surface_control_xcorr(file, 4, -c_1x)
     surface_control_ycorr(file, 4, -c_1y)
     
     surface_control_xcorr(file, 13, -c_2x)
-    surface_control_ycorr(file, 13, -c_2y)
+    surface_control_ycorr(file, 13, -c_2y)    
     
-    #iterate two mirrors 
-    status = 'not done'
-    while status != 'done'
+    surface_control_xcorr(file, 22, -c_3x)
+    surface_control_ycorr(file, 22, -c_3y)    
     
-    print('after correction vector:')
-    vec = ccd_screens(file)
-    print(vec)
-    m3_beam_vec = np.matrix([ [vec.item(4)], [vec.item(5)] ])
-    m3inv = np.linalg.inv(m3_mat)
-    m3_var_vec = np.rad2deg(np.matmul(m3inv, m3_beam_vec))
-    print('m3 var:')
-    print(m3_var_vec)
+    curr_beam_pos = ccd_screens(file)
+    print("after misaligned vector:")
+    print(curr_beam_pos)
+    beam_mem.append(curr_beam_pos)
+    np.savetxt(r'C:\Users\pwfa-facet2\Desktop\slacecodes\raytracing\f2beamtrackmod-1st.csv', misalign_vec)
+
     
 
     
