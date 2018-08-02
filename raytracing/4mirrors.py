@@ -325,9 +325,11 @@ def algo_fix(file):
     print("start misaligned vector:")
     print(curr_beam_pos)
     beam_mem.append(curr_beam_pos)
-    np.savetxt(r'C:\Users\pwfa-facet2\Desktop\slacecodes\raytracing\1stmisalignedbeam.csv', curr_beam_pos)
-
-    
+    mis_mem = []
+    misalign_vec = np.rad2deg(np.matmul(finv, curr_beam_pos))
+    print('current variations')
+    print(misalign_vec)    
+    mis_mem.append(misalign_vec)
     beam_1x.append(curr_beam_pos.item(0))
     beam_1y.append(curr_beam_pos.item(1))
     
@@ -348,7 +350,8 @@ def algo_fix(file):
     #check for the first variations 
     misalign_vec = np.rad2deg(np.matmul(finv, curr_beam_pos))
     print('current variations')
-    print(misalign_vec)    
+    print(misalign_vec)
+    mis_mem.append(misalign_vec)    
     #np.savetxt(r'C:\Users\pwfa-facet2\Desktop\slacecodes\raytracing\f2beamtrackmod-1st.csv', misalign_vec)
     c_1x = misalign_vec.item(0)
     c_1y = misalign_vec.item(1)
@@ -371,8 +374,8 @@ def algo_fix(file):
     print("after misaligned vector:")
     print(curr_beam_pos)
     beam_mem.append(curr_beam_pos)
-    np.savetxt(r'C:\Users\pwfa-facet2\Desktop\slacecodes\raytracing\f2beamtrackmod-1st.csv', misalign_vec)
-
+    np.savetxt(r'C:\Users\pwfa-facet2\Desktop\slacecodes\raytracing\vartrack.csv', misalign_vec)
+    np.savetxt(r'C:\Users\pwfa-facet2\Desktop\slacecodes\raytracing\beamtrack.csv', curr_beam_pos)
     
 
     
