@@ -16,9 +16,9 @@ import random as rand
 file = r'C:\Users\pwfa-facet2\Desktop\slacecodes\raytracing\4fc.zmx'
 
 configuration_angles =  [45, 0,
-                         -45,0,
-                         -45,0,
-                         45,0,]
+                         0,-45,
+                         0,45,
+                         0,45]
                          
                          #[45, 0, 0, -45, 0,-45, 0, 45, 0, -45, 45, 0]
 
@@ -222,7 +222,7 @@ for i in r:
     print('not done')
     
 print('finally done')
-np.savetxt(r'C:\Users\pwfa-facet2\Desktop\slacecodes\raytracing\m3char.csv', \
+np.savetxt(r'C:\Users\pwfa-facet2\Desktop\slacecodes\raytracing\m3charnewconfig.csv', \
                list(zip(beam_1x, beam_1y, beam_2x, beam_2y, \
                         beam_3x, beam_3y)))
     

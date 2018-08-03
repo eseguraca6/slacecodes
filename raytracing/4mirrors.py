@@ -315,65 +315,15 @@ def algo_fix(file):
     v_3y =[]
     #v_4x =[]
     #v_4y =[]
-
-
     #check for misalignments 
     beam_mem =[] 
     status = 'not done'
     finv = np.linalg.inv(f_beamline(optics_deg))
     curr_beam_pos = ccd_screens(file)
-    print("start misaligned vector:")
-    print(curr_beam_pos)
-    beam_mem.append(curr_beam_pos)
-    mis_mem = []
-    misalign_vec = np.rad2deg(np.matmul(finv, curr_beam_pos))
-    print('current variations')
-    print(misalign_vec)    
-    mis_mem.append(misalign_vec)
-    beam_1x.append(curr_beam_pos.item(0))
-    beam_1y.append(curr_beam_pos.item(1))
     
-    beam_2x.append(curr_beam_pos.item(2))
-    beam_2y.append(curr_beam_pos.item(3))
-    
-    beam_3x.append(curr_beam_pos.item(4))
-    beam_3y.append(curr_beam_pos.item(5))
-    
-    #beam_4x.append(curr_beam_pos.item(6))
-    #beam_4y.append(curr_beam_pos.item(7))
-    print(curr_beam_pos[3])
-    curr_beam_pos[3] = np.multiply(curr_beam_pos.item(3),1.78)
-    curr_beam_pos[5] = np.multiply(curr_beam_pos.item(5),.8144)
-    print('new vector:')
-    print(curr_beam_pos)
-    beam_mem.append(curr_beam_pos)
-    #check for the first variations 
-    misalign_vec = np.rad2deg(np.matmul(finv, curr_beam_pos))
-    print('current variations')
-    print(misalign_vec)
-    mis_mem.append(misalign_vec)    
-    #np.savetxt(r'C:\Users\pwfa-facet2\Desktop\slacecodes\raytracing\f2beamtrackmod-1st.csv', misalign_vec)
-    c_1x = misalign_vec.item(0)
-    c_1y = misalign_vec.item(1)
-    c_2x = misalign_vec.item(2)
-    c_2y = misalign_vec.item(3)
-    c_3x = -misalign_vec.item(4)
-    c_3y = -misalign_vec.item(5)
+    var_vec = np.rad2deg(np.matmul(finv, curr_beam_pos))
+    print(var_vec)
 
-    #execute variations 
-    surface_control_xcorr(file, 4, -c_1x)
-    surface_control_ycorr(file, 4, -c_1y)
-    
-    surface_control_xcorr(file, 13, -c_2x)
-    surface_control_ycorr(file, 13, -c_2y)    
-    
-    surface_control_xcorr(file, 22, -c_3x)
-    surface_control_ycorr(file, 22, -c_3y)    
-    
-    curr_beam_pos = ccd_screens(file)
-    print("after misaligned vector:")
-    print(curr_beam_pos)
-    beam_mem.append(curr_beam_pos)
     np.savetxt(r'C:\Users\pwfa-facet2\Desktop\slacecodes\raytracing\vartrack.csv', misalign_vec)
     np.savetxt(r'C:\Users\pwfa-facet2\Desktop\slacecodes\raytracing\beamtrack.csv', curr_beam_pos)
     
