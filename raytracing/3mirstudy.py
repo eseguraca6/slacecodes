@@ -16,8 +16,8 @@ import random as rand
 file = r'C:\Users\pwfa-facet2\Desktop\slacecodes\raytracing\4fc.zmx'
 
 configuration_angles =  [45, 0,
-                         0,-45,
-                         0,45,
+                         -45,0,
+                         -45,0,
                          0,45]
                          
                          #[45, 0, 0, -45, 0,-45, 0, 45, 0, -45, 45, 0]
