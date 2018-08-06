@@ -171,8 +171,8 @@ beam_pos =[]
 def ccd_screens(file):
     link = pyz.createLink()
     link.zLoadFile(file)
-    ccd1x = link.zOperandValue('POPD', 19, 1, 0, 11)
-    ccd1y = link.zOperandValue('POPD', 19, 1, 0, 12)
+    ccd1x = link.zOperandValue('POPD', 10, 1, 0, 11)
+    ccd1y = link.zOperandValue('POPD', 10, 1, 0, 12)
     
     ccd2x = link.zOperandValue('POPD', 21, 1, 0, 11)
     ccd2y = link.zOperandValue('POPD', 21, 1, 0, 12)
