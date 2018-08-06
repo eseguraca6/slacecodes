@@ -16,8 +16,8 @@ import random as rand
 file = r'C:\Users\pwfa-facet2\Desktop\slacecodes\raytracing\4fc.zmx'
 
 configuration_angles =  [0, -45,
+                         0 ,45,
                          45,0,
-                         -45,0,
                          35,0]
                          
                          #[45, 0, 0, -45, 0,-45, 0, 45, 0, -45, 45, 0]
@@ -77,21 +77,21 @@ def set_start_vars_fix(file):
     link.zSetSurfaceParameter(15, 5, 0)
 
 #var
-    link.zSetSurfaceParameter(21, 3, 0) #3 = x-tilt, 4=y-tilt
-    link.zSetSurfaceParameter(21, 4, 0)
-    link.zSetSurfaceParameter(21, 5, 0)
+    link.zSetSurfaceParameter(23, 3, 0) #3 = x-tilt, 4=y-tilt
+    link.zSetSurfaceParameter(23, 4, 0)
+    link.zSetSurfaceParameter(23, 5, 0)
 
-    link.zSetSurfaceParameter(25, 3, 0) #3 = x-tilt, 4=y-tilt
-    link.zSetSurfaceParameter(25, 4, 0)
-    link.zSetSurfaceParameter(25, 5, 0)
+    link.zSetSurfaceParameter(27, 3, 0) #3 = x-tilt, 4=y-tilt
+    link.zSetSurfaceParameter(27, 4, 0)
+    link.zSetSurfaceParameter(27, 5, 0)
 #fix
-    link.zSetSurfaceParameter(22, 3, 0) #3 = x-tilt, 4=y-tilt
-    link.zSetSurfaceParameter(22, 4, 0)
-    link.zSetSurfaceParameter(22, 5, 0)
-
     link.zSetSurfaceParameter(24, 3, 0) #3 = x-tilt, 4=y-tilt
     link.zSetSurfaceParameter(24, 4, 0)
     link.zSetSurfaceParameter(24, 5, 0)
+
+    link.zSetSurfaceParameter(26, 3, 0) #3 = x-tilt, 4=y-tilt
+    link.zSetSurfaceParameter(26, 4, 0)
+    link.zSetSurfaceParameter(26, 5, 0)
     link.zSaveFile(file)
     pyz.closeLink()
 
@@ -125,7 +125,7 @@ def config_simulation(file, conf_array):
     
     chief_surface(file, 2, chief_angle1_x, chief_angle1_y)
     chief_surface(file, 11, chief_angle2_x, chief_angle2_y)
-    chief_surface(file, 20, chief_angle3_x, chief_angle3_y)
+    chief_surface(file, 22, chief_angle3_x, chief_angle3_y)
     
     set_start_vars_fix(file)
     
@@ -171,14 +171,14 @@ beam_pos =[]
 def ccd_screens(file):
     link = pyz.createLink()
     link.zLoadFile(file)
-    ccd1x = link.zOperandValue('POPD', 10, 1, 0, 11)
-    ccd1y = link.zOperandValue('POPD', 10, 1, 0, 12)
+    ccd1x = link.zOperandValue('POPD', 19, 1, 0, 11)
+    ccd1y = link.zOperandValue('POPD', 19, 1, 0, 12)
     
-    ccd2x = link.zOperandValue('POPD', 19, 1, 0, 11)
-    ccd2y = link.zOperandValue('POPD', 19, 1, 0, 12)
+    ccd2x = link.zOperandValue('POPD', 21, 1, 0, 11)
+    ccd2y = link.zOperandValue('POPD', 21, 1, 0, 12)
 
-    ccd3x = link.zOperandValue('POPD', 28, 1, 0, 11)
-    ccd3y = link.zOperandValue('POPD', 28, 1, 0, 12)
+    ccd3x = link.zOperandValue('POPD', 30, 1, 0, 11)
+    ccd3y = link.zOperandValue('POPD', 30, 1, 0, 12)
 
     #ccd4x = link.zOperandValue('POPD', 37, 1, 0, 11)
     #ccd4y = link.zOperandValue('POPD', 37, 1, 0, 12)
@@ -204,11 +204,11 @@ config_simulation(file, configuration_angles)
 for i in r:
     surface_control_xvar(file,3,i)
     surface_control_xvar(file, 12,i)
-    surface_control_xvar(file, 21,i)
+    surface_control_xvar(file, 23,i)
     
     surface_control_yvar(file,3,i)
     surface_control_yvar(file, 12,i)
-    surface_control_yvar(file, 21,i)
+    surface_control_yvar(file, 23,i)
     curr_beam_pos = ccd_screens(file)
     beam_1x.append(curr_beam_pos.item(0))
     beam_1y.append(curr_beam_pos.item(1))
