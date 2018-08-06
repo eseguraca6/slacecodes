@@ -177,8 +177,8 @@ def ccd_screens(file):
     ccd2x = link.zOperandValue('POPD', 21, 1, 0, 11)
     ccd2y = link.zOperandValue('POPD', 21, 1, 0, 12)
 
-    ccd3x = link.zOperandValue('POPD', 30, 1, 0, 11)
-    ccd3y = link.zOperandValue('POPD', 30, 1, 0, 12)
+    ccd3x = link.zOperandValue('POPD', 34, 1, 0, 11)
+    ccd3y = link.zOperandValue('POPD', 34, 1, 0, 12)
 
     #ccd4x = link.zOperandValue('POPD', 37, 1, 0, 11)
     #ccd4y = link.zOperandValue('POPD', 37, 1, 0, 12)
