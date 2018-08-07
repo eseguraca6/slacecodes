@@ -17,8 +17,8 @@ file = r'C:\Users\pwfa-facet2\Desktop\slacecodes\raytracing\4fc.zmx'
 
 configuration_angles =  [0, -45,
                          0 ,45,
-                         45,0,
-                         35,0]
+                         0,45,
+                         0,-45]
                          
                          #[45, 0, 0, -45, 0,-45, 0, 45, 0, -45, 45, 0]
 
@@ -209,7 +209,9 @@ for i in r:
     surface_control_yvar(file,3,i)
     surface_control_yvar(file, 12,i)
     surface_control_yvar(file, 23,i)
+    
     curr_beam_pos = ccd_screens(file)
+    
     beam_1x.append(curr_beam_pos.item(0))
     beam_1y.append(curr_beam_pos.item(1))
     
@@ -222,7 +224,7 @@ for i in r:
     print('not done')
     
 print('finally done')
-np.savetxt(r'C:\Users\pwfa-facet2\Desktop\slacecodes\raytracing\m3charnewconfig.csv', \
+np.savetxt(r'C:\Users\pwfa-facet2\Desktop\slacecodes\raytracing\testm3config.csv', \
                list(zip(beam_1x, beam_1y, beam_2x, beam_2y, \
                         beam_3x, beam_3y)))
     
