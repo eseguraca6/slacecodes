@@ -191,7 +191,68 @@ def ccd_screens(file):
 
     pyz.closeLink()
     return(beam_pos_vec)
+def algo_facet2_var(file, var_arr):
+    link = pyz.createLink()
+    link.zLoadFile(file)
+    l_var = 0
+    h_var = var_arr[0]
+    var1x = np.random.uniform(l_var, h_var)
+    var1y = np.random.uniform(l_var, h_var)
+    #l_var = -var_arr[1]
+    h_var = var_arr[1]
+    var2x = np.random.uniform(l_var, h_var)
+    var2y = np.random.uniform(l_var, h_var)
+    h_var = var_arr[2]
+    #l_var = -var_arr[2]
+    var3x = np.random.uniform(l_var, h_var)
+    var3y = np.random.uniform(l_var, h_var)
+    #h_var = var_arr[3]
+    #var4x = np.random.uniform(l_var, h_var)
+    #var4y = np.random.uniform(l_var, h_var)
+
+    vec = np.matrix([ 
+            [var1x],
+            [var1y],
+            [var2x],
+            [var2y],
+            [var3x],
+            [var3y]])
+    """
+            [var4x],
+            [var4y]])
+    """
+    print('input variations:')
+    print(np.transpose(vec))
+    #var M1
+    surface_control_xvar(file, 3, var1x)
+    surface_control_yvar(file, 3, var1y)
     
+    surface_control_xvar(file, 12, var2x)
+    surface_control_yvar(file, 12, var2y)
+    
+    surface_control_xvar(file, 23, var3x)
+    surface_control_yvar(file, 23, var3y)
+    
+    #surface_control_xvar(file, 30, var4x)
+    #surface_control_yvar(file, 30, var4y)
+    print('variations finished')
+    print('======')
+    pyz.closeLink()
+    np.savetxt(r'C:\Users\pwfa-facet2\Desktop\slacecodes\raytracing\zcam-var.csv', vec)
+    return(vec)
+def ccd_vector(file):
+    link=pyz.createLink()
+    link.zLoadFile(file)
+    arr = []
+    ccd1x = link.zOperandValue('POPD', 10, 1, 0, 11)
+    ccd1y = link.zOperandValue('POPD', 10, 1, 0, 12)
+    ccd2x = link.zOperandValue('POPD', 21, 1, 0, 11)
+    ccd2y = link.zOperandValue('POPD', 21, 1, 0, 12)
+    ccd3x = link.zOperandValue('POPD', 34, 1, 0, 11)
+    ccd3y = link.zOperandValue('POPD', 34, 1, 0, 12)
+    arr =[ccd1x,ccd1y, ccd2x,ccd2y, ccd3x,ccd3y]
+    pyz.closeLink()
+    return(arr) 
 r = np.arange(-1,1.1,0.1)
 beam_1x =[]
 beam_1y =[]
@@ -200,7 +261,38 @@ beam_2y =[]
 beam_3x =[]
 beam_3y =[]
 
-config_simulation(file, configuration_angles)
+c_m = np.matrix( [    [ 6.30076775e-01, -7.22161513e+01,  0.00000000e+00,  0.00000000e+00, 0.00000000e+00,  0.00000000e+00],
+                      [ 5.10489720e+01,  0.00000000e+00, 0.00000000e+00, 0.00000000e+00, 0.00000000e+00,  0.00000000e+00],
+                      [ 1.56909839e+00, -1.79841967e+02,  9.39021607e-01,  1.07625815e+02, 0.00000000e+00,  0.00000000e+00],
+                      [ 1.27128729e+02,  0.00000000e+00, -7.60797567e+01,  0.00000000e+00, 0.00000000e+00,  0.00000000e+00],
+                      [ 3.43400990e+00, -3.93588509e+02,  2.80393312e+00,  3.21372357e+02, 0.00000000e+00, -1.51095577e+02],
+                      [ 2.78224309e+02,  0.00000000e+00, -2.27175336e+02,  0.00000000e+00, -6.79556413e-13, -1.86491148e+00]])
 
+print(c_m)
+def algo_fix(file):
+    link=pyz.createLink()
+    link.zLoadFile(file)
+    
+    #extract current beam positions
+    curr_beam_vec = ccd_screens(file)
+    print('current beam offset position:')
+    print(np.transpose(curr_beam_vec))
+    
+    #extract variations 
+    finv = np.linalg.inv(c_m)
+    curr_var_vec = np.matmul(finv, curr_beam_vec)
+    print('=======')
+    print('current variations:')
+    print(np.transpose(curr_var_vec))
+
+    pyz.closeLink() 
+    np.savetxt(r'C:\Users\pwfa-facet2\Desktop\slacecodes\raytracing\zemax-pred.csv',np.c_[curr_beam_vec, curr_var_vec], fmt='%.18e')
+    return(curr_beam_vec, curr_var_vec)
+    
+    
+var_vec = [.5, .6, .3] #[0.0527, 0.0624, 0.0718, 0.1029]
+config_simulation(file, configuration_angles)
+f2=algo_facet2_var(file, var_vec)
 #move the x-axis 
+f1=algo_fix(file)
 

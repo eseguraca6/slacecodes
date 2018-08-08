@@ -204,6 +204,9 @@ optics_deg = [0, -45, 90,
               0, 45, -90,
               -45, 0, 90]
 
+configuration_angles =  [0, -45,
+                         0 ,45,
+                         -45,0]
 def f_beamline(config_optics):
     m1_mat = f_block(optics_deg[0], optics_deg[1], optics_deg[2], 2068)
     m2_mat = f_block(optics_deg[3], optics_deg[4], optics_deg[5], 3082)
@@ -371,6 +374,11 @@ print('done with mirror 3y, back to no mis-al')
 ################## mirror 2-x
 
 C_m = np.bmat([ [vec_1x], [vec_1y], [vec_2x], [vec_2y], [vec_3x], [vec_3y]])
+
+c_m = np.column_stack(( vec_1x, vec_1y,vec_2x, vec_2y,vec_3x, vec_3y ))
+
+print(c_m)
+
 
 np.savetxt(r'C:\Users\pwfa-facet2\Desktop\slacecodes\raytracing\zemaxcam.csv', \
                list(zip(vec_1x, vec_1y, vec_2x, vec_2y, vec_3x, vec_3y)))
