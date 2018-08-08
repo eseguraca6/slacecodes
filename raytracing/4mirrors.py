@@ -224,9 +224,9 @@ def f_block(cx, cy, rot, d_t):
     return(r)
 
 
-optics_deg = [45, 0, 90,
-              -45, 0, -90,
-              45, 45, 90]
+optics_deg = [0, -45, 90,
+              0, 45, -90,
+              -45, 0, 90]
 
 def f_beamline(config_optics):
     m1_mat = f_block(optics_deg[0], optics_deg[1], optics_deg[2], 2068)
