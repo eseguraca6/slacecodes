@@ -304,7 +304,9 @@ def ccd_vector(file):
     arr =[ccd1x,ccd1y, ccd2x,ccd2y, ccd3x,ccd3y]
     pyz.closeLink()
     return(arr)
-            
+configuration_angles =  [0, -45,
+                         0 ,45,
+                         -45,0]            
 config_simulation(file, configuration_angles)
 
 

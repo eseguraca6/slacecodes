@@ -15,11 +15,6 @@ import random as rand
 
 file = r'C:\Users\pwfa-facet2\Desktop\slacecodes\raytracing\4fc.zmx'
 
-configuration_angles =  [0, -45,
-                         0 ,45,
-                         -45,0,
-                         45,0]
-                         
                          #[45, 0, 0, -45, 0,-45, 0, 45, 0, -45, 45, 0]
 
 def chief_surface(file, surface, anglex, angley):
@@ -194,16 +189,16 @@ def ccd_screens(file):
 def algo_facet2_var(file, var_arr):
     link = pyz.createLink()
     link.zLoadFile(file)
-    l_var = 0
+    l_var = -var_arr[0]
     h_var = var_arr[0]
     var1x = np.random.uniform(l_var, h_var)
     var1y = np.random.uniform(l_var, h_var)
-    #l_var = -var_arr[1]
+    l_var = -var_arr[1]
     h_var = var_arr[1]
     var2x = np.random.uniform(l_var, h_var)
     var2y = np.random.uniform(l_var, h_var)
     h_var = var_arr[2]
-    #l_var = -var_arr[2]
+    l_var = -var_arr[2]
     var3x = np.random.uniform(l_var, h_var)
     var3y = np.random.uniform(l_var, h_var)
     #h_var = var_arr[3]
@@ -291,6 +286,9 @@ def algo_fix(file):
     
     
 var_vec = [.5, .6, .3] #[0.0527, 0.0624, 0.0718, 0.1029]
+configuration_angles =  [0, -45,
+                         0 ,45,
+                         -45,0]
 config_simulation(file, configuration_angles)
 f2=algo_facet2_var(file, var_vec)
 #move the x-axis 
