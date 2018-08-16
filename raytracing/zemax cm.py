@@ -306,6 +306,7 @@ def algo_fix(file):
     
     
     #feed initial corrections
+    """
     surface_control_xcorr(file, 4, -0.5*curr_var_vec.item(0))
     surface_control_xcorr(file, 13, -0.5*curr_var_vec.item(2))
     surface_control_xcorr(file, 22, -0.5*curr_var_vec.item(4))
@@ -313,7 +314,7 @@ def algo_fix(file):
     surface_control_ycorr(file, 4, -0.5*curr_var_vec.item(1))
     surface_control_ycorr(file, 13, -0.5*curr_var_vec.item(3))
     surface_control_ycorr(file, 22, -0.5*curr_var_vec.item(5))
-    
+    """    
     status = 'not done'
     
     var1x=[]
@@ -324,13 +325,13 @@ def algo_fix(file):
     var2y=[]
     var3y=[]
     
-    var1x.append(curr_var_vec.item(0))
-    var2x.append(curr_var_vec.item(2))
-    var3x.append(curr_var_vec.item(4))
+    var1x.append(0.5*curr_var_vec.item(0))
+    var2x.append(0.5*curr_var_vec.item(2))
+    var3x.append(0.5*curr_var_vec.item(4))
     
-    var1y.append(curr_var_vec.item(1))
-    var2y.append(curr_var_vec.item(3))
-    var3y.append(curr_var_vec.item(5))    
+    var1y.append(0.5*curr_var_vec.item(1))
+    var2y.append(0.5*curr_var_vec.item(3))
+    var3y.append(0.5*curr_var_vec.item(5))    
     i =0
     while status == 'not done':
         print('current iteration:', i)
