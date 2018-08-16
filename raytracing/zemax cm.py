@@ -13,7 +13,7 @@ import pyzdde.zdde as pyz
 import random as rand
 
 
-file = r'C:\Users\pwfa-facet2\Desktop\slacecodes\raytracing\4fc.zmx'
+file = r'C:\Users\pwfa-facet2\Desktop\slacecodes\zcam.zmx'
 
                          #[45, 0, 0, -45, 0,-45, 0, 45, 0, -45, 45, 0]
 
@@ -22,7 +22,7 @@ def chief_surface(file, surface, anglex, angley):
     link.zLoadFile(file)
     
     #chief x
-    link.zSetSurfaceParameter(surface, 3, anglex)
+    link.zSetSurfaceParameter(surface,3, anglex)
     link.zSetSurfaceParameter(surface+6, 3, anglex)
     #chief y
     link.zSetSurfaceParameter(surface, 4, angley)
@@ -72,21 +72,21 @@ def set_start_vars_fix(file):
     link.zSetSurfaceParameter(15, 5, 0)
 
 #var
-    link.zSetSurfaceParameter(23, 3, 0) #3 = x-tilt, 4=y-tilt
-    link.zSetSurfaceParameter(23, 4, 0)
-    link.zSetSurfaceParameter(23, 5, 0)
+    link.zSetSurfaceParameter(21, 3, 0) #3 = x-tilt, 4=y-tilt
+    link.zSetSurfaceParameter(21, 4, 0)
+    link.zSetSurfaceParameter(21, 5, 0)
 
-    link.zSetSurfaceParameter(27, 3, 0) #3 = x-tilt, 4=y-tilt
-    link.zSetSurfaceParameter(27, 4, 0)
-    link.zSetSurfaceParameter(27, 5, 0)
+    link.zSetSurfaceParameter(25, 3, 0) #3 = x-tilt, 4=y-tilt
+    link.zSetSurfaceParameter(25, 4, 0)
+    link.zSetSurfaceParameter(25, 5, 0)
 #fix
+    link.zSetSurfaceParameter(22, 3, 0) #3 = x-tilt, 4=y-tilt
+    link.zSetSurfaceParameter(22, 4, 0)
+    link.zSetSurfaceParameter(22, 5, 0)
+
     link.zSetSurfaceParameter(24, 3, 0) #3 = x-tilt, 4=y-tilt
     link.zSetSurfaceParameter(24, 4, 0)
     link.zSetSurfaceParameter(24, 5, 0)
-
-    link.zSetSurfaceParameter(26, 3, 0) #3 = x-tilt, 4=y-tilt
-    link.zSetSurfaceParameter(26, 4, 0)
-    link.zSetSurfaceParameter(26, 5, 0)
     link.zSaveFile(file)
     pyz.closeLink()
 
@@ -120,7 +120,7 @@ def config_simulation(file, conf_array):
     
     chief_surface(file, 2, chief_angle1_x, chief_angle1_y)
     chief_surface(file, 11, chief_angle2_x, chief_angle2_y)
-    chief_surface(file, 22, chief_angle3_x, chief_angle3_y)
+    chief_surface(file, 20, chief_angle3_x, chief_angle3_y)
     
     set_start_vars_fix(file)
     
@@ -169,11 +169,11 @@ def ccd_screens(file):
     ccd1x = link.zOperandValue('POPD', 10, 1, 0, 11)
     ccd1y = link.zOperandValue('POPD', 10, 1, 0, 12)
     
-    ccd2x = link.zOperandValue('POPD', 21, 1, 0, 11)
-    ccd2y = link.zOperandValue('POPD', 21, 1, 0, 12)
+    ccd2x = link.zOperandValue('POPD', 19, 1, 0, 11)
+    ccd2y = link.zOperandValue('POPD', 19, 1, 0, 12)
 
-    ccd3x = link.zOperandValue('POPD', 34, 1, 0, 11)
-    ccd3y = link.zOperandValue('POPD', 34, 1, 0, 12)
+    ccd3x = link.zOperandValue('POPD', 28, 1, 0, 11)
+    ccd3y = link.zOperandValue('POPD', 28, 1, 0, 12)
 
     #ccd4x = link.zOperandValue('POPD', 37, 1, 0, 11)
     #ccd4y = link.zOperandValue('POPD', 37, 1, 0, 12)
@@ -225,8 +225,8 @@ def algo_facet2_var(file, var_arr):
     surface_control_xvar(file, 12, var2x)
     surface_control_yvar(file, 12, var2y)
     
-    surface_control_xvar(file, 23, var3x)
-    surface_control_yvar(file, 23, var3y)
+    surface_control_xvar(file, 21, var3x)
+    surface_control_yvar(file, 21, var3y)
     
     #surface_control_xvar(file, 30, var4x)
     #surface_control_yvar(file, 30, var4y)
@@ -241,10 +241,10 @@ def ccd_vector(file):
     arr = []
     ccd1x = link.zOperandValue('POPD', 10, 1, 0, 11)
     ccd1y = link.zOperandValue('POPD', 10, 1, 0, 12)
-    ccd2x = link.zOperandValue('POPD', 21, 1, 0, 11)
-    ccd2y = link.zOperandValue('POPD', 21, 1, 0, 12)
-    ccd3x = link.zOperandValue('POPD', 34, 1, 0, 11)
-    ccd3y = link.zOperandValue('POPD', 34, 1, 0, 12)
+    ccd2x = link.zOperandValue('POPD', 19, 1, 0, 11)
+    ccd2y = link.zOperandValue('POPD', 19, 1, 0, 12)
+    ccd3x = link.zOperandValue('POPD', 28, 1, 0, 11)
+    ccd3y = link.zOperandValue('POPD', 28, 1, 0, 12)
     arr =[ccd1x,ccd1y, ccd2x,ccd2y, ccd3x,ccd3y]
     pyz.closeLink()
     return(arr) 
@@ -256,12 +256,18 @@ beam_2y =[]
 beam_3x =[]
 beam_3y =[]
 
-c_m = np.matrix( [    [ 6.30076775e-01, -7.22161513e+01,  0.00000000e+00,  0.00000000e+00, 0.00000000e+00,  0.00000000e+00],
-                      [ 5.10489720e+01,  0.00000000e+00, 0.00000000e+00, 0.00000000e+00, 0.00000000e+00,  0.00000000e+00],
-                      [ 1.56909839e+00, -1.79841967e+02,  9.39021607e-01,  1.07625815e+02, 0.00000000e+00,  0.00000000e+00],
-                      [ 1.27128729e+02,  0.00000000e+00, -7.60797567e+01,  0.00000000e+00, 0.00000000e+00,  0.00000000e+00],
-                      [ 3.43400990e+00, -3.93588509e+02,  2.80393312e+00,  3.21372357e+02, 0.00000000e+00, -1.51095577e+02],
-                      [ 2.78224309e+02,  0.00000000e+00, -2.27175336e+02,  0.00000000e+00, -6.79556413e-13, -1.86491148e+00]])
+c_m = np.matrix( [    [ 1.59551474e-01, -3.65683610e+01  ,0.00000000e+00,  0.00000000e+00,
+   0.00000000e+00,  0.00000000e+00],
+ [ 2.58557668e+01 , 0.00000000e+00 , 0.00000000e+00,  0.00000000e+00,
+   0.00000000e+00,  0.00000000e+00],
+ [ 3.94271120e-01, -9.03648729e+01,  2.34719638e-01,  5.37965101e+01,
+   0.00000000e+00,  0.00000000e+00],
+ [ 6.38927481e+01,  0.00000000e+00 ,-3.80369801e+01,  0.00000000e+00,
+   0.00000000e+00 , 0.00000000e+00],
+ [ 8.60435601e-01 ,-1.97207327e+02,  7.00884120e-01,  1.60638964e+02,
+   0.00000000e+00 ,-7.55432689e+01],
+ [ 1.39436018e+02,  0.00000000e+00, -1.13580250e+02 , 0.00000000e+00,
+   1.06842452e+02  ,4.66164473e-01]])
 
 print(c_m)
 def algo_fix(file):
@@ -273,22 +279,115 @@ def algo_fix(file):
     print('current beam offset position:')
     print(np.transpose(curr_beam_vec))
     
+    beam1x=[]
+    beam2x=[]
+    beam3x=[]
+    beam1y=[]
+    beam2y=[]
+    beam3y=[]
+    
+    beam1x.append(curr_beam_vec.item(0))
+    beam2x.append(curr_beam_vec.item(2))
+    beam3x.append(curr_beam_vec.item(4))
+    beam1y.append(curr_beam_vec.item(1))
+    beam2y.append(curr_beam_vec.item(3))
+    beam3y.append(curr_beam_vec.item(5))    
     #extract variations 
     finv = np.linalg.inv(c_m)
     curr_var_vec = np.matmul(finv, curr_beam_vec)
+    
+    
     print('=======')
     print('current variations:')
     print(np.transpose(curr_var_vec))
 
     pyz.closeLink() 
     np.savetxt(r'C:\Users\pwfa-facet2\Desktop\slacecodes\raytracing\zemax-pred.csv',np.c_[curr_beam_vec, curr_var_vec], fmt='%.18e')
+    
+    
+    #feed initial corrections
+    surface_control_xcorr(file, 4, -0.5*curr_var_vec.item(0))
+    surface_control_xcorr(file, 13, -0.5*curr_var_vec.item(2))
+    surface_control_xcorr(file, 22, -0.5*curr_var_vec.item(4))
+    
+    surface_control_ycorr(file, 4, -0.5*curr_var_vec.item(1))
+    surface_control_ycorr(file, 13, -0.5*curr_var_vec.item(3))
+    surface_control_ycorr(file, 22, -0.5*curr_var_vec.item(5))
+    
+    status = 'not done'
+    
+    var1x=[]
+    var2x=[]
+    var3x=[]
+    
+    var1y=[]
+    var2y=[]
+    var3y=[]
+    
+    var1x.append(curr_var_vec.item(0))
+    var2x.append(curr_var_vec.item(2))
+    var3x.append(curr_var_vec.item(4))
+    
+    var1y.append(curr_var_vec.item(1))
+    var2y.append(curr_var_vec.item(3))
+    var3y.append(curr_var_vec.item(5))    
+    i =0
+    while status == 'not done':
+        print('current iteration:', i)
+        beam_mod = ccd_screens(file);
+        print('current vector:')
+        print(np.transpose(beam_mod))
+        beam1x.append(beam_mod.item(0))
+        beam2x.append(beam_mod.item(2))
+        beam3x.append(beam_mod.item(4))
+        beam1y.append(beam_mod.item(1))
+        beam2y.append(beam_mod.item(3))
+        beam3y.append(beam_mod.item(5))
+        
+        if np.abs(beam_mod.item(0)) <= .0010 and np.abs(beam_mod.item(1)) <= .0010 and \
+          np.abs(beam_mod.item(2)) <= .0010 and np.abs(beam_mod.item(3)) <= .0010 and \
+           np.abs(beam_mod.item(4)) <= .0010 and np.abs(beam_mod.item(5)) <= .0010:
+            status = "done"
+            pyz.closeLink()
+            np.savetxt('var3mir'+'.csv', list(zip(var1x, var1y,var2x, var2y,var3x, var3y,beam1x, beam1y,beam2x, beam2y,beam3x, beam3y )))
+        #get new variations
+        else:    
+            curr_vars = np.matmul(finv, beam_mod)
+            print("new variations to add:")
+            print(curr_vars)
+            n_v1x = 0.5*curr_vars.item(0) + var1x[i]
+            n_v1y = 0.5*curr_vars.item(1) + var1y[i]
+            n_v2x = 0.5*curr_vars.item(2) + var2x[i]
+            n_v2y = 0.5*curr_vars.item(3) + var2y[i]
+            n_v3x = 0.5*curr_vars.item(4) + var3x[i]
+            n_v3y = 0.5*curr_vars.item(5) + var3y[i]
+            
+            var1x.append(n_v1x)
+            var2x.append(n_v2x)
+            var3x.append(n_v3x)
+    
+            var1y.append(n_v1y)
+            var2y.append(n_v2y)
+            var3y.append(n_v3y)   
+            
+            surface_control_xcorr(file, 4, -n_v1x)
+            surface_control_xcorr(file, 13, -n_v2x)
+            surface_control_xcorr(file, 22, -n_v3x)
+    
+            surface_control_ycorr(file, 4, -n_v1y)
+            surface_control_ycorr(file, 13, -n_v2y)
+            surface_control_ycorr(file, 22, -n_v3y)
+            
+            i = i+1;
+        
+    
     return(curr_beam_vec, curr_var_vec)
     
     
 var_vec = [.5, .6, .3] #[0.0527, 0.0624, 0.0718, 0.1029]
 configuration_angles =  [0, -45,
                          0 ,45,
-                         -45,0]
+                         45,0]
 config_simulation(file, configuration_angles)
 f2=algo_facet2_var(file, var_vec)
 #move the x-axis 
