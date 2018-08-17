@@ -350,7 +350,7 @@ def algo_fix(file):
            np.abs(beam_mod.item(4)) <= .0010 and np.abs(beam_mod.item(5)) <= .0010:
             status = "done"
             pyz.closeLink()
-            np.savetxt('var3mir'+'.csv', list(zip(var1x, var1y,var2x, var2y,var3x, var3y,beam1x, beam1y,beam2x, beam2y,beam3x, beam3y )))
+            np.savetxt('var3mirlarge'+'.csv', list(zip(var1x, var1y,var2x, var2y,var3x, var3y,beam1x, beam1y,beam2x, beam2y,beam3x, beam3y )))
         #get new variations
         else:    
             curr_vars = np.matmul(finv, beam_mod)
@@ -385,7 +385,7 @@ def algo_fix(file):
     return(curr_beam_vec, curr_var_vec)
     
     
-var_vec = [.5, .6, .3] #[0.0527, 0.0624, 0.0718, 0.1029]
+var_vec = [1.5, 2.6, 6.3] #[0.0527, 0.0624, 0.0718, 0.1029]
 configuration_angles =  [0, -45,
                          0 ,45,
                          45,0]

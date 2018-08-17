@@ -148,7 +148,15 @@ def ccd_vector(file):
     ccd2y = link.zOperandValue('POPD', 19, 1, 0, 12)
     ccd3x = link.zOperandValue('POPD', 28, 1, 0, 11)
     ccd3y = link.zOperandValue('POPD', 28, 1, 0, 12)
-    arr =[ccd1x,ccd1y, ccd2x,ccd2y, ccd3x,ccd3y]
+    
+    ccd4x = link.zOperandValue('POPD', 37, 1, 0, 11)
+    ccd4y = link.zOperandValue('POPD', 37, 1, 0, 12)
+    ccd5x = link.zOperandValue('POPD', 46, 1, 0, 11)
+    ccd5y = link.zOperandValue('POPD', 46, 1, 0, 12)
+    ccd6x = link.zOperandValue('POPD', 55, 1, 0, 11)
+    ccd6y = link.zOperandValue('POPD', 55, 1, 0, 12)
+    arr =[ccd1x,ccd1y, ccd2x,ccd2y, ccd3x,ccd3y,
+          ccd4x,ccd4y, ccd5x,ccd5y, ccd6x,ccd6y]
     pyz.closeLink()
     return(arr) 
 def set_start_vars_fix(file):
@@ -205,6 +213,56 @@ def set_start_vars_fix(file):
     link.zSetSurfaceParameter(24, 3, 0) #3 = x-tilt, 4=y-tilt
     link.zSetSurfaceParameter(24, 4, 0)
     link.zSetSurfaceParameter(24, 5, 0)
+    
+#var
+    link.zSetSurfaceParameter(30, 3, 0) #3 = x-tilt, 4=y-tilt
+    link.zSetSurfaceParameter(30, 4, 0)
+    link.zSetSurfaceParameter(30, 5, 0)
+
+    link.zSetSurfaceParameter(34, 3, 0) #3 = x-tilt, 4=y-tilt
+    link.zSetSurfaceParameter(34, 4, 0)
+    link.zSetSurfaceParameter(34, 5, 0)
+#fix
+    link.zSetSurfaceParameter(31, 3, 0) #3 = x-tilt, 4=y-tilt
+    link.zSetSurfaceParameter(31, 4, 0)
+    link.zSetSurfaceParameter(31, 5, 0)
+
+    link.zSetSurfaceParameter(33, 3, 0) #3 = x-tilt, 4=y-tilt
+    link.zSetSurfaceParameter(33, 4, 0)
+    link.zSetSurfaceParameter(33, 5, 0)
+    
+#var
+    link.zSetSurfaceParameter(39, 3, 0) #3 = x-tilt, 4=y-tilt
+    link.zSetSurfaceParameter(39, 4, 0)
+    link.zSetSurfaceParameter(39, 5, 0)
+
+    link.zSetSurfaceParameter(43, 3, 0) #3 = x-tilt, 4=y-tilt
+    link.zSetSurfaceParameter(43, 4, 0)
+    link.zSetSurfaceParameter(43, 5, 0)
+#fix
+    link.zSetSurfaceParameter(40, 3, 0) #3 = x-tilt, 4=y-tilt
+    link.zSetSurfaceParameter(40, 4, 0)
+    link.zSetSurfaceParameter(40, 5, 0)
+
+    link.zSetSurfaceParameter(43, 3, 0) #3 = x-tilt, 4=y-tilt
+    link.zSetSurfaceParameter(43, 4, 0)
+    link.zSetSurfaceParameter(43, 5, 0)    
+#var
+    link.zSetSurfaceParameter(48, 3, 0) #3 = x-tilt, 4=y-tilt
+    link.zSetSurfaceParameter(48, 4, 0)
+    link.zSetSurfaceParameter(48, 5, 0)
+
+    link.zSetSurfaceParameter(52, 3, 0) #3 = x-tilt, 4=y-tilt
+    link.zSetSurfaceParameter(52, 4, 0)
+    link.zSetSurfaceParameter(52, 5, 0)
+#fix
+    link.zSetSurfaceParameter(49, 3, 0) #3 = x-tilt, 4=y-tilt
+    link.zSetSurfaceParameter(49, 4, 0)
+    link.zSetSurfaceParameter(49, 5, 0)
+
+    link.zSetSurfaceParameter(51, 3, 0) #3 = x-tilt, 4=y-tilt
+    link.zSetSurfaceParameter(51, 4, 0)
+    link.zSetSurfaceParameter(51, 5, 0)   
     link.zSaveFile(file)
     pyz.closeLink()
     
@@ -235,10 +293,24 @@ def config_simulation(file, conf_array):
     
     chief_angle3_x = conf_array[4]
     chief_angle3_y = conf_array[5]
+
+    chief_angle4_x = conf_array[6]
+    chief_angle4_y = conf_array[7]
+    
+    chief_angle5_x = conf_array[8]
+    chief_angle5_y = conf_array[9]
+    
+    chief_angle6_x = conf_array[10]
+    chief_angle6_y = conf_array[11]
     
     chief_surface(file, 2, chief_angle1_x, chief_angle1_y)
     chief_surface(file, 11, chief_angle2_x, chief_angle2_y)
-    chief_surface(file, 22, chief_angle3_x, chief_angle3_y)
+    chief_surface(file, 20, chief_angle3_x, chief_angle3_y)
+    
+    chief_surface(file, 29, chief_angle4_x, chief_angle4_y)
+    chief_surface(file, 38, chief_angle5_x, chief_angle5_y)
+    chief_surface(file, 47, chief_angle6_x, chief_angle6_y)
+    
     
     set_start_vars_fix(file)
     
@@ -246,12 +318,12 @@ def config_simulation(file, conf_array):
     pyz.closeLink()
     print('config set for testing!') 
 #execute variations 
-configuration_angles = [0, -45, 0, 45, 45, 0];
+configuration_angles = [0, -45, 0, 45, 45, 0, -45,0,0,45,45,0];
 config_simulation(file, configuration_angles)
 
 #var_arr= [.5, .45,.3]
 #algo_facet2_var(file, var_arr)
-surface_control_xcorr(file, 3, 1)
+surface_control_xvar(file, 3, 1)
 vec_1x = ccd_vector(file)
 print('vec1x:')
 print(vec_1x)
@@ -260,7 +332,7 @@ t = ccd_vector(file)
 print(t)
 print('done with mirror 1x, back to no mis-al')
 ################## mirror 1-y
-surface_control_ycorr(file, 3, 1)
+surface_control_yvar(file, 3, 1)
 vec_1y = ccd_vector(file)
 print('vec1y:')
 print(vec_1y)
@@ -272,7 +344,7 @@ print('done with mirror 1y, back to no mis-al')
 
 #var_arr= [.5, .45,.3]
 #algo_facet2_var(file, var_arr)
-surface_control_xcorr(file, 12, 1)
+surface_control_xvar(file, 12, 1)
 vec_2x = ccd_vector(file)
 print('vec2x:')
 print(vec_2x)
@@ -281,7 +353,7 @@ t = ccd_vector(file)
 print(t)
 print('done with mirror 2x, back to no mis-al')
 ################## mirror 1-y
-surface_control_ycorr(file, 12, 1)
+surface_control_yvar(file, 12, 1)
 vec_2y = ccd_vector(file)
 print('vec2y:')
 print(vec_2y)
@@ -295,7 +367,7 @@ print('done with mirror 2y, back to no mis-al')
 
 #var_arr= [.5, .45,.3]
 #algo_facet2_var(file, var_arr)
-surface_control_xcorr(file, 23, 1)
+surface_control_xvar(file, 21, 1)
 vec_3x = ccd_vector(file)
 print('vec3x:')
 print(vec_3x)
@@ -304,7 +376,7 @@ t = ccd_vector(file)
 print(t)
 print('done with mirror 3x, back to no mis-al')
 ################## mirror 1-y
-surface_control_ycorr(file, 23, 1)
+surface_control_yvar(file, 21, 1)
 vec_3y = ccd_vector(file)
 print('vec3y:')
 print(vec_3y)
@@ -314,15 +386,85 @@ print(t)
 print('done with mirror 3y, back to no mis-al')
 ################## mirror 2-x
 
+###################
+###############3####
+
+#var_arr= [.5, .45,.3]
+#algo_facet2_var(file, var_arr)
+surface_control_xvar(file, 30, 1)
+vec_4x = ccd_vector(file)
+print('vec4x:')
+print(vec_4x)
+config_simulation(file, configuration_angles)
+t = ccd_vector(file)
+print(t)
+print('done with mirror 1x, back to no mis-al')
+################## mirror 1-y
+surface_control_yvar(file, 30, 1)
+vec_4y = ccd_vector(file)
+print('vec4y:')
+print(vec_4y)
+config_simulation(file, configuration_angles)
+t = ccd_vector(file)
+print(t)
+print('done with mirror 4y, back to no mis-al')
+################## mirror 2-x
+
+#var_arr= [.5, .45,.3]
+#algo_facet2_var(file, var_arr)
+surface_control_xvar(file, 39, 1)
+vec_5x = ccd_vector(file)
+print('vec5x:')
+print(vec_5x)
+config_simulation(file, configuration_angles)
+t = ccd_vector(file)
+print(t)
+print('done with mirror 5x, back to no mis-al')
+################## mirror 1-y
+surface_control_yvar(file, 39, 1)
+vec_5y = ccd_vector(file)
+print('vec5y:')
+print(vec_5y)
+config_simulation(file, configuration_angles)
+t = ccd_vector(file)
+print(t)
+print('done with mirror 5y, back to no mis-al')
+################## mirror 2-x
+
+
+
+#var_arr= [.5, .45,.3]
+#algo_facet2_var(file, var_arr)
+surface_control_xvar(file, 48, 1)
+vec_6x = ccd_vector(file)
+print('vec6x:')
+print(vec_6x)
+config_simulation(file, configuration_angles)
+t = ccd_vector(file)
+print(t)
+print('done with mirror 3x, back to no mis-al')
+################## mirror 1-y
+surface_control_yvar(file, 48, 1)
+vec_6y = ccd_vector(file)
+print('vec6y:')
+print(vec_6y)
+config_simulation(file, configuration_angles)
+t = ccd_vector(file)
+print(t)
+print('done with mirror 3y, back to no mis-al')
+################## mirror 2-x
+
+
+
 C_m = np.bmat([ [vec_1x], [vec_1y], [vec_2x], [vec_2y], [vec_3x], [vec_3y]])
 
-c_m = np.column_stack(( vec_1x, vec_1y,vec_2x, vec_2y,vec_3x, vec_3y ))
+c_m = np.column_stack(( vec_1x, vec_1y,vec_2x, vec_2y,vec_3x, vec_3y,vec_4x, vec_4y, vec_5x, vec_5y, vec_6x, vec_6y ))
 
 print(c_m)
 
 
-np.savetxt(r'C:\Users\pwfa-facet2\Desktop\slacecodes\raytracing\zemaxcam.csv', \
-               list(zip(vec_1x, vec_1y, vec_2x, vec_2y, vec_3x, vec_3y)))
+np.savetxt(r'C:\Users\pwfa-facet2\Desktop\slacecodes\raytracing\facetzemaxcam.csv', \
+               list(zip(vec_1x, vec_1y, vec_2x, vec_2y, vec_3x, vec_3y,vec_4x, vec_4y, vec_5x, vec_5y, vec_6x, vec_6y)))
 
 
     
