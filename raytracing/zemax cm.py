@@ -394,21 +394,21 @@ def algo_fix(file):
     
     #feed initial corrections
     
-    surface_control_xcorr(file, 4, -1*curr_var_vec.item(0))
-    surface_control_xcorr(file, 13, -1*curr_var_vec.item(2))
-    surface_control_xcorr(file, 22, -1*curr_var_vec.item(4))
+    surface_control_xcorr(file, 4, -0.5*curr_var_vec.item(0))
+    surface_control_xcorr(file, 13, 0.5*curr_var_vec.item(2))
+    surface_control_xcorr(file, 22, -0.5*curr_var_vec.item(4))
     
-    surface_control_ycorr(file, 4, -1*curr_var_vec.item(1))
-    surface_control_ycorr(file, 13, -1*curr_var_vec.item(3))
-    surface_control_ycorr(file, 22, -1*curr_var_vec.item(5))
+    surface_control_ycorr(file, 4, -0.5*curr_var_vec.item(1))
+    surface_control_ycorr(file, 13, -0.5*curr_var_vec.item(3))
+    surface_control_ycorr(file, 22, -0.5*curr_var_vec.item(5))
     
-    surface_control_xcorr(file, 31, -1*curr_var_vec.item(6))
-    surface_control_xcorr(file, 40, -1*curr_var_vec.item(8))
-    surface_control_xcorr(file, 49, -1*curr_var_vec.item(10))
+    surface_control_xcorr(file, 31, -0.5*curr_var_vec.item(6))
+    surface_control_xcorr(file, 40, -0.5*curr_var_vec.item(8))
+    surface_control_xcorr(file, 49, -0.5*curr_var_vec.item(10))
     
-    surface_control_ycorr(file, 31, -1*curr_var_vec.item(7))
-    surface_control_ycorr(file, 40, -1*curr_var_vec.item(9))
-    surface_control_ycorr(file, 49, -1*curr_var_vec.item(11))
+    surface_control_ycorr(file, 31, -0.5*curr_var_vec.item(7))
+    surface_control_ycorr(file, 40, -0.5*curr_var_vec.item(9))
+    surface_control_ycorr(file, 49, -0.5*curr_var_vec.item(11))
  
     status = 'not done'
     
@@ -477,28 +477,31 @@ def algo_fix(file):
            
             status = "done"
             pyz.closeLink()
-            np.savetxt('var3mirlarge'+'.csv', list(zip(var1x, var1y,var2x, var2y,var3x, var3y, \
+            np.savetxt('var3mirlow'+'.csv', list(zip(var1x, var1y,var2x, var2y,var3x, var3y, \
                                                        var4x, var4y,var5x, var5y,var6x, var6y, \
                                                        beam1x, beam1y,beam2x, beam2y,beam3x, beam3y, \
                                                        beam4x, beam4y,beam5x, beam5y,beam6x, beam6y)))
         #get new variations
+        elif i == 10:
+            status = "done"
+            pyz.closeLink()
         else:    
             curr_vars = np.matmul(finv, beam_mod)
             print("new variations to add:")
             print(curr_vars)
-            n_v1x = 1*curr_vars.item(0) + var1x[i]
-            n_v1y = 1*curr_vars.item(1) + var1y[i]
-            n_v2x = 1*curr_vars.item(2) + var2x[i]
-            n_v2y = 1*curr_vars.item(3) + var2y[i]
-            n_v3x = 1*curr_vars.item(4) + var3x[i]
-            n_v3y = 1*curr_vars.item(5) + var3y[i]
+            n_v1x = curr_vars.item(0) + var1x[i]
+            n_v1y = curr_vars.item(1) + var1y[i]
+            n_v2x = curr_vars.item(2) + var2x[i]
+            n_v2y = curr_vars.item(3) + var2y[i]
+            n_v3x = curr_vars.item(4) + var3x[i]
+            n_v3y = curr_vars.item(5) + var3y[i]
             
-            n_v4x = 1*curr_vars.item(6) + var4x[i]
-            n_v4y = 1*curr_vars.item(7) + var4y[i]
-            n_v5x = 1*curr_vars.item(8) + var5x[i]
-            n_v5y = 1*curr_vars.item(9) + var5y[i]
-            n_v6x = 1*curr_vars.item(10) + var6x[i]
-            n_v6y = 1*curr_vars.item(11) + var6y[i]            
+            n_v4x = curr_vars.item(6) + var4x[i]
+            n_v4y = curr_vars.item(7) + var4y[i]
+            n_v5x = curr_vars.item(8) + var5x[i]
+            n_v5y = curr_vars.item(9) + var5y[i]
+            n_v6x = curr_vars.item(10) + var6x[i]
+            n_v6y = curr_vars.item(11) + var6y[i]            
             
             var1x.append(n_v1x)
             var2x.append(n_v2x)
@@ -539,7 +542,7 @@ def algo_fix(file):
     return(curr_beam_vec, curr_var_vec)
     
     
-var_vec = [1.5, 2.6, 6.3, 1.5, 2.6, 6.3]
+var_vec = [1.5/10, 2.6/10, 6.3/10, 1.5/10, 2.6/10, 6.3/10]
 configuration_angles =  [0, -45,
                          0 ,45,
                          45,0,
