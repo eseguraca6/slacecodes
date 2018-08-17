@@ -175,6 +175,15 @@ def ccd_screens(file):
     ccd3x = link.zOperandValue('POPD', 28, 1, 0, 11)
     ccd3y = link.zOperandValue('POPD', 28, 1, 0, 12)
 
+    ccd4x = link.zOperandValue('POPD', 37, 1, 0, 11)
+    ccd4y = link.zOperandValue('POPD', 37, 1, 0, 12)
+    
+    ccd5x = link.zOperandValue('POPD', 46, 1, 0, 11)
+    ccd5y = link.zOperandValue('POPD', 46, 1, 0, 12)
+
+    ccd6x = link.zOperandValue('POPD', 55, 1, 0, 11)
+    ccd6y = link.zOperandValue('POPD', 55, 1, 0, 12)
+
     #ccd4x = link.zOperandValue('POPD', 37, 1, 0, 11)
     #ccd4y = link.zOperandValue('POPD', 37, 1, 0, 12)
 
@@ -182,7 +191,11 @@ def ccd_screens(file):
     
     beam_pos_vec = np.matrix([ [ccd1x], [ccd1y],
                               [ccd2x], [ccd2y],
-                              [ccd3x], [ccd3y]])
+                              [ccd3x], [ccd3y],
+                              [ccd4x], [ccd4y],
+                              [ccd5x], [ccd5y],
+                              [ccd6x], [ccd6y]
+                              ])
 
     pyz.closeLink()
     return(beam_pos_vec)
@@ -201,21 +214,29 @@ def algo_facet2_var(file, var_arr):
     l_var = -var_arr[2]
     var3x = np.random.uniform(l_var, h_var)
     var3y = np.random.uniform(l_var, h_var)
-    #h_var = var_arr[3]
-    #var4x = np.random.uniform(l_var, h_var)
-    #var4y = np.random.uniform(l_var, h_var)
-
+    h_var = var_arr[3]
+    var4x = np.random.uniform(l_var, h_var)
+    var4y = np.random.uniform(l_var, h_var)
+    h_var = var_arr[4]
+    var5x = np.random.uniform(l_var, h_var)
+    var5y = np.random.uniform(l_var, h_var)
+    h_var = var_arr[5]
+    var6x = np.random.uniform(l_var, h_var)
+    var6y = np.random.uniform(l_var, h_var)
     vec = np.matrix([ 
             [var1x],
             [var1y],
             [var2x],
             [var2y],
             [var3x],
-            [var3y]])
-    """
+            [var3y],
             [var4x],
-            [var4y]])
-    """
+            [var4y],
+            [var5x],
+            [var5y],
+            [var6x],
+            [var6y]])
+
     print('input variations:')
     print(np.transpose(vec))
     #var M1
@@ -228,8 +249,15 @@ def algo_facet2_var(file, var_arr):
     surface_control_xvar(file, 21, var3x)
     surface_control_yvar(file, 21, var3y)
     
-    #surface_control_xvar(file, 30, var4x)
-    #surface_control_yvar(file, 30, var4y)
+    surface_control_xvar(file, 30, var4x)
+    surface_control_yvar(file, 30, var4y)
+    
+    surface_control_xvar(file, 39, var5x)
+    surface_control_yvar(file, 39, var5y)
+    
+    surface_control_xvar(file, 48, var6x)
+    surface_control_yvar(file, 48, var6y)
+        
     print('variations finished')
     print('======')
     pyz.closeLink()
@@ -255,20 +283,64 @@ beam_2x =[]
 beam_2y =[]
 beam_3x =[]
 beam_3y =[]
+beam_4x =[]
+beam_4y =[]
+beam_5x =[]
+beam_5y =[]
+beam_6x =[]
+beam_6y =[]
 
-c_m = np.matrix( [    [ 1.59551474e-01, -3.65683610e+01  ,0.00000000e+00,  0.00000000e+00,
-   0.00000000e+00,  0.00000000e+00],
- [ 2.58557668e+01 , 0.00000000e+00 , 0.00000000e+00,  0.00000000e+00,
-   0.00000000e+00,  0.00000000e+00],
- [ 3.94271120e-01, -9.03648729e+01,  2.34719638e-01,  5.37965101e+01,
-   0.00000000e+00,  0.00000000e+00],
- [ 6.38927481e+01,  0.00000000e+00 ,-3.80369801e+01,  0.00000000e+00,
-   0.00000000e+00 , 0.00000000e+00],
- [ 8.60435601e-01 ,-1.97207327e+02,  7.00884120e-01,  1.60638964e+02,
-   0.00000000e+00 ,-7.55432689e+01],
- [ 1.39436018e+02,  0.00000000e+00, -1.13580250e+02 , 0.00000000e+00,
-   1.06842452e+02  ,4.66164473e-01]])
 
+
+c_m =np.matrix([
+ [ 6.38303116e-01, -7.31590121e+01,  0.00000000e+00 , 0.00000000e+00,
+   0.00000000e+00,  0.00000000e+00 , 0.00000000e+00,  0.00000000e+00,
+   0.00000000e+00,  0.00000000e+00 , 0.00000000e+00,  0.00000000e+00],
+ 
+  [ 5.17154721e+01,  0.00000000e+00 , 0.00000000e+00,  0.00000000e+00,
+   0.00000000e+00,  0.00000000e+00 ,0.00000000e+00 , 0.00000000e+00,
+   0.00000000e+00,  0.00000000e+00  ,0.00000000e+00,  0.00000000e+00],
+ 
+  [ 1.57732472e+00, -1.80784827e+02  ,9.39021577e-01 , 1.07625812e+02,
+   0.00000000e+00,  0.00000000e+00  ,0.00000000e+00 , 0.00000000e+00,
+   0.00000000e+00,  0.00000000e+00  ,0.00000000e+00 , 0.00000000e+00],
+ 
+  [ 1.27795229e+02,  0.00000000e+00, -7.60797542e+01 , 0.00000000e+00,
+   0.00000000e+00,  0.00000000e+00,  0.00000000e+00 , 0.00000000e+00,
+   0.00000000e+00,  0.00000000e+00,  0.00000000e+00 , 0.00000000e+00],
+ 
+  [ 3.44226670e+00, -3.94534861e+02,  2.80396355e+00 , 3.21375845e+02,
+   0.00000000e+00, -1.51098045e+02,  0.00000000e+00 , 0.00000000e+00,
+   0.00000000e+00,  0.00000000e+00,  0.00000000e+00 , 0.00000000e+00],
+ 
+  [ 2.78893277e+02,  0.00000000e+00, -2.27177802e+02 , 0.00000000e+00,
+   2.13750030e+02,  1.86494194e+00,  0.00000000e+00 , 0.00000000e+00,
+   0.00000000e+00,  0.00000000e+00,  0.00000000e+00 , 0.00000000e+00],
+ 
+  [ 4.17166893e+00, -4.78135183e+02,  3.53336578e+00 , 4.04976168e+02,
+   0.00000000e+00, -2.10194389e+02,  0.00000000e+00 , 5.90963438e+01,
+   0.00000000e+00,  0.00000000e+00 , 0.00000000e+00 , 0.00000000e+00],
+ 
+  [ 3.37989621e+02,  0.00000000e+00 ,-2.86274146e+02 , 0.00000000e+00,
+   2.97350353e+02,  2.59434417e+00 ,-8.36003222e+01 , 7.29402224e-01,
+   0.00000000e+00,  0.00000000e+00,  0.00000000e+00 , 0.00000000e+00],
+ 
+  [ 7.74808588e+00, -8.88045655e+02,  7.10978274e+00 , 8.14886640e+02,
+   0.00000000e+00, -4.99956552e+02 , 0.00000000e+00 , 3.48858507e+02,
+  -3.57641693e+00, -4.09910469e+02 , 0.00000000e+00 , 0.00000000e+00],
+ 
+  [ 6.27751784e+02,  0.00000000e+00 ,-5.76036309e+02 , 0.00000000e+00,
+   7.07260825e+02,  6.17076113e+00 ,-4.93510794e+02 , 4.30581918e+00,
+   2.89762161e+02,  0.00000000e+00  ,0.00000000e+00 , 0.00000000e+00],
+ 
+  [ 8.66477447e+00, -9.93111775e+02  ,8.02647133e+00  ,9.19952759e+02,
+   0.00000000e+00, -5.74226882e+02  ,0.00000000e+00  ,4.23128837e+02,
+  -4.49310552e+00, -5.14976588e+02 , 0.00000000e+00  ,7.42703298e+01],
+ 
+  [ 7.02022114e+02,  0.00000000e+00 ,-6.50306639e+02  ,0.00000000e+00,
+   8.12326944e+02,  7.08744972e+00 ,-5.98576914e+02  ,5.22250777e+00,
+   3.64032491e+02,  0.00000000e+00 ,-1.05066119e+02 ,-9.16688585e-01]
+  ])
 print(c_m)
 def algo_fix(file):
     link=pyz.createLink()
@@ -286,12 +358,28 @@ def algo_fix(file):
     beam2y=[]
     beam3y=[]
     
+    beam4x=[]
+    beam4y=[]
+    beam5x=[]
+    beam5y=[]
+    beam6x=[]
+    beam6y=[]
+    
     beam1x.append(curr_beam_vec.item(0))
     beam2x.append(curr_beam_vec.item(2))
     beam3x.append(curr_beam_vec.item(4))
+    
     beam1y.append(curr_beam_vec.item(1))
     beam2y.append(curr_beam_vec.item(3))
     beam3y.append(curr_beam_vec.item(5))    
+    
+    beam4x.append(curr_beam_vec.item(6))
+    beam5x.append(curr_beam_vec.item(8))
+    beam6x.append(curr_beam_vec.item(10))
+    
+    beam4y.append(curr_beam_vec.item(7))
+    beam5y.append(curr_beam_vec.item(9))
+    beam6y.append(curr_beam_vec.item(11))    
     #extract variations 
     finv = np.linalg.inv(c_m)
     curr_var_vec = np.matmul(finv, curr_beam_vec)
@@ -325,18 +413,35 @@ def algo_fix(file):
     var2y=[]
     var3y=[]
     
-    var1x.append(0.5*curr_var_vec.item(0))
-    var2x.append(0.5*curr_var_vec.item(2))
-    var3x.append(0.5*curr_var_vec.item(4))
+    var4x=[]
+    var5x=[]
+    var6x=[]
     
-    var1y.append(0.5*curr_var_vec.item(1))
-    var2y.append(0.5*curr_var_vec.item(3))
-    var3y.append(0.5*curr_var_vec.item(5))    
+    var4y=[]
+    var5y=[]
+    var6y=[]
+    
+    var1x.append(1*curr_var_vec.item(0))
+    var2x.append(1*curr_var_vec.item(2))
+    var3x.append(1*curr_var_vec.item(4))
+    
+    var1y.append(1*curr_var_vec.item(1))
+    var2y.append(1*curr_var_vec.item(3))
+    var3y.append(1*curr_var_vec.item(5))   
+    
+    var4x.append(1*curr_var_vec.item(6))
+    var5x.append(1*curr_var_vec.item(8))
+    var6x.append(1*curr_var_vec.item(10))
+    
+    var4y.append(1*curr_var_vec.item(7))
+    var5y.append(1*curr_var_vec.item(9))
+    var6y.append(1*curr_var_vec.item(11))      
     i =0
     while status == 'not done':
         print('current iteration:', i)
         beam_mod = ccd_screens(file);
         print('current vector:')
+        
         print(np.transpose(beam_mod))
         beam1x.append(beam_mod.item(0))
         beam2x.append(beam_mod.item(2))
@@ -345,9 +450,20 @@ def algo_fix(file):
         beam2y.append(beam_mod.item(3))
         beam3y.append(beam_mod.item(5))
         
+        beam4x.append(beam_mod.item(6))
+        beam5x.append(beam_mod.item(8))
+        beam6x.append(beam_mod.item(10))
+        
+        beam4y.append(beam_mod.item(7))
+        beam5y.append(beam_mod.item(9))
+        beam6y.append(beam_mod.item(11))        
         if np.abs(beam_mod.item(0)) <= .0010 and np.abs(beam_mod.item(1)) <= .0010 and \
           np.abs(beam_mod.item(2)) <= .0010 and np.abs(beam_mod.item(3)) <= .0010 and \
-           np.abs(beam_mod.item(4)) <= .0010 and np.abs(beam_mod.item(5)) <= .0010:
+           np.abs(beam_mod.item(4)) <= .0010 and np.abs(beam_mod.item(5)) <= .0010 and \
+           np.abs(beam_mod.item(6)) <= .0010 and np.abs(beam_mod.item(7)) <= .0010 and \
+          np.abs(beam_mod.item(8)) <= .0010 and np.abs(beam_mod.item(9)) <= .0010 and \
+           np.abs(beam_mod.item(10)) <= .0010 and np.abs(beam_mod.item(11)) <= .0010:
+           
             status = "done"
             pyz.closeLink()
             np.savetxt('var3mirlarge'+'.csv', list(zip(var1x, var1y,var2x, var2y,var3x, var3y,beam1x, beam1y,beam2x, beam2y,beam3x, beam3y )))
@@ -356,12 +472,19 @@ def algo_fix(file):
             curr_vars = np.matmul(finv, beam_mod)
             print("new variations to add:")
             print(curr_vars)
-            n_v1x = 0.5*curr_vars.item(0) + var1x[i]
-            n_v1y = 0.5*curr_vars.item(1) + var1y[i]
-            n_v2x = 0.5*curr_vars.item(2) + var2x[i]
-            n_v2y = 0.5*curr_vars.item(3) + var2y[i]
-            n_v3x = 0.5*curr_vars.item(4) + var3x[i]
-            n_v3y = 0.5*curr_vars.item(5) + var3y[i]
+            n_v1x = 1*curr_vars.item(0) + var1x[i]
+            n_v1y = 1*curr_vars.item(1) + var1y[i]
+            n_v2x = 1*curr_vars.item(2) + var2x[i]
+            n_v2y = 1*curr_vars.item(3) + var2y[i]
+            n_v3x = 1*curr_vars.item(4) + var3x[i]
+            n_v3y = 1*curr_vars.item(5) + var3y[i]
+            
+            n_v4x = 1*curr_vars.item(6) + var4x[i]
+            n_v4y = 1*curr_vars.item(7) + var4y[i]
+            n_v5x = 1*curr_vars.item(8) + var5x[i]
+            n_v5y = 1*curr_vars.item(9) + var5y[i]
+            n_v6x = 1*curr_vars.item(10) + var6x[i]
+            n_v6y = 1*curr_vars.item(11) + var6y[i]            
             
             var1x.append(n_v1x)
             var2x.append(n_v2x)
@@ -369,7 +492,15 @@ def algo_fix(file):
     
             var1y.append(n_v1y)
             var2y.append(n_v2y)
-            var3y.append(n_v3y)   
+            var3y.append(n_v3y)  
+            
+            var4x.append(n_v4x)
+            var5x.append(n_v5x)
+            var6x.append(n_v6x)
+    
+            var4y.append(n_v4y)
+            var5y.append(n_v5y)
+            var6y.append(n_v6y)  
             
             surface_control_xcorr(file, 4, -n_v1x)
             surface_control_xcorr(file, 13, -n_v2x)
@@ -379,15 +510,27 @@ def algo_fix(file):
             surface_control_ycorr(file, 13, -n_v2y)
             surface_control_ycorr(file, 22, -n_v3y)
             
+            surface_control_xcorr(file, 31, -n_v4x)
+            surface_control_xcorr(file, 40, -n_v5x)
+            surface_control_xcorr(file, 49, -n_v6x)
+    
+            surface_control_ycorr(file, 31, -n_v4y)
+            surface_control_ycorr(file, 40, -n_v5y)
+            surface_control_ycorr(file, 49, -n_v6y)
+            
+            
             i = i+1;
         
     
     return(curr_beam_vec, curr_var_vec)
     
     
-var_vec = [1.5, 2.6, 6.3] #[0.0527, 0.0624, 0.0718, 0.1029]
+var_vec = [1.5, 2.6, 6.3, 1.5, 2.6, 6.3]
 configuration_angles =  [0, -45,
                          0 ,45,
+                         45,0,
+                         -45,0,
+                         0,45,
                          45,0]
 config_simulation(file, configuration_angles)
 f2=algo_facet2_var(file, var_vec)
