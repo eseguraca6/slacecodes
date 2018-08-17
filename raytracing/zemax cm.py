@@ -292,56 +292,55 @@ beam_6y =[]
 
 
 
-c_m =np.matrix([
- [ 6.38303116e-01, -7.31590121e+01,  0.00000000e+00 , 0.00000000e+00,
-   0.00000000e+00,  0.00000000e+00 , 0.00000000e+00,  0.00000000e+00,
-   0.00000000e+00,  0.00000000e+00 , 0.00000000e+00,  0.00000000e+00],
- 
-  [ 5.17154721e+01,  0.00000000e+00 , 0.00000000e+00,  0.00000000e+00,
-   0.00000000e+00,  0.00000000e+00 ,0.00000000e+00 , 0.00000000e+00,
-   0.00000000e+00,  0.00000000e+00  ,0.00000000e+00,  0.00000000e+00],
- 
-  [ 1.57732472e+00, -1.80784827e+02  ,9.39021577e-01 , 1.07625812e+02,
-   0.00000000e+00,  0.00000000e+00  ,0.00000000e+00 , 0.00000000e+00,
-   0.00000000e+00,  0.00000000e+00  ,0.00000000e+00 , 0.00000000e+00],
- 
-  [ 1.27795229e+02,  0.00000000e+00, -7.60797542e+01 , 0.00000000e+00,
-   0.00000000e+00,  0.00000000e+00,  0.00000000e+00 , 0.00000000e+00,
-   0.00000000e+00,  0.00000000e+00,  0.00000000e+00 , 0.00000000e+00],
- 
-  [ 3.44226670e+00, -3.94534861e+02,  2.80396355e+00 , 3.21375845e+02,
-   0.00000000e+00, -1.51098045e+02,  0.00000000e+00 , 0.00000000e+00,
-   0.00000000e+00,  0.00000000e+00,  0.00000000e+00 , 0.00000000e+00],
- 
-  [ 2.78893277e+02,  0.00000000e+00, -2.27177802e+02 , 0.00000000e+00,
-   2.13750030e+02,  1.86494194e+00,  0.00000000e+00 , 0.00000000e+00,
-   0.00000000e+00,  0.00000000e+00,  0.00000000e+00 , 0.00000000e+00],
- 
-  [ 4.17166893e+00, -4.78135183e+02,  3.53336578e+00 , 4.04976168e+02,
-   0.00000000e+00, -2.10194389e+02,  0.00000000e+00 , 5.90963438e+01,
-   0.00000000e+00,  0.00000000e+00 , 0.00000000e+00 , 0.00000000e+00],
- 
-  [ 3.37989621e+02,  0.00000000e+00 ,-2.86274146e+02 , 0.00000000e+00,
-   2.97350353e+02,  2.59434417e+00 ,-8.36003222e+01 , 7.29402224e-01,
-   0.00000000e+00,  0.00000000e+00,  0.00000000e+00 , 0.00000000e+00],
- 
-  [ 7.74808588e+00, -8.88045655e+02,  7.10978274e+00 , 8.14886640e+02,
-   0.00000000e+00, -4.99956552e+02 , 0.00000000e+00 , 3.48858507e+02,
-  -3.57641693e+00, -4.09910469e+02 , 0.00000000e+00 , 0.00000000e+00],
- 
-  [ 6.27751784e+02,  0.00000000e+00 ,-5.76036309e+02 , 0.00000000e+00,
-   7.07260825e+02,  6.17076113e+00 ,-4.93510794e+02 , 4.30581918e+00,
-   2.89762161e+02,  0.00000000e+00  ,0.00000000e+00 , 0.00000000e+00],
- 
-  [ 8.66477447e+00, -9.93111775e+02  ,8.02647133e+00  ,9.19952759e+02,
-   0.00000000e+00, -5.74226882e+02  ,0.00000000e+00  ,4.23128837e+02,
-  -4.49310552e+00, -5.14976588e+02 , 0.00000000e+00  ,7.42703298e+01],
- 
-  [ 7.02022114e+02,  0.00000000e+00 ,-6.50306639e+02  ,0.00000000e+00,
-   8.12326944e+02,  7.08744972e+00 ,-5.98576914e+02  ,5.22250777e+00,
-   3.64032491e+02,  0.00000000e+00 ,-1.05066119e+02 ,-9.16688585e-01]
-  ])
-print(c_m)
+c_m =np.matrix([[ 6.38303116e-01, -7.31590121e+01,  0.00000000e+00,
+         0.00000000e+00,  0.00000000e+00,  0.00000000e+00,
+         0.00000000e+00,  0.00000000e+00,  0.00000000e+00,
+         0.00000000e+00,  0.00000000e+00,  0.00000000e+00],
+       [ 5.17154721e+01,  0.00000000e+00,  0.00000000e+00,
+         0.00000000e+00,  0.00000000e+00,  0.00000000e+00,
+         0.00000000e+00,  0.00000000e+00,  0.00000000e+00,
+         0.00000000e+00,  0.00000000e+00,  0.00000000e+00],
+       [ 1.57732472e+00, -1.80784827e+02,  9.39021577e-01,
+         1.07625812e+02,  0.00000000e+00,  0.00000000e+00,
+         0.00000000e+00,  0.00000000e+00,  0.00000000e+00,
+         0.00000000e+00,  0.00000000e+00,  0.00000000e+00],
+       [ 1.27795229e+02,  0.00000000e+00, -7.60797542e+01,
+         0.00000000e+00,  0.00000000e+00,  0.00000000e+00,
+         0.00000000e+00,  0.00000000e+00,  0.00000000e+00,
+         0.00000000e+00,  0.00000000e+00,  0.00000000e+00],
+       [ 3.44226670e+00, -3.94534861e+02,  2.80396355e+00,
+         3.21375845e+02,  0.00000000e+00, -1.51098045e+02,
+         0.00000000e+00,  0.00000000e+00,  0.00000000e+00,
+         0.00000000e+00,  0.00000000e+00,  0.00000000e+00],
+       [ 2.78893277e+02,  0.00000000e+00, -2.27177802e+02,
+         0.00000000e+00,  2.13750030e+02,  1.86494194e+00,
+         0.00000000e+00,  0.00000000e+00,  0.00000000e+00,
+         0.00000000e+00,  0.00000000e+00,  0.00000000e+00],
+       [ 4.17166893e+00, -4.78135183e+02,  3.53336578e+00,
+         4.04976168e+02,  0.00000000e+00, -2.10194389e+02,
+         0.00000000e+00,  5.90963438e+01,  0.00000000e+00,
+         0.00000000e+00,  0.00000000e+00,  0.00000000e+00],
+       [ 3.37989621e+02,  0.00000000e+00, -2.86274146e+02,
+         0.00000000e+00,  2.97350353e+02,  2.59434417e+00,
+        -8.36003222e+01,  7.29402224e-01,  0.00000000e+00,
+         0.00000000e+00,  0.00000000e+00,  0.00000000e+00],
+       [ 7.74808588e+00, -8.88045655e+02,  7.10978274e+00,
+         8.14886640e+02,  0.00000000e+00, -4.99956552e+02,
+         0.00000000e+00,  3.48858507e+02, -3.57641693e+00,
+        -4.09910469e+02,  0.00000000e+00,  0.00000000e+00],
+       [ 6.27751784e+02,  0.00000000e+00, -5.76036309e+02,
+         0.00000000e+00,  7.07260825e+02,  6.17076113e+00,
+        -4.93510794e+02,  4.30581918e+00,  2.89762161e+02,
+         0.00000000e+00,  0.00000000e+00,  0.00000000e+00],
+       [ 8.66477447e+00, -9.93111775e+02,  8.02647133e+00,
+         9.19952759e+02,  0.00000000e+00, -5.74226882e+02,
+         0.00000000e+00,  4.23128837e+02, -4.49310552e+00,
+        -5.14976588e+02,  0.00000000e+00,  7.42703298e+01],
+       [ 7.02022114e+02,  0.00000000e+00, -6.50306639e+02,
+         0.00000000e+00,  8.12326944e+02,  7.08744972e+00,
+        -5.98576914e+02,  5.22250777e+00,  3.64032491e+02,
+         0.00000000e+00, -1.05066119e+02, -9.16688585e-01]])
+
 def algo_fix(file):
     link=pyz.createLink()
     link.zLoadFile(file)
@@ -394,15 +393,23 @@ def algo_fix(file):
     
     
     #feed initial corrections
-    """
-    surface_control_xcorr(file, 4, -0.5*curr_var_vec.item(0))
-    surface_control_xcorr(file, 13, -0.5*curr_var_vec.item(2))
-    surface_control_xcorr(file, 22, -0.5*curr_var_vec.item(4))
     
-    surface_control_ycorr(file, 4, -0.5*curr_var_vec.item(1))
-    surface_control_ycorr(file, 13, -0.5*curr_var_vec.item(3))
-    surface_control_ycorr(file, 22, -0.5*curr_var_vec.item(5))
-    """    
+    surface_control_xcorr(file, 4, -1*curr_var_vec.item(0))
+    surface_control_xcorr(file, 13, -1*curr_var_vec.item(2))
+    surface_control_xcorr(file, 22, -1*curr_var_vec.item(4))
+    
+    surface_control_ycorr(file, 4, -1*curr_var_vec.item(1))
+    surface_control_ycorr(file, 13, -1*curr_var_vec.item(3))
+    surface_control_ycorr(file, 22, -1*curr_var_vec.item(5))
+    
+    surface_control_xcorr(file, 31, -1*curr_var_vec.item(6))
+    surface_control_xcorr(file, 40, -1*curr_var_vec.item(8))
+    surface_control_xcorr(file, 49, -1*curr_var_vec.item(10))
+    
+    surface_control_ycorr(file, 31, -1*curr_var_vec.item(7))
+    surface_control_ycorr(file, 40, -1*curr_var_vec.item(9))
+    surface_control_ycorr(file, 49, -1*curr_var_vec.item(11))
+ 
     status = 'not done'
     
     var1x=[]
@@ -421,21 +428,23 @@ def algo_fix(file):
     var5y=[]
     var6y=[]
     
-    var1x.append(1*curr_var_vec.item(0))
-    var2x.append(1*curr_var_vec.item(2))
-    var3x.append(1*curr_var_vec.item(4))
+    var1x.append(curr_var_vec.item(0))
+    var1y.append(curr_var_vec.item(1))
     
-    var1y.append(1*curr_var_vec.item(1))
-    var2y.append(1*curr_var_vec.item(3))
-    var3y.append(1*curr_var_vec.item(5))   
+    var2x.append(curr_var_vec.item(2))
+    var2y.append(curr_var_vec.item(3))
     
-    var4x.append(1*curr_var_vec.item(6))
-    var5x.append(1*curr_var_vec.item(8))
-    var6x.append(1*curr_var_vec.item(10))
+    var3x.append(curr_var_vec.item(4))
+    var3y.append(curr_var_vec.item(5))
     
-    var4y.append(1*curr_var_vec.item(7))
-    var5y.append(1*curr_var_vec.item(9))
-    var6y.append(1*curr_var_vec.item(11))      
+    var4x.append(curr_var_vec.item(6))
+    var4y.append(curr_var_vec.item(7))
+    
+    var5x.append(curr_var_vec.item(8))
+    var5y.append(curr_var_vec.item(9))
+    
+    var6x.append(curr_var_vec.item(10))
+    var6y.append(curr_var_vec.item(11))
     i =0
     while status == 'not done':
         print('current iteration:', i)
@@ -443,9 +452,11 @@ def algo_fix(file):
         print('current vector:')
         
         print(np.transpose(beam_mod))
+        
         beam1x.append(beam_mod.item(0))
         beam2x.append(beam_mod.item(2))
         beam3x.append(beam_mod.item(4))
+        
         beam1y.append(beam_mod.item(1))
         beam2y.append(beam_mod.item(3))
         beam3y.append(beam_mod.item(5))
@@ -457,12 +468,12 @@ def algo_fix(file):
         beam4y.append(beam_mod.item(7))
         beam5y.append(beam_mod.item(9))
         beam6y.append(beam_mod.item(11))        
-        if np.abs(beam_mod.item(0)) <= .0010 and np.abs(beam_mod.item(1)) <= .0010 and \
-          np.abs(beam_mod.item(2)) <= .0010 and np.abs(beam_mod.item(3)) <= .0010 and \
-           np.abs(beam_mod.item(4)) <= .0010 and np.abs(beam_mod.item(5)) <= .0010 and \
-           np.abs(beam_mod.item(6)) <= .0010 and np.abs(beam_mod.item(7)) <= .0010 and \
-          np.abs(beam_mod.item(8)) <= .0010 and np.abs(beam_mod.item(9)) <= .0010 and \
-           np.abs(beam_mod.item(10)) <= .0010 and np.abs(beam_mod.item(11)) <= .0010:
+        if np.abs(beam_mod.item(0)) <= .0001 and np.abs(beam_mod.item(1)) <= .0001 and \
+          np.abs(beam_mod.item(2)) <= .0001 and np.abs(beam_mod.item(3)) <= .0001 and \
+           np.abs(beam_mod.item(4)) <= .0001 and np.abs(beam_mod.item(5)) <= .0001 and \
+           np.abs(beam_mod.item(6)) <= .0001 and np.abs(beam_mod.item(7)) <= .0001 and \
+          np.abs(beam_mod.item(8)) <= .0001 and np.abs(beam_mod.item(9)) <= .0001 and \
+           np.abs(beam_mod.item(10)) <= .0001 and np.abs(beam_mod.item(11)) <= .0001:
            
             status = "done"
             pyz.closeLink()
