@@ -477,7 +477,10 @@ def algo_fix(file):
            
             status = "done"
             pyz.closeLink()
-            np.savetxt('var3mirlarge'+'.csv', list(zip(var1x, var1y,var2x, var2y,var3x, var3y,beam1x, beam1y,beam2x, beam2y,beam3x, beam3y )))
+            np.savetxt('var3mirlarge'+'.csv', list(zip(var1x, var1y,var2x, var2y,var3x, var3y, \
+                                                       var4x, var4y,var5x, var5y,var6x, var6y, \
+                                                       beam1x, beam1y,beam2x, beam2y,beam3x, beam3y, \
+                                                       beam4x, beam4y,beam5x, beam5y,beam6x, beam6y)))
         #get new variations
         else:    
             curr_vars = np.matmul(finv, beam_mod)
