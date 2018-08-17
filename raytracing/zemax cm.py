@@ -341,6 +341,8 @@ c_m =np.matrix([[ 6.38303116e-01, -7.31590121e+01,  0.00000000e+00,
         -5.98576914e+02,  5.22250777e+00,  3.64032491e+02,
          0.00000000e+00, -1.05066119e+02, -9.16688585e-01]])
 
+np.savetxt('zmatrix'+'.csv', c_m)
+    
 def algo_fix(file):
     link=pyz.createLink()
     link.zLoadFile(file)
@@ -379,6 +381,39 @@ def algo_fix(file):
     beam4y.append(curr_beam_vec.item(7))
     beam5y.append(curr_beam_vec.item(9))
     beam6y.append(curr_beam_vec.item(11))    
+    
+    int1x=[]
+    int2x=[]
+    int3x=[]
+    
+    int1y=[]
+    int2y=[]
+    int3y=[]
+    
+    int4x=[]
+    int5x=[]
+    int6x=[]
+    
+    int4y=[]
+    int5y=[]
+    int6y=[]
+    
+    int1x.append(curr_beam_vec.item(0))
+    int2x.append(curr_beam_vec.item(2))
+    int3x.append(curr_beam_vec.item(4))
+    
+    int1y.append(curr_beam_vec.item(1))
+    int2y.append(curr_beam_vec.item(3))
+    int3y.append(curr_beam_vec.item(5))    
+    
+    int4x.append(curr_beam_vec.item(6))
+    int5x.append(curr_beam_vec.item(8))
+    int6x.append(curr_beam_vec.item(10))
+    
+    int4y.append(curr_beam_vec.item(7))
+    int5y.append(curr_beam_vec.item(9))
+    int6y.append(curr_beam_vec.item(11))  
+    
     #extract variations 
     finv = np.linalg.inv(c_m)
     curr_var_vec = np.matmul(finv, curr_beam_vec)
@@ -389,26 +424,26 @@ def algo_fix(file):
     print(np.transpose(curr_var_vec))
 
     pyz.closeLink() 
-    np.savetxt(r'C:\Users\pwfa-facet2\Desktop\slacecodes\raytracing\zemax-pred.csv',np.c_[curr_beam_vec, curr_var_vec], fmt='%.18e')
+    #np.savetxt(r'C:\Users\pwfa-facet2\Desktop\slacecodes\raytracing\zemax-pred.csv',np.c_[curr_beam_vec, curr_var_vec], fmt='%.18e')
     
     
     #feed initial corrections
     
-    surface_control_xcorr(file, 4, -0.5*curr_var_vec.item(0))
-    surface_control_xcorr(file, 13, 0.5*curr_var_vec.item(2))
-    surface_control_xcorr(file, 22, -0.5*curr_var_vec.item(4))
+    surface_control_xcorr(file, 4, -1*curr_var_vec.item(0))
+    surface_control_xcorr(file, 13, -1*curr_var_vec.item(2))
+    surface_control_xcorr(file, 22, -1*curr_var_vec.item(4))
     
-    surface_control_ycorr(file, 4, -0.5*curr_var_vec.item(1))
-    surface_control_ycorr(file, 13, -0.5*curr_var_vec.item(3))
-    surface_control_ycorr(file, 22, -0.5*curr_var_vec.item(5))
+    surface_control_ycorr(file, 4, -1*curr_var_vec.item(1))
+    surface_control_ycorr(file, 13, -1*curr_var_vec.item(3))
+    surface_control_ycorr(file, 22, -1*curr_var_vec.item(5))
     
-    surface_control_xcorr(file, 31, -0.5*curr_var_vec.item(6))
-    surface_control_xcorr(file, 40, -0.5*curr_var_vec.item(8))
-    surface_control_xcorr(file, 49, -0.5*curr_var_vec.item(10))
+    surface_control_xcorr(file, 31, -1*curr_var_vec.item(6))
+    surface_control_xcorr(file, 40, -1*curr_var_vec.item(8))
+    surface_control_xcorr(file, 49, -1*curr_var_vec.item(10))
     
-    surface_control_ycorr(file, 31, -0.5*curr_var_vec.item(7))
-    surface_control_ycorr(file, 40, -0.5*curr_var_vec.item(9))
-    surface_control_ycorr(file, 49, -0.5*curr_var_vec.item(11))
+    surface_control_ycorr(file, 31, -1*curr_var_vec.item(7))
+    surface_control_ycorr(file, 40, -1*curr_var_vec.item(9))
+    surface_control_ycorr(file, 49, -1*curr_var_vec.item(11))
  
     status = 'not done'
     
@@ -428,6 +463,23 @@ def algo_fix(file):
     var5y=[]
     var6y=[]
     
+    var1x=[]
+    var2x=[]
+    var3x=[]
+    
+    var1y=[]
+    var2y=[]
+    var3y=[]
+    
+    var4x=[]
+    var5x=[]
+    var6x=[]
+    
+    var4y=[]
+    var5y=[]
+    var6y=[]
+      
+
     var1x.append(curr_var_vec.item(0))
     var1y.append(curr_var_vec.item(1))
     
@@ -446,6 +498,9 @@ def algo_fix(file):
     var6x.append(curr_var_vec.item(10))
     var6y.append(curr_var_vec.item(11))
     i =0
+    
+    int_mat = np.ones((4,10))
+    
     while status == 'not done':
         print('current iteration:', i)
         beam_mod = ccd_screens(file);
@@ -467,7 +522,25 @@ def algo_fix(file):
         
         beam4y.append(beam_mod.item(7))
         beam5y.append(beam_mod.item(9))
-        beam6y.append(beam_mod.item(11))        
+        beam6y.append(beam_mod.item(11))
+
+
+        int1x.append(beam1x[i]+beam_mod.item(0))
+        int2x.append(beam2x[i]+beam_mod.item(2))
+        int3x.append(beam3x[i]+beam_mod.item(4))
+    
+        int1y.append(beam1y[i]+beam_mod.item(1))
+        int2y.append(beam2y[i]+beam_mod.item(3))
+        int3y.append(beam3y[i]+beam_mod.item(5))    
+    
+        int4x.append(beam4x[i]+beam_mod.item(6))
+        int5x.append(beam5x[i]+beam_mod.item(8))
+        int6x.append(beam6x[i]+beam_mod.item(10))
+    
+        int4y.append(beam4y[i]+beam_mod.item(7))
+        int5y.append(beam5y[i]+beam_mod.item(9))
+        int6y.append(beam6y[i]+beam_mod.item(11))
+          
         if np.abs(beam_mod.item(0)) <= .0001 and np.abs(beam_mod.item(1)) <= .0001 and \
           np.abs(beam_mod.item(2)) <= .0001 and np.abs(beam_mod.item(3)) <= .0001 and \
            np.abs(beam_mod.item(4)) <= .0001 and np.abs(beam_mod.item(5)) <= .0001 and \
@@ -477,7 +550,7 @@ def algo_fix(file):
            
             status = "done"
             pyz.closeLink()
-            np.savetxt('var3mirlow'+'.csv', list(zip(var1x, var1y,var2x, var2y,var3x, var3y, \
+            np.savetxt('var3mirlowrange'+'.csv', list(zip(var1x, var1y,var2x, var2y,var3x, var3y, \
                                                        var4x, var4y,var5x, var5y,var6x, var6y, \
                                                        beam1x, beam1y,beam2x, beam2y,beam3x, beam3y, \
                                                        beam4x, beam4y,beam5x, beam5y,beam6x, beam6y)))
@@ -487,21 +560,34 @@ def algo_fix(file):
             pyz.closeLink()
         else:    
             curr_vars = np.matmul(finv, beam_mod)
+            curr_int_comp = np.matrix([ [int1x[i+1]],[int1y[i+1]],
+                                        [int2x[i+1]],[int2y[i+1]],   
+                                        [int3x[i+1]],[int3y[i+1]],
+                                        [int4x[i+1]],[int4y[i+1]],
+                                        [int5x[i+1]],[int5y[i+1]],
+                                        [int6x[i+1]],[int6y[i+1]]
+                                        ])
+            curr_int_vars = np.matmul(finv,curr_int_comp)
+            print('integral raw:')
+            print(curr_int_vars)
+            
+            
             print("new variations to add:")
             print(curr_vars)
-            n_v1x = curr_vars.item(0) + var1x[i]
-            n_v1y = curr_vars.item(1) + var1y[i]
-            n_v2x = curr_vars.item(2) + var2x[i]
-            n_v2y = curr_vars.item(3) + var2y[i]
-            n_v3x = curr_vars.item(4) + var3x[i]
-            n_v3y = curr_vars.item(5) + var3y[i]
+            factor_p = 1
+            n_v1x = 1*(curr_vars.item(0) + factor_p*var1x[i]) #+ 1*curr_int_vars.item(0)
+            n_v1y = 1*(curr_vars.item(1) + factor_p*var1y[i])#+ 1*curr_int_vars.item(1)
+            n_v2x = 1*(curr_vars.item(2) + factor_p*var2x[i])#+ 1*curr_int_vars.item(2)
+            n_v2y = 1*(curr_vars.item(3) + factor_p*var2y[i])#+ 1*curr_int_vars.item(3)
+            n_v3x = 1*(curr_vars.item(4) +factor_p*var3x[i])#+ 1*curr_int_vars.item(4)
+            n_v3y = 1*(curr_vars.item(5) + var3y[i])#+ 1*curr_int_vars.item(5)
             
-            n_v4x = curr_vars.item(6) + var4x[i]
-            n_v4y = curr_vars.item(7) + var4y[i]
-            n_v5x = curr_vars.item(8) + var5x[i]
-            n_v5y = curr_vars.item(9) + var5y[i]
-            n_v6x = curr_vars.item(10) + var6x[i]
-            n_v6y = curr_vars.item(11) + var6y[i]            
+            n_v4x = 1*(curr_vars.item(6) + factor_p*var4x[i])#+ 1*curr_int_vars.item(6)
+            n_v4y = 1*(curr_vars.item(7) + factor_p*var4y[i])#+ 1*curr_int_vars.item(7)
+            n_v5x = 1*(curr_vars.item(8) + factor_p*var5x[i])#+ 1*curr_int_vars.item(8)
+            n_v5y = 1*(curr_vars.item(9) + factor_p*var5y[i])#+ 1*curr_int_vars.item(9)
+            n_v6x = 1*(curr_vars.item(10) +factor_p*var6x[i])#+ 1*curr_int_vars.item(10)
+            n_v6y = 1*(curr_vars.item(11) +factor_p*var6y[i])#+ 1*curr_int_vars.item(11)
             
             var1x.append(n_v1x)
             var2x.append(n_v2x)
