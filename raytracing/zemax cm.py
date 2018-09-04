@@ -55,38 +55,90 @@ def set_start_vars_fix(file):
     link.zSetSurfaceParameter(6, 5, 0)
 
 #var
-    link.zSetSurfaceParameter(12, 3, 0) #3 = x-tilt, 4=y-tilt
-    link.zSetSurfaceParameter(12, 4, 0)
-    link.zSetSurfaceParameter(12, 5, 0)
-
-    link.zSetSurfaceParameter(16, 3, 0) #3 = x-tilt, 4=y-tilt
-    link.zSetSurfaceParameter(16, 4, 0)
-    link.zSetSurfaceParameter(16, 5, 0)
-#fix
-    link.zSetSurfaceParameter(13, 3, 0) #3 = x-tilt, 4=y-tilt
-    link.zSetSurfaceParameter(13, 4, 0)
-    link.zSetSurfaceParameter(13, 5, 0)
-
     link.zSetSurfaceParameter(15, 3, 0) #3 = x-tilt, 4=y-tilt
     link.zSetSurfaceParameter(15, 4, 0)
     link.zSetSurfaceParameter(15, 5, 0)
 
-#var
-    link.zSetSurfaceParameter(21, 3, 0) #3 = x-tilt, 4=y-tilt
-    link.zSetSurfaceParameter(21, 4, 0)
-    link.zSetSurfaceParameter(21, 5, 0)
-
-    link.zSetSurfaceParameter(25, 3, 0) #3 = x-tilt, 4=y-tilt
-    link.zSetSurfaceParameter(25, 4, 0)
-    link.zSetSurfaceParameter(25, 5, 0)
+    link.zSetSurfaceParameter(19, 3, 0) #3 = x-tilt, 4=y-tilt
+    link.zSetSurfaceParameter(19, 4, 0)
+    link.zSetSurfaceParameter(19, 5, 0)
 #fix
-    link.zSetSurfaceParameter(22, 3, 0) #3 = x-tilt, 4=y-tilt
-    link.zSetSurfaceParameter(22, 4, 0)
-    link.zSetSurfaceParameter(22, 5, 0)
+    link.zSetSurfaceParameter(16, 3, 0) #3 = x-tilt, 4=y-tilt
+    link.zSetSurfaceParameter(16, 4, 0)
+    link.zSetSurfaceParameter(16, 5, 0)
 
-    link.zSetSurfaceParameter(24, 3, 0) #3 = x-tilt, 4=y-tilt
-    link.zSetSurfaceParameter(24, 4, 0)
-    link.zSetSurfaceParameter(24, 5, 0)
+    link.zSetSurfaceParameter(19, 3, 0) #3 = x-tilt, 4=y-tilt
+    link.zSetSurfaceParameter(19, 4, 0)
+    link.zSetSurfaceParameter(19, 5, 0)
+
+#var
+    link.zSetSurfaceParameter(27, 3, 0) #3 = x-tilt, 4=y-tilt
+    link.zSetSurfaceParameter(27, 4, 0)
+    link.zSetSurfaceParameter(27, 5, 0)
+
+    link.zSetSurfaceParameter(32, 3, 0) #3 = x-tilt, 4=y-tilt
+    link.zSetSurfaceParameter(32, 4, 0)
+    link.zSetSurfaceParameter(32, 5, 0)
+#fix
+    link.zSetSurfaceParameter(28, 3, 0) #3 = x-tilt, 4=y-tilt
+    link.zSetSurfaceParameter(28, 4, 0)
+    link.zSetSurfaceParameter(28, 5, 0)
+
+    link.zSetSurfaceParameter(30, 3, 0) #3 = x-tilt, 4=y-tilt
+    link.zSetSurfaceParameter(30, 4, 0)
+    link.zSetSurfaceParameter(30, 5, 0)
+    
+#var
+    link.zSetSurfaceParameter(36, 3, 0) #3 = x-tilt, 4=y-tilt
+    link.zSetSurfaceParameter(36, 4, 0)
+    link.zSetSurfaceParameter(36, 5, 0)
+
+    link.zSetSurfaceParameter(40, 3, 0) #3 = x-tilt, 4=y-tilt
+    link.zSetSurfaceParameter(40, 4, 0)
+    link.zSetSurfaceParameter(40, 5, 0)
+
+#fix
+    link.zSetSurfaceParameter(37, 3, 0) #3 = x-tilt, 4=y-tilt
+    link.zSetSurfaceParameter(37, 4, 0)
+    link.zSetSurfaceParameter(37, 5, 0)
+    
+    link.zSetSurfaceParameter(39, 3, 0) #3 = x-tilt, 4=y-tilt
+    link.zSetSurfaceParameter(39, 4, 0)
+    link.zSetSurfaceParameter(39, 5, 0)
+
+#var
+    link.zSetSurfaceParameter(48, 3, 0) #3 = x-tilt, 4=y-tilt
+    link.zSetSurfaceParameter(48, 4, 0)
+    link.zSetSurfaceParameter(48, 5, 0)
+
+    link.zSetSurfaceParameter(52, 3, 0) #3 = x-tilt, 4=y-tilt
+    link.zSetSurfaceParameter(52, 4, 0)
+    link.zSetSurfaceParameter(52, 5, 0)
+#fix
+    link.zSetSurfaceParameter(49, 3, 0) #3 = x-tilt, 4=y-tilt
+    link.zSetSurfaceParameter(49, 4, 0)
+    link.zSetSurfaceParameter(49, 5, 0)
+
+    link.zSetSurfaceParameter(51, 3, 0) #3 = x-tilt, 4=y-tilt
+    link.zSetSurfaceParameter(51, 4, 0)
+    link.zSetSurfaceParameter(51, 5, 0)
+
+#var
+    link.zSetSurfaceParameter(57, 3, 0) #3 = x-tilt, 4=y-tilt
+    link.zSetSurfaceParameter(57, 4, 0)
+    link.zSetSurfaceParameter(57, 5, 0)
+
+    link.zSetSurfaceParameter(61, 3, 0) #3 = x-tilt, 4=y-tilt
+    link.zSetSurfaceParameter(61, 4, 0)
+    link.zSetSurfaceParameter(61, 5, 0)
+#fix
+    link.zSetSurfaceParameter(58, 3, 0) #3 = x-tilt, 4=y-tilt
+    link.zSetSurfaceParameter(58, 4, 0)
+    link.zSetSurfaceParameter(58, 5, 0)
+
+    link.zSetSurfaceParameter(60, 3, 0) #3 = x-tilt, 4=y-tilt
+    link.zSetSurfaceParameter(60, 4, 0)
+    link.zSetSurfaceParameter(60, 5, 0)
     link.zSaveFile(file)
     pyz.closeLink()
 
@@ -119,8 +171,8 @@ def config_simulation(file, conf_array):
     chief_angle3_y = conf_array[5]
     
     chief_surface(file, 2, chief_angle1_x, chief_angle1_y)
-    chief_surface(file, 11, chief_angle2_x, chief_angle2_y)
-    chief_surface(file, 20, chief_angle3_x, chief_angle3_y)
+    chief_surface(file, 14, chief_angle2_x, chief_angle2_y)
+    chief_surface(file, 26, chief_angle3_x, chief_angle3_y)
     
     set_start_vars_fix(file)
     
@@ -166,23 +218,23 @@ beam_pos =[]
 def ccd_screens(file):
     link = pyz.createLink()
     link.zLoadFile(file)
-    ccd1x = link.zOperandValue('POPD', 10, 1, 0, 11)
-    ccd1y = link.zOperandValue('POPD', 10, 1, 0, 12)
+    ccd1x = link.zOperandValue('POPD', 13, 1, 0, 11)
+    ccd1y = link.zOperandValue('POPD', 13, 1, 0, 12)
     
-    ccd2x = link.zOperandValue('POPD', 19, 1, 0, 11)
-    ccd2y = link.zOperandValue('POPD', 19, 1, 0, 12)
+    ccd2x = link.zOperandValue('POPD', 25, 1, 0, 11)
+    ccd2y = link.zOperandValue('POPD', 25, 1, 0, 12)
 
-    ccd3x = link.zOperandValue('POPD', 28, 1, 0, 11)
-    ccd3y = link.zOperandValue('POPD', 28, 1, 0, 12)
+    ccd3x = link.zOperandValue('POPD', 34, 1, 0, 11)
+    ccd3y = link.zOperandValue('POPD', 34, 1, 0, 12)
 
-    ccd4x = link.zOperandValue('POPD', 37, 1, 0, 11)
-    ccd4y = link.zOperandValue('POPD', 37, 1, 0, 12)
+    ccd4x = link.zOperandValue('POPD', 46, 1, 0, 11)
+    ccd4y = link.zOperandValue('POPD', 46, 1, 0, 12)
     
-    ccd5x = link.zOperandValue('POPD', 46, 1, 0, 11)
-    ccd5y = link.zOperandValue('POPD', 46, 1, 0, 12)
+    ccd5x = link.zOperandValue('POPD', 55, 1, 0, 11)
+    ccd5y = link.zOperandValue('POPD', 55, 1, 0, 12)
 
-    ccd6x = link.zOperandValue('POPD', 55, 1, 0, 11)
-    ccd6y = link.zOperandValue('POPD', 55, 1, 0, 12)
+    ccd6x = link.zOperandValue('POPD', 67, 1, 0, 11)
+    ccd6y = link.zOperandValue('POPD', 67, 1, 0, 12)
 
     #ccd4x = link.zOperandValue('POPD', 37, 1, 0, 11)
     #ccd4y = link.zOperandValue('POPD', 37, 1, 0, 12)
@@ -243,36 +295,36 @@ def algo_facet2_var(file, var_arr):
     surface_control_xvar(file, 3, var1x)
     surface_control_yvar(file, 3, var1y)
     
-    surface_control_xvar(file, 12, var2x)
-    surface_control_yvar(file, 12, var2y)
+    surface_control_xvar(file, 15, var2x)
+    surface_control_yvar(file, 15, var2y)
     
-    surface_control_xvar(file, 21, var3x)
-    surface_control_yvar(file, 21, var3y)
+    surface_control_xvar(file, 27, var3x)
+    surface_control_yvar(file, 27, var3y)
     
-    surface_control_xvar(file, 30, var4x)
-    surface_control_yvar(file, 30, var4y)
+    surface_control_xvar(file, 36, var4x)
+    surface_control_yvar(file, 36, var4y)
     
-    surface_control_xvar(file, 39, var5x)
-    surface_control_yvar(file, 39, var5y)
+    surface_control_xvar(file, 48, var5x)
+    surface_control_yvar(file, 48, var5y)
     
-    surface_control_xvar(file, 48, var6x)
-    surface_control_yvar(file, 48, var6y)
+    surface_control_xvar(file, 57, var6x)
+    surface_control_yvar(file, 57, var6y)
         
     print('variations finished')
     print('======')
     pyz.closeLink()
-    np.savetxt(r'C:\Users\pwfa-facet2\Desktop\slacecodes\raytracing\zcam-var.csv', vec)
+    np.savetxt(r'C:\Users\pwfa-facet2\Desktop\slacecodes\raytracing\zcam-varwithlenses.csv', vec)
     return(vec)
 def ccd_vector(file):
     link=pyz.createLink()
     link.zLoadFile(file)
     arr = []
-    ccd1x = link.zOperandValue('POPD', 10, 1, 0, 11)
-    ccd1y = link.zOperandValue('POPD', 10, 1, 0, 12)
-    ccd2x = link.zOperandValue('POPD', 19, 1, 0, 11)
-    ccd2y = link.zOperandValue('POPD', 19, 1, 0, 12)
-    ccd3x = link.zOperandValue('POPD', 28, 1, 0, 11)
-    ccd3y = link.zOperandValue('POPD', 28, 1, 0, 12)
+    ccd1x = link.zOperandValue('POPD', 13, 1, 0, 11)
+    ccd1y = link.zOperandValue('POPD', 13, 1, 0, 12)
+    ccd2x = link.zOperandValue('POPD', 25, 1, 0, 11)
+    ccd2y = link.zOperandValue('POPD', 25, 1, 0, 12)
+    ccd3x = link.zOperandValue('POPD', 34, 1, 0, 11)
+    ccd3y = link.zOperandValue('POPD', 34, 1, 0, 12)
     arr =[ccd1x,ccd1y, ccd2x,ccd2y, ccd3x,ccd3y]
     pyz.closeLink()
     return(arr) 
@@ -292,54 +344,54 @@ beam_6y =[]
 
 
 
-c_m =np.matrix([[ 6.38303116e-01, -7.31590121e+01,  0.00000000e+00,
+c_m =np.matrix([[ 6.07834809e-01, -6.96633255e+01,  0.00000000e+00,
          0.00000000e+00,  0.00000000e+00,  0.00000000e+00,
          0.00000000e+00,  0.00000000e+00,  0.00000000e+00,
          0.00000000e+00,  0.00000000e+00,  0.00000000e+00],
-       [ 5.17154721e+01,  0.00000000e+00,  0.00000000e+00,
+       [ 4.92469225e+01,  0.00000000e+00,  0.00000000e+00,
          0.00000000e+00,  0.00000000e+00,  0.00000000e+00,
          0.00000000e+00,  0.00000000e+00,  0.00000000e+00,
          0.00000000e+00,  0.00000000e+00,  0.00000000e+00],
-       [ 1.57732472e+00, -1.80784827e+02,  9.39021577e-01,
-         1.07625812e+02,  0.00000000e+00,  0.00000000e+00,
+       [ 3.10661640e-01, -3.53511012e+01,  8.82415130e-01,
+         1.01131537e+02,  0.00000000e+00,  0.00000000e+00,
          0.00000000e+00,  0.00000000e+00,  0.00000000e+00,
          0.00000000e+00,  0.00000000e+00,  0.00000000e+00],
-       [ 1.27795229e+02,  0.00000000e+00, -7.60797542e+01,
+       [ 2.51698809e+01,  0.00000000e+00, -7.14934863e+01,
          0.00000000e+00,  0.00000000e+00,  0.00000000e+00,
          0.00000000e+00,  0.00000000e+00,  0.00000000e+00,
          0.00000000e+00,  0.00000000e+00,  0.00000000e+00],
-       [ 3.44226670e+00, -3.94534861e+02,  2.80396355e+00,
-         3.21375845e+02,  0.00000000e+00, -1.51098045e+02,
+       [-3.58080135e-01,  4.16968983e+01,  2.62916396e+00,
+         3.01321826e+02,  0.00000000e+00, -1.51098045e+02,
          0.00000000e+00,  0.00000000e+00,  0.00000000e+00,
          0.00000000e+00,  0.00000000e+00,  0.00000000e+00],
-       [ 2.78893277e+02,  0.00000000e+00, -2.27177802e+02,
+       [-2.90117387e+01,  0.00000000e+00, -2.13015497e+02,
          0.00000000e+00,  2.13750030e+02,  1.86494194e+00,
          0.00000000e+00,  0.00000000e+00,  0.00000000e+00,
          0.00000000e+00,  0.00000000e+00,  0.00000000e+00],
-       [ 4.17166893e+00, -4.78135183e+02,  3.53336578e+00,
-         4.04976168e+02,  0.00000000e+00, -2.10194389e+02,
-         0.00000000e+00,  5.90963438e+01,  0.00000000e+00,
+       [-5.84199395e-01,  6.77188715e+01,  3.10993563e+00,
+         3.55834384e+02,  0.00000000e+00, -1.97678482e+02,
+         0.00000000e+00,  5.61007094e+01,  0.00000000e+00,
          0.00000000e+00,  0.00000000e+00,  0.00000000e+00],
-       [ 3.37989621e+02,  0.00000000e+00, -2.86274146e+02,
-         0.00000000e+00,  2.97350353e+02,  2.59434417e+00,
-        -8.36003222e+01,  7.29402224e-01,  0.00000000e+00,
+       [-4.73319756e+01,  0.00000000e+00, -2.51967733e+02,
+         0.00000000e+00,  2.79402160e+02,  2.43986540e+00,
+        -7.93604660e+01,  6.92428323e-01,  0.00000000e+00,
          0.00000000e+00,  0.00000000e+00,  0.00000000e+00],
-       [ 7.74808588e+00, -8.88045655e+02,  7.10978274e+00,
-         8.14886640e+02,  0.00000000e+00, -4.99956552e+02,
-         0.00000000e+00,  3.48858507e+02, -3.57641693e+00,
+       [-7.72127096e-01,  8.85268220e+01,  3.76004198e-01,
+         4.04136283e+01,  0.00000000e+00, -1.06730593e+02,
+         0.00000000e+00,  2.51705443e+02, -3.57641693e+00,
         -4.09910469e+02,  0.00000000e+00,  0.00000000e+00],
-       [ 6.27751784e+02,  0.00000000e+00, -5.76036309e+02,
-         0.00000000e+00,  7.07260825e+02,  6.17076113e+00,
-        -4.93510794e+02,  4.30581918e+00,  2.89762161e+02,
+       [-6.25579232e+01,  0.00000000e+00, -3.04639506e+01,
+         0.00000000e+00,  1.49986646e+02,  1.31733246e+00,
+        -3.56002211e+02,  3.10669828e+00,  2.89762161e+02,
          0.00000000e+00,  0.00000000e+00,  0.00000000e+00],
-       [ 8.66477447e+00, -9.93111775e+02,  8.02647133e+00,
-         9.19952759e+02,  0.00000000e+00, -5.74226882e+02,
-         0.00000000e+00,  4.23128837e+02, -4.49310552e+00,
-        -5.14976588e+02,  0.00000000e+00,  7.42703298e+01],
-       [ 7.02022114e+02,  0.00000000e+00, -6.50306639e+02,
-         0.00000000e+00,  8.12326944e+02,  7.08744972e+00,
-        -5.98576914e+02,  5.22250777e+00,  3.64032491e+02,
-         0.00000000e+00, -1.05066119e+02, -9.16688585e-01]])
+       [-4.90167437e-01,  5.59997654e+01, -4.47258586e-01,
+        -5.33218959e+01,  0.00000000e+00, -3.92914981e+01,
+         0.00000000e+00,  1.91688660e+02, -2.91458963e+00,
+        -3.32482159e+02,  0.00000000e+00,  7.03393548e+01],
+       [-3.97134838e+01,  0.00000000e+00,  3.62369983e+01,
+         0.00000000e+00,  5.46823337e+01,  4.84959040e-01,
+        -2.70010378e+02,  2.36593546e+00,  2.36140754e+02,
+         0.00000000e+00, -9.94998148e+01, -8.68170153e-01]])
 
 np.savetxt('zmatrix'+'.csv', c_m)
     
@@ -430,20 +482,20 @@ def algo_fix(file):
     #feed initial corrections
     
     surface_control_xcorr(file, 4, -1*curr_var_vec.item(0))
-    surface_control_xcorr(file, 13, -1*curr_var_vec.item(2))
-    surface_control_xcorr(file, 22, -1*curr_var_vec.item(4))
+    surface_control_xcorr(file, 16, -1*curr_var_vec.item(2))
+    surface_control_xcorr(file, 28, -1*curr_var_vec.item(4))
     
     surface_control_ycorr(file, 4, -1*curr_var_vec.item(1))
-    surface_control_ycorr(file, 13, -1*curr_var_vec.item(3))
-    surface_control_ycorr(file, 22, -1*curr_var_vec.item(5))
+    surface_control_ycorr(file, 16, -1*curr_var_vec.item(3))
+    surface_control_ycorr(file, 28, -1*curr_var_vec.item(5))
     
-    surface_control_xcorr(file, 31, -1*curr_var_vec.item(6))
-    surface_control_xcorr(file, 40, -1*curr_var_vec.item(8))
-    surface_control_xcorr(file, 49, -1*curr_var_vec.item(10))
+    surface_control_xcorr(file, 37, -1*curr_var_vec.item(6))
+    surface_control_xcorr(file, 49, -1*curr_var_vec.item(8))
+    surface_control_xcorr(file, 58, -1*curr_var_vec.item(10))
     
-    surface_control_ycorr(file, 31, -1*curr_var_vec.item(7))
-    surface_control_ycorr(file, 40, -1*curr_var_vec.item(9))
-    surface_control_ycorr(file, 49, -1*curr_var_vec.item(11))
+    surface_control_ycorr(file, 37, -1*curr_var_vec.item(7))
+    surface_control_ycorr(file, 49, -1*curr_var_vec.item(9))
+    surface_control_ycorr(file, 58, -1*curr_var_vec.item(11))
  
     status = 'not done'
     
@@ -550,7 +602,7 @@ def algo_fix(file):
            
             status = "done"
             pyz.closeLink()
-            np.savetxt('var3mirlowrange'+'.csv', list(zip(var1x, var1y,var2x, var2y,var3x, var3y, \
+            np.savetxt('var3mirlowrangewithlenses'+'.csv', list(zip(var1x, var1y,var2x, var2y,var3x, var3y, \
                                                        var4x, var4y,var5x, var5y,var6x, var6y, \
                                                        beam1x, beam1y,beam2x, beam2y,beam3x, beam3y, \
                                                        beam4x, beam4y,beam5x, beam5y,beam6x, beam6y)))
@@ -606,20 +658,20 @@ def algo_fix(file):
             var6y.append(n_v6y)  
             
             surface_control_xcorr(file, 4, -n_v1x)
-            surface_control_xcorr(file, 13, -n_v2x)
-            surface_control_xcorr(file, 22, -n_v3x)
+            surface_control_xcorr(file, 16, -n_v2x)
+            surface_control_xcorr(file, 28, -n_v3x)
     
             surface_control_ycorr(file, 4, -n_v1y)
-            surface_control_ycorr(file, 13, -n_v2y)
-            surface_control_ycorr(file, 22, -n_v3y)
+            surface_control_ycorr(file, 16, -n_v2y)
+            surface_control_ycorr(file, 28, -n_v3y)
             
-            surface_control_xcorr(file, 31, -n_v4x)
-            surface_control_xcorr(file, 40, -n_v5x)
-            surface_control_xcorr(file, 49, -n_v6x)
+            surface_control_xcorr(file, 37, -n_v4x)
+            surface_control_xcorr(file, 49, -n_v5x)
+            surface_control_xcorr(file, 58, -n_v6x)
     
-            surface_control_ycorr(file, 31, -n_v4y)
-            surface_control_ycorr(file, 40, -n_v5y)
-            surface_control_ycorr(file, 49, -n_v6y)
+            surface_control_ycorr(file, 37, -n_v4y)
+            surface_control_ycorr(file, 49, -n_v5y)
+            surface_control_ycorr(file, 58, -n_v6y)
             
             
             i = i+1;

@@ -136,25 +136,25 @@ def algo_facet2_var(file, var_arr):
     print('variations finished')
     print('======')
     pyz.closeLink()
-    np.savetxt(r'C:\Users\pwfa-facet2\Desktop\slacecodes\raytracing\zcam-var.csv', vec)
+    np.savetxt(r'C:\Users\pwfa-facet2\Desktop\slacecodes\raytracing\zcam-varwithlens.csv', vec)
     return(vec)
 def ccd_vector(file):
     link=pyz.createLink()
     link.zLoadFile(file)
     arr = []
-    ccd1x = link.zOperandValue('POPD', 10, 1, 0, 11)
-    ccd1y = link.zOperandValue('POPD', 10, 1, 0, 12)
-    ccd2x = link.zOperandValue('POPD', 19, 1, 0, 11)
-    ccd2y = link.zOperandValue('POPD', 19, 1, 0, 12)
-    ccd3x = link.zOperandValue('POPD', 28, 1, 0, 11)
-    ccd3y = link.zOperandValue('POPD', 28, 1, 0, 12)
+    ccd1x = link.zOperandValue('POPD', 13, 1, 0, 11)
+    ccd1y = link.zOperandValue('POPD', 13, 1, 0, 12)
+    ccd2x = link.zOperandValue('POPD', 25, 1, 0, 11)
+    ccd2y = link.zOperandValue('POPD', 25, 1, 0, 12)
+    ccd3x = link.zOperandValue('POPD', 34, 1, 0, 11)
+    ccd3y = link.zOperandValue('POPD', 34, 1, 0, 12)
     
-    ccd4x = link.zOperandValue('POPD', 37, 1, 0, 11)
-    ccd4y = link.zOperandValue('POPD', 37, 1, 0, 12)
-    ccd5x = link.zOperandValue('POPD', 46, 1, 0, 11)
-    ccd5y = link.zOperandValue('POPD', 46, 1, 0, 12)
-    ccd6x = link.zOperandValue('POPD', 55, 1, 0, 11)
-    ccd6y = link.zOperandValue('POPD', 55, 1, 0, 12)
+    ccd4x = link.zOperandValue('POPD', 46, 1, 0, 11)
+    ccd4y = link.zOperandValue('POPD', 46, 1, 0, 12)
+    ccd5x = link.zOperandValue('POPD', 55, 1, 0, 11)
+    ccd5y = link.zOperandValue('POPD', 55, 1, 0, 12)
+    ccd6x = link.zOperandValue('POPD', 67, 1, 0, 11)
+    ccd6y = link.zOperandValue('POPD', 67, 1, 0, 12)
     arr =[ccd1x,ccd1y, ccd2x,ccd2y, ccd3x,ccd3y,
           ccd4x,ccd4y, ccd5x,ccd5y, ccd6x,ccd6y]
     pyz.closeLink()
@@ -167,30 +167,30 @@ def set_start_vars_fix(file):
     surface_control_xcorr(file, 4, 0)
     surface_control_ycorr(file, 4, 0)
     
-    surface_control_xvar(file, 12, 0)
-    surface_control_yvar(file, 12, 0)
-    surface_control_xcorr(file, 13, 0)
-    surface_control_ycorr(file, 13, 0)
+    surface_control_xvar(file, 15, 0)
+    surface_control_yvar(file, 15, 0)
+    surface_control_xcorr(file, 16, 0)
+    surface_control_ycorr(file, 16, 0)
     
-    surface_control_xvar(file, 21, 0)
-    surface_control_yvar(file, 21, 0)
-    surface_control_xcorr(file, 22, 0)
-    surface_control_ycorr(file, 22, 0)
+    surface_control_xvar(file, 27, 0)
+    surface_control_yvar(file, 27, 0)
+    surface_control_xcorr(file, 28, 0)
+    surface_control_ycorr(file, 28, 0)
     
-    surface_control_xvar(file, 30, 0)
-    surface_control_yvar(file, 30, 0)
-    surface_control_xcorr(file, 31, 0)
-    surface_control_ycorr(file, 31, 0)
-    
-    surface_control_xvar(file, 39, 0)
-    surface_control_yvar(file, 39, 0)
-    surface_control_xcorr(file, 40, 0)
-    surface_control_ycorr(file, 40, 0)
+    surface_control_xvar(file, 36, 0)
+    surface_control_yvar(file, 36, 0)
+    surface_control_xcorr(file, 37, 0)
+    surface_control_ycorr(file, 37, 0)
     
     surface_control_xvar(file, 48, 0)
     surface_control_yvar(file, 48, 0)
     surface_control_xcorr(file, 49, 0)
     surface_control_ycorr(file, 49, 0)
+    
+    surface_control_xvar(file, 57, 0)
+    surface_control_yvar(file, 57, 0)
+    surface_control_xcorr(file, 58, 0)
+    surface_control_ycorr(file, 58, 0)
     
 def config_simulation(file, conf_array):
     link = pyz.createLink()
@@ -230,12 +230,12 @@ def config_simulation(file, conf_array):
     chief_angle6_y = conf_array[11]
     
     chief_surface(file, 2, chief_angle1_x, chief_angle1_y)
-    chief_surface(file, 11, chief_angle2_x, chief_angle2_y)
-    chief_surface(file, 20, chief_angle3_x, chief_angle3_y)
+    chief_surface(file, 14, chief_angle2_x, chief_angle2_y)
+    chief_surface(file, 26, chief_angle3_x, chief_angle3_y)
     
-    chief_surface(file, 29, chief_angle4_x, chief_angle4_y)
-    chief_surface(file, 38, chief_angle5_x, chief_angle5_y)
-    chief_surface(file, 47, chief_angle6_x, chief_angle6_y)
+    chief_surface(file, 35, chief_angle4_x, chief_angle4_y)
+    chief_surface(file, 47, chief_angle5_x, chief_angle5_y)
+    chief_surface(file, 56, chief_angle6_x, chief_angle6_y)
     
     
     set_start_vars_fix(file)
@@ -261,7 +261,7 @@ def callibration(file):
     vec6x =[]
     vec6y=[]
     for i in range(1,13):
-        pos = [3, 12, 21, 30, 39, 48]
+        pos = [13, 25, 34, 46, 55, 67]
         if i == 1:
             #this is mirror 1
             surface_control_xvar(file, 3, 1 )
@@ -284,101 +284,101 @@ def callibration(file):
             print(t)
         elif i == 3:
             #this is mirror 1
-            surface_control_xvar(file, 12, 1 )
+            surface_control_xvar(file, 15, 1 )
             vec2x = ccd_vector(file)
             print('vec2x:')
             print(vec2x)
-            surface_control_xvar(file, 12, 0)
+            surface_control_xvar(file, 15, 0)
             print('clean-up:')
             t = ccd_vector(file)
             print(t)
         elif i == 4:
             #this is mirror 1
-            surface_control_yvar(file, 12, 1 )
+            surface_control_yvar(file, 15, 1 )
             vec2y = ccd_vector(file);
             print('vec2y:')
             print(vec2y)
-            surface_control_yvar(file, 12, 0)
+            surface_control_yvar(file, 15, 0)
             print('clean-up:')
             t = ccd_vector(file)
             print(t)
         elif i == 5:
             #this is mirror 1
-            surface_control_xvar(file, 21, 1 )
+            surface_control_xvar(file, 27, 1 )
             vec3x = ccd_vector(file);
             print('vec3x:')
             print(vec3x)
-            surface_control_xvar(file, 21, 0)
+            surface_control_xvar(file, 27, 0)
             print('clean-up:')
             t = ccd_vector(file)
             print(t)
         elif i == 6:
             #this is mirror 1
-            surface_control_yvar(file, 21, 1 )
+            surface_control_yvar(file, 27, 1 )
             vec3y = ccd_vector(file);
             print('vec3y:')
             print(vec3y)
-            surface_control_yvar(file, 21, 0)
+            surface_control_yvar(file, 27, 0)
             print('clean-up:')
             t = ccd_vector(file)
             print(t) 
         elif i == 7:
             #this is mirror 1
-            surface_control_xvar(file, 30, 1 )
+            surface_control_xvar(file, 36, 1 )
             vec4x = ccd_vector(file);
             print('vec1x:')
             print(vec4x)
-            surface_control_xvar(file, 30, 0)
+            surface_control_xvar(file, 36, 0)
             print('clean-up:')
             t = ccd_vector(file)
             print(t)
         elif i == 8:
             #this is mirror 1
-            surface_control_yvar(file, 30, 1 )
+            surface_control_yvar(file, 36, 1 )
             vec4y = ccd_vector(file);
             print('vec4y:')
             print(vec4y)
-            surface_control_yvar(file, 30, 0)
+            surface_control_yvar(file, 36, 0)
             print('clean-up:')
             t = ccd_vector(file)
             print(t)
         elif i == 9:
             #this is mirror 1
-            surface_control_xvar(file, 39, 1 )
+            surface_control_xvar(file, 48, 1 )
             vec5x = ccd_vector(file)
             print('vec5x:')
             print(vec5x)
-            surface_control_xvar(file, 39, 0)
+            surface_control_xvar(file, 48, 0)
             print('clean-up:')
             t = ccd_vector(file)
             print(t)
         elif i == 10:
             #this is mirror 1
-            surface_control_yvar(file, 39, 1 )
+            surface_control_yvar(file, 48, 1 )
             vec5y = ccd_vector(file);
             print('vec5y:')
             print(vec5y)
-            surface_control_yvar(file, 39, 0)
+            surface_control_yvar(file, 48, 0)
             print('clean-up:')
             t = ccd_vector(file)
             print(t)
         elif i == 11:
             #this is mirror 1
-            surface_control_xvar(file, 48, 1 )
+            surface_control_xvar(file, 57, 1 )
             vec6x = ccd_vector(file);
             print('vec6x:')
             print(vec6x)
-            surface_control_xvar(file, 48, 0)
+            surface_control_xvar(file, 57, 0)
             print('clean-up:')
             t = ccd_vector(file)
             print(t)
         elif i == 12:
             #this is mirror 1
-            surface_control_yvar(file, 48, 1 )
+            surface_control_yvar(file, 57, 1 )
             vec6y = ccd_vector(file);
             print('vec6y:')
             print(vec6y)
-            surface_control_yvar(file, 48, 0)
+            surface_control_yvar(file, 57, 0)
             print('clean-up:')
             t = ccd_vector(file)
             print(t) 
