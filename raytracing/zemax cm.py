@@ -602,7 +602,7 @@ def algo_fix(file):
            
             status = "done"
             pyz.closeLink()
-            np.savetxt('var3mirlowrangewithlenses'+'.csv', list(zip(var1x, var1y,var2x, var2y,var3x, var3y, \
+            np.savetxt('var3mirlowrangewithlenseslarge'+'.csv', list(zip(var1x, var1y,var2x, var2y,var3x, var3y, \
                                                        var4x, var4y,var5x, var5y,var6x, var6y, \
                                                        beam1x, beam1y,beam2x, beam2y,beam3x, beam3y, \
                                                        beam4x, beam4y,beam5x, beam5y,beam6x, beam6y)))
@@ -680,7 +680,7 @@ def algo_fix(file):
     return(curr_beam_vec, curr_var_vec)
     
     
-var_vec = [1.5/10, 2.6/10, 6.3/10, 1.5/10, 2.6/10, 6.3/10]
+var_vec = [1.5, 2.6, 6.3, 1.5, 2.6, 6.3]
 configuration_angles =  [0, -45,
                          0 ,45,
                          45,0,
