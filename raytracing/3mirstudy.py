@@ -304,83 +304,26 @@ def ccd_vector(file):
     arr =[ccd1x,ccd1y, ccd2x,ccd2y, ccd3x,ccd3y]
     pyz.closeLink()
     return(arr)
-configuration_angles =  [0, -45,
-                         0 ,45,
-                         -45,0]            
+#configuration_angles =  [0, -45,
+#                         0 ,45,
+#                         -45,0]
+
+configuration_angles =  [-45, 0,
+                         45,0,
+                         0,-45]   
+            
 config_simulation(file, configuration_angles)
 
+#loop in the first mirror 
 
-#var_arr= [.5, .45,.3]
-#algo_facet2_var(file, var_arr)
-surface_control_xcorr(file, 3, 1)
-vec_1x = ccd_vector(file)
-print('vec1x:')
-print(vec_1x)
+surface_control_xvar(file,3,1)
+current_pos = ccd_vector(file)
+print(current_pos/np.deg2rad(1))
+
 config_simulation(file, configuration_angles)
-t = ccd_vector(file)
-print(t)
-print('done with mirror 1x, back to no mis-al')
-################## mirror 1-y
-surface_control_ycorr(file, 3, 1)
-vec_1y = ccd_vector(file)
-print('vec1y:')
-print(vec_1y)
-config_simulation(file, configuration_angles)
-t = ccd_vector(file)
-print(t)
-print('done with mirror 1y, back to no mis-al')
-################## mirror 2-x
 
-#var_arr= [.5, .45,.3]
-#algo_facet2_var(file, var_arr)
-surface_control_xcorr(file, 12, 1)
-vec_2x = ccd_vector(file)
-print('vec2x:')
-print(vec_2x)
-config_simulation(file, configuration_angles)
-t = ccd_vector(file)
-print(t)
-print('done with mirror 2x, back to no mis-al')
-################## mirror 1-y
-surface_control_ycorr(file, 12, 1)
-vec_2y = ccd_vector(file)
-print('vec2y:')
-print(vec_2y)
-config_simulation(file, configuration_angles)
-t = ccd_vector(file)
-print(t)
-print('done with mirror 2y, back to no mis-al')
-################## mirror 2-x
+surface_control_yvar(file,3,1)
+current_pos = ccd_vector(file)
+print(current_pos/np.deg2rad(1))
 
 
-
-#var_arr= [.5, .45,.3]
-#algo_facet2_var(file, var_arr)
-surface_control_xcorr(file, 23, 1)
-vec_3x = ccd_vector(file)
-print('vec3x:')
-print(vec_3x)
-config_simulation(file, configuration_angles)
-t = ccd_vector(file)
-print(t)
-print('done with mirror 3x, back to no mis-al')
-################## mirror 1-y
-surface_control_ycorr(file, 23, 1)
-vec_3y = ccd_vector(file)
-print('vec3y:')
-print(vec_3y)
-config_simulation(file, configuration_angles)
-t = ccd_vector(file)
-print(t)
-print('done with mirror 3y, back to no mis-al')
-################## mirror 2-x
-
-C_m = np.bmat([ [vec_1x], [vec_1y], [vec_2x], [vec_2y], [vec_3x], [vec_3y]])
-
-c_m = np.column_stack(( vec_1x, vec_1y,vec_2x, vec_2y,vec_3x, vec_3y ))
-
-print(c_m)
-
-
-np.savetxt(r'C:\Users\pwfa-facet2\Desktop\slacecodes\raytracing\zemaxcam.csv', \
-               list(zip(vec_1x, vec_1y, vec_2x, vec_2y, vec_3x, vec_3y)))

@@ -138,6 +138,7 @@ def algo_facet2_var(file, var_arr):
     pyz.closeLink()
     np.savetxt(r'C:\Users\pwfa-facet2\Desktop\slacecodes\raytracing\zcam-varwithlens.csv', vec)
     return(vec)
+
 def ccd_vector(file):
     link=pyz.createLink()
     link.zLoadFile(file)
@@ -385,7 +386,7 @@ def callibration(file):
     c_m = np.column_stack((vec1x, vec1y,vec2x, vec2y,vec3x, vec3y,vec4x, vec4y,vec5x, vec5y,vec6x, vec6y))
     print('c_m')
     print(repr(c_m))
-    np.savetxt('zmat'+'.csv', list(zip(vec1x, vec1y,vec2x, vec2y,vec3x, vec3y,vec4x, vec4y,vec5x, vec5y,vec6x, vec6y)))
+    np.savetxt('zmat-complete-system'+'.csv', list(zip(vec1x, vec1y,vec2x, vec2y,vec3x, vec3y,vec4x, vec4y,vec5x, vec5y,vec6x, vec6y)))
 
 
 #surface_control_yvar(file,20,1)
